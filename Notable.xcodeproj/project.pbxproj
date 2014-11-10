@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0DA7946B1A110A0700D2F131 /* howling.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0DA7946A1A110A0700D2F131 /* howling.mp3 */; };
 		ED0363CC1A038A41004797B5 /* Notable.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = ED0363CA1A038A41004797B5 /* Notable.xcdatamodeld */; };
+		ED089C9C1A110D7D00D3F034 /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED089C9B1A110D7D00D3F034 /* Timer.swift */; };
 		ED08FB9019F9384400D6BE26 /* PointTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED08FB8F19F9384400D6BE26 /* PointTableCell.swift */; };
 		ED08FB9319F93AB400D6BE26 /* Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED08FB9219F93AB400D6BE26 /* Point.swift */; };
 		ED19B34719FA93C700041AF0 /* NewGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED19B34619FA93C700041AF0 /* NewGameViewController.swift */; };
@@ -41,6 +42,7 @@
 /* Begin PBXFileReference section */
 		0DA7946A1A110A0700D2F131 /* howling.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = howling.mp3; path = ../../../../Downloads/howling.mp3; sourceTree = "<group>"; };
 		ED0363CB1A038A41004797B5 /* Notable.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Notable.xcdatamodel; sourceTree = "<group>"; };
+		ED089C9B1A110D7D00D3F034 /* Timer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
 		ED08FB8F19F9384400D6BE26 /* PointTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PointTableCell.swift; sourceTree = "<group>"; };
 		ED08FB9219F93AB400D6BE26 /* Point.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Point.swift; sourceTree = "<group>"; };
 		ED19B34619FA93C700041AF0 /* NewGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewGameViewController.swift; sourceTree = "<group>"; };
@@ -160,6 +162,7 @@
 		ED225B7C19F5342300D8784E /* Timer */ = {
 			isa = PBXGroup;
 			children = (
+				ED089C9B1A110D7D00D3F034 /* Timer.swift */,
 			);
 			name = Timer;
 			sourceTree = "<group>";
@@ -373,6 +376,7 @@
 				ED0363CC1A038A41004797B5 /* Notable.xcdatamodeld in Sources */,
 				ED7B218E1A011F5A00A2337D /* AutoLayutViewController.swift in Sources */,
 				ED225B7919F205DB00D8784E /* MainPageViewController.swift in Sources */,
+				ED089C9C1A110D7D00D3F034 /* Timer.swift in Sources */,
 				ED19B34A19FA9B9800041AF0 /* PracticeViewController.swift in Sources */,
 				ED466E0319F165DA00F14292 /* AppDelegate.swift in Sources */,
 				ED08FB9319F93AB400D6BE26 /* Point.swift in Sources */,
