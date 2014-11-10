@@ -7,9 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0DA7946B1A110A0700D2F131 /* howling.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0DA7946A1A110A0700D2F131 /* howling.mp3 */; };
 		ED0363CC1A038A41004797B5 /* Notable.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = ED0363CA1A038A41004797B5 /* Notable.xcdatamodeld */; };
-		ED089C981A1104C600D3F034 /* howling.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = ED089C971A1104C600D3F034 /* howling.mp3 */; };
-		ED089C9A1A11083400D3F034 /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED089C991A11083400D3F034 /* Timer.swift */; };
 		ED08FB9019F9384400D6BE26 /* PointTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED08FB8F19F9384400D6BE26 /* PointTableCell.swift */; };
 		ED08FB9319F93AB400D6BE26 /* Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED08FB9219F93AB400D6BE26 /* Point.swift */; };
 		ED19B34719FA93C700041AF0 /* NewGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED19B34619FA93C700041AF0 /* NewGameViewController.swift */; };
@@ -41,9 +40,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0DA7946A1A110A0700D2F131 /* howling.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = howling.mp3; path = ../../../../Downloads/howling.mp3; sourceTree = "<group>"; };
 		ED0363CB1A038A41004797B5 /* Notable.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Notable.xcdatamodel; sourceTree = "<group>"; };
-		ED089C971A1104C600D3F034 /* howling.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = howling.mp3; path = ../../howling.mp3; sourceTree = "<group>"; };
-		ED089C991A11083400D3F034 /* Timer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Timer.swift; path = "../../../Downloads/swift-timer-master/Timer.swift"; sourceTree = "<group>"; };
 		ED08FB8F19F9384400D6BE26 /* PointTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PointTableCell.swift; sourceTree = "<group>"; };
 		ED08FB9219F93AB400D6BE26 /* Point.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Point.swift; sourceTree = "<group>"; };
 		ED19B34619FA93C700041AF0 /* NewGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewGameViewController.swift; sourceTree = "<group>"; };
@@ -199,7 +197,7 @@
 		ED466DFF19F165DA00F14292 /* Notable */ = {
 			isa = PBXGroup;
 			children = (
-				ED089C971A1104C600D3F034 /* howling.mp3 */,
+				0DA7946A1A110A0700D2F131 /* howling.mp3 */,
 				ED96CE951A0BDFD3007589F9 /* Resources */,
 				EDA9C6E51A090DC000108A85 /* Store */,
 				ED7B218C1A011F3F00A2337D /* AutoLayout */,
@@ -351,7 +349,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ED089C981A1104C600D3F034 /* howling.mp3 in Resources */,
+				0DA7946B1A110A0700D2F131 /* howling.mp3 in Resources */,
 				ED466E0819F165DA00F14292 /* Main.storyboard in Resources */,
 				ED466E0A19F165DA00F14292 /* Images.xcassets in Resources */,
 			);
