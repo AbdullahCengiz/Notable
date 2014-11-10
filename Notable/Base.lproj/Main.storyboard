@@ -6,6 +6,16 @@
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="Roboto-Light.ttf">
+            <string>Roboto-Light</string>
+            <string>Roboto-Light</string>
+            <string>Roboto-Light</string>
+            <string>Roboto-Light</string>
+            <string>Roboto-Light</string>
+            <string>Roboto-Light</string>
+        </mutableArray>
+    </customFonts>
     <scenes>
         <!--SplashScreenViewController-->
         <scene sceneID="tne-QT-ifu">
@@ -1577,16 +1587,13 @@
                                 <rect key="frame" x="16" y="74" width="568" height="80"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Game" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o4M-qt-d0s">
-                                        <rect key="frame" x="212" y="16" width="160" height="26"/>
+                                        <rect key="frame" x="212" y="16" width="160" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="160" id="VhU-PA-4JD"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="22"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="25"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
-                                        <variation key="heightClass=regular-widthClass=regular">
-                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="26"/>
-                                        </variation>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Latest Score - 340p" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yFo-r0-JEf">
                                         <rect key="frame" x="213" y="42" width="169" height="30"/>
@@ -1594,12 +1601,9 @@
                                             <constraint firstAttribute="height" constant="30" id="eXZ-oK-Vcf"/>
                                             <constraint firstAttribute="width" constant="169" id="tPJ-nb-MOD"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="17"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="16"/>
                                         <color key="textColor" red="0.47450980390000003" green="0.48627450979999998" blue="0.51372549020000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
-                                        <variation key="widthClass=compact">
-                                            <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="12"/>
-                                        </variation>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zkf-KG-tco" userLabel="NewGameButton">
                                         <rect key="frame" x="0.0" y="16" width="568" height="86"/>
@@ -1642,9 +1646,9 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t7Q-9P-0sR" userLabel="PracticeLessonsContainer">
                                 <rect key="frame" x="16" y="170" width="568" height="50"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wbA-JT-DF3" userLabel="Seperator">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wbA-JT-DF3" userLabel="Separator">
                                         <rect key="frame" x="284" y="0.0" width="1" height="50"/>
-                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" red="0.89019614458084106" green="0.90980398654937744" blue="0.93725496530532837" alpha="1" colorSpace="deviceRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="1" id="2Og-zm-9um"/>
                                         </constraints>
@@ -1654,14 +1658,11 @@
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1WU-ho-YnR">
                                         <rect key="frame" x="0.0" y="0.0" width="284" height="50"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="24"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="22"/>
                                         <state key="normal" title="Practice">
                                             <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
-                                        <variation key="widthClass=compact">
-                                            <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
-                                        </variation>
                                         <variation key="heightClass=regular-widthClass=compact" ambiguous="YES">
                                             <rect key="frame" x="0.0" y="0.0" width="174" height="50"/>
                                         </variation>
@@ -1671,14 +1672,11 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NES-fn-WLz">
                                         <rect key="frame" x="285" y="0.0" width="283" height="50"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="24"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="22"/>
                                         <state key="normal" title="Lessons">
                                             <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleShadowColor" red="0.89019614458084106" green="0.90980398654937744" blue="0.93725496530532837" alpha="1" colorSpace="deviceRGB"/>
                                         </state>
-                                        <variation key="widthClass=compact">
-                                            <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
-                                        </variation>
                                         <variation key="heightClass=regular-widthClass=compact" ambiguous="YES">
                                             <rect key="frame" x="175" y="0.0" width="173" height="50"/>
                                         </variation>
@@ -1714,14 +1712,11 @@
                                     <constraint firstAttribute="height" constant="50" id="dfe-MA-UvB"/>
                                     <constraint firstAttribute="width" priority="750" constant="1000" id="oUR-qY-2se"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="24"/>
+                                <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="22"/>
                                 <state key="normal" title="Choose Categories">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <variation key="widthClass=compact">
-                                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
-                                </variation>
                                 <variation key="heightClass=regular-widthClass=compact" ambiguous="YES">
                                     <rect key="frame" x="32" y="192" width="342" height="50"/>
                                 </variation>
@@ -1814,7 +1809,7 @@
                                 <rect key="frame" x="-4" y="550" width="608" height="50"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="REKLAM" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fcu-Hu-9gE">
-                                        <rect key="frame" x="283" y="14" width="70" height="21"/>
+                                        <rect key="frame" x="269" y="14" width="70" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="70" id="FuJ-oo-Acb"/>
                                             <constraint firstAttribute="height" constant="21" id="MJa-az-DW7"/>
@@ -1827,7 +1822,7 @@
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="centerY" secondItem="fcu-Hu-9gE" secondAttribute="centerY" constant="0.5" id="7tx-1H-Ea7"/>
-                                    <constraint firstAttribute="centerX" secondItem="fcu-Hu-9gE" secondAttribute="centerX" constant="-14" id="8Ft-v4-jJs"/>
+                                    <constraint firstAttribute="centerX" secondItem="fcu-Hu-9gE" secondAttribute="centerX" id="8Ft-v4-jJs"/>
                                     <constraint firstAttribute="centerX" secondItem="fcu-Hu-9gE" secondAttribute="centerX" constant="-14" id="c1G-M1-sEc"/>
                                     <constraint firstAttribute="height" constant="50" id="fmb-r6-NJw"/>
                                     <constraint firstAttribute="centerY" secondItem="fcu-Hu-9gE" secondAttribute="centerY" constant="0.5" id="mJT-ae-fDi"/>
@@ -1841,17 +1836,14 @@
                                 </variation>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="YOUR HIGHSCORES" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zx3-B8-ToF">
-                                <rect key="frame" x="231" y="302" width="159" height="21"/>
+                                <rect key="frame" x="231" y="315" width="159" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="159" id="Odl-Xr-Bh8"/>
                                     <constraint firstAttribute="height" constant="21" id="VPf-nw-r3N"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="16"/>
                                 <color key="textColor" red="0.47450980392156861" green="0.48627450980392156" blue="0.51372549019607838" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
-                                <variation key="widthClass=compact">
-                                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
-                                </variation>
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="0.88627450980392153" green="0.90980392156862744" blue="0.93725490196078431" alpha="1" colorSpace="calibratedRGB"/>
@@ -1871,9 +1863,9 @@
                             <constraint firstItem="Gjg-kY-HET" firstAttribute="leading" secondItem="Tzm-ba-NCy" secondAttribute="leadingMargin" id="hdK-XT-4Fy"/>
                             <constraint firstItem="BvS-8f-wpf" firstAttribute="leading" secondItem="Tzm-ba-NCy" secondAttribute="leadingMargin" id="mA1-Mj-yeE"/>
                             <constraint firstItem="BvS-8f-wpf" firstAttribute="top" secondItem="t7Q-9P-0sR" secondAttribute="bottom" constant="16" id="wS6-WO-QwX"/>
-                            <constraint firstItem="zx3-B8-ToF" firstAttribute="top" secondItem="BvS-8f-wpf" secondAttribute="bottom" constant="16" id="wjX-TS-64S"/>
+                            <constraint firstItem="zx3-B8-ToF" firstAttribute="top" secondItem="BvS-8f-wpf" secondAttribute="bottom" constant="29" id="wjX-TS-64S"/>
                             <constraint firstItem="EaP-cJ-5lL" firstAttribute="top" secondItem="Nce-Ub-kNI" secondAttribute="bottom" constant="10" id="wor-EY-TvY"/>
-                            <constraint firstItem="Gjg-kY-HET" firstAttribute="top" secondItem="zx3-B8-ToF" secondAttribute="bottom" constant="16" id="xBP-8Y-FFW"/>
+                            <constraint firstItem="Gjg-kY-HET" firstAttribute="top" secondItem="zx3-B8-ToF" secondAttribute="bottom" constant="3" id="xBP-8Y-FFW"/>
                             <constraint firstItem="EaP-cJ-5lL" firstAttribute="leading" secondItem="t7Q-9P-0sR" secondAttribute="leading" id="ySR-eq-Q0N"/>
                         </constraints>
                     </view>
