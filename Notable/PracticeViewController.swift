@@ -8,6 +8,8 @@
 
 import UIKit
 
+//frida
+
 class PracticeViewController: UIViewController {
     @IBOutlet var navItem: UINavigationItem!
     
