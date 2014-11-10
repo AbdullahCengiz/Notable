@@ -8,7 +8,7 @@
 
 import UIKit
 
-//frida
+//frida samuelsson
 
 class PracticeViewController: UIViewController {
     @IBOutlet var navItem: UINavigationItem!
