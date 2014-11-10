@@ -16,7 +16,6 @@
 		ED19B34D19FA9F9400041AF0 /* LessonsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED19B34C19FA9F9400041AF0 /* LessonsViewController.swift */; };
 		ED19B35019FAA0F200041AF0 /* CategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED19B34F19FAA0F200041AF0 /* CategoriesViewController.swift */; };
 		ED225B7919F205DB00D8784E /* MainPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED225B7819F205DB00D8784E /* MainPageViewController.swift */; };
-		ED225B7E19F5343300D8784E /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED225B7D19F5343300D8784E /* Timer.swift */; };
 		ED225B8119F6629E00D8784E /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED225B8019F6629E00D8784E /* SettingsViewController.swift */; };
 		ED466E0319F165DA00F14292 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED466E0219F165DA00F14292 /* AppDelegate.swift */; };
 		ED466E0519F165DA00F14292 /* SplashScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED466E0419F165DA00F14292 /* SplashScreenViewController.swift */; };
@@ -49,7 +48,6 @@
 		ED19B34C19FA9F9400041AF0 /* LessonsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LessonsViewController.swift; sourceTree = "<group>"; };
 		ED19B34F19FAA0F200041AF0 /* CategoriesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesViewController.swift; sourceTree = "<group>"; };
 		ED225B7819F205DB00D8784E /* MainPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainPageViewController.swift; sourceTree = "<group>"; };
-		ED225B7D19F5343300D8784E /* Timer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Timer.swift; path = "../../../../Downloads/swift-timer-master/Timer.swift"; sourceTree = "<group>"; };
 		ED225B8019F6629E00D8784E /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		ED466DFD19F165DA00F14292 /* Notable.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Notable.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED466E0119F165DA00F14292 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -162,7 +160,6 @@
 		ED225B7C19F5342300D8784E /* Timer */ = {
 			isa = PBXGroup;
 			children = (
-				ED225B7D19F5343300D8784E /* Timer.swift */,
 			);
 			name = Timer;
 			sourceTree = "<group>";
@@ -383,7 +380,6 @@
 				EDD14B7E1A029A61004F7EA1 /* CategoryTableCell.swift in Sources */,
 				ED225B8119F6629E00D8784E /* SettingsViewController.swift in Sources */,
 				ED19B34719FA93C700041AF0 /* NewGameViewController.swift in Sources */,
-				ED225B7E19F5343300D8784E /* Timer.swift in Sources */,
 				EDD14B801A029BBE004F7EA1 /* Category.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
