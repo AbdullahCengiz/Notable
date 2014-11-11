@@ -1,9 +1,11 @@
 {
   "images" : [
     {
+      "idiom" : "universal"
+    },
+    {
       "idiom" : "universal",
-      "scale" : "1x",
-      "filename" : "loginwithfacebook.png"
+      "scale" : "1x"
     },
     {
       "idiom" : "universal",

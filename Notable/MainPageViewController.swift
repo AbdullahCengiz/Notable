@@ -188,9 +188,9 @@ class MainPageViewController: UIViewController,UITableViewDelegate ,UITableViewD
     
     func setUpPoints(){
         
-        var point1 = Point(userName: "Alexander", point: "110p", madelsImage: "gold.gif")
-        var point2 = Point(userName: "Alexander", point: "120p", madelsImage: "silver.gif")
-        var point3 = Point(userName: "Alexander", point: "130p", madelsImage: "bronze.gif")
+        var point1 = Point(userName: "Alexander", point: "110p", madelsImage: "Gold.png")
+        var point2 = Point(userName: "Alexander", point: "120p", madelsImage: "Silver.png")
+        var point3 = Point(userName: "Alexander", point: "130p", madelsImage: "Bronze.png")
 
 
         

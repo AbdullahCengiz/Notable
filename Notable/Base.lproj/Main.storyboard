@@ -1738,21 +1738,8 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fXS-3K-Ud0" id="6Z9-c4-Dox">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="AaI-X6-yJF">
-                                                    <rect key="frame" x="16" y="5" width="40" height="40"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="40" id="Abt-P1-eNK"/>
-                                                        <constraint firstAttribute="height" constant="40" id="SHx-zF-ryw"/>
-                                                        <constraint firstAttribute="width" constant="40" id="cAi-iR-W2M"/>
-                                                    </constraints>
-                                                    <variation key="default">
-                                                        <mask key="constraints">
-                                                            <exclude reference="Abt-P1-eNK"/>
-                                                        </mask>
-                                                    </variation>
-                                                </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1140p" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FEb-HJ-LMh">
-                                                    <rect key="frame" x="452" y="14" width="92" height="21"/>
+                                                    <rect key="frame" x="452" y="14" width="92" height="20"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="92" id="hDU-ZQ-ie4"/>
                                                         <constraint firstAttribute="width" constant="92" id="oAW-at-fU0"/>
@@ -1767,7 +1754,7 @@
                                                     </variation>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Alexander" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mSP-iX-GCe">
-                                                    <rect key="frame" x="71" y="13" width="112" height="22"/>
+                                                    <rect key="frame" x="57" y="13" width="112" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="112" id="qyX-gr-x1n"/>
                                                         <constraint firstAttribute="width" constant="112" id="w5C-LI-EHa"/>
@@ -1781,13 +1768,26 @@
                                                         </mask>
                                                     </variation>
                                                 </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="AaI-X6-yJF">
+                                                    <rect key="frame" x="17" y="12" width="26" height="26"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="40" id="Abt-P1-eNK"/>
+                                                        <constraint firstAttribute="height" constant="26" id="SHx-zF-ryw"/>
+                                                        <constraint firstAttribute="width" constant="26" id="cAi-iR-W2M"/>
+                                                    </constraints>
+                                                    <variation key="default">
+                                                        <mask key="constraints">
+                                                            <exclude reference="Abt-P1-eNK"/>
+                                                        </mask>
+                                                    </variation>
+                                                </imageView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="trailingMargin" secondItem="FEb-HJ-LMh" secondAttribute="trailing" constant="16" id="80T-HY-9TQ"/>
                                                 <constraint firstAttribute="centerY" secondItem="AaI-X6-yJF" secondAttribute="centerY" constant="-0.25" id="M7D-gS-EBl"/>
-                                                <constraint firstItem="AaI-X6-yJF" firstAttribute="leading" secondItem="6Z9-c4-Dox" secondAttribute="leadingMargin" constant="8" id="WhT-Xe-lKL"/>
+                                                <constraint firstItem="AaI-X6-yJF" firstAttribute="leading" secondItem="6Z9-c4-Dox" secondAttribute="leadingMargin" constant="9" id="WhT-Xe-lKL"/>
                                                 <constraint firstItem="mSP-iX-GCe" firstAttribute="firstBaseline" secondItem="FEb-HJ-LMh" secondAttribute="firstBaseline" id="dXr-CE-mNT"/>
-                                                <constraint firstItem="mSP-iX-GCe" firstAttribute="leading" secondItem="AaI-X6-yJF" secondAttribute="trailing" constant="15" id="eUr-JE-a48"/>
+                                                <constraint firstItem="mSP-iX-GCe" firstAttribute="leading" secondItem="AaI-X6-yJF" secondAttribute="trailing" constant="14" id="eUr-JE-a48"/>
                                                 <constraint firstItem="mSP-iX-GCe" firstAttribute="baseline" secondItem="FEb-HJ-LMh" secondAttribute="baseline" id="fIE-Tx-noj"/>
                                                 <constraint firstAttribute="centerY" secondItem="FEb-HJ-LMh" secondAttribute="centerY" constant="0.5" id="hl3-LL-bhC"/>
                                                 <constraint firstItem="FEb-HJ-LMh" firstAttribute="top" secondItem="6Z9-c4-Dox" secondAttribute="topMargin" constant="6" id="ywz-rB-meA"/>
@@ -1888,7 +1888,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wnd-xu-iTx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="570" y="817.5"/>
+            <point key="canvasLocation" x="576" y="812"/>
         </scene>
     </scenes>
     <resources>
