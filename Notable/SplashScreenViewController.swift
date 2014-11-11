@@ -17,7 +17,7 @@ class SplashScreenViewController: UIViewController {
         println("inSplashScreen")
         
         Timer("goToMainPage", 3) {
-            self .performSegueWithIdentifier("goToMainPage", sender: nil)
+            self .performSegueWithIdentifier("goToSignUp", sender: nil)
         }
 
     }

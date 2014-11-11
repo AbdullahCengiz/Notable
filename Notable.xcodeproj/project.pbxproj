@@ -22,6 +22,7 @@
 		ED19B35019FAA0F200041AF0 /* CategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED19B34F19FAA0F200041AF0 /* CategoriesViewController.swift */; };
 		ED225B7919F205DB00D8784E /* MainPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED225B7819F205DB00D8784E /* MainPageViewController.swift */; };
 		ED225B8119F6629E00D8784E /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED225B8019F6629E00D8784E /* SettingsViewController.swift */; };
+		ED29E7C21A11150F006C5504 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED29E7C11A11150F006C5504 /* FacebookSDK.framework */; };
 		ED466E0319F165DA00F14292 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED466E0219F165DA00F14292 /* AppDelegate.swift */; };
 		ED466E0519F165DA00F14292 /* SplashScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED466E0419F165DA00F14292 /* SplashScreenViewController.swift */; };
 		ED466E0819F165DA00F14292 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED466E0619F165DA00F14292 /* Main.storyboard */; };
@@ -29,6 +30,7 @@
 		ED466E1919F165DA00F14292 /* NotableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED466E1819F165DA00F14292 /* NotableTests.swift */; };
 		ED7B218E1A011F5A00A2337D /* AutoLayutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7B218D1A011F5A00A2337D /* AutoLayutViewController.swift */; };
 		EDA9C6E91A090E1C00108A85 /* StoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA9C6E81A090E1C00108A85 /* StoreViewController.swift */; };
+		EDB1A86B1A111C60009101BE /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB1A86A1A111C60009101BE /* SignUpViewController.swift */; };
 		EDD14B7E1A029A61004F7EA1 /* CategoryTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD14B7D1A029A61004F7EA1 /* CategoryTableCell.swift */; };
 		EDD14B801A029BBE004F7EA1 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD14B7F1A029BBE004F7EA1 /* Category.swift */; };
 /* End PBXBuildFile section */
@@ -61,6 +63,7 @@
 		ED19B34F19FAA0F200041AF0 /* CategoriesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesViewController.swift; sourceTree = "<group>"; };
 		ED225B7819F205DB00D8784E /* MainPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainPageViewController.swift; sourceTree = "<group>"; };
 		ED225B8019F6629E00D8784E /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		ED29E7C11A11150F006C5504 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../Documents/FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
 		ED466DFD19F165DA00F14292 /* Notable.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Notable.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED466E0119F165DA00F14292 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ED466E0219F165DA00F14292 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -71,8 +74,9 @@
 		ED466E1719F165DA00F14292 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ED466E1819F165DA00F14292 /* NotableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotableTests.swift; sourceTree = "<group>"; };
 		ED7B218D1A011F5A00A2337D /* AutoLayutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoLayutViewController.swift; sourceTree = "<group>"; };
-		ED96CE961A0BDFE8007589F9 /* pew-pew-lei.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "pew-pew-lei.caf"; path = "../../../../Downloads/ATBasicSounds/pew-pew-lei.caf"; sourceTree = "<group>"; };
 		EDA9C6E81A090E1C00108A85 /* StoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreViewController.swift; sourceTree = "<group>"; };
+		EDB1A86A1A111C60009101BE /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		EDB1A86C1A111FB5009101BE /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
 		EDD14B7D1A029A61004F7EA1 /* CategoryTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryTableCell.swift; sourceTree = "<group>"; };
 		EDD14B7F1A029BBE004F7EA1 /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -82,6 +86,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED29E7C21A11150F006C5504 /* FacebookSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -188,6 +193,7 @@
 		ED466DF419F165DA00F14292 = {
 			isa = PBXGroup;
 			children = (
+				ED29E7C11A11150F006C5504 /* FacebookSDK.framework */,
 				ED0363CA1A038A41004797B5 /* Notable.xcdatamodeld */,
 				ED466DFF19F165DA00F14292 /* Notable */,
 				ED466E1519F165DA00F14292 /* NotableTests */,
@@ -208,6 +214,9 @@
 			isa = PBXGroup;
 			children = (
 				ED089C9D1A110E2B00D3F034 /* howling.mp3 */,
+<<<<<<< HEAD
+				EDB1A8691A111C41009101BE /* SignUpViewController */,
+=======
 				0DA7946E1A11122B00D2F131 /* Roboto-Light.ttf */,
 				0DA7946F1A11122B00D2F131 /* Roboto-Thin.ttf */,
 				0DA794761A1113F900D2F131 /* bronze.gif */,
@@ -215,6 +224,7 @@
 				0DA794781A1113F900D2F131 /* silver.gif */,
 				0DA7947E1A11166500D2F131 /* star.gif */,
 				ED96CE951A0BDFD3007589F9 /* Resources */,
+>>>>>>> b3bd028527df60c3552509ee8dd2cabdc8e48baf
 				EDA9C6E51A090DC000108A85 /* Store */,
 				ED7B218C1A011F3F00A2337D /* AutoLayout */,
 				ED19B34E19FAA0D900041AF0 /* Categories */,
@@ -231,6 +241,7 @@
 				ED466E0619F165DA00F14292 /* Main.storyboard */,
 				ED466E0919F165DA00F14292 /* Images.xcassets */,
 				ED466E0019F165DA00F14292 /* Supporting Files */,
+				EDB1A86C1A111FB5009101BE /* Bridging-Header.h */,
 			);
 			path = Notable;
 			sourceTree = "<group>";
@@ -268,20 +279,20 @@
 			name = AutoLayout;
 			sourceTree = "<group>";
 		};
-		ED96CE951A0BDFD3007589F9 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				ED96CE961A0BDFE8007589F9 /* pew-pew-lei.caf */,
-			);
-			name = Resources;
-			sourceTree = "<group>";
-		};
 		EDA9C6E51A090DC000108A85 /* Store */ = {
 			isa = PBXGroup;
 			children = (
 				EDA9C6E81A090E1C00108A85 /* StoreViewController.swift */,
 			);
 			name = Store;
+			sourceTree = "<group>";
+		};
+		EDB1A8691A111C41009101BE /* SignUpViewController */ = {
+			isa = PBXGroup;
+			children = (
+				EDB1A86A1A111C60009101BE /* SignUpViewController.swift */,
+			);
+			name = SignUpViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -394,6 +405,7 @@
 				ED19B35019FAA0F200041AF0 /* CategoriesViewController.swift in Sources */,
 				ED08FB9019F9384400D6BE26 /* PointTableCell.swift in Sources */,
 				ED0363CC1A038A41004797B5 /* Notable.xcdatamodeld in Sources */,
+				EDB1A86B1A111C60009101BE /* SignUpViewController.swift in Sources */,
 				ED7B218E1A011F5A00A2337D /* AutoLayutViewController.swift in Sources */,
 				ED225B7919F205DB00D8784E /* MainPageViewController.swift in Sources */,
 				ED089C9C1A110D7D00D3F034 /* Timer.swift in Sources */,
@@ -522,9 +534,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/ahmetcengiz/Documents/FacebookSDK,
+				);
 				INFOPLIST_FILE = Notable/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Notable/Bridging-Header.h";
 			};
 			name = Debug;
 		};
@@ -533,9 +550,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/ahmetcengiz/Documents/FacebookSDK,
+				);
 				INFOPLIST_FILE = Notable/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Notable/Bridging-Header.h";
 			};
 			name = Release;
 		};
