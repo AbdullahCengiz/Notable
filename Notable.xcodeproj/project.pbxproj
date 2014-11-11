@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0DA794791A1113F900D2F131 /* bronze.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0DA794761A1113F900D2F131 /* bronze.gif */; };
+		0DA7947A1A1113F900D2F131 /* gold.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0DA794771A1113F900D2F131 /* gold.gif */; };
+		0DA7947B1A1113F900D2F131 /* silver.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0DA794781A1113F900D2F131 /* silver.gif */; };
+		0DA7947F1A11166500D2F131 /* star.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0DA7947E1A11166500D2F131 /* star.gif */; };
 		ED0363CC1A038A41004797B5 /* Notable.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = ED0363CA1A038A41004797B5 /* Notable.xcdatamodeld */; };
 		ED089C9C1A110D7D00D3F034 /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED089C9B1A110D7D00D3F034 /* Timer.swift */; };
 		ED089C9E1A110E2B00D3F034 /* howling.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = ED089C9D1A110E2B00D3F034 /* howling.mp3 */; };
@@ -42,6 +46,10 @@
 /* Begin PBXFileReference section */
 		0DA7946E1A11122B00D2F131 /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Light.ttf"; sourceTree = SOURCE_ROOT; };
 		0DA7946F1A11122B00D2F131 /* Roboto-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Thin.ttf"; sourceTree = SOURCE_ROOT; };
+		0DA794761A1113F900D2F131 /* bronze.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = bronze.gif; path = ../../medals/bronze.gif; sourceTree = "<group>"; };
+		0DA794771A1113F900D2F131 /* gold.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = gold.gif; path = ../../medals/gold.gif; sourceTree = "<group>"; };
+		0DA794781A1113F900D2F131 /* silver.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = silver.gif; path = ../../medals/silver.gif; sourceTree = "<group>"; };
+		0DA7947E1A11166500D2F131 /* star.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = star.gif; path = ../../medals/star.gif; sourceTree = "<group>"; };
 		ED0363CB1A038A41004797B5 /* Notable.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Notable.xcdatamodel; sourceTree = "<group>"; };
 		ED089C9B1A110D7D00D3F034 /* Timer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
 		ED089C9D1A110E2B00D3F034 /* howling.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = howling.mp3; sourceTree = "<group>"; };
@@ -202,6 +210,10 @@
 				ED089C9D1A110E2B00D3F034 /* howling.mp3 */,
 				0DA7946E1A11122B00D2F131 /* Roboto-Light.ttf */,
 				0DA7946F1A11122B00D2F131 /* Roboto-Thin.ttf */,
+				0DA794761A1113F900D2F131 /* bronze.gif */,
+				0DA794771A1113F900D2F131 /* gold.gif */,
+				0DA794781A1113F900D2F131 /* silver.gif */,
+				0DA7947E1A11166500D2F131 /* star.gif */,
 				ED96CE951A0BDFD3007589F9 /* Resources */,
 				EDA9C6E51A090DC000108A85 /* Store */,
 				ED7B218C1A011F3F00A2337D /* AutoLayout */,
@@ -355,6 +367,10 @@
 			files = (
 				ED089C9E1A110E2B00D3F034 /* howling.mp3 in Resources */,
 				ED466E0819F165DA00F14292 /* Main.storyboard in Resources */,
+				0DA7947A1A1113F900D2F131 /* gold.gif in Resources */,
+				0DA7947B1A1113F900D2F131 /* silver.gif in Resources */,
+				0DA794791A1113F900D2F131 /* bronze.gif in Resources */,
+				0DA7947F1A11166500D2F131 /* star.gif in Resources */,
 				ED466E0A19F165DA00F14292 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

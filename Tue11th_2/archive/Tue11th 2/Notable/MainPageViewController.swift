@@ -50,7 +50,7 @@ class MainPageViewController: UIViewController,UITableViewDelegate ,UITableViewD
         setUpPoints()
         
         navBar.titleTextAttributes = [
-            NSFontAttributeName: UIFont(name: "Roboto-Light", size: 20),
+            NSFontAttributeName: UIFont(name: "HelveticaNeue-Light", size: 20),
             NSForegroundColorAttributeName: UIColor.blackColor()]
         navBar.barTintColor = UIColor.whiteColor()
         
@@ -188,16 +188,18 @@ class MainPageViewController: UIViewController,UITableViewDelegate ,UITableViewD
     
     func setUpPoints(){
         
-        var point1 = Point(userName: "Alexander", point: "110p", madelsImage: "Gold.png")
-        var point2 = Point(userName: "Alexander", point: "120p", madelsImage: "Silver.png")
-        var point3 = Point(userName: "Alexander", point: "130p", madelsImage: "bronze.png")
-
+        var point1 = Point(userName: "Alexander", point: "110p", madelsImage: "gold.gif")
+        var point2 = Point(userName: "Alexander", point: "120p", madelsImage: "silver.gif")
+        var point3 = Point(userName: "Alexander", point: "130p", madelsImage: "bronze.gif")
+        var point4 = Point(userName: "Alexander", point: "140p", madelsImage: "star.gif")
+        var point5 = Point(userName: "Alexander", point: "150p", madelsImage: "star.gif")
         
         
         arrayOfPoints.append(point1)
         arrayOfPoints.append(point2)
         arrayOfPoints.append(point3)
-
+        arrayOfPoints.append(point4)
+        arrayOfPoints.append(point5)
        
         
     }
