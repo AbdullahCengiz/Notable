@@ -169,6 +169,7 @@ class MainPageViewController: UIViewController,UITableViewDelegate ,UITableViewD
         let imageView = UIImageView(image:logo)
         imageView.frame = CGRectMake(0, 0, 44, 44)
         imageView.contentMode = UIViewContentMode.ScaleAspectFit
+
         navItem.titleView = imageView
         
 
@@ -211,6 +212,7 @@ class MainPageViewController: UIViewController,UITableViewDelegate ,UITableViewD
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let pointCell :PointTableCell = self.pointsTableView.dequeueReusableCellWithIdentifier("pointCell") as PointTableCell
+      
         
         let currentPoint = arrayOfPoints[indexPath.row]
         pointCell.setCell(currentPoint.userName, pointLabel: currentPoint.point, image: currentPoint.madelsImage)

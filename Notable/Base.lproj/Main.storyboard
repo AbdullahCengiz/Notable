@@ -1707,6 +1707,16 @@
                                     <rect key="frame" x="26" y="126" width="348" height="50"/>
                                 </variation>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="YOUR HIGHSCORES" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zx3-B8-ToF">
+                                <rect key="frame" x="221" y="343" width="159" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="159" id="LTr-yW-afq"/>
+                                    <constraint firstAttribute="height" constant="21" id="scR-AC-4jd"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="16"/>
+                                <color key="textColor" red="0.47450980392156861" green="0.48627450980392156" blue="0.51372549019607838" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BvS-8f-wpf" userLabel="ChooseCatagoriesButton">
                                 <rect key="frame" x="16" y="236" width="568" height="50"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1758,15 +1768,16 @@
                                 </variation>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="bottom" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Gjg-kY-HET" userLabel="HighScoresTableView">
-                                <rect key="frame" x="16" y="392" width="568" height="150"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <rect key="frame" x="16" y="378" width="568" height="150"/>
+                                <color key="backgroundColor" red="0.92549019610000005" green="0.92941176469999998" blue="0.95686274510000002" alpha="1" colorSpace="deviceRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" priority="750" constant="568" id="7ny-Qz-qkt"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="150" id="dmx-x1-bfp"/>
                                     <constraint firstAttribute="height" priority="750" constant="150" id="wmI-x4-RAy"/>
                                 </constraints>
+                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleAspectFit" restorationIdentifier="pointCell" selectionStyle="none" indentationWidth="0.0" reuseIdentifier="pointCell" rowHeight="50" id="fXS-3K-Ud0" customClass="PointTableCell" customModule="Notable" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleAspectFit" restorationIdentifier="pointCell" selectionStyle="none" indentationWidth="1" reuseIdentifier="pointCell" rowHeight="50" id="fXS-3K-Ud0" customClass="PointTableCell" customModule="Notable" customModuleProvider="target">
                                         <rect key="frame" x="140" y="278" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fXS-3K-Ud0" id="6Z9-c4-Dox">
@@ -1840,31 +1851,21 @@
                                     <outlet property="delegate" destination="hHy-Fu-yYG" id="ZRm-Vm-LZd"/>
                                 </connections>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="YOUR HIGHSCORES" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zx3-B8-ToF">
-                                <rect key="frame" x="221" y="363" width="159" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="159" id="LTr-yW-afq"/>
-                                    <constraint firstAttribute="height" constant="21" id="scR-AC-4jd"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="16"/>
-                                <color key="textColor" red="0.47450980392156861" green="0.48627450980392156" blue="0.51372549019607838" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.88627450980392153" green="0.90980392156862744" blue="0.93725490196078431" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="t7Q-9P-0sR" firstAttribute="leading" secondItem="Tzm-ba-NCy" secondAttribute="leadingMargin" id="6eK-MP-PAv"/>
-                            <constraint firstAttribute="bottom" secondItem="zx3-B8-ToF" secondAttribute="bottom" constant="216" id="9Hh-Jq-ZDD"/>
+                            <constraint firstAttribute="bottom" secondItem="zx3-B8-ToF" secondAttribute="bottom" constant="236" id="9Hh-Jq-ZDD"/>
                             <constraint firstAttribute="trailingMargin" secondItem="t7Q-9P-0sR" secondAttribute="trailing" id="A5P-tI-2XJ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="BvS-8f-wpf" secondAttribute="trailing" id="LIt-ae-Qw7"/>
                             <constraint firstAttribute="trailingMargin" secondItem="n05-RP-Pby" secondAttribute="trailing" constant="-20" id="Mun-WN-aBT"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Gjg-kY-HET" secondAttribute="trailing" id="SAy-f7-NoN"/>
-                            <constraint firstItem="n05-RP-Pby" firstAttribute="top" secondItem="Gjg-kY-HET" secondAttribute="bottom" constant="8" symbolic="YES" id="VCd-kb-yYe"/>
+                            <constraint firstItem="n05-RP-Pby" firstAttribute="top" secondItem="Gjg-kY-HET" secondAttribute="bottom" constant="22" id="VCd-kb-yYe"/>
                             <constraint firstItem="t7Q-9P-0sR" firstAttribute="top" secondItem="EaP-cJ-5lL" secondAttribute="bottom" constant="16" id="axG-x8-sog"/>
                             <constraint firstItem="Nee-nj-7C5" firstAttribute="top" secondItem="n05-RP-Pby" secondAttribute="bottom" id="bYr-ai-f7S"/>
                             <constraint firstItem="n05-RP-Pby" firstAttribute="leading" secondItem="Tzm-ba-NCy" secondAttribute="leadingMargin" constant="-20" id="cKa-Nc-VT9"/>
                             <constraint firstItem="EaP-cJ-5lL" firstAttribute="trailing" secondItem="t7Q-9P-0sR" secondAttribute="trailing" id="d6f-4b-Uh5"/>
-                            <constraint firstItem="Gjg-kY-HET" firstAttribute="top" secondItem="zx3-B8-ToF" secondAttribute="bottom" constant="8" symbolic="YES" id="fXR-Sg-6EN"/>
+                            <constraint firstItem="Gjg-kY-HET" firstAttribute="top" secondItem="zx3-B8-ToF" secondAttribute="bottom" constant="14" id="fXR-Sg-6EN"/>
                             <constraint firstItem="n05-RP-Pby" firstAttribute="top" secondItem="Gjg-kY-HET" secondAttribute="bottom" constant="8" id="gVe-yr-dNn"/>
                             <constraint firstItem="Gjg-kY-HET" firstAttribute="leading" secondItem="Tzm-ba-NCy" secondAttribute="leadingMargin" id="hdK-XT-4Fy"/>
                             <constraint firstItem="BvS-8f-wpf" firstAttribute="leading" secondItem="Tzm-ba-NCy" secondAttribute="leadingMargin" id="mA1-Mj-yeE"/>
@@ -1900,7 +1901,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wnd-xu-iTx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="570" y="817"/>
+            <point key="canvasLocation" x="494" y="1099"/>
         </scene>
     </scenes>
     <resources>
