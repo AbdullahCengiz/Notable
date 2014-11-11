@@ -16,6 +16,12 @@
             <string>Roboto-Light</string>
             <string>Roboto-Light</string>
             <string>Roboto-Light</string>
+            <string>Roboto-Light</string>
+            <string>Roboto-Light</string>
+            <string>Roboto-Light</string>
+            <string>Roboto-Light</string>
+            <string>Roboto-Light</string>
+            <string>Roboto-Light</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -66,7 +72,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="570" y="21.75"/>
+            <point key="canvasLocation" x="494" y="333"/>
         </scene>
         <!--CategoriesViewController-->
         <scene sceneID="2fv-Dy-3aN">
@@ -140,7 +146,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RgL-Qm-Zhp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-220" y="1711"/>
+            <point key="canvasLocation" x="-242" y="1917"/>
         </scene>
         <!--LessonsViewController-->
         <scene sceneID="sgN-ti-EBb">
@@ -268,7 +274,86 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q71-Q0-GLq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1555" y="1717"/>
+            <point key="canvasLocation" x="1555" y="1917"/>
+        </scene>
+        <!--Paused Lessons Controller-->
+        <scene sceneID="RoH-0G-yHo">
+            <objects>
+                <viewController title="Paused Lessons Controller" id="A3Y-4v-2Xf" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="7yf-70-LcE"/>
+                        <viewControllerLayoutGuide type="bottom" id="KIY-KW-B8C"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="mHT-d0-lBr">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Qt-aH-ng5">
+                                <rect key="frame" x="246" y="282" width="109" height="36"/>
+                                <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="30"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="End Game" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nsE-gA-crY">
+                                <rect key="frame" x="232" y="428" width="137" height="36"/>
+                                <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="30"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lesson 1 of 8" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IhV-q4-yoo">
+                                <rect key="frame" x="211" y="136" width="178" height="36"/>
+                                <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="30"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CUSTOMIZE &amp; GENERAL SETTINGS" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W1r-cG-e9C">
+                                <rect key="frame" x="166" y="326" width="268" height="20"/>
+                                <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="17"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TAP HERE TO RESUME LESSON" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pNR-KN-seG">
+                                <rect key="frame" x="181" y="180" width="239" height="20"/>
+                                <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="17"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="YOUR PROGRESS WON'T BE SAVED!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FXg-PU-aDk">
+                                <rect key="frame" x="166" y="472" width="274" height="20"/>
+                                <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="17"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="resume_button" translatesAutoresizingMaskIntoConstraints="NO" id="JKy-iE-Hp2">
+                                <rect key="frame" x="278" y="208" width="44" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="Gn4-Lv-Vef"/>
+                                    <constraint firstAttribute="width" constant="44" id="PMy-b3-iJV"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="JKy-iE-Hp2" secondAttribute="centerX" id="7hE-Ow-hfI"/>
+                            <constraint firstItem="W1r-cG-e9C" firstAttribute="top" secondItem="2Qt-aH-ng5" secondAttribute="bottom" constant="8" id="8Ol-ge-5h7"/>
+                            <constraint firstAttribute="centerX" secondItem="W1r-cG-e9C" secondAttribute="centerX" id="Mxa-F7-1pX"/>
+                            <constraint firstItem="JKy-iE-Hp2" firstAttribute="top" secondItem="pNR-KN-seG" secondAttribute="bottom" constant="8" id="POq-Sv-Ioa"/>
+                            <constraint firstAttribute="centerX" secondItem="IhV-q4-yoo" secondAttribute="centerX" id="Puj-UF-hRd"/>
+                            <constraint firstAttribute="centerX" secondItem="nsE-gA-crY" secondAttribute="centerX" constant="-0.5" id="Sc9-ug-HXC"/>
+                            <constraint firstItem="nsE-gA-crY" firstAttribute="top" secondItem="W1r-cG-e9C" secondAttribute="bottom" constant="82" id="V2n-hM-yAF"/>
+                            <constraint firstItem="2Qt-aH-ng5" firstAttribute="top" secondItem="JKy-iE-Hp2" secondAttribute="bottom" constant="30" id="Xge-cg-vcU"/>
+                            <constraint firstItem="pNR-KN-seG" firstAttribute="top" secondItem="IhV-q4-yoo" secondAttribute="bottom" constant="8" id="Yhl-ss-zgL"/>
+                            <constraint firstAttribute="centerY" secondItem="2Qt-aH-ng5" secondAttribute="centerY" id="dOw-DC-uQC"/>
+                            <constraint firstAttribute="centerX" secondItem="pNR-KN-seG" secondAttribute="centerX" constant="-0.5" id="dpQ-xQ-eR8"/>
+                            <constraint firstItem="FXg-PU-aDk" firstAttribute="top" secondItem="nsE-gA-crY" secondAttribute="bottom" constant="8" id="m6q-lo-ihV"/>
+                            <constraint firstAttribute="centerX" secondItem="FXg-PU-aDk" secondAttribute="centerX" constant="-3" id="mxG-Om-mui"/>
+                            <constraint firstAttribute="centerX" secondItem="2Qt-aH-ng5" secondAttribute="centerX" constant="-0.5" id="wQJ-GL-Tsq"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uqa-Js-mfN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1555" y="2689"/>
         </scene>
         <!--NewGameViewController-->
         <scene sceneID="wR1-8d-bQQ">
@@ -863,7 +948,25 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5uc-xC-vZg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="570" y="1717"/>
+            <point key="canvasLocation" x="494" y="1917"/>
+        </scene>
+        <!--Paused Game Controller-->
+        <scene sceneID="WxM-2c-6bO">
+            <objects>
+                <viewController title="Paused Game Controller" id="lsU-gd-WyV" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="sYV-Kt-kO6"/>
+                        <viewControllerLayoutGuide type="bottom" id="Uj2-1k-2l3"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Vxr-Kb-QKc">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ti5-vZ-Qci" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="494" y="2689"/>
         </scene>
         <!--PracticeViewController-->
         <scene sceneID="ru4-kL-R0g">
@@ -915,7 +1018,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kpc-Jf-p68" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1555" y="817"/>
+            <point key="canvasLocation" x="1555" y="1099"/>
         </scene>
         <!--Settings-->
         <scene sceneID="K7c-Up-lZA">
@@ -1474,7 +1577,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wtb-aC-Oer" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1402" y="41.5"/>
+            <point key="canvasLocation" x="1555" y="333"/>
         </scene>
         <!--StoreViewController-->
         <scene sceneID="uD6-We-5on">
@@ -1553,7 +1656,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a6T-Se-lsw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2374" y="41"/>
+            <point key="canvasLocation" x="2308" y="333"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="jda-KB-Xmx">
@@ -1571,7 +1674,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E3J-sm-pen" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-348" y="21.75"/>
+            <point key="canvasLocation" x="-252" y="333"/>
         </scene>
         <!--Main Page View Controller-->
         <scene sceneID="X6b-nE-QHs">
@@ -1907,6 +2010,7 @@
     <resources>
         <image name="checkmark" width="576" height="600"/>
         <image name="notable_splash" width="640" height="1136"/>
+        <image name="resume_button" width="62" height="62"/>
         <image name="tick" width="512" height="512"/>
     </resources>
 </document>
