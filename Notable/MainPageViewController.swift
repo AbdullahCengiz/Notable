@@ -165,11 +165,13 @@ class MainPageViewController: UIViewController,UITableViewDelegate ,UITableViewD
         navItem.hidesBackButton=true
         
         //for logo
-        let logo = UIImage(named: "logo")
+        var logo = UIImage(named: "logo_large.png")
         let imageView = UIImageView(image:logo)
-        imageView.frame = CGRectMake(0, 0, 30, 30)
+        imageView.frame = CGRectMake(center, center, 44, 44)
         imageView.contentMode = UIViewContentMode.ScaleAspectFit
+        //imageView.contentMode = UIViewContentMode.Center
         navItem.titleView = imageView
+        
 
         
     }

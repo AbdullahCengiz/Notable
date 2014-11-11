@@ -7,10 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0DA99F531A1214D600048C39 /* SVG Icons in Resources */ = {isa = PBXBuildFile; fileRef = 0DA99F521A1214D600048C39 /* SVG Icons */; };
-		0DA99F571A1217BC00048C39 /* Bronze.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DA99F541A1217BC00048C39 /* Bronze.png */; };
-		0DA99F581A1217BC00048C39 /* Gold.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DA99F551A1217BC00048C39 /* Gold.png */; };
-		0DA99F591A1217BC00048C39 /* Silver.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DA99F561A1217BC00048C39 /* Silver.png */; };
 		ED0363CC1A038A41004797B5 /* Notable.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = ED0363CA1A038A41004797B5 /* Notable.xcdatamodeld */; };
 		ED089C9C1A110D7D00D3F034 /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED089C9B1A110D7D00D3F034 /* Timer.swift */; };
 		ED089C9E1A110E2B00D3F034 /* howling.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = ED089C9D1A110E2B00D3F034 /* howling.mp3 */; };
@@ -25,6 +21,7 @@
 		ED466E0319F165DA00F14292 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED466E0219F165DA00F14292 /* AppDelegate.swift */; };
 		ED466E0519F165DA00F14292 /* SplashScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED466E0419F165DA00F14292 /* SplashScreenViewController.swift */; };
 		ED466E0819F165DA00F14292 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED466E0619F165DA00F14292 /* Main.storyboard */; };
+		ED466E0A19F165DA00F14292 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED466E0919F165DA00F14292 /* Images.xcassets */; };
 		ED466E1919F165DA00F14292 /* NotableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED466E1819F165DA00F14292 /* NotableTests.swift */; };
 		ED7B218E1A011F5A00A2337D /* AutoLayutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7B218D1A011F5A00A2337D /* AutoLayutViewController.swift */; };
 		EDA9C6E91A090E1C00108A85 /* StoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA9C6E81A090E1C00108A85 /* StoreViewController.swift */; };
@@ -45,10 +42,6 @@
 /* Begin PBXFileReference section */
 		0DA7946E1A11122B00D2F131 /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Light.ttf"; sourceTree = SOURCE_ROOT; };
 		0DA7946F1A11122B00D2F131 /* Roboto-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Thin.ttf"; sourceTree = SOURCE_ROOT; };
-		0DA99F521A1214D600048C39 /* SVG Icons */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "SVG Icons"; sourceTree = SOURCE_ROOT; };
-		0DA99F541A1217BC00048C39 /* Bronze.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Bronze.png; path = "documents-export-2014-11-11 (1)/Bronze.png"; sourceTree = SOURCE_ROOT; };
-		0DA99F551A1217BC00048C39 /* Gold.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Gold.png; path = "documents-export-2014-11-11 (1)/Gold.png"; sourceTree = SOURCE_ROOT; };
-		0DA99F561A1217BC00048C39 /* Silver.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Silver.png; path = "documents-export-2014-11-11 (1)/Silver.png"; sourceTree = SOURCE_ROOT; };
 		ED0363CB1A038A41004797B5 /* Notable.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Notable.xcdatamodel; sourceTree = "<group>"; };
 		ED089C9B1A110D7D00D3F034 /* Timer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
 		ED089C9D1A110E2B00D3F034 /* howling.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = howling.mp3; sourceTree = "<group>"; };
@@ -65,6 +58,7 @@
 		ED466E0219F165DA00F14292 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ED466E0419F165DA00F14292 /* SplashScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenViewController.swift; sourceTree = "<group>"; };
 		ED466E0719F165DA00F14292 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		ED466E0919F165DA00F14292 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		ED466E1219F165DA00F14292 /* NotableTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NotableTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED466E1719F165DA00F14292 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ED466E1819F165DA00F14292 /* NotableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotableTests.swift; sourceTree = "<group>"; };
@@ -208,9 +202,6 @@
 				ED089C9D1A110E2B00D3F034 /* howling.mp3 */,
 				0DA7946E1A11122B00D2F131 /* Roboto-Light.ttf */,
 				0DA7946F1A11122B00D2F131 /* Roboto-Thin.ttf */,
-				0DA99F541A1217BC00048C39 /* Bronze.png */,
-				0DA99F551A1217BC00048C39 /* Gold.png */,
-				0DA99F561A1217BC00048C39 /* Silver.png */,
 				ED96CE951A0BDFD3007589F9 /* Resources */,
 				EDA9C6E51A090DC000108A85 /* Store */,
 				ED7B218C1A011F3F00A2337D /* AutoLayout */,
@@ -225,8 +216,8 @@
 				ED225B7319F1E2C300D8784E /* MainPage */,
 				ED225B7219F1E26800D8784E /* SplashScreen */,
 				ED466E0219F165DA00F14292 /* AppDelegate.swift */,
-				0DA99F521A1214D600048C39 /* SVG Icons */,
 				ED466E0619F165DA00F14292 /* Main.storyboard */,
+				ED466E0919F165DA00F14292 /* Images.xcassets */,
 				ED466E0019F165DA00F14292 /* Supporting Files */,
 			);
 			path = Notable;
@@ -362,12 +353,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0DA99F531A1214D600048C39 /* SVG Icons in Resources */,
-				0DA99F571A1217BC00048C39 /* Bronze.png in Resources */,
-				0DA99F591A1217BC00048C39 /* Silver.png in Resources */,
-				0DA99F581A1217BC00048C39 /* Gold.png in Resources */,
 				ED089C9E1A110E2B00D3F034 /* howling.mp3 in Resources */,
 				ED466E0819F165DA00F14292 /* Main.storyboard in Resources */,
+				ED466E0A19F165DA00F14292 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
