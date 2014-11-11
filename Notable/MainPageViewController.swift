@@ -188,30 +188,17 @@ class MainPageViewController: UIViewController,UITableViewDelegate ,UITableViewD
     
     func setUpPoints(){
         
-<<<<<<< HEAD
-        
-        let userName: String = NSUserDefaults.standardUserDefaults().objectForKey("userName") as String
-       
-        
-        var point1 = Point(userName: userName, point: "110p", madelsImage: "goldmedal")
-        var point2 = Point(userName: userName, point: "120p", madelsImage: "goldmedal")
-        var point3 = Point(userName: userName, point: "130p", madelsImage: "goldmedal")
-        var point4 = Point(userName: userName, point: "140p", madelsImage: "goldmedal")
-        var point5 = Point(userName: userName, point: "150p", madelsImage: "goldmedal")
-=======
         var point1 = Point(userName: "Alexander", point: "110p", madelsImage: "gold.gif")
         var point2 = Point(userName: "Alexander", point: "120p", madelsImage: "silver.gif")
         var point3 = Point(userName: "Alexander", point: "130p", madelsImage: "bronze.gif")
-        var point4 = Point(userName: "Alexander", point: "140p", madelsImage: "star.gif")
-        var point5 = Point(userName: "Alexander", point: "150p", madelsImage: "star.gif")
->>>>>>> b3bd028527df60c3552509ee8dd2cabdc8e48baf
+
+
         
         
         arrayOfPoints.append(point1)
         arrayOfPoints.append(point2)
         arrayOfPoints.append(point3)
-        arrayOfPoints.append(point4)
-        arrayOfPoints.append(point5)
+
        
         
     }
