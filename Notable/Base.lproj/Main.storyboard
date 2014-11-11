@@ -22,6 +22,12 @@
             <string>Roboto-Light</string>
             <string>Roboto-Light</string>
             <string>Roboto-Light</string>
+            <string>Roboto-Light</string>
+            <string>Roboto-Light</string>
+            <string>Roboto-Light</string>
+            <string>Roboto-Light</string>
+            <string>Roboto-Light</string>
+            <string>Roboto-Light</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -961,7 +967,68 @@
                     <view key="view" contentMode="scaleToFill" id="Vxr-Kb-QKc">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QWO-Sw-DDg">
+                                <rect key="frame" x="246" y="268" width="109" height="36"/>
+                                <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="30"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="End Game" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9eG-c6-6K7">
+                                <rect key="frame" x="232" y="414" width="137" height="36"/>
+                                <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="30"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CUSTOMIZE &amp; GENERAL SETTINGS" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K0H-1T-5TU">
+                                <rect key="frame" x="166" y="312" width="268" height="20"/>
+                                <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="17"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TAP HERE TO RESUME LESSON" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JJR-AA-lRG">
+                                <rect key="frame" x="181" y="166" width="239" height="20"/>
+                                <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="17"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="YOUR PROGRESS WON'T BE SAVED!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uax-OO-03o">
+                                <rect key="frame" x="166" y="458" width="274" height="20"/>
+                                <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="17"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="resume_button" translatesAutoresizingMaskIntoConstraints="NO" id="Zjo-eh-EE2">
+                                <rect key="frame" x="278" y="194" width="44" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="GUn-Cn-xP3"/>
+                                    <constraint firstAttribute="width" constant="44" id="Wui-fd-GsN"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Game is Paused" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5ZW-Ym-wiM">
+                                <rect key="frame" x="159" y="122" width="283" height="36"/>
+                                <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="30"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="K0H-1T-5TU" firstAttribute="top" secondItem="QWO-Sw-DDg" secondAttribute="bottom" constant="8" id="1Sh-y7-Q12"/>
+                            <constraint firstAttribute="centerX" secondItem="Uax-OO-03o" secondAttribute="centerX" constant="-3" id="E6h-8Z-KWn"/>
+                            <constraint firstItem="9eG-c6-6K7" firstAttribute="top" secondItem="K0H-1T-5TU" secondAttribute="bottom" constant="82" id="SLA-x6-MGF"/>
+                            <constraint firstItem="QWO-Sw-DDg" firstAttribute="top" secondItem="Zjo-eh-EE2" secondAttribute="bottom" constant="30" id="UnA-F9-rEo"/>
+                            <constraint firstItem="JJR-AA-lRG" firstAttribute="top" secondItem="5ZW-Ym-wiM" secondAttribute="bottom" constant="8" id="Vd2-0z-OWX"/>
+                            <constraint firstItem="Uax-OO-03o" firstAttribute="top" secondItem="9eG-c6-6K7" secondAttribute="bottom" constant="8" id="W3i-TH-9J1"/>
+                            <constraint firstAttribute="centerX" secondItem="QWO-Sw-DDg" secondAttribute="centerX" constant="-0.5" id="bRh-Mn-9iY"/>
+                            <constraint firstAttribute="centerY" secondItem="QWO-Sw-DDg" secondAttribute="centerY" constant="14" id="jRX-UM-1uY"/>
+                            <constraint firstAttribute="centerX" secondItem="5ZW-Ym-wiM" secondAttribute="centerX" constant="-0.5" id="kKl-h2-TT4"/>
+                            <constraint firstItem="Zjo-eh-EE2" firstAttribute="top" secondItem="JJR-AA-lRG" secondAttribute="bottom" constant="8" id="nH2-8D-ZjY"/>
+                            <constraint firstAttribute="centerX" secondItem="9eG-c6-6K7" secondAttribute="centerX" constant="-0.5" id="nym-yK-lau"/>
+                            <constraint firstAttribute="centerX" secondItem="JJR-AA-lRG" secondAttribute="centerX" constant="-0.5" id="pSY-yC-IQk"/>
+                            <constraint firstAttribute="centerX" secondItem="K0H-1T-5TU" secondAttribute="centerX" id="r8m-U5-AXs"/>
+                            <constraint firstAttribute="centerX" secondItem="Zjo-eh-EE2" secondAttribute="centerX" id="txM-n1-JyT"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ti5-vZ-Qci" userLabel="First Responder" sceneMemberID="firstResponder"/>
