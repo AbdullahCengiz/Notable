@@ -83,19 +83,8 @@ class MainPageViewController: UIViewController,UITableViewDelegate ,UITableViewD
         uiButton.setBackgroundImage(image, forState: UIControlState.Normal)
         uiButton.setTitle("", forState: UIControlState.Normal);
         uiButton.addTarget(self, action:"settingsButtonAction:", forControlEvents: UIControlEvents.TouchUpInside)
-        navItem.setRightBarButtonItem(UIBarButtonItem(customView: uiButton), animated: true)
-        navItem.hidesBackButton=true
-        
-        //for logo
-        var logo = UIImage(named: "logo_large.png")
-        let imageView = UIImageView(image:logo)
-        imageView.frame = CGRectMake(0, 0, 44, 44)
-        imageView.contentMode = UIViewContentMode.ScaleAspectFit
-        
-        navItem.titleView = imageView
-        
-
-        
+        self.navigationItem.setRightBarButtonItem(UIBarButtonItem(customView: uiButton), animated: true)
+        self.navigationItem.hidesBackButton=true
     }
     
     

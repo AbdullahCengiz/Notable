@@ -2161,7 +2161,6 @@
                     <connections>
                         <outlet property="chooseCategoriesButton" destination="BvS-8f-wpf" id="zTj-4h-6td"/>
                         <outlet property="lessonsButton" destination="NES-fn-WLz" id="cX4-5r-5F1"/>
-                        <outlet property="navItem" destination="vWz-D8-dUb" id="vX8-hp-xji"/>
                         <outlet property="newGameButton" destination="zkf-KG-tco" id="8Tk-PE-nQ8"/>
                         <outlet property="newGameContainer" destination="EaP-cJ-5lL" id="WC8-eC-Be6"/>
                         <outlet property="pointsTableView" destination="Gjg-kY-HET" id="vM7-oX-ixm"/>
