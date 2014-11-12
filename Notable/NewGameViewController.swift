@@ -120,10 +120,7 @@ class NewGameViewController: UIViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        navBar.titleTextAttributes = [
-            NSFontAttributeName: UIFont(name: "HelveticaNeue-Light", size: 20),
-            NSForegroundColorAttributeName: UIColor.blackColor()]
-        navBar.barTintColor = UIColor.whiteColor()
+       
         
         prepareNavigationBar()
         
@@ -172,7 +169,7 @@ class NewGameViewController: UIViewController {
     
     
     override func supportedInterfaceOrientations() -> Int {
-        return Int(UIInterfaceOrientationMask.All.toRaw())
+        return Int(UIInterfaceOrientationMask.All.rawValue)
     }
     
     
