@@ -34,9 +34,6 @@ class MainPageViewController: UIViewController,UITableViewDelegate ,UITableViewD
         super.viewDidLoad()
         println("in MainPageViewController")
         
-        
-        navBar = self.navigationController?.navigationBar
-        
         self.pointsTableView.delegate = self
         self.pointsTableView.dataSource = self
         
@@ -49,10 +46,6 @@ class MainPageViewController: UIViewController,UITableViewDelegate ,UITableViewD
         prepareNavigationBar()
         setUpPoints()
         
-        navBar.titleTextAttributes = [
-            NSFontAttributeName: UIFont(name: "HelveticaNeue-Light", size: 20),
-            NSForegroundColorAttributeName: UIColor.blackColor()]
-        navBar.barTintColor = UIColor.whiteColor()
         
         //for new game container
         newGameContainer.layer.cornerRadius=4.0
@@ -61,13 +54,6 @@ class MainPageViewController: UIViewController,UITableViewDelegate ,UITableViewD
         
         
         self.navigationController?.setNavigationBarHidden(false, animated: true)
-        
-        
-        
-       
-        
-        
-        
 
         // Do any additional setup after loading the view.
     }
@@ -87,70 +73,6 @@ class MainPageViewController: UIViewController,UITableViewDelegate ,UITableViewD
         
            }
     
-    
-    func prepareUI(){
-        
-        
-        NSLayoutConstraint.deactivateConstraints(self.view.constraints())
-        
-        //Do not use CGRectMake() when you create your instance of UIView
-        newGameContainer = UIView()
-        newGameContainer.backgroundColor = UIColor.whiteColor()
-        view.addSubview(newGameContainer)
-        
-        //Don't forget this line
-        newGameContainer.setTranslatesAutoresizingMaskIntoConstraints(false)
-        
-        
-        //for newGameContainer
-        var constX = NSLayoutConstraint(item: newGameContainer, attribute: NSLayoutAttribute.CenterX, relatedBy: NSLayoutRelation.Equal, toItem: self.view, attribute: NSLayoutAttribute.CenterX, multiplier: 1, constant: 0)
-        self.view.addConstraint(constX)
-        var constY = NSLayoutConstraint(item: newGameContainer, attribute: NSLayoutAttribute.TopMargin, relatedBy: NSLayoutRelation.Equal, toItem: self.view, attribute: NSLayoutAttribute.TopMargin, multiplier: 1, constant: 64 + (height*48)/1136)
-        self.view.addConstraint(constY)
-        //set "toItem: nil" when defining Width
-        var constW = NSLayoutConstraint(item: newGameContainer, attribute: NSLayoutAttribute.Width, relatedBy: NSLayoutRelation.Equal, toItem: nil, attribute: NSLayoutAttribute.NotAnAttribute, multiplier: 1, constant: (width*576)/640)
-        newGameContainer.addConstraint(constW)
-        //view.addConstraint(constW) also work
-        //set "toItem: nil" when defining Height
-        var constH = NSLayoutConstraint(item: newGameContainer, attribute: NSLayoutAttribute.Height, relatedBy: NSLayoutRelation.Equal, toItem: nil, attribute: NSLayoutAttribute.NotAnAttribute, multiplier: 1, constant: (height*158)/1136)
-        newGameContainer.addConstraint(constH)
-        newGameContainer.layer.cornerRadius = 4
-        
-        
-        //add label to new game container
-        
-        var newGameLabel = UILabel()
-        newGameLabel.textAlignment = NSTextAlignment.Center
-        newGameLabel.text = "New Game"
-        let font = UIFont(name: "System", size: 50.0)
-        newGameLabel.font = font
-        newGameContainer.addSubview(newGameLabel)
-        newGameLabel.setTranslatesAutoresizingMaskIntoConstraints(false)
-        
-       
-        var constNewGameLabelX = NSLayoutConstraint(item: newGameLabel, attribute: NSLayoutAttribute.CenterX, relatedBy: NSLayoutRelation.Equal, toItem: newGameContainer, attribute: NSLayoutAttribute.CenterX, multiplier: 1, constant: 0)
-        newGameContainer.addConstraint(constNewGameLabelX)
-        var constNewGameLabelY = NSLayoutConstraint(item: newGameLabel, attribute: NSLayoutAttribute.TopMargin, relatedBy: NSLayoutRelation.Equal, toItem: newGameContainer, attribute: NSLayoutAttribute.TopMargin, multiplier: 1, constant: 0)
-        newGameContainer.addConstraint(constNewGameLabelY)
-
-        
-        var constNewGameLabelW = NSLayoutConstraint(item: newGameLabel, attribute: NSLayoutAttribute.Width, relatedBy: NSLayoutRelation.Equal, toItem: nil, attribute: NSLayoutAttribute.NotAnAttribute, multiplier: 1, constant: (width*576)/640)
-        newGameLabel.addConstraint(constNewGameLabelW)
-        //view.addConstraint(constW) also work
-        //set "toItem: nil" when defining Height
-        var constNewGameLabelH = NSLayoutConstraint(item: newGameLabel, attribute: NSLayoutAttribute.Height, relatedBy: NSLayoutRelation.Equal, toItem: nil, attribute: NSLayoutAttribute.NotAnAttribute, multiplier: 1, constant: (height*35)/1136)
-        newGameLabel.addConstraint(constNewGameLabelH)
-        
-        newGameLabel.textColor = UIColor.blackColor()
-        newGameContainer.backgroundColor = UIColor.whiteColor()
-        
-        
-        var constNewGameLabelTopMargin = NSLayoutConstraint(item: newGameLabel, attribute: NSLayoutAttribute.TopMargin, relatedBy: NSLayoutRelation.Equal, toItem: newGameContainer, attribute: NSLayoutAttribute.TopMargin, multiplier: 1, constant: (height*40)/1136)
-        self.view.addConstraint(constNewGameLabelTopMargin)
-
-    }
-
-    
 
     func prepareNavigationBar(){
         
@@ -169,7 +91,7 @@ class MainPageViewController: UIViewController,UITableViewDelegate ,UITableViewD
         let imageView = UIImageView(image:logo)
         imageView.frame = CGRectMake(0, 0, 44, 44)
         imageView.contentMode = UIViewContentMode.ScaleAspectFit
-
+        
         navItem.titleView = imageView
         
 

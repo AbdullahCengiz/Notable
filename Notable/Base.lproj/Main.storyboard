@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="8e6-19-os2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="8e6-19-os2">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <customFonts key="customFonts">
         <mutableArray key="Roboto-Light.ttf">
+            <string>Roboto-Light</string>
             <string>Roboto-Light</string>
             <string>Roboto-Light</string>
             <string>Roboto-Light</string>
@@ -1847,10 +1848,10 @@
             </objects>
             <point key="canvasLocation" x="2308" y="333"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--MasterNC-->
         <scene sceneID="jda-KB-Xmx">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8e6-19-os2" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8e6-19-os2" customClass="MasterNC" customModule="Notable" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="aNP-N1-vAS">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -1878,7 +1879,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EaP-cJ-5lL" userLabel="NewGameContainer">
-                                <rect key="frame" x="16" y="74" width="568" height="80"/>
+                                <rect key="frame" x="16" y="79" width="568" height="80"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Game" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o4M-qt-d0s">
                                         <rect key="frame" x="212" y="16" width="160" height="30"/>
@@ -1902,7 +1903,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zkf-KG-tco" userLabel="NewGameButton">
                                         <rect key="frame" x="0.0" y="16" width="568" height="86"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="15"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="15"/>
                                         <state key="normal">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -1913,32 +1914,22 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="centerX" secondItem="yFo-r0-JEf" secondAttribute="centerX" constant="226.5" id="2Fe-dV-yjp"/>
                                     <constraint firstAttribute="height" constant="80" id="4T9-G2-iFW"/>
-                                    <constraint firstAttribute="centerX" secondItem="yFo-r0-JEf" secondAttribute="centerX" constant="-14.5" id="4WP-SS-oDo"/>
                                     <constraint firstItem="yFo-r0-JEf" firstAttribute="bottom" secondItem="EaP-cJ-5lL" secondAttribute="bottomMargin" id="4hT-CY-MXa"/>
                                     <constraint firstAttribute="centerX" secondItem="yFo-r0-JEf" secondAttribute="centerX" constant="-13.5" id="4uY-gl-g2H"/>
                                     <constraint firstAttribute="centerX" secondItem="o4M-qt-d0s" secondAttribute="centerX" constant="-8" id="AN0-Wz-ZZh"/>
                                     <constraint firstAttribute="trailing" secondItem="zkf-KG-tco" secondAttribute="trailing" id="AsM-63-dTI"/>
-                                    <constraint firstItem="yFo-r0-JEf" firstAttribute="leading" secondItem="EaP-cJ-5lL" secondAttribute="leading" constant="204" id="FzF-44-2x7"/>
                                     <constraint firstItem="o4M-qt-d0s" firstAttribute="top" secondItem="EaP-cJ-5lL" secondAttribute="top" constant="16" id="dMI-uH-sTE"/>
                                     <constraint firstItem="zkf-KG-tco" firstAttribute="top" secondItem="EaP-cJ-5lL" secondAttribute="top" constant="16" id="fFf-Yn-vmO"/>
                                     <constraint firstAttribute="bottom" secondItem="zkf-KG-tco" secondAttribute="bottom" constant="-22" id="lsV-oK-Kyx"/>
                                     <constraint firstItem="zkf-KG-tco" firstAttribute="leading" secondItem="EaP-cJ-5lL" secondAttribute="leading" id="o0d-CK-mFZ"/>
                                 </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="2Fe-dV-yjp"/>
-                                        <exclude reference="4WP-SS-oDo"/>
-                                        <exclude reference="FzF-44-2x7"/>
-                                    </mask>
-                                </variation>
                                 <variation key="heightClass=regular-widthClass=compact" ambiguous="YES">
                                     <rect key="frame" x="26" y="30" width="348" height="80"/>
                                 </variation>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t7Q-9P-0sR" userLabel="PracticeLessonsContainer">
-                                <rect key="frame" x="16" y="170" width="568" height="50"/>
+                                <rect key="frame" x="16" y="175" width="568" height="50"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wbA-JT-DF3" userLabel="Separator">
                                         <rect key="frame" x="284" y="0.0" width="1" height="50"/>
@@ -2010,7 +2001,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BvS-8f-wpf" userLabel="ChooseCatagoriesButton">
-                                <rect key="frame" x="16" y="236" width="568" height="50"/>
+                                <rect key="frame" x="16" y="241" width="568" height="50"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="dfe-MA-UvB"/>
@@ -2154,25 +2145,17 @@
                             <constraint firstAttribute="trailingMargin" secondItem="Gjg-kY-HET" secondAttribute="trailing" id="SAy-f7-NoN"/>
                             <constraint firstItem="n05-RP-Pby" firstAttribute="top" secondItem="Gjg-kY-HET" secondAttribute="bottom" constant="22" id="VCd-kb-yYe"/>
                             <constraint firstItem="t7Q-9P-0sR" firstAttribute="top" secondItem="EaP-cJ-5lL" secondAttribute="bottom" constant="16" id="axG-x8-sog"/>
-                            <constraint firstItem="Nee-nj-7C5" firstAttribute="top" secondItem="n05-RP-Pby" secondAttribute="bottom" id="bYr-ai-f7S"/>
                             <constraint firstItem="n05-RP-Pby" firstAttribute="leading" secondItem="Tzm-ba-NCy" secondAttribute="leadingMargin" constant="-20" id="cKa-Nc-VT9"/>
                             <constraint firstItem="EaP-cJ-5lL" firstAttribute="trailing" secondItem="t7Q-9P-0sR" secondAttribute="trailing" id="d6f-4b-Uh5"/>
                             <constraint firstItem="Gjg-kY-HET" firstAttribute="top" secondItem="zx3-B8-ToF" secondAttribute="bottom" constant="14" id="fXR-Sg-6EN"/>
-                            <constraint firstItem="n05-RP-Pby" firstAttribute="top" secondItem="Gjg-kY-HET" secondAttribute="bottom" constant="8" id="gVe-yr-dNn"/>
                             <constraint firstItem="Gjg-kY-HET" firstAttribute="leading" secondItem="Tzm-ba-NCy" secondAttribute="leadingMargin" id="hdK-XT-4Fy"/>
                             <constraint firstItem="BvS-8f-wpf" firstAttribute="leading" secondItem="Tzm-ba-NCy" secondAttribute="leadingMargin" id="mA1-Mj-yeE"/>
                             <constraint firstItem="n05-RP-Pby" firstAttribute="bottom" secondItem="Nee-nj-7C5" secondAttribute="top" id="vBT-ks-dwt"/>
                             <constraint firstItem="BvS-8f-wpf" firstAttribute="top" secondItem="t7Q-9P-0sR" secondAttribute="bottom" constant="16" id="wS6-WO-QwX"/>
-                            <constraint firstItem="EaP-cJ-5lL" firstAttribute="top" secondItem="Nce-Ub-kNI" secondAttribute="bottom" constant="10" id="wor-EY-TvY"/>
+                            <constraint firstItem="EaP-cJ-5lL" firstAttribute="top" secondItem="Nce-Ub-kNI" secondAttribute="bottom" constant="15" id="wor-EY-TvY"/>
                             <constraint firstItem="EaP-cJ-5lL" firstAttribute="leading" secondItem="t7Q-9P-0sR" secondAttribute="leading" id="ySR-eq-Q0N"/>
                             <constraint firstItem="zx3-B8-ToF" firstAttribute="centerX" secondItem="Gjg-kY-HET" secondAttribute="centerX" id="yuJ-wm-wSZ"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="gVe-yr-dNn"/>
-                                <exclude reference="bYr-ai-f7S"/>
-                            </mask>
-                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="vWz-D8-dUb"/>
                     <connections>

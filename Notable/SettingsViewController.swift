@@ -106,11 +106,6 @@ class SettingsViewController: UIViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-       navBar.titleTextAttributes = [
-            NSFontAttributeName: UIFont(name: "HelveticaNeue-Light", size: 16),
-            NSForegroundColorAttributeName: UIColor.blackColor()]
-            navBar.barTintColor = UIColor.whiteColor()
-        
          prepareNavigationBar()
     }
     

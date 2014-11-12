@@ -7,3 +7,19 @@
 //
 
 import Foundation
+import UIKit
+
+class MasterNC:UINavigationController {
+    required init(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        if let font = UIFont(name: "Roboto-Light", size: 20) {
+            self.navigationBar.titleTextAttributes =
+                [NSFontAttributeName: font,
+                    NSForegroundColorAttributeName: UIColor.blackColor()]
+        } else {
+            self.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.blackColor()]
+        }
+        
+        self.navigationBar.barTintColor = UIColor.whiteColor()
+    }
+}
