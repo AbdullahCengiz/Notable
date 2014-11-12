@@ -28,6 +28,16 @@
             <string>Roboto-Light</string>
             <string>Roboto-Light</string>
             <string>Roboto-Light</string>
+            <string>Roboto-Light</string>
+            <string>Roboto-Light</string>
+            <string>Roboto-Light</string>
+            <string>Roboto-Light</string>
+            <string>Roboto-Light</string>
+            <string>Roboto-Light</string>
+            <string>Roboto-Light</string>
+            <string>Roboto-Light</string>
+            <string>Roboto-Light</string>
+            <string>Roboto-Light</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -300,14 +310,8 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="End Game" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nsE-gA-crY">
-                                <rect key="frame" x="232" y="428" width="137" height="36"/>
-                                <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="30"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lesson 1 of 8" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IhV-q4-yoo">
-                                <rect key="frame" x="211" y="136" width="178" height="36"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="End Lesson" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nsE-gA-crY">
+                                <rect key="frame" x="224" y="428" width="154" height="36"/>
                                 <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="30"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -337,20 +341,42 @@
                                     <constraint firstAttribute="width" constant="44" id="PMy-b3-iJV"/>
                                 </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lesson" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IhV-q4-yoo">
+                                <rect key="frame" x="206" y="136" width="96" height="36"/>
+                                <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="30"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="of 8" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fT5-IG-Kh6">
+                                <rect key="frame" x="337" y="136" width="51" height="36"/>
+                                <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="30"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" X" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="evC-wF-XxL">
+                                <rect key="frame" x="303" y="136" width="26" height="36"/>
+                                <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="30"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="JKy-iE-Hp2" secondAttribute="centerX" id="7hE-Ow-hfI"/>
                             <constraint firstItem="W1r-cG-e9C" firstAttribute="top" secondItem="2Qt-aH-ng5" secondAttribute="bottom" constant="8" id="8Ol-ge-5h7"/>
+                            <constraint firstItem="fT5-IG-Kh6" firstAttribute="leading" secondItem="evC-wF-XxL" secondAttribute="trailing" constant="8" id="DIX-eh-8kr"/>
                             <constraint firstAttribute="centerX" secondItem="W1r-cG-e9C" secondAttribute="centerX" id="Mxa-F7-1pX"/>
                             <constraint firstItem="JKy-iE-Hp2" firstAttribute="top" secondItem="pNR-KN-seG" secondAttribute="bottom" constant="8" id="POq-Sv-Ioa"/>
-                            <constraint firstAttribute="centerX" secondItem="IhV-q4-yoo" secondAttribute="centerX" id="Puj-UF-hRd"/>
+                            <constraint firstAttribute="centerX" secondItem="IhV-q4-yoo" secondAttribute="centerX" constant="46" id="Puj-UF-hRd"/>
+                            <constraint firstItem="evC-wF-XxL" firstAttribute="top" secondItem="7yf-70-LcE" secondAttribute="bottom" constant="116" id="Qqd-M9-bgQ"/>
                             <constraint firstAttribute="centerX" secondItem="nsE-gA-crY" secondAttribute="centerX" constant="-0.5" id="Sc9-ug-HXC"/>
                             <constraint firstItem="nsE-gA-crY" firstAttribute="top" secondItem="W1r-cG-e9C" secondAttribute="bottom" constant="82" id="V2n-hM-yAF"/>
                             <constraint firstItem="2Qt-aH-ng5" firstAttribute="top" secondItem="JKy-iE-Hp2" secondAttribute="bottom" constant="30" id="Xge-cg-vcU"/>
                             <constraint firstItem="pNR-KN-seG" firstAttribute="top" secondItem="IhV-q4-yoo" secondAttribute="bottom" constant="8" id="Yhl-ss-zgL"/>
                             <constraint firstAttribute="centerY" secondItem="2Qt-aH-ng5" secondAttribute="centerY" id="dOw-DC-uQC"/>
                             <constraint firstAttribute="centerX" secondItem="pNR-KN-seG" secondAttribute="centerX" constant="-0.5" id="dpQ-xQ-eR8"/>
+                            <constraint firstItem="evC-wF-XxL" firstAttribute="leading" secondItem="IhV-q4-yoo" secondAttribute="trailing" constant="1" id="eR9-hn-RX0"/>
+                            <constraint firstItem="fT5-IG-Kh6" firstAttribute="top" secondItem="7yf-70-LcE" secondAttribute="bottom" constant="116" id="kAm-pQ-KnG"/>
                             <constraint firstItem="FXg-PU-aDk" firstAttribute="top" secondItem="nsE-gA-crY" secondAttribute="bottom" constant="8" id="m6q-lo-ihV"/>
                             <constraint firstAttribute="centerX" secondItem="FXg-PU-aDk" secondAttribute="centerX" constant="-3" id="mxG-Om-mui"/>
                             <constraint firstAttribute="centerX" secondItem="2Qt-aH-ng5" secondAttribute="centerX" constant="-0.5" id="wQJ-GL-Tsq"/>
@@ -1086,6 +1112,102 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kpc-Jf-p68" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1555" y="1099"/>
+        </scene>
+        <!--PausedPracticeController-->
+        <scene sceneID="jLc-hI-ty7">
+            <objects>
+                <viewController title="PausedPracticeController" id="CfS-OD-0r1" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="hWi-kY-jSf"/>
+                        <viewControllerLayoutGuide type="bottom" id="rYm-8V-nvj"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="OPG-HV-Z3H">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cGn-6q-Z4Q">
+                                <rect key="frame" x="243" y="268" width="109" height="36"/>
+                                <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="30"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="End Practice" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b3P-aD-dO5">
+                                <rect key="frame" x="215" y="414" width="165" height="36"/>
+                                <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="30"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CUSTOMIZE &amp; GENERAL SETTINGS" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oxM-9E-JeX">
+                                <rect key="frame" x="163" y="312" width="268" height="20"/>
+                                <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="17"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TAP HERE TO RESUME LESSON" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="odK-uY-d9x">
+                                <rect key="frame" x="178" y="166" width="239" height="20"/>
+                                <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="17"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="YOUR PROGRESS WON'T BE SAVED!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lLU-Jt-15v">
+                                <rect key="frame" x="163" y="458" width="274" height="20"/>
+                                <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="17"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="resume_button" translatesAutoresizingMaskIntoConstraints="NO" id="Evw-72-6F0">
+                                <rect key="frame" x="275" y="194" width="44" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="44" id="Gbz-4A-Vlw"/>
+                                    <constraint firstAttribute="height" constant="44" id="MeI-aY-TCi"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Practice" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TCF-NO-8JC">
+                                <rect key="frame" x="203" y="122" width="108" height="36"/>
+                                <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="30"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="of 8" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tVw-Dl-cf0">
+                                <rect key="frame" x="346" y="122" width="51" height="36"/>
+                                <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="30"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" X" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mxq-RU-hRK">
+                                <rect key="frame" x="312" y="122" width="26" height="36"/>
+                                <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="30"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="tVw-Dl-cf0" firstAttribute="top" secondItem="hWi-kY-jSf" secondAttribute="bottom" constant="102" id="32z-up-gbU"/>
+                            <constraint firstAttribute="centerX" secondItem="Evw-72-6F0" secondAttribute="centerX" constant="3" id="5ih-Lg-cuj"/>
+                            <constraint firstAttribute="centerX" secondItem="lLU-Jt-15v" secondAttribute="centerX" id="Bkp-3a-F5k"/>
+                            <constraint firstItem="tVw-Dl-cf0" firstAttribute="leading" secondItem="mxq-RU-hRK" secondAttribute="trailing" constant="8" id="HqK-gk-lif"/>
+                            <constraint firstItem="TCF-NO-8JC" firstAttribute="leading" secondItem="OPG-HV-Z3H" secondAttribute="leadingMargin" constant="187" id="M8H-Wn-315"/>
+                            <constraint firstItem="lLU-Jt-15v" firstAttribute="top" secondItem="b3P-aD-dO5" secondAttribute="bottom" constant="8" id="MyM-UW-WaW"/>
+                            <constraint firstItem="mxq-RU-hRK" firstAttribute="leading" secondItem="TCF-NO-8JC" secondAttribute="trailing" constant="1" id="P09-5o-4rv"/>
+                            <constraint firstItem="mxq-RU-hRK" firstAttribute="top" secondItem="hWi-kY-jSf" secondAttribute="bottom" constant="102" id="R7p-WO-7B3"/>
+                            <constraint firstItem="odK-uY-d9x" firstAttribute="top" secondItem="TCF-NO-8JC" secondAttribute="bottom" constant="8" id="UOi-6A-UXl"/>
+                            <constraint firstItem="Evw-72-6F0" firstAttribute="top" secondItem="odK-uY-d9x" secondAttribute="bottom" constant="8" id="VT9-kx-0Bu"/>
+                            <constraint firstItem="mxq-RU-hRK" firstAttribute="leading" secondItem="TCF-NO-8JC" secondAttribute="trailing" constant="1" id="WBj-1c-eey"/>
+                            <constraint firstItem="cGn-6q-Z4Q" firstAttribute="top" secondItem="Evw-72-6F0" secondAttribute="bottom" constant="30" id="XNj-es-Kys"/>
+                            <constraint firstAttribute="centerX" secondItem="odK-uY-d9x" secondAttribute="centerX" constant="2.5" id="beV-aB-CNy"/>
+                            <constraint firstItem="oxM-9E-JeX" firstAttribute="top" secondItem="cGn-6q-Z4Q" secondAttribute="bottom" constant="8" id="dd7-Wo-l6d"/>
+                            <constraint firstAttribute="centerX" secondItem="b3P-aD-dO5" secondAttribute="centerX" constant="2.5" id="gnc-EG-ua7"/>
+                            <constraint firstItem="b3P-aD-dO5" firstAttribute="top" secondItem="oxM-9E-JeX" secondAttribute="bottom" constant="82" id="jFH-Sw-M9q"/>
+                            <constraint firstAttribute="centerX" secondItem="oxM-9E-JeX" secondAttribute="centerX" constant="3" id="kBw-cb-Vg1"/>
+                            <constraint firstAttribute="centerX" secondItem="cGn-6q-Z4Q" secondAttribute="centerX" constant="2.5" id="ptp-RM-q6S"/>
+                            <constraint firstItem="TCF-NO-8JC" firstAttribute="top" secondItem="hWi-kY-jSf" secondAttribute="bottom" constant="102" id="zBF-ua-iKG"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rlx-Gg-QUg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2308" y="1099"/>
         </scene>
         <!--Settings-->
         <scene sceneID="K7c-Up-lZA">
