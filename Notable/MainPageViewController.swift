@@ -77,9 +77,9 @@ class MainPageViewController: UIViewController,UITableViewDelegate ,UITableViewD
     func prepareNavigationBar(){
         
         //for settings button
-        let image = UIImage(named: "settings") as UIImage?
+        let image = UIImage(named: "settings_button") as UIImage?
         let uiButton    = UIButton.buttonWithType(UIButtonType.System) as UIButton
-        uiButton.frame  = CGRectMake(0, 0, 30, 30)
+        uiButton.frame  = CGRectMake(0, 0, 25, 25)
         uiButton.setBackgroundImage(image, forState: UIControlState.Normal)
         uiButton.setTitle("", forState: UIControlState.Normal);
         uiButton.addTarget(self, action:"settingsButtonAction:", forControlEvents: UIControlEvents.TouchUpInside)
@@ -93,6 +93,7 @@ class MainPageViewController: UIViewController,UITableViewDelegate ,UITableViewD
     
     
     @IBAction func settingsButtonAction(sender:UIButton)
+        
     {
         println("Button Action From Code")
         self.performSegueWithIdentifier("goToSettings", sender: nil)

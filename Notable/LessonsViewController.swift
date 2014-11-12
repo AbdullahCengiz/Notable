@@ -53,22 +53,15 @@ class LessonsViewController: UIViewController {
     
     func prepareNavigationBar(){
         
-        //for backbutton
-        let image = UIImage(named: "backbutton") as UIImage?
-        let uiButton    = UIButton.buttonWithType(UIButtonType.System) as UIButton
-        uiButton.frame  = CGRectMake(0, 0, 25, 25)
-        uiButton.setBackgroundImage(image, forState: UIControlState.Normal)
-        uiButton.setTitle("", forState: UIControlState.Normal);
-        uiButton.addTarget(self, action:"backButtonAction:", forControlEvents: UIControlEvents.TouchUpInside)
-        navItem.setLeftBarButtonItem(UIBarButtonItem(customView: uiButton), animated: true)
+        //for menubutton
+        let menuImage = UIImage(named: "menu_btn") as UIImage?
+        let menuButton    = UIButton.buttonWithType(UIButtonType.System) as UIButton
+        menuButton.frame  = CGRectMake(0, 0, 25, 25)
+        menuButton.setBackgroundImage(menuImage, forState: UIControlState.Normal)
+        menuButton.setTitle("", forState: UIControlState.Normal);
+        menuButton.addTarget(self, action:"backButtonAction:", forControlEvents: UIControlEvents.TouchUpInside)
+        navItem.setLeftBarButtonItem(UIBarButtonItem(customView: menuButton), animated: true)
         navItem.hidesBackButton=true
-        
-        //for logo
-        let logo = UIImage(named: "logo")
-        let imageView = UIImageView(image:logo)
-        imageView.frame = CGRectMake(0, 0, 30, 30)
-        imageView.contentMode = UIViewContentMode.ScaleAspectFit
-        navItem.titleView = imageView
 
         
     }
@@ -77,7 +70,7 @@ class LessonsViewController: UIViewController {
     @IBAction func backButtonAction(sender:UIButton)
     {
         println("Button Action From Code")
-        self.navigationController?.popViewControllerAnimated(true)
+            self.performSegueWithIdentifier("pausedLessonModal", sender: nil)
     }
     
     

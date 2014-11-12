@@ -34,8 +34,9 @@ class MasterNC:UINavigationController, UINavigationControllerDelegate {
         if self.visibleViewController.navigationItem.title == nil {
             let logo = UIImage(named: "logo_small.png")
             let imageView = UIImageView(image:logo)
-            imageView.frame = CGRectMake(0, 0, 44, 44)
+             imageView.frame = CGRectMake(0, 0, 44, 44)
             self.visibleViewController.navigationItem.titleView = imageView
+          
         }
     }
 

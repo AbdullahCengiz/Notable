@@ -28,14 +28,11 @@ class NewGameViewController: UIViewController {
     
     var cellArray : [UIView] = []
     var cellCounter:Int = 0
-    
     var audioPlayer = AVAudioPlayer()
     var soundLevelValue : Float!
     var answerLock : Bool = true
     
     @IBOutlet var playSoundButton: UIButton!
-    
-    
     @IBOutlet var gameImageContainer: UIView!
     @IBOutlet var firstChoiceContainer: UIView!
     @IBOutlet var firstChoiceNumberContainer: UIView!
@@ -63,9 +60,6 @@ class NewGameViewController: UIViewController {
         initVariables()
         
         initUI()
-        
-        
-        
     }
     
     
@@ -101,13 +95,11 @@ class NewGameViewController: UIViewController {
             NSUserDefaults.standardUserDefaults().synchronize()
             soundLevelValue = 0.5;
 
-        }
-        else{
+        }else{
             //initial sound value found
             soundLevelValue = soundLevel! as Float
             println("sound value in new Game = \(soundLevelValue)")
-            
-        }
+            }
         
     }
 
@@ -124,20 +116,19 @@ class NewGameViewController: UIViewController {
         
         prepareNavigationBar()
         
-        
         println("orientationChanged!!!!!!!!!")
     }
     
     func prepareNavigationBar(){
         
-        //for back button
-        let image = UIImage(named: "backbutton") as UIImage?
-        let uiButton    = UIButton.buttonWithType(UIButtonType.System) as UIButton
-        uiButton.frame  = CGRectMake(0, 0, 25, 25)
-        uiButton.setBackgroundImage(image, forState: UIControlState.Normal)
-        uiButton.setTitle("", forState: UIControlState.Normal);
-        uiButton.addTarget(self, action:"backButtonAction:", forControlEvents: UIControlEvents.TouchUpInside)
-        navItem.setLeftBarButtonItem(UIBarButtonItem(customView: uiButton), animated: true)
+        //for menubutton
+        let menuImage = UIImage(named: "menu_btn") as UIImage?
+        let menuButton    = UIButton.buttonWithType(UIButtonType.System) as UIButton
+        menuButton.frame  = CGRectMake(0, 0, 25, 25)
+        menuButton.setBackgroundImage(menuImage, forState: UIControlState.Normal)
+        menuButton.setTitle("", forState: UIControlState.Normal);
+        menuButton.addTarget(self, action:"backButtonAction:", forControlEvents: UIControlEvents.TouchUpInside)
+        navItem.setLeftBarButtonItem(UIBarButtonItem(customView: menuButton), animated: true)
         navItem.hidesBackButton=true
         
         //for logo
@@ -162,7 +153,8 @@ class NewGameViewController: UIViewController {
     @IBAction func backButtonAction(sender:UIButton)
     {
         println("Button Action From Code")
-        self.navigationController?.popViewControllerAnimated(true)
+        self.performSegueWithIdentifier("pausedGameModal", sender: nil)
+        
     }
     
     
