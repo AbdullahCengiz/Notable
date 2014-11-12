@@ -76,7 +76,6 @@
 		ED466E1719F165DA00F14292 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ED466E1819F165DA00F14292 /* NotableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotableTests.swift; sourceTree = "<group>"; };
 		ED7B218D1A011F5A00A2337D /* AutoLayutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoLayutViewController.swift; sourceTree = "<group>"; };
-		ED96CE961A0BDFE8007589F9 /* pew-pew-lei.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "pew-pew-lei.caf"; path = "../../../../Downloads/ATBasicSounds/pew-pew-lei.caf"; sourceTree = "<group>"; };
 		EDA9C6E81A090E1C00108A85 /* StoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreViewController.swift; sourceTree = "<group>"; };
 		EDD14B7D1A029A61004F7EA1 /* CategoryTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryTableCell.swift; sourceTree = "<group>"; };
 		EDD14B7F1A029BBE004F7EA1 /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
@@ -190,6 +189,14 @@
 			name = Settings;
 			sourceTree = "<group>";
 		};
+		ED38AD771A13716D0028366D /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				0DA8BD6C1A136816002F6F89 /* MasterNavigationController.swift */,
+			);
+			name = Navigation;
+			sourceTree = "<group>";
+		};
 		ED466DF419F165DA00F14292 = {
 			isa = PBXGroup;
 			children = (
@@ -212,14 +219,7 @@
 		ED466DFF19F165DA00F14292 /* Notable */ = {
 			isa = PBXGroup;
 			children = (
-				ED089C9D1A110E2B00D3F034 /* howling.mp3 */,
-				0DA7946E1A11122B00D2F131 /* Roboto-Light.ttf */,
-				0DA7946F1A11122B00D2F131 /* Roboto-Thin.ttf */,
-				0DA99F781A124A0900048C39 /* Bronze.png */,
-				0DA99F791A124A0900048C39 /* Gold.png */,
-				0DA99F7A1A124A0900048C39 /* logo_large.png */,
-				0DA99F7B1A124A0900048C39 /* logo_small.png */,
-				0DA99F7C1A124A0900048C39 /* Silver.png */,
+				ED38AD771A13716D0028366D /* Navigation */,
 				ED96CE951A0BDFD3007589F9 /* Resources */,
 				EDA9C6E51A090DC000108A85 /* Store */,
 				ED7B218C1A011F3F00A2337D /* AutoLayout */,
@@ -234,7 +234,6 @@
 				ED225B7319F1E2C300D8784E /* MainPage */,
 				ED225B7219F1E26800D8784E /* SplashScreen */,
 				ED466E0219F165DA00F14292 /* AppDelegate.swift */,
-				0DA8BD6C1A136816002F6F89 /* MasterNavigationController.swift */,
 				ED466E0619F165DA00F14292 /* Main.storyboard */,
 				ED466E0919F165DA00F14292 /* Images.xcassets */,
 				ED466E0019F165DA00F14292 /* Supporting Files */,
@@ -278,7 +277,14 @@
 		ED96CE951A0BDFD3007589F9 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				ED96CE961A0BDFE8007589F9 /* pew-pew-lei.caf */,
+				ED089C9D1A110E2B00D3F034 /* howling.mp3 */,
+				0DA7946E1A11122B00D2F131 /* Roboto-Light.ttf */,
+				0DA7946F1A11122B00D2F131 /* Roboto-Thin.ttf */,
+				0DA99F781A124A0900048C39 /* Bronze.png */,
+				0DA99F791A124A0900048C39 /* Gold.png */,
+				0DA99F7A1A124A0900048C39 /* logo_large.png */,
+				0DA99F7B1A124A0900048C39 /* logo_small.png */,
+				0DA99F7C1A124A0900048C39 /* Silver.png */,
 			);
 			name = Resources;
 			sourceTree = "<group>";

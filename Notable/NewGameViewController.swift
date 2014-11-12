@@ -9,6 +9,7 @@
 import UIKit
 import SpriteKit
 import AVFoundation
+import QuartzCore
 
 class NewGameViewController: UIViewController {
     @IBOutlet var navItem: UINavigationItem!
@@ -30,6 +31,7 @@ class NewGameViewController: UIViewController {
     
     var audioPlayer = AVAudioPlayer()
     var soundLevelValue : Float!
+    var answerLock : Bool = true
     
     @IBOutlet var playSoundButton: UIButton!
     
@@ -45,6 +47,10 @@ class NewGameViewController: UIViewController {
     @IBOutlet var fourthChoiceNumberContainer: UIView!
     var firstProgressCell: UIView! , secondProgressCell : UIView! , firstSeperator : UIView!
     var width:NSNumber!, height:NSNumber!
+    
+    var pointLabel  = UILabel()
+    var timer = NSTimer()
+    var counter = 0
     
     @IBOutlet var progressViewContainer: UIView!
     var navBar:UINavigationBar!
@@ -73,8 +79,9 @@ class NewGameViewController: UIViewController {
         thirdChoiceContainer.layer.cornerRadius = 4.0
         fourthChoiceNumberContainer.layer.cornerRadius = fourthChoiceNumberContainer.frame.height/2
         fourthChoiceContainer.layer.cornerRadius = 4.0
-        
         gameImageContainer.layer.cornerRadius = 4.0
+        
+        pointLabel.text = String(counter)
         
     }
     
@@ -113,6 +120,11 @@ class NewGameViewController: UIViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
+        navBar.titleTextAttributes = [
+            NSFontAttributeName: UIFont(name: "HelveticaNeue-Light", size: 20),
+            NSForegroundColorAttributeName: UIColor.blackColor()]
+        navBar.barTintColor = UIColor.whiteColor()
+        
         prepareNavigationBar()
         
         
@@ -138,6 +150,15 @@ class NewGameViewController: UIViewController {
         imageView.contentMode = UIViewContentMode.ScaleAspectFit
         navItem.titleView = imageView
         
+        
+        //for settings button
+        pointLabel.textColor = UIColor.blackColor()
+        pointLabel.frame  = CGRectMake(0, 0, 60, 30)
+        pointLabel.textAlignment = NSTextAlignment.Center
+        navItem.setRightBarButtonItem(UIBarButtonItem(customView: pointLabel), animated: true)
+        navItem.hidesBackButton=true
+
+        
     }
     
     
@@ -151,13 +172,26 @@ class NewGameViewController: UIViewController {
     
     
     override func supportedInterfaceOrientations() -> Int {
-        return Int(UIInterfaceOrientationMask.All.rawValue)
+        return Int(UIInterfaceOrientationMask.All.toRaw())
     }
     
     
     
     
     @IBAction func choiceAction(sender: AnyObject) {
+        
+        
+       // bloat()
+        
+        if(answerLock){
+            
+            
+            answerLock=false
+        
+        
+        
+        timer = NSTimer.scheduledTimerWithTimeInterval(0.0025, target: self, selector: Selector("update"), userInfo: nil, repeats: true)
+        
         
         if(cellCounter<cellArray.count){
             
@@ -171,6 +205,23 @@ class NewGameViewController: UIViewController {
             }
             
         }
+            
+            }
+        
+    }
+    
+    func update(){
+        
+        pointLabel.text = String(counter++)
+        
+        if((counter%500==1) && (counter>1)){
+            
+            timer.invalidate()
+            bloat()
+            
+            answerLock = true
+            
+        }
         
     }
     
@@ -182,8 +233,7 @@ class NewGameViewController: UIViewController {
         // Grab the path, make sure to add it to your project!
         var soundURL = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("howling", ofType: "mp3")!)
         
-        
-        
+       
         
         
         dispatch_async(dispatch_get_main_queue()) {
@@ -210,6 +260,16 @@ class NewGameViewController: UIViewController {
             
         }
 
+    }
+    
+    
+    func bloat() {
+        var animation = CABasicAnimation(keyPath: "transform.scale")
+        animation.toValue = NSNumber(float: 0.9)
+        animation.duration = 0.2
+        animation.repeatCount = 3.0
+        animation.autoreverses = true
+        pointLabel.layer.addAnimation(animation, forKey: nil)
     }
     
     
