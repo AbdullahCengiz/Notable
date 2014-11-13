@@ -9,9 +9,13 @@
 import Foundation
 import UIKit
 
+
+
 class NGPause: UIViewController{
 
     var delegate:AnyObject?
+    
+    @IBOutlet weak var pauseMessages: UILabel!
     
     required init(coder aDecoder: NSCoder) {
         self.delegate = nil
@@ -22,7 +26,20 @@ class NGPause: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         println("in NGPauseViewController")
+        
+        if (delegate!.title!! == "newPractice") {
+            pauseMessages.text = "Your Practice is Paused"
+        } else if
+            (delegate!.title!! == "newGame") {
+            self.pauseMessages.text = "Your Game is Paused"
+        } else if
+            (delegate!.title!! == "newLesson") {
+                self.pauseMessages.text = "Your Game is Paused"
+        } else {
+            self.pauseMessages.text = "thisOneGoesToNothing"
         }
+        
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -47,8 +64,17 @@ class NGPause: UIViewController{
             self.dismissViewControllerAnimated(true, completion: {})
         }
     }
-}
+    
+ 
+    
+    }
+
+
     
     
-    
+
+
+
+
+
     

@@ -921,7 +921,7 @@
                                     <constraint firstAttribute="width" constant="44" id="Wui-fd-GsN"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Game is Paused" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5ZW-Ym-wiM">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="pauseMessages" text="Your Game is Paused" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5ZW-Ym-wiM">
                                 <rect key="frame" x="159" y="122" width="283" height="36"/>
                                 <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="30"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -963,6 +963,9 @@
                             <constraint firstAttribute="centerX" secondItem="Zjo-eh-EE2" secondAttribute="centerX" id="txM-n1-JyT"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="pauseMessages" destination="5ZW-Ym-wiM" id="cPa-0E-CxG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ti5-vZ-Qci" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

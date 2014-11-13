@@ -20,7 +20,7 @@ class Sound
     
     init(){
         
-        confirmSound = SoundFile(soundName: "confirm", soundType: "mp3")
+        confirmSound = SoundFile(soundName: "howling", soundType: "mp3")
         
         
         var soundLevel: AnyObject? = NSUserDefaults.standardUserDefaults().objectForKey("sound")
