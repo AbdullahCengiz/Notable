@@ -17,6 +17,8 @@ class NGPause: UIViewController{
     
     @IBOutlet weak var pauseMessages: UILabel!
     @IBOutlet weak var resumeMessages: UILabel!
+    @IBOutlet weak var endMessages: UILabel!
+
     
     required init(coder aDecoder: NSCoder) {
         self.delegate = nil
@@ -28,7 +30,7 @@ class NGPause: UIViewController{
         super.viewDidLoad()
         println("in NGPauseViewController")
         
-        //for Your Game is Paused
+        //for Your "NAME" is Paused
         if (delegate!.title!! == "newPractice") {
             pauseMessages.text = "Your Practice is Paused"
         } else if
@@ -36,12 +38,12 @@ class NGPause: UIViewController{
             self.pauseMessages.text = "Your Game is Paused"
         } else if
             (delegate!.title!! == "newLesson") {
-                self.pauseMessages.text = "Your Game is Paused"
+                self.pauseMessages.text = "Your Lesson is Paused"
         } else {
             self.pauseMessages.text = "thisOneGoesToNothing!"
         }
         
-        //for TAP HERE TO RESUME
+        //for TAP HERE TO RESUME "NAME"
         if (delegate!.title!! == "newPractice") {
             resumeMessages.text = "TAP HERE TO RESUME PRACTICE"
         } else if
@@ -52,6 +54,19 @@ class NGPause: UIViewController{
             self.resumeMessages.text = "TAP HERE TO RESUME LESSON"
         } else {
             self.resumeMessages.text = "thisOneGoesToNothing!"
+        }
+        
+        //for End "NAME"
+        if (delegate!.title!! == "newPractice") {
+            endMessages.text = "End Practice"
+        } else if
+            (delegate!.title!! == "newGame") {
+                self.endMessages.text = "End Game"
+        } else if
+            (delegate!.title!! == "newLesson") {
+                self.endMessages.text = "End Lesson"
+        } else {
+            self.endMessages.text = "thisOneGoesToNothing!"
         }
 }
 
