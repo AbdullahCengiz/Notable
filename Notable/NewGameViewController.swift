@@ -150,11 +150,12 @@ class NewGameViewController: UIViewController {
     }
     
     
-    @IBAction func backButtonAction(sender:UIButton)
-    {
+    @IBAction func backButtonAction(sender:UIButton) {
         println("Button Action From Code")
-        self.performSegueWithIdentifier("pausedGameModal", sender: nil)
-        
+        //self.performSegueWithIdentifier("pausedGameModal", sender: nil)
+        let pauseScreen:NGPause = self.storyboard!.instantiateViewControllerWithIdentifier("PausedGameViewController") as NGPause
+        pauseScreen.delegate = self
+        self.presentViewController(pauseScreen, animated: true, completion: nil)
     }
     
     

@@ -10,11 +10,18 @@ import Foundation
 import UIKit
 
 class NGPause: UIViewController{
+
+    var delegate:NewGameViewController?
     
+    required init(coder aDecoder: NSCoder) {
+        self.delegate = nil
+        super.init(coder: aDecoder)
+        //fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        println("in MainPageViewController")
+        println("in NGPauseViewController")
         }
     
     override func didReceiveMemoryWarning() {
@@ -27,12 +34,13 @@ class NGPause: UIViewController{
     }
 
     
-    @IBAction func goToMainPageAction(sender:UIButton) {
-    println("In Pause Game Back")
-        self.performSegueWithIdentifier("goToMainPage", sender: nil)
+    @IBAction func goToMainPageAction(sender: UIButton) {
+        if(delegate != nil) {
+            var mNC = delegate!.navigationController as MasterNC
+            mNC.popToViewControllerOfClass(MainPageViewController())
+            self.dismissViewControllerAnimated(true, completion: {})
+        }
     }
-    
-    
 }
     
     

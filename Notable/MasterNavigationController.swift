@@ -39,5 +39,23 @@ class MasterNC:UINavigationController, UINavigationControllerDelegate {
           
         }
     }
+    
+    func popToViewControllerOfClass(targetClass:AnyObject!) {
+        for vc in self.viewControllers {
+            if object_getClassName(vc) == object_getClassName(targetClass) {
+                self.popToViewController(vc as UIViewController, animated: true)
+                break
+            }
+        }
+    }
+
+/*-(void)popToViewControllerOfClass:(Class)class {
+for (UIViewController *aViewController in [self viewControllers]) {
+if ([aViewController isKindOfClass:class]) {
+reloadDataOnAppear = YES;
+[self popToViewController:aViewController animated:NO];
+}
+}
+}*/
 
 }
