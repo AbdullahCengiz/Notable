@@ -11,7 +11,7 @@ import UIKit
 
 class NGPause: UIViewController{
 
-    var delegate:NewGameViewController?
+    var delegate:AnyObject?
     
     required init(coder aDecoder: NSCoder) {
         self.delegate = nil
@@ -38,6 +38,12 @@ class NGPause: UIViewController{
         if(delegate != nil) {
             var mNC = delegate!.navigationController as MasterNC
             mNC.popToViewControllerOfClass(MainPageViewController())
+            self.dismissViewControllerAnimated(true, completion: {})
+            
+            mNC.popToViewControllerOfClass(PracticeViewController())
+            self.dismissViewControllerAnimated(true, completion: {})
+            
+            mNC.popToViewControllerOfClass(LessonsViewController())
             self.dismissViewControllerAnimated(true, completion: {})
         }
     }
