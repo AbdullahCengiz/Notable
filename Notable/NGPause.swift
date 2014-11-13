@@ -16,6 +16,7 @@ class NGPause: UIViewController{
     var delegate:AnyObject?
     
     @IBOutlet weak var pauseMessages: UILabel!
+    @IBOutlet weak var resumeMessages: UILabel!
     
     required init(coder aDecoder: NSCoder) {
         self.delegate = nil
@@ -27,6 +28,7 @@ class NGPause: UIViewController{
         super.viewDidLoad()
         println("in NGPauseViewController")
         
+        //for Your Game is Paused
         if (delegate!.title!! == "newPractice") {
             pauseMessages.text = "Your Practice is Paused"
         } else if
@@ -36,11 +38,23 @@ class NGPause: UIViewController{
             (delegate!.title!! == "newLesson") {
                 self.pauseMessages.text = "Your Game is Paused"
         } else {
-            self.pauseMessages.text = "thisOneGoesToNothing"
+            self.pauseMessages.text = "thisOneGoesToNothing!"
         }
         
-    }
-    
+        //for TAP HERE TO RESUME
+        if (delegate!.title!! == "newPractice") {
+            resumeMessages.text = "TAP HERE TO RESUME PRACTICE"
+        } else if
+            (delegate!.title!! == "newGame") {
+            self.resumeMessages.text = "TAP HERE TO RESUME GAME"
+        } else if
+            (delegate!.title!! == "newLesson") {
+            self.resumeMessages.text = "TAP HERE TO RESUME LESSON"
+        } else {
+            self.resumeMessages.text = "thisOneGoesToNothing!"
+        }
+}
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
