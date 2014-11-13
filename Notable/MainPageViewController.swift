@@ -27,8 +27,9 @@ class MainPageViewController: UIViewController,UITableViewDelegate ,UITableViewD
     let categoriesButtonTag = 4
     
     var width:NSNumber!, height:NSNumber!
+    var sound:Sound!
     
-
+    
     @IBOutlet var navItem: UINavigationItem!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,7 +40,7 @@ class MainPageViewController: UIViewController,UITableViewDelegate ,UITableViewD
         
         width = NSUserDefaults.standardUserDefaults().objectForKey("width") as NSNumber
         height = NSUserDefaults.standardUserDefaults().objectForKey("height") as NSNumber
-
+        
         println("screenWidth= \(width) screenHeight= \(height)")
         
         //prepareUI()
@@ -54,10 +55,10 @@ class MainPageViewController: UIViewController,UITableViewDelegate ,UITableViewD
         
         
         self.navigationController?.setNavigationBarHidden(false, animated: true)
-
+        
         // Do any additional setup after loading the view.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -66,20 +67,19 @@ class MainPageViewController: UIViewController,UITableViewDelegate ,UITableViewD
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
+        sound = Sound()
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
         
         
-
-        
-        
-           }
+    }
     
-
+    
     func prepareNavigationBar(){
         
         //for settings button
-        let image = UIImage(named: "settings_button") as UIImage?
+        let image = UIImage(named: "settings") as UIImage?
         let uiButton    = UIButton.buttonWithType(UIButtonType.System) as UIButton
-        uiButton.frame  = CGRectMake(0, 0, 25, 25)
+        uiButton.frame  = CGRectMake(0, 0, 30, 30)
         uiButton.setBackgroundImage(image, forState: UIControlState.Normal)
         uiButton.setTitle("", forState: UIControlState.Normal);
         uiButton.addTarget(self, action:"settingsButtonAction:", forControlEvents: UIControlEvents.TouchUpInside)
@@ -93,7 +93,6 @@ class MainPageViewController: UIViewController,UITableViewDelegate ,UITableViewD
     
     
     @IBAction func settingsButtonAction(sender:UIButton)
-        
     {
         println("Button Action From Code")
         self.performSegueWithIdentifier("goToSettings", sender: nil)
@@ -105,15 +104,15 @@ class MainPageViewController: UIViewController,UITableViewDelegate ,UITableViewD
         var point1 = Point(userName: "Alexander", point: "110p", madelsImage: "Gold.png")
         var point2 = Point(userName: "Alexander", point: "120p", madelsImage: "Silver.png")
         var point3 = Point(userName: "Alexander", point: "130p", madelsImage: "Bronze.png")
-
-
+        
+        
         
         
         arrayOfPoints.append(point1)
         arrayOfPoints.append(point2)
         arrayOfPoints.append(point3)
-
-       
+        
+        
         
     }
     
@@ -124,7 +123,7 @@ class MainPageViewController: UIViewController,UITableViewDelegate ,UITableViewD
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let pointCell :PointTableCell = self.pointsTableView.dequeueReusableCellWithIdentifier("pointCell") as PointTableCell
-      
+        
         
         let currentPoint = arrayOfPoints[indexPath.row]
         pointCell.setCell(currentPoint.userName, pointLabel: currentPoint.point, image: currentPoint.madelsImage)
@@ -164,6 +163,8 @@ class MainPageViewController: UIViewController,UITableViewDelegate ,UITableViewD
         
         println("newGame!!!!")
         self.performSegueWithIdentifier("goToNewGame", sender: nil)
+        
+        sound.playSound(sound.confirmSound)
         
     }
     

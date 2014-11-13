@@ -1,0 +1,1699 @@
+{
+    "type": "database",
+    "name": "data",
+    "objects": [
+        {
+            "type": "table",
+            "database": null,
+            "name": "questions",
+            "withoutRowId": true,
+            "ddl": "CREATE TABLE questions (questionType TEXT(255) DEFAULT NULL,id INTEGER PRIMARY KEY,questionContent TEXT DEFAULT NULL,questionCorrect NUMERIC DEFAULT 0,questionIncorrect NUMERIC DEFAULT 0,questionAnswer TEXT DEFAULT NULL,questionCategory INTEGER DEFAULT NULL,questionExtraInfo TEXT(255) DEFAULT NULL)",
+            "columns": [
+                {
+                    "name": "questionType",
+                    "type": "TEXT",
+                    "constraints": [
+                        {
+                            "type": "DEFAULT",
+                            "definition": "DEFAULT NULL"
+                        }
+                    ]
+                },
+                {
+                    "name": "id",
+                    "type": "INTEGER",
+                    "constraints": [
+                        {
+                            "type": "PRIMARY KEY",
+                            "definition": "PRIMARY KEY"
+                        }
+                    ]
+                },
+                {
+                    "name": "questionContent",
+                    "type": "TEXT",
+                    "constraints": [
+                        {
+                            "type": "DEFAULT",
+                            "definition": "DEFAULT NULL"
+                        }
+                    ]
+                },
+                {
+                    "name": "questionCorrect",
+                    "type": "NUMERIC",
+                    "constraints": [
+                        {
+                            "type": "DEFAULT",
+                            "definition": "DEFAULT 0"
+                        }
+                    ]
+                },
+                {
+                    "name": "questionIncorrect",
+                    "type": "NUMERIC",
+                    "constraints": [
+                        {
+                            "type": "DEFAULT",
+                            "definition": "DEFAULT 0"
+                        }
+                    ]
+                },
+                {
+                    "name": "questionAnswer",
+                    "type": "TEXT",
+                    "constraints": [
+                        {
+                            "type": "DEFAULT",
+                            "definition": "DEFAULT NULL"
+                        }
+                    ]
+                },
+                {
+                    "name": "questionCategory",
+                    "type": "INTEGER",
+                    "constraints": [
+                        {
+                            "type": "DEFAULT",
+                            "definition": "DEFAULT NULL"
+                        }
+                    ]
+                },
+                {
+                    "name": "questionExtraInfo",
+                    "type": "TEXT",
+                    "constraints": [
+                        {
+                            "type": "DEFAULT",
+                            "definition": "DEFAULT NULL"
+                        }
+                    ]
+                }
+            ],
+            "rows": [
+                [
+                    "note",
+                    2,
+                    "C4",
+                    0,
+                    0,
+                    "C4",
+                    1,
+                    "gclef"
+                ],
+                [
+                    "note",
+                    3,
+                    "D4",
+                    0,
+                    0,
+                    "D4",
+                    1,
+                    "gclef"
+                ],
+                [
+                    "note",
+                    4,
+                    "E4",
+                    0,
+                    0,
+                    "E4",
+                    1,
+                    "gclef"
+                ],
+                [
+                    "note",
+                    5,
+                    "F4",
+                    0,
+                    0,
+                    "F4",
+                    1,
+                    "gclef"
+                ],
+                [
+                    "note",
+                    6,
+                    "G4",
+                    0,
+                    0,
+                    "G4",
+                    1,
+                    "gclef"
+                ],
+                [
+                    "note",
+                    7,
+                    "A4",
+                    0,
+                    0,
+                    "A4",
+                    1,
+                    "gclef"
+                ],
+                [
+                    "note",
+                    8,
+                    "H4",
+                    0,
+                    0,
+                    "H4",
+                    1,
+                    "gclef"
+                ],
+                [
+                    "note",
+                    9,
+                    "C5",
+                    0,
+                    0,
+                    "C5",
+                    1,
+                    "gclef"
+                ],
+                [
+                    "note",
+                    10,
+                    "D5",
+                    0,
+                    0,
+                    "D5",
+                    2,
+                    "gclef"
+                ],
+                [
+                    "note",
+                    11,
+                    "E5",
+                    0,
+                    0,
+                    "E5",
+                    2,
+                    "gclef"
+                ],
+                [
+                    "note",
+                    12,
+                    "F5",
+                    0,
+                    0,
+                    "F5",
+                    2,
+                    "gclef"
+                ],
+                [
+                    "note",
+                    13,
+                    "G5",
+                    0,
+                    0,
+                    "G5",
+                    2,
+                    "gclef"
+                ],
+                [
+                    "note",
+                    14,
+                    "H5",
+                    0,
+                    0,
+                    "H5",
+                    2,
+                    "gclef"
+                ],
+                [
+                    "note",
+                    15,
+                    "C6",
+                    0,
+                    0,
+                    "C6",
+                    2,
+                    "gclef"
+                ],
+                [
+                    "note",
+                    16,
+                    "D6",
+                    0,
+                    0,
+                    "D6",
+                    2,
+                    "gclef"
+                ],
+                [
+                    "note",
+                    17,
+                    "H3",
+                    0,
+                    0,
+                    "H3",
+                    2,
+                    "gclef"
+                ],
+                [
+                    "note",
+                    18,
+                    "G3",
+                    0,
+                    0,
+                    "G3",
+                    2,
+                    "gclef"
+                ],
+                [
+                    "note",
+                    19,
+                    "F3",
+                    0,
+                    0,
+                    "F3",
+                    2,
+                    "gclef"
+                ],
+                [
+                    "note",
+                    20,
+                    "C#4",
+                    0,
+                    0,
+                    "C4-sharp",
+                    3,
+                    "gclef"
+                ],
+                [
+                    "note",
+                    21,
+                    "D#4",
+                    0,
+                    0,
+                    "D4-sharp",
+                    3,
+                    "gclef"
+                ],
+                [
+                    "note",
+                    22,
+                    "E#4",
+                    0,
+                    0,
+                    "E4-sharp",
+                    3,
+                    "gclef"
+                ],
+                [
+                    "note",
+                    23,
+                    "F#4",
+                    0,
+                    0,
+                    "F4-sharp",
+                    3,
+                    "gclef"
+                ],
+                [
+                    "note",
+                    24,
+                    "G#4",
+                    0,
+                    0,
+                    "G4-sharp",
+                    3,
+                    "gclef"
+                ],
+                [
+                    "note",
+                    25,
+                    "A#4",
+                    0,
+                    0,
+                    "A4-sharp",
+                    3,
+                    "gclef"
+                ],
+                [
+                    "note",
+                    26,
+                    "H#4",
+                    0,
+                    0,
+                    "H4-sharp",
+                    3,
+                    "gclef"
+                ],
+                [
+                    "note",
+                    27,
+                    "Cb4",
+                    0,
+                    0,
+                    "C4-flat",
+                    3,
+                    "gclef"
+                ],
+                [
+                    "note",
+                    28,
+                    "Db4",
+                    0,
+                    0,
+                    "D4-flat",
+                    3,
+                    "gclef"
+                ],
+                [
+                    "note",
+                    29,
+                    "Eb4",
+                    0,
+                    0,
+                    "E4-flat",
+                    3,
+                    "gclef"
+                ],
+                [
+                    "note",
+                    30,
+                    "Fb4",
+                    0,
+                    0,
+                    "F4-flat",
+                    3,
+                    "gclef"
+                ],
+                [
+                    "note",
+                    31,
+                    "Gb4",
+                    0,
+                    0,
+                    "G4-flat",
+                    3,
+                    "gclef"
+                ],
+                [
+                    "note",
+                    32,
+                    "Ab4",
+                    0,
+                    0,
+                    "A4-flat",
+                    3,
+                    "gclef"
+                ],
+                [
+                    "note",
+                    33,
+                    "Hb4",
+                    0,
+                    0,
+                    "H4-flat",
+                    3,
+                    "gclef"
+                ],
+                [
+                    "note",
+                    34,
+                    "C4|E4|G4",
+                    0,
+                    0,
+                    "C-major",
+                    4,
+                    "gclef"
+                ],
+                [
+                    "note",
+                    35,
+                    "D4|F#4|A4",
+                    0,
+                    0,
+                    "D-major",
+                    4,
+                    "gclef"
+                ],
+                [
+                    "note",
+                    36,
+                    "E4|G#4|H4",
+                    0,
+                    0,
+                    "E-major",
+                    4,
+                    "gclef"
+                ],
+                [
+                    "note",
+                    37,
+                    "F4|A4|C5",
+                    0,
+                    0,
+                    "F-major",
+                    4,
+                    "gclef"
+                ],
+                [
+                    "note",
+                    38,
+                    "G4|H4|D5",
+                    0,
+                    0,
+                    "G-major",
+                    4,
+                    "gclef"
+                ],
+                [
+                    "note",
+                    39,
+                    "A4|C#5|E5",
+                    0,
+                    0,
+                    "A-major",
+                    4,
+                    "gclef"
+                ],
+                [
+                    "note",
+                    40,
+                    "H4|D#5|F#5",
+                    0,
+                    0,
+                    "H-major",
+                    4,
+                    "gclef"
+                ],
+                [
+                    "note",
+                    41,
+                    "C4",
+                    0,
+                    0,
+                    "C4",
+                    5,
+                    "fclef"
+                ],
+                [
+                    "note",
+                    42,
+                    "H3",
+                    0,
+                    0,
+                    "H3",
+                    5,
+                    "fclef"
+                ],
+                [
+                    "note",
+                    43,
+                    "A3",
+                    0,
+                    0,
+                    "A3",
+                    5,
+                    "fclef"
+                ],
+                [
+                    "note",
+                    44,
+                    "G3",
+                    0,
+                    0,
+                    "G3",
+                    5,
+                    "fclef"
+                ],
+                [
+                    "note",
+                    45,
+                    "F3",
+                    0,
+                    0,
+                    "F3",
+                    5,
+                    "fclef"
+                ],
+                [
+                    "note",
+                    46,
+                    "E3",
+                    0,
+                    0,
+                    "E3",
+                    5,
+                    "fclef"
+                ],
+                [
+                    "note",
+                    47,
+                    "D3",
+                    0,
+                    0,
+                    "D3",
+                    5,
+                    "fclef"
+                ],
+                [
+                    "note",
+                    48,
+                    "C3",
+                    0,
+                    0,
+                    "C3",
+                    5,
+                    "fclef"
+                ],
+                [
+                    "note",
+                    49,
+                    "H2",
+                    0,
+                    0,
+                    "H2",
+                    6,
+                    "fclef"
+                ],
+                [
+                    "note",
+                    50,
+                    "A2",
+                    0,
+                    0,
+                    "A2",
+                    6,
+                    "fclef"
+                ],
+                [
+                    "note",
+                    51,
+                    "G2",
+                    0,
+                    0,
+                    "G2",
+                    6,
+                    "fclef"
+                ],
+                [
+                    "note",
+                    52,
+                    "F2",
+                    0,
+                    0,
+                    "F2",
+                    6,
+                    "fclef"
+                ],
+                [
+                    "note",
+                    53,
+                    "E2",
+                    0,
+                    0,
+                    "E2",
+                    6,
+                    "fclef"
+                ],
+                [
+                    "note",
+                    54,
+                    "D2",
+                    0,
+                    0,
+                    "D2",
+                    6,
+                    "fclef"
+                ],
+                [
+                    "note",
+                    55,
+                    "C2",
+                    0,
+                    0,
+                    "C2",
+                    6,
+                    "fclef"
+                ],
+                [
+                    "note",
+                    56,
+                    "H1",
+                    0,
+                    0,
+                    "H1",
+                    6,
+                    "fclef"
+                ],
+                [
+                    "note",
+                    57,
+                    "A1",
+                    0,
+                    0,
+                    "A1",
+                    6,
+                    "fclef"
+                ],
+                [
+                    "note",
+                    58,
+                    "G1",
+                    0,
+                    0,
+                    "G1",
+                    6,
+                    "fclef"
+                ],
+                [
+                    "note",
+                    59,
+                    "F1",
+                    0,
+                    0,
+                    "F1",
+                    6,
+                    "fclef"
+                ],
+                [
+                    "note",
+                    60,
+                    "H2|D#3|F#3",
+                    0,
+                    0,
+                    "H-major",
+                    8,
+                    "fclef"
+                ],
+                [
+                    "note",
+                    61,
+                    "A2|C#3|E3",
+                    0,
+                    0,
+                    "A-major",
+                    8,
+                    "fclef"
+                ],
+                [
+                    "note",
+                    62,
+                    "G2|H2|D3",
+                    0,
+                    0,
+                    "G-major",
+                    8,
+                    "fclef"
+                ],
+                [
+                    "note",
+                    63,
+                    "F3|A3|C4",
+                    0,
+                    0,
+                    "F-major",
+                    8,
+                    "fclef"
+                ],
+                [
+                    "note",
+                    64,
+                    "E3|G#3|H3",
+                    0,
+                    0,
+                    "E-major",
+                    8,
+                    "fclef"
+                ],
+                [
+                    "note",
+                    65,
+                    "D3|F#3|A3",
+                    0,
+                    0,
+                    "D-major",
+                    8,
+                    "fclef"
+                ],
+                [
+                    "note",
+                    66,
+                    "C3|E3|G3",
+                    0,
+                    0,
+                    "C-major",
+                    8,
+                    "fclef"
+                ],
+                [
+                    "note",
+                    67,
+                    "C#3",
+                    0,
+                    0,
+                    "C3-sharp",
+                    7,
+                    "fclef"
+                ],
+                [
+                    "note",
+                    68,
+                    "D#3",
+                    0,
+                    0,
+                    "D3-sharp",
+                    7,
+                    "fclef"
+                ],
+                [
+                    "note",
+                    69,
+                    "E#3",
+                    0,
+                    0,
+                    "E3-sharp",
+                    7,
+                    "fclef"
+                ],
+                [
+                    "note",
+                    70,
+                    "F#2",
+                    0,
+                    0,
+                    "F2-sharp",
+                    7,
+                    "fclef"
+                ],
+                [
+                    "note",
+                    71,
+                    "G#2",
+                    0,
+                    0,
+                    "G2-sharp",
+                    7,
+                    "fclef"
+                ],
+                [
+                    "note",
+                    72,
+                    "A#2",
+                    0,
+                    0,
+                    "A2-sharp",
+                    7,
+                    "fclef"
+                ],
+                [
+                    "note",
+                    73,
+                    "H#2",
+                    0,
+                    0,
+                    "H2-sharp",
+                    7,
+                    "fclef"
+                ],
+                [
+                    "note",
+                    74,
+                    "Cb3",
+                    0,
+                    0,
+                    "C3-flat",
+                    7,
+                    "fclef"
+                ],
+                [
+                    "note",
+                    75,
+                    "Db3",
+                    0,
+                    0,
+                    "D3-flat",
+                    7,
+                    "fclef"
+                ],
+                [
+                    "note",
+                    76,
+                    "Eb3",
+                    0,
+                    0,
+                    "E3-flat",
+                    7,
+                    "fclef"
+                ],
+                [
+                    "note",
+                    77,
+                    "Fb2",
+                    0,
+                    0,
+                    "F2-flat",
+                    7,
+                    "fclef"
+                ],
+                [
+                    "note",
+                    78,
+                    "Gb2",
+                    0,
+                    0,
+                    "G2-flat",
+                    7,
+                    "fclef"
+                ],
+                [
+                    "note",
+                    79,
+                    "Ab2",
+                    0,
+                    0,
+                    "A2-flat",
+                    7,
+                    "fclef"
+                ],
+                [
+                    "note",
+                    80,
+                    "Hb2",
+                    0,
+                    0,
+                    "H2-flat",
+                    7,
+                    "fclef"
+                ],
+                [
+                    "note",
+                    81,
+                    "C4|Eb4|G4",
+                    0,
+                    0,
+                    "C-minor",
+                    9,
+                    "gclef"
+                ],
+                [
+                    "note",
+                    82,
+                    "D4|F4|A4",
+                    0,
+                    0,
+                    "D-minor",
+                    9,
+                    "gclef"
+                ],
+                [
+                    "note",
+                    83,
+                    "E4|G4|H4",
+                    0,
+                    0,
+                    "E-minor",
+                    9,
+                    "gclef"
+                ],
+                [
+                    "note",
+                    84,
+                    "F4|Ab4|C5",
+                    0,
+                    0,
+                    "F-minor",
+                    9,
+                    "gclef"
+                ],
+                [
+                    "note",
+                    85,
+                    "G4|Hb4|D5",
+                    0,
+                    0,
+                    "G-minor",
+                    9,
+                    "gclef"
+                ],
+                [
+                    "note",
+                    86,
+                    "A4|C5|E5",
+                    0,
+                    0,
+                    "A-minor",
+                    9,
+                    "gclef"
+                ],
+                [
+                    "note",
+                    87,
+                    "H4|D5|F#5",
+                    0,
+                    0,
+                    "H-minor",
+                    9,
+                    "gclef"
+                ],
+                [
+                    "note",
+                    88,
+                    "C3|Eb3|G3",
+                    0,
+                    0,
+                    "C-minor",
+                    10,
+                    "fclef"
+                ],
+                [
+                    "note",
+                    89,
+                    "D3|F3|A3",
+                    0,
+                    0,
+                    "D-minor",
+                    10,
+                    "fclef"
+                ],
+                [
+                    "note",
+                    90,
+                    "E3|G3|H3",
+                    0,
+                    0,
+                    "E-minor",
+                    10,
+                    "fclef"
+                ],
+                [
+                    "note",
+                    91,
+                    "F3|Ab3|C4",
+                    0,
+                    0,
+                    "F-minor",
+                    10,
+                    "fclef"
+                ],
+                [
+                    "note",
+                    92,
+                    "G2|Hb2|D3",
+                    0,
+                    0,
+                    "G-minor",
+                    10,
+                    "fclef"
+                ],
+                [
+                    "note",
+                    93,
+                    "A2|C3|E3",
+                    0,
+                    0,
+                    "A-minor",
+                    10,
+                    "fclef"
+                ],
+                [
+                    "note",
+                    94,
+                    "H2|D3|F#3",
+                    0,
+                    0,
+                    "H-minor",
+                    10,
+                    "fclef"
+                ],
+                [
+                    "note",
+                    95,
+                    "X4",
+                    0,
+                    0,
+                    "X",
+                    11,
+                    "gclef"
+                ],
+                [
+                    "note",
+                    96,
+                    "X4?sus",
+                    0,
+                    0,
+                    "Xsus",
+                    11,
+                    "gclef"
+                ],
+                [
+                    "note",
+                    97,
+                    "X4?7",
+                    0,
+                    0,
+                    "X7",
+                    11,
+                    "gclef"
+                ],
+                [
+                    "note",
+                    98,
+                    "X4?maj7",
+                    0,
+                    0,
+                    "Xmaj7",
+                    11,
+                    "gclef"
+                ],
+                [
+                    "note",
+                    99,
+                    "X4?min7",
+                    0,
+                    0,
+                    "Xmaj",
+                    11,
+                    "gclef"
+                ],
+                [
+                    "note",
+                    100,
+                    "X4?dim",
+                    0,
+                    0,
+                    "Xdim",
+                    11,
+                    "gclef"
+                ],
+                [
+                    "note",
+                    101,
+                    "X4?6",
+                    0,
+                    0,
+                    "X6",
+                    11,
+                    "gclef"
+                ],
+                [
+                    "note",
+                    102,
+                    "X4?min6",
+                    0,
+                    0,
+                    "Xmin6",
+                    11,
+                    "gclef"
+                ],
+                [
+                    "note",
+                    103,
+                    "X4?9",
+                    0,
+                    0,
+                    "X9",
+                    11,
+                    "gclef"
+                ],
+                [
+                    "note",
+                    104,
+                    "X4?min9",
+                    0,
+                    0,
+                    "Xmin9",
+                    11,
+                    "gclef"
+                ],
+                [
+                    "note",
+                    105,
+                    "X4?maj9",
+                    0,
+                    0,
+                    "Xmaj9",
+                    11,
+                    "gclef"
+                ],
+                [
+                    "note",
+                    106,
+                    "X4?11",
+                    0,
+                    0,
+                    "X11",
+                    11,
+                    "gclef"
+                ],
+                [
+                    "note",
+                    107,
+                    "X4?13",
+                    0,
+                    0,
+                    "X13",
+                    11,
+                    "gclef"
+                ],
+                [
+                    "image",
+                    108,
+                    "half-note.png",
+                    0,
+                    0,
+                    "1\/2 (half) note",
+                    12,
+                    "What note is this?"
+                ],
+                [
+                    "image",
+                    109,
+                    "quarter-note.png",
+                    0,
+                    0,
+                    "1\/4 (quarter) note",
+                    12,
+                    "What note is this?"
+                ],
+                [
+                    "image",
+                    110,
+                    "8th-note.png",
+                    0,
+                    0,
+                    "1\/8 (eighth) note",
+                    12,
+                    "What note is this?"
+                ],
+                [
+                    "image",
+                    111,
+                    "whole-note.png",
+                    0,
+                    0,
+                    "1\/1 (whole) note",
+                    12,
+                    "What note is this?"
+                ],
+                [
+                    "image",
+                    112,
+                    "16th-note.png",
+                    0,
+                    0,
+                    "1\/16 (sixteenth) note",
+                    12,
+                    "What note is this?"
+                ],
+                [
+                    "image",
+                    113,
+                    "32nd-note.png",
+                    0,
+                    0,
+                    "1\/32 (thirtysecond) note",
+                    12,
+                    "What note is this?"
+                ],
+                [
+                    "image",
+                    114,
+                    "64th-note.png",
+                    0,
+                    0,
+                    "1\/64 (sixtyfourth) note",
+                    12,
+                    "What note is this?"
+                ],
+                [
+                    "image",
+                    115,
+                    "whole-rest.png",
+                    0,
+                    0,
+                    "1\/1 (whole) rest",
+                    12,
+                    "What rest is this?"
+                ],
+                [
+                    "image",
+                    116,
+                    "half-rest.png",
+                    0,
+                    0,
+                    "1\/2 (half) rest",
+                    12,
+                    "What rest is this?"
+                ],
+                [
+                    "image",
+                    117,
+                    "quarter-rest.png",
+                    0,
+                    0,
+                    "1\/4 (quarter) rest",
+                    12,
+                    "What rest is this?"
+                ],
+                [
+                    "image",
+                    118,
+                    "8th-rest.png",
+                    0,
+                    0,
+                    "1\/8 (eighth) rest",
+                    12,
+                    "What rest is this?"
+                ],
+                [
+                    "image",
+                    119,
+                    "16th-rest.png",
+                    0,
+                    0,
+                    "1\/16 (sixteenth) rest",
+                    12,
+                    "What rest is this?"
+                ],
+                [
+                    "image",
+                    120,
+                    "32nd-rest.png",
+                    0,
+                    0,
+                    "1\/32 (thirtysecond) rest",
+                    12,
+                    "What rest is this?"
+                ],
+                [
+                    "image",
+                    121,
+                    "64th-rest.png",
+                    0,
+                    0,
+                    "1\/64 (sixtyfourth) rest",
+                    12,
+                    "What rest is this?"
+                ]
+            ]
+        },
+        {
+            "type": "table",
+            "database": null,
+            "name": "categories",
+            "withoutRowId": true,
+            "ddl": "CREATE TABLE categories (id INTEGER  PRIMARY KEY AUTOINCREMENT DEFAULT NULL,name TEXT(255),position INTEGER DEFAULT 0,reqLevel INTEGER DEFAULT 0)",
+            "columns": [
+                {
+                    "name": "id",
+                    "type": "INTEGER",
+                    "constraints": [
+                        {
+                            "type": "PRIMARY KEY",
+                            "definition": "PRIMARY KEY AUTOINCREMENT "
+                        },
+                        {
+                            "type": "DEFAULT",
+                            "definition": "DEFAULT NULL"
+                        }
+                    ]
+                },
+                {
+                    "name": "name",
+                    "type": "TEXT"
+                },
+                {
+                    "name": "position",
+                    "type": "INTEGER",
+                    "constraints": [
+                        {
+                            "type": "DEFAULT",
+                            "definition": "DEFAULT 0"
+                        }
+                    ]
+                },
+                {
+                    "name": "reqLevel",
+                    "type": "INTEGER",
+                    "constraints": [
+                        {
+                            "type": "DEFAULT",
+                            "definition": "DEFAULT 0"
+                        }
+                    ]
+                }
+            ],
+            "rows": [
+                [
+                    1,
+                    "Basic G-clef",
+                    1,
+                    ""
+                ],
+                [
+                    2,
+                    "Intermediate G-clef",
+                    2,
+                    ""
+                ],
+                [
+                    3,
+                    "Advanced G-clef",
+                    3,
+                    ""
+                ],
+                [
+                    4,
+                    "Easy chords - G-clef",
+                    4,
+                    ""
+                ],
+                [
+                    5,
+                    "Basic F-clef",
+                    6,
+                    ""
+                ],
+                [
+                    6,
+                    "Intermediate F-clef",
+                    7,
+                    ""
+                ],
+                [
+                    7,
+                    "Advanced F-clef",
+                    8,
+                    0
+                ],
+                [
+                    8,
+                    "Easy chords - F-clef",
+                    9,
+                    0
+                ],
+                [
+                    9,
+                    "Intermediate chords - G-clef",
+                    5,
+                    0
+                ],
+                [
+                    10,
+                    "Intermediate chords - F-clef",
+                    10,
+                    0
+                ],
+                [
+                    12,
+                    "Notes and rests",
+                    0,
+                    0
+                ]
+            ]
+        },
+        {
+            "type": "table",
+            "database": null,
+            "name": "statistics",
+            "withoutRowId": true,
+            "ddl": "CREATE TABLE statistics (id INTEGER PRIMARY KEY,name TEXT,seconds NUMERIC DEFAULT 0,noCorrect NUMERIC DEFAULT 0,noIncorrect NUMERIC DEFAULT 0,scoreType NUMERIC)",
+            "columns": [
+                {
+                    "name": "id",
+                    "type": "INTEGER",
+                    "constraints": [
+                        {
+                            "type": "PRIMARY KEY",
+                            "definition": "PRIMARY KEY"
+                        }
+                    ]
+                },
+                {
+                    "name": "name",
+                    "type": "TEXT"
+                },
+                {
+                    "name": "seconds",
+                    "type": "NUMERIC",
+                    "constraints": [
+                        {
+                            "type": "DEFAULT",
+                            "definition": "DEFAULT 0"
+                        }
+                    ]
+                },
+                {
+                    "name": "noCorrect",
+                    "type": "NUMERIC",
+                    "constraints": [
+                        {
+                            "type": "DEFAULT",
+                            "definition": "DEFAULT 0"
+                        }
+                    ]
+                },
+                {
+                    "name": "noIncorrect",
+                    "type": "NUMERIC",
+                    "constraints": [
+                        {
+                            "type": "DEFAULT",
+                            "definition": "DEFAULT 0"
+                        }
+                    ]
+                },
+                {
+                    "name": "scoreType",
+                    "type": "NUMERIC"
+                }
+            ],
+            "rows": [
+            ]
+        },
+        {
+            "type": "table",
+            "database": null,
+            "name": "lessons",
+            "withoutRowId": true,
+            "ddl": "CREATE TABLE \\"lessons\\" (\n\\"id\\" INTEGER PRIMARY KEY AUTOINCREMENT,\n\\"category\\" INTEGER,\n\\"title\\" TEXT,\n\\"type\\" TEXT,\n\\"content\\" TEXT,\n\\"voiceTrack\\" TEXT,\n\\"extra\\" TEXT,\n\\"position\\" INTEGER\n)",
+            "columns": [
+                {
+                    "name": "id",
+                    "type": "INTEGER",
+                    "constraints": [
+                        {
+                            "type": "PRIMARY KEY",
+                            "definition": "PRIMARY KEY AUTOINCREMENT"
+                        }
+                    ]
+                },
+                {
+                    "name": "category",
+                    "type": "INTEGER"
+                },
+                {
+                    "name": "title",
+                    "type": "TEXT"
+                },
+                {
+                    "name": "type",
+                    "type": "TEXT"
+                },
+                {
+                    "name": "content",
+                    "type": "TEXT"
+                },
+                {
+                    "name": "voiceTrack",
+                    "type": "TEXT"
+                },
+                {
+                    "name": "extra",
+                    "type": "TEXT"
+                },
+                {
+                    "name": "position",
+                    "type": "INTEGER"
+                }
+            ],
+            "rows": [
+                [
+                    1,
+                    1,
+                    "Notlinjerna",
+                    "image",
+                    "l1p1.png",
+                    null,
+                    "Alla notlinjer.. blablabla",
+                    0
+                ],
+                [
+                    2,
+                    1,
+                    "G-klav",
+                    "image",
+                    "l1p2.png",
+                    null,
+                    "Såhär ser en G-klav ut!",
+                    1
+                ],
+                [
+                    3,
+                    1,
+                    "Notlinjen G",
+                    "image",
+                    "l1p3.png",
+                    null,
+                    "Linjen som ringas in av G-klaven (markerad i rött) noterar vilken rad tonen G ligger på",
+                    2
+                ],
+                [
+                    4,
+                    1,
+                    "Noternas namn",
+                    "image",
+                    "l1p4.png",
+                    null,
+                    "Detta visar vad noterna heter utifrån G",
+                    3
+                ],
+                [
+                    5,
+                    1,
+                    "Forts. av namn",
+                    "image",
+                    "l1p5.png",
+                    null,
+                    "Här får vi slut på rader.. Vad gör vi?",
+                    4
+                ],
+                [
+                    6,
+                    1,
+                    "Forts. av namn",
+                    "image",
+                    "l1p6.png",
+                    null,
+                    "Jo! Vi lägger till en så kallad hjälplinje! och kan fortsätta uppåt",
+                    5
+                ],
+                [
+                    7,
+                    1,
+                    "Forts. av namn",
+                    "image",
+                    "l1p7.png",
+                    null,
+                    "Går vi ner ifrån G heter noterna som visat i bilden.",
+                    6
+                ],
+                [
+                    8,
+                    1,
+                    "Ny klav",
+                    "text",
+                    "Vi kan såklart fortsätta neråt med fler hjälplinjer, men om man alltid har en lägre stämma skulle det bara bli svårläst. Vad gör vi?",
+                    null,
+                    null,
+                    7
+                ],
+                [
+                    9,
+                    1,
+                    "F-klav",
+                    "image",
+                    "l1p8.png",
+                    null,
+                    "Jo! Vi byter ut G-klaven mot en så kallad F-klav, som fått sitt namn av att den visar vilken linje tonen F ligger på (här markerad i rött). Man kan antingen tänka att noten F ligger på linjen mellan de två prickarna, eller på linjen som F-klaven utgår ifrån!",
+                    8
+                ],
+                [
+                    10,
+                    1,
+                    "Samband med G-klav?",
+                    "image",
+                    "l1p9.png",
+                    null,
+                    "Men hur hänger de olika klavarna ihop? Enkelt! Denna tonen C i G-klav",
+                    9
+                ],
+                [
+                    11,
+                    1,
+                    "Samband med G-klav",
+                    "image",
+                    "l1p10.png",
+                    null,
+                    "Är densamma som denna tonen C i F-klav! Man kan helt enkelt tänka att man fortsätter jobba ner i den nya oktaven",
+                    10
+                ],
+                [
+                    12,
+                    1,
+                    "Noternas namn i F-klav",
+                    "image",
+                    "l1p11.png",
+                    null,
+                    "Av detta följer att noternas namn i F-klav heter som så!",
+                    11
+                ],
+                [
+                    13,
+                    1,
+                    "Forts. av namn",
+                    "image",
+                    "l1p12.png",
+                    null,
+                    null,
+                    12
+                ],
+                [
+                    14,
+                    1,
+                    "Forts. av namn",
+                    "image",
+                    "l1p13.png",
+                    null,
+                    null,
+                    13
+                ]
+            ]
+        },
+        {
+            "type": "table",
+            "database": null,
+            "name": "categoriesLessons",
+            "withoutRowId": true,
+            "ddl": "CREATE TABLE \\"categoriesLessons\\" (\n\\"id\\" INTEGER PRIMARY KEY AUTOINCREMENT,\n\\"title\\" TEXT,\n\\"descr\\" TEXT,\n\\"position\\" INTEGER\n)",
+            "columns": [
+                {
+                    "name": "id",
+                    "type": "INTEGER",
+                    "constraints": [
+                        {
+                            "type": "PRIMARY KEY",
+                            "definition": "PRIMARY KEY AUTOINCREMENT"
+                        }
+                    ]
+                },
+                {
+                    "name": "title",
+                    "type": "TEXT"
+                },
+                {
+                    "name": "descr",
+                    "type": "TEXT"
+                },
+                {
+                    "name": "position",
+                    "type": "INTEGER"
+                }
+            ],
+            "rows": [
+                [
+                    1,
+                    "Basic music theory",
+                    "Note names and clefs",
+                    1
+                ]
+            ]
+        }
+    ]
+}
