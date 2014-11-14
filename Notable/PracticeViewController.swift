@@ -52,10 +52,9 @@ class PracticeViewController: UIViewController {
     
     @IBAction func backButtonAction(sender:UIButton)
     {
-        println("Button Action From Code")
-        self.performSegueWithIdentifier("pausedPracticeModal", sender: nil)
+            var pauseScreen: NGPause = self.storyboard!.instantiateViewControllerWithIdentifier("PausedGameViewController") as NGPause
+            pauseScreen.delegate = self
+            self.title = "newPractice"
+            self.presentViewController(pauseScreen, animated: true, completion: nil)
+        }
     }
-    
-    
-    
-}

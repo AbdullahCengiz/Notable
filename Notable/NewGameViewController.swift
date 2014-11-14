@@ -131,14 +131,6 @@ class NewGameViewController: UIViewController {
         navItem.setLeftBarButtonItem(UIBarButtonItem(customView: menuButton), animated: true)
         navItem.hidesBackButton=true
         
-        //for logo
-        let logo = UIImage(named: "logo")
-        let imageView = UIImageView(image:logo)
-        imageView.frame = CGRectMake(0, 0, 30, 30)
-        imageView.contentMode = UIViewContentMode.ScaleAspectFit
-        navItem.titleView = imageView
-        
-        
         //for settings button
         pointLabel.textColor = UIColor.blackColor()
         pointLabel.frame  = CGRectMake(0, 0, 60, 30)
@@ -152,8 +144,8 @@ class NewGameViewController: UIViewController {
     
     @IBAction func backButtonAction(sender:UIButton) {
         println("Button Action From Code")
-        //self.performSegueWithIdentifier("pausedGameModal", sender: nil)
-        let pauseScreen:NGPause = self.storyboard!.instantiateViewControllerWithIdentifier("PausedGameViewController") as NGPause
+        var pauseScreen:NGPause = self.storyboard!.instantiateViewControllerWithIdentifier("PausedGameViewController") as NGPause
+        self.title="newGame"
         pauseScreen.delegate = self
         self.presentViewController(pauseScreen, animated: true, completion: nil)
     }

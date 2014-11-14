@@ -23,22 +23,6 @@
             <string>Roboto-Light</string>
             <string>Roboto-Light</string>
             <string>Roboto-Light</string>
-            <string>Roboto-Light</string>
-            <string>Roboto-Light</string>
-            <string>Roboto-Light</string>
-            <string>Roboto-Light</string>
-            <string>Roboto-Light</string>
-            <string>Roboto-Light</string>
-            <string>Roboto-Light</string>
-            <string>Roboto-Light</string>
-            <string>Roboto-Light</string>
-            <string>Roboto-Light</string>
-            <string>Roboto-Light</string>
-            <string>Roboto-Light</string>
-            <string>Roboto-Light</string>
-            <string>Roboto-Light</string>
-            <string>Roboto-Light</string>
-            <string>Roboto-Light</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -287,7 +271,6 @@
                         <outlet property="navItem" destination="4Zc-O1-JYQ" id="5Ee-DV-Brk"/>
                         <outlet property="nextButton" destination="hbc-AE-8rG" id="UR8-6s-woj"/>
                         <outlet property="prevButton" destination="xq4-Va-cTV" id="JCx-T4-A7P"/>
-                        <segue destination="A3Y-4v-2Xf" kind="presentation" identifier="pausedLessonModal" id="2XJ-xB-maF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q71-Q0-GLq" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -392,7 +375,7 @@
         <!--NewGameViewController-->
         <scene sceneID="wR1-8d-bQQ">
             <objects>
-                <viewController modalTransitionStyle="crossDissolve" id="92Z-xp-ug9" userLabel="NewGameViewController" customClass="NewGameViewController" customModule="Notable" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="NewGameViewController" storyboardIdentifier="NewGameViewController" modalTransitionStyle="crossDissolve" id="92Z-xp-ug9" userLabel="NewGameViewController" customClass="NewGameViewController" customModule="Notable" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="e82-MD-RM0"/>
                         <viewControllerLayoutGuide type="bottom" id="KfB-aO-cB3"/>
@@ -1014,7 +997,7 @@
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TAP HERE TO RESUME LESSON" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JJR-AA-lRG">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="resumeMessages" text="TAP HERE TO RESUME LESSON" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JJR-AA-lRG">
                                 <rect key="frame" x="181" y="166" width="239" height="20"/>
                                 <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="17"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -1054,17 +1037,50 @@
                                     <action selector="goToMainPageAction:" destination="lsU-gd-WyV" eventType="touchUpInside" id="p0b-fI-qvC"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="resumeButton" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XVd-eH-jD7">
+                                <rect key="frame" x="275" y="191" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="anX-sx-g05"/>
+                                    <constraint firstAttribute="width" constant="50" id="cj6-Ho-FqT"/>
+                                </constraints>
+                                <state key="normal" title="resumeButton">
+                                    <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="resumePage:" destination="lsU-gd-WyV" eventType="touchUpInside" id="a3N-iz-quj"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="settingsButton" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J5D-Wq-WZE">
+                                <rect key="frame" x="245" y="266" width="110" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="110" id="Irs-aT-ibe"/>
+                                    <constraint firstAttribute="height" constant="40" id="bfe-bt-0HH"/>
+                                </constraints>
+                                <state key="normal" title="settingsButton">
+                                    <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="settingsPage:" destination="lsU-gd-WyV" eventType="touchUpInside" id="lra-9q-vFE"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="Zjo-eh-EE2" firstAttribute="top" secondItem="XVd-eH-jD7" secondAttribute="bottom" constant="-47" id="0P2-Qw-DzJ"/>
                             <constraint firstItem="K0H-1T-5TU" firstAttribute="top" secondItem="QWO-Sw-DDg" secondAttribute="bottom" constant="8" id="1Sh-y7-Q12"/>
                             <constraint firstAttribute="centerX" secondItem="Uax-OO-03o" secondAttribute="centerX" constant="-3" id="E6h-8Z-KWn"/>
+                            <constraint firstItem="Zjo-eh-EE2" firstAttribute="leading" secondItem="XVd-eH-jD7" secondAttribute="trailing" constant="-47" id="ECN-pJ-Irc"/>
+                            <constraint firstItem="QWO-Sw-DDg" firstAttribute="centerX" secondItem="J5D-Wq-WZE" secondAttribute="centerX" constant="0.5" id="Pav-hg-R3h"/>
                             <constraint firstItem="9eG-c6-6K7" firstAttribute="leading" secondItem="clW-H2-H5o" secondAttribute="trailing" constant="-137" id="QMN-fX-fcl"/>
                             <constraint firstItem="9eG-c6-6K7" firstAttribute="top" secondItem="K0H-1T-5TU" secondAttribute="bottom" constant="82" id="SLA-x6-MGF"/>
+                            <constraint firstItem="QWO-Sw-DDg" firstAttribute="leading" secondItem="J5D-Wq-WZE" secondAttribute="trailing" constant="-109" id="SWR-ef-kBd"/>
                             <constraint firstItem="QWO-Sw-DDg" firstAttribute="top" secondItem="Zjo-eh-EE2" secondAttribute="bottom" constant="30" id="UnA-F9-rEo"/>
                             <constraint firstItem="JJR-AA-lRG" firstAttribute="top" secondItem="5ZW-Ym-wiM" secondAttribute="bottom" constant="8" id="Vd2-0z-OWX"/>
                             <constraint firstItem="Uax-OO-03o" firstAttribute="top" secondItem="9eG-c6-6K7" secondAttribute="bottom" constant="8" id="W3i-TH-9J1"/>
                             <constraint firstItem="9eG-c6-6K7" firstAttribute="top" secondItem="clW-H2-H5o" secondAttribute="bottom" constant="-36" id="aCE-vv-EEe"/>
+                            <constraint firstItem="QWO-Sw-DDg" firstAttribute="top" secondItem="J5D-Wq-WZE" secondAttribute="bottom" constant="-38" id="b3P-Ma-che"/>
                             <constraint firstAttribute="centerX" secondItem="QWO-Sw-DDg" secondAttribute="centerX" constant="-0.5" id="bRh-Mn-9iY"/>
                             <constraint firstAttribute="centerY" secondItem="QWO-Sw-DDg" secondAttribute="centerY" constant="14" id="jRX-UM-1uY"/>
                             <constraint firstAttribute="centerX" secondItem="5ZW-Ym-wiM" secondAttribute="centerX" constant="-0.5" id="kKl-h2-TT4"/>
@@ -1075,15 +1091,20 @@
                             <constraint firstAttribute="centerX" secondItem="Zjo-eh-EE2" secondAttribute="centerX" id="txM-n1-JyT"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="endMessages" destination="9eG-c6-6K7" id="PrC-Sv-VQu"/>
+                        <outlet property="pauseMessages" destination="5ZW-Ym-wiM" id="cPa-0E-CxG"/>
+                        <outlet property="resumeMessages" destination="JJR-AA-lRG" id="ZJQ-bW-gva"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ti5-vZ-Qci" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="494" y="2689"/>
+            <point key="canvasLocation" x="494" y="2694"/>
         </scene>
         <!--PracticeViewController-->
         <scene sceneID="ru4-kL-R0g">
             <objects>
-                <viewController id="2e5-8g-xL0" userLabel="PracticeViewController" customClass="PracticeViewController" customModule="Notable" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PracticeViewController" id="2e5-8g-xL0" userLabel="PracticeViewController" customClass="PracticeViewController" customModule="Notable" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="GfN-28-dM0"/>
                         <viewControllerLayoutGuide type="bottom" id="HdD-Az-CYr"/>
@@ -1126,7 +1147,6 @@
                     <navigationItem key="navigationItem" id="TFv-fN-45h"/>
                     <connections>
                         <outlet property="navItem" destination="TFv-fN-45h" id="lPh-dq-Nmr"/>
-                        <segue destination="CfS-OD-0r1" kind="presentation" identifier="pausedPracticeModal" id="sLQ-Yb-faJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kpc-Jf-p68" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1232,7 +1252,7 @@
         <!--Settings-->
         <scene sceneID="K7c-Up-lZA">
             <objects>
-                <viewController id="Kgj-Y2-xbP" customClass="SettingsViewController" customModule="Notable" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="settingsViewController" storyboardIdentifier="settingsViewController" title="settingsViewController" id="Kgj-Y2-xbP" customClass="SettingsViewController" customModule="Notable" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="FUD-oq-yCo"/>
                         <viewControllerLayoutGuide type="bottom" id="gHl-gr-5ga"/>
@@ -1323,6 +1343,7 @@
                                                     <constraint firstAttribute="width" constant="50" id="trO-bY-hDX"/>
                                                 </constraints>
                                                 <state key="normal">
+                                                    <color key="titleColor" red="0.89019614459999996" green="0.90980398650000005" blue="0.93725496529999996" alpha="1" colorSpace="deviceRGB"/>
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
@@ -1391,6 +1412,7 @@
                                                     <constraint firstAttribute="width" constant="50" id="wOY-tm-p68"/>
                                                 </constraints>
                                                 <state key="normal">
+                                                    <color key="titleColor" red="0.14117647707462311" green="0.15686275064945221" blue="0.18823531270027161" alpha="1" colorSpace="deviceRGB"/>
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
@@ -1461,6 +1483,7 @@
                                                     <constraint firstAttribute="width" constant="50" id="E0N-V0-rol"/>
                                                 </constraints>
                                                 <state key="normal">
+                                                    <color key="titleColor" red="0.65098041296005249" green="0.19215688109397888" blue="0.22745099663734436" alpha="1" colorSpace="deviceRGB"/>
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
@@ -1532,6 +1555,7 @@
                                                     <constraint firstAttribute="width" constant="50" id="rRp-du-Zd7"/>
                                                 </constraints>
                                                 <state key="normal">
+                                                    <color key="titleColor" red="0.43137258291244507" green="0.83529418706893921" blue="0.41960787773132324" alpha="1" colorSpace="deviceRGB"/>
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
@@ -1600,6 +1624,7 @@
                                                     <constraint firstAttribute="width" constant="50" id="hr1-la-D28"/>
                                                 </constraints>
                                                 <state key="normal">
+                                                    <color key="titleColor" red="0.27450981736183167" green="0.59215688705444336" blue="0.91372555494308472" alpha="1" colorSpace="deviceRGB"/>
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
@@ -1607,7 +1632,7 @@
                                                 </connections>
                                             </button>
                                         </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" red="0.80000007152557373" green="0.82352948188781738" blue="0.84705889225006104" alpha="1" colorSpace="deviceRGB"/>
                                         <constraints>
                                             <constraint firstItem="ezS-FD-hiO" firstAttribute="leading" secondItem="LIb-sK-GOF" secondAttribute="leading" id="1pu-NR-evN"/>
                                             <constraint firstAttribute="trailing" secondItem="InG-Jt-Dcr" secondAttribute="trailing" id="1qz-BZ-DKS"/>

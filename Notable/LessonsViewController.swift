@@ -69,10 +69,9 @@ class LessonsViewController: UIViewController {
     
     @IBAction func backButtonAction(sender:UIButton)
     {
-        println("Button Action From Code")
-            self.performSegueWithIdentifier("pausedLessonModal", sender: nil)
+        var pauseScreen:NGPause = self.storyboard!.instantiateViewControllerWithIdentifier("PausedGameViewController") as NGPause
+        pauseScreen.delegate = self
+        self.title = "newLesson"
+        self.presentViewController(pauseScreen, animated: true, completion: nil)
     }
-    
-    
-    
 }
