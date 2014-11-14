@@ -49,13 +49,6 @@ class MasterNC:UINavigationController, UINavigationControllerDelegate {
         }
     }
 
-/*-(void)popToViewControllerOfClass:(Class)class {
-for (UIViewController *aViewController in [self viewControllers]) {
-if ([aViewController isKindOfClass:class]) {
-reloadDataOnAppear = YES;
-[self popToViewController:aViewController animated:NO];
-}
-}
-}*/
+
 
 }

@@ -280,7 +280,7 @@
         <!--NewGameViewController-->
         <scene sceneID="wR1-8d-bQQ">
             <objects>
-                <viewController modalTransitionStyle="crossDissolve" id="92Z-xp-ug9" userLabel="NewGameViewController" customClass="NewGameViewController" customModule="Notable" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="NewGameViewController" storyboardIdentifier="NewGameViewController" modalTransitionStyle="crossDissolve" id="92Z-xp-ug9" userLabel="NewGameViewController" customClass="NewGameViewController" customModule="Notable" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="e82-MD-RM0"/>
                         <viewControllerLayoutGuide type="bottom" id="KfB-aO-cB3"/>
@@ -942,17 +942,50 @@
                                     <action selector="goToMainPageAction:" destination="lsU-gd-WyV" eventType="touchUpInside" id="p0b-fI-qvC"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="resumeButton" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XVd-eH-jD7">
+                                <rect key="frame" x="275" y="191" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="anX-sx-g05"/>
+                                    <constraint firstAttribute="width" constant="50" id="cj6-Ho-FqT"/>
+                                </constraints>
+                                <state key="normal" title="resumeButton">
+                                    <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="resumePage:" destination="lsU-gd-WyV" eventType="touchUpInside" id="a3N-iz-quj"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="settingsButton" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J5D-Wq-WZE">
+                                <rect key="frame" x="245" y="266" width="110" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="110" id="Irs-aT-ibe"/>
+                                    <constraint firstAttribute="height" constant="40" id="bfe-bt-0HH"/>
+                                </constraints>
+                                <state key="normal" title="settingsButton">
+                                    <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="settingsPage:" destination="lsU-gd-WyV" eventType="touchUpInside" id="lra-9q-vFE"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="Zjo-eh-EE2" firstAttribute="top" secondItem="XVd-eH-jD7" secondAttribute="bottom" constant="-47" id="0P2-Qw-DzJ"/>
                             <constraint firstItem="K0H-1T-5TU" firstAttribute="top" secondItem="QWO-Sw-DDg" secondAttribute="bottom" constant="8" id="1Sh-y7-Q12"/>
                             <constraint firstAttribute="centerX" secondItem="Uax-OO-03o" secondAttribute="centerX" constant="-3" id="E6h-8Z-KWn"/>
+                            <constraint firstItem="Zjo-eh-EE2" firstAttribute="leading" secondItem="XVd-eH-jD7" secondAttribute="trailing" constant="-47" id="ECN-pJ-Irc"/>
+                            <constraint firstItem="QWO-Sw-DDg" firstAttribute="centerX" secondItem="J5D-Wq-WZE" secondAttribute="centerX" constant="0.5" id="Pav-hg-R3h"/>
                             <constraint firstItem="9eG-c6-6K7" firstAttribute="leading" secondItem="clW-H2-H5o" secondAttribute="trailing" constant="-137" id="QMN-fX-fcl"/>
                             <constraint firstItem="9eG-c6-6K7" firstAttribute="top" secondItem="K0H-1T-5TU" secondAttribute="bottom" constant="82" id="SLA-x6-MGF"/>
+                            <constraint firstItem="QWO-Sw-DDg" firstAttribute="leading" secondItem="J5D-Wq-WZE" secondAttribute="trailing" constant="-109" id="SWR-ef-kBd"/>
                             <constraint firstItem="QWO-Sw-DDg" firstAttribute="top" secondItem="Zjo-eh-EE2" secondAttribute="bottom" constant="30" id="UnA-F9-rEo"/>
                             <constraint firstItem="JJR-AA-lRG" firstAttribute="top" secondItem="5ZW-Ym-wiM" secondAttribute="bottom" constant="8" id="Vd2-0z-OWX"/>
                             <constraint firstItem="Uax-OO-03o" firstAttribute="top" secondItem="9eG-c6-6K7" secondAttribute="bottom" constant="8" id="W3i-TH-9J1"/>
                             <constraint firstItem="9eG-c6-6K7" firstAttribute="top" secondItem="clW-H2-H5o" secondAttribute="bottom" constant="-36" id="aCE-vv-EEe"/>
+                            <constraint firstItem="QWO-Sw-DDg" firstAttribute="top" secondItem="J5D-Wq-WZE" secondAttribute="bottom" constant="-38" id="b3P-Ma-che"/>
                             <constraint firstAttribute="centerX" secondItem="QWO-Sw-DDg" secondAttribute="centerX" constant="-0.5" id="bRh-Mn-9iY"/>
                             <constraint firstAttribute="centerY" secondItem="QWO-Sw-DDg" secondAttribute="centerY" constant="14" id="jRX-UM-1uY"/>
                             <constraint firstAttribute="centerX" secondItem="5ZW-Ym-wiM" secondAttribute="centerX" constant="-0.5" id="kKl-h2-TT4"/>
@@ -971,7 +1004,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ti5-vZ-Qci" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="494" y="2689"/>
+            <point key="canvasLocation" x="494" y="2694"/>
         </scene>
         <!--PracticeViewController-->
         <scene sceneID="ru4-kL-R0g">
@@ -1028,7 +1061,7 @@
         <!--Settings-->
         <scene sceneID="K7c-Up-lZA">
             <objects>
-                <viewController id="Kgj-Y2-xbP" customClass="SettingsViewController" customModule="Notable" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="settingsViewController" storyboardIdentifier="settingsViewController" id="Kgj-Y2-xbP" customClass="SettingsViewController" customModule="Notable" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="FUD-oq-yCo"/>
                         <viewControllerLayoutGuide type="bottom" id="gHl-gr-5ga"/>

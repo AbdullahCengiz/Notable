@@ -68,7 +68,7 @@ class NGPause: UIViewController{
         } else {
             self.endMessages.text = "thisOneGoesToNothing!"
         }
-}
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -92,15 +92,32 @@ class NGPause: UIViewController{
             mNC.popToViewControllerOfClass(LessonsViewController())
             self.dismissViewControllerAnimated(true, completion: {})
         }
+     }
+    
+    @IBAction func resumePage(sender: UIButton) {
+ if(delegate != nil) {
+    var mNC = delegate!.navigationController as MasterNC
+    self.dismissViewControllerAnimated(true, completion: {})
+    
+        }
     }
-    
- 
-    
+
+    @IBAction func settingsPage(sender: AnyObject) {
+        if(delegate != nil) {
+            var mNC = delegate!.navigationController as MasterNC
+            self.dismissViewControllerAnimated(true, completion: {})
+           // mNC.popToViewControllerOfClass(settingsViewController())
+            //Grenuttag? - Not in the main stack? - new segue?
+        }
     }
 
 
-    
-    
+
+}
+
+
+
+
 
 
 
