@@ -18,10 +18,9 @@ class SplashScreenViewController: UIViewController {
         cdHelper = CoreDataHelper()
         
         println("inSplashScreen")
+        createGameDatabase()
         
-        Timer("goToMainPage", 3) {
-            // self .performSegueWithIdentifier("goToMainPage", sender: nil)
-        }
+        
 
     }
 
@@ -35,7 +34,7 @@ class SplashScreenViewController: UIViewController {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(true, animated: true)
         getScreenSize()
-        createGameDatabase()
+        
         
     }
     
@@ -153,6 +152,13 @@ class SplashScreenViewController: UIViewController {
         //cdHelper!.saveData("lesson", data: lessonsArray)
         var savedLessons : [Lesson] = cdHelper!.loadData("lesson") as [Lesson]
         //cdHelper!.removeAllData("lesson")
+        
+        
+        
+        //go to main function
+        Timer("goToMainPage", 2) {
+            self .performSegueWithIdentifier("goToMainPage", sender: nil)
+        }
 
         
     }
