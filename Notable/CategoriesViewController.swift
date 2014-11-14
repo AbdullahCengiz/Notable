@@ -48,9 +48,7 @@ class CategoriesViewController: UIViewController,UITableViewDelegate ,UITableVie
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        
-        loadCategories()
-        
+
         prepareNavigationBar()
     }
     
@@ -115,7 +113,7 @@ class CategoriesViewController: UIViewController,UITableViewDelegate ,UITableVie
         }
         
         
-        categoryCell.setCell(currentCategory.categoryName)
+        categoryCell.setCell(currentCategory.categoryName!)
         return categoryCell
         
     }
@@ -146,7 +144,7 @@ class CategoriesViewController: UIViewController,UITableViewDelegate ,UITableVie
         //println("selectedCategory = \(selectedCategoryName)")
         
         
-        updateCategory(categoryId:selectedCategory.categoryId, status:selectedCategory.status)
+        //updateCategory(categoryId:selectedCategory.categoryId!, status:selectedCategory.status!)
         
         categoriesTableView.reloadData()
         
@@ -174,7 +172,7 @@ class CategoriesViewController: UIViewController,UITableViewDelegate ,UITableVie
                 
                 category.status=true
                 
-                updateCategory(categoryId: category.categoryId, status: category.status)
+                //updateCategory(categoryId: category.categoryId, status: category.status)
                 
             }
             
@@ -190,7 +188,7 @@ class CategoriesViewController: UIViewController,UITableViewDelegate ,UITableVie
                 
                 category.status=false
                 
-                updateCategory(categoryId: category.categoryId, status: category.status)
+                //updateCategory(categoryId: category.categoryId, status: category.status)
                 
                 
             }
@@ -208,28 +206,6 @@ class CategoriesViewController: UIViewController,UITableViewDelegate ,UITableVie
     
     func setUpCategories(){
         
-        var category1 = Category(categoryId:"1", categoryName: "category1", status: false)
-        var category2 = Category(categoryId:"2", categoryName: "category2", status: false)
-        var category3 = Category(categoryId:"3", categoryName: "category3", status: false)
-        var category4 = Category(categoryId:"4", categoryName: "category4", status: false)
-        var category5 = Category(categoryId:"5", categoryName: "category5", status: false)
-        var category6 = Category(categoryId:"6", categoryName: "category6", status: false)
-        var category7 = Category(categoryId:"7", categoryName: "category7", status: false)
-        var category8 = Category(categoryId:"8", categoryName: "category8", status: false)
-        var category9 = Category(categoryId:"9", categoryName: "category9", status: false)
-        var category10 = Category(categoryId:"10", categoryName: "category10", status: false)
-        
-        
-        arrayOfCategories.append(category1)
-        arrayOfCategories.append(category2)
-        arrayOfCategories.append(category3)
-        arrayOfCategories.append(category4)
-        arrayOfCategories.append(category5)
-        arrayOfCategories.append(category6)
-        arrayOfCategories.append(category7)
-        arrayOfCategories.append(category8)
-        arrayOfCategories.append(category9)
-        arrayOfCategories.append(category10)
         
         //deleteAll()
         
@@ -264,168 +240,15 @@ class CategoriesViewController: UIViewController,UITableViewDelegate ,UITableVie
         
         println()
         
-        loadCategories()
-        
         
     }
     
     
-    func updateCategory(#categoryId: String , status: Bool){
-        
-        
-        
-        var appDel:AppDelegate = (UIApplication.sharedApplication().delegate) as AppDelegate
-        var context:NSManagedObjectContext = appDel.managedObjectContext!
-        
-        var request = NSFetchRequest(entityName: "Categories")
-        request.returnsObjectsAsFaults = false
-        
-        let categoryIdToUpdate: String = categoryId
-        
-        
-        println("categoryIdToUpdate = \(categoryIdToUpdate)")
-        
-        request.predicate = NSPredicate(format: "categoryId = %@" , ""+categoryIdToUpdate)
-        
-        var results:NSArray = context.executeFetchRequest(request, error: nil)!
-        
-        
-        println("loadedItemCount= \(results.count)")
-        
-        if(results.count > 0){
-            
-            
-            
-            for counter in 0..<results.count {
-                
-                var currentCategoryObject:NSManagedObject
-                currentCategoryObject = results[counter] as NSManagedObject
-                currentCategoryObject.setValue(status, forKey: "status")
-                
-                context.save(nil)
-
-                
-            }
-            
-            
-            
-            loadCategories()
-            
-            
-            
-            
-        } else {
-            
-            println("Error!!!")
-            
-        }
-
-        
-        
-    }
-    
-    
-    func loadCategories(){
-        
-        loadedArrayOfCategories.removeAll(keepCapacity: false)
-        
-        var appDel:AppDelegate = (UIApplication.sharedApplication().delegate) as AppDelegate
-        var context:NSManagedObjectContext = appDel.managedObjectContext!
-        
-        var request = NSFetchRequest(entityName: "Categories")
-        request.returnsObjectsAsFaults = false
-        
-        var results:NSArray = context.executeFetchRequest(request, error: nil)!
-        
-        
-        println("loadedItemCount= \(results.count)")
-        
-        if(results.count > 0){
-            
-            for counter in 0..<results.count {
-                
-                var currentCategoryObject:NSManagedObject
-                var currentCategory:Category = Category()
-                
-                currentCategoryObject = results[counter] as NSManagedObject
-                currentCategory.categoryName = currentCategoryObject.valueForKey("categoryName") as String
-                currentCategory.status = currentCategoryObject.valueForKey("status") as Bool
-                currentCategory.categoryId = currentCategoryObject.valueForKey("categoryId") as String
-                
-                if(!currentCategory.status){
-                    isAllOfCategoriesChecked = false
-                }
-                
-                
-                println("categoryName: \(currentCategory.categoryName)  categoryStatus: \(currentCategory.status)")
-                
-                loadedArrayOfCategories.append(currentCategory)
-                
-            }
-            
-            
-            for category in loadedArrayOfCategories{
-                
-                println("\(category.categoryName)")
-                
-            }
-
-            
-            
-        } else {
-            
-             setUpCategories()
-             println("Error!!!")
-            
-        }
-        
-        
-        
-        
-    }
-    
-    
-    
-    func deleteAll(){
        
-        loadedArrayOfCategories.removeAll(keepCapacity: false)
-        
-        var appDel:AppDelegate = (UIApplication.sharedApplication().delegate) as AppDelegate
-        var context:NSManagedObjectContext = appDel.managedObjectContext!
-        
-        var request = NSFetchRequest(entityName: "Categories")
-        request.returnsObjectsAsFaults = false
-        
-        var results:NSArray = context.executeFetchRequest(request, error: nil)!
-        
-        
-        println("loadedItemCount= \(results.count)")
-        
-        if(results.count > 0){
-            
-            
-            var currentCategoryObject:NSManagedObject!
-            for currentCategoryObject: AnyObject in results
-            {
-                context.deleteObject(currentCategoryObject as NSManagedObject)
-            }
-            
-            context.save(nil)
-            
-            
     
-            
-            
-        } else {
-            
-            println("Error!!!")
-            
-        }
-
-        
-        
-    }
-
+    
+    
+   
     
     
 }

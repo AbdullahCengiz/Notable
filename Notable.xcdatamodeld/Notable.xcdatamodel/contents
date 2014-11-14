@@ -1,11 +1,35 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6244" systemVersion="13E28" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6252" systemVersion="14A389" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Categories" syncable="YES">
-        <attribute name="categoryId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="categoryId" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="categoryName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="categoryPosition" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="categoryReqLevel" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+    </entity>
+    <entity name="Lessons" syncable="YES">
+        <attribute name="lessonCategory" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="lessonContent" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="lessonExtra" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="lessonId" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="lessonPosition" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="lessonTitle" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="lessonType" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="lessonVoiceTrack" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="status" optional="YES" attributeType="Boolean" syncable="YES"/>
     </entity>
+    <entity name="Questions" syncable="YES">
+        <attribute name="questionAnswer" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="questionCategory" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="questionContent" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="questionCorrect" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="questionExtraInfo" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="questionId" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="questionIncorrect" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="questionType" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <elements>
-        <element name="Categories" positionX="-63" positionY="-18" width="128" height="88"/>
+        <element name="Lessons" positionX="-63" positionY="-18" width="128" height="178"/>
+        <element name="Questions" positionX="-63" positionY="9" width="128" height="163"/>
+        <element name="Categories" positionX="-63" positionY="54" width="128" height="105"/>
     </elements>
 </model>
