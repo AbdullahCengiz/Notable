@@ -164,27 +164,95 @@ class SettingsViewController: UIViewController {
         if(sender.tag == firstThemeButtonTag){
             
             setTheme(theme:firstThemeButtonTag)
+            self.view.backgroundColor =
+UIColor(red:226/255.0, green:232/255.0, blue:239/255.0, alpha:1.0)
+            self.soundSlider.backgroundColor =
+                UIColor.whiteColor()
+            self.resetAnswersButton.backgroundColor =
+                UIColor.whiteColor()
+            self.resetHighScoresButton.backgroundColor =
+                UIColor.whiteColor()
+            self.soundLevelInicatorContainer.backgroundColor =
+                UIColor.whiteColor()
+            self.colorSlider.backgroundColor =
+                UIColor.whiteColor()
+            self.storeButton.backgroundColor =
+                UIColor.whiteColor()
             
         }
         else if(sender.tag == secondThemeButtonTag){
             
             setTheme(theme:secondThemeButtonTag)
+            self.view.backgroundColor = UIColor.blackColor()
+            self.soundSlider.backgroundColor =
+                UIColor(red:36/255.0, green:40/255.0, blue:48/255.0, alpha:1.0)
+            self.resetAnswersButton.backgroundColor =
+                UIColor(red:36/255.0, green:40/255.0, blue:48/255.0, alpha:1.0)
+            self.resetHighScoresButton.backgroundColor =
+                UIColor(red:36/255.0, green:40/255.0, blue:48/255.0, alpha:1.0)
+            self.soundLevelInicatorContainer.backgroundColor =
+                UIColor(red:36/255.0, green:40/255.0, blue:48/255.0, alpha:1.0)
+            self.colorSlider.backgroundColor =
+                UIColor(red:36/255.0, green:40/255.0, blue:48/255.0, alpha:1.0)
+            self.storeButton.backgroundColor =
+                UIColor(red:36/255.0, green:40/255.0, blue:48/255.0, alpha:1.0)
             
         }
         else if (sender.tag == thirdThemeButtonTag) {
             
             setTheme(theme:thirdThemeButtonTag)
+            self.view.backgroundColor =
+                UIColor(red:36/255.0, green:40/255.0, blue:48/255.0, alpha:1.0)
+            self.soundSlider.backgroundColor =
+                UIColor(red:166/255.0, green:49/255.0, blue:58/255.0, alpha:1.0)
+            self.resetAnswersButton.backgroundColor =
+                UIColor(red:166/255.0, green:49/255.0, blue:58/255.0, alpha:1.0)
+            self.resetHighScoresButton.backgroundColor =
+                UIColor(red:166/255.0, green:49/255.0, blue:58/255.0, alpha:1.0)
+            self.soundLevelInicatorContainer.backgroundColor =
+                UIColor(red:166/255.0, green:49/255.0, blue:58/255.0, alpha:1.0)
+            self.colorSlider.backgroundColor =
+                UIColor(red:166/255.0, green:49/255.0, blue:58/255.0, alpha:1.0)
+            self.storeButton.backgroundColor =
+                UIColor(red:166/255.0, green:49/255.0, blue:58/255.0, alpha:1.0)
             
         }
         else if (sender.tag == fourthThemeButtonTag){
             
             setTheme(theme:fourthThemeButtonTag)
+            self.view.backgroundColor =
+                UIColor(red:36/255.0, green:40/255.0, blue:48/255.0, alpha:1.0)
+            self.soundSlider.backgroundColor =
+                UIColor(red:110/255.0, green:213/255.0, blue:107/255.0, alpha:1.0)
+            self.resetAnswersButton.backgroundColor =
+                UIColor(red:110/255.0, green:213/255.0, blue:107/255.0, alpha:1.0)
+            self.resetHighScoresButton.backgroundColor =
+                UIColor(red:110/255.0, green:213/255.0, blue:107/255.0, alpha:1.0)
+            self.soundLevelInicatorContainer.backgroundColor =
+                UIColor(red:110/255.0, green:213/255.0, blue:107/255.0, alpha:1.0)
+            self.colorSlider.backgroundColor =
+                UIColor(red:110/255.0, green:213/255.0, blue:107/255.0, alpha:1.0)
+            self.storeButton.backgroundColor =
+                UIColor(red:110/255.0, green:213/255.0, blue:107/255.0, alpha:1.0)
             
         }
         else if(sender.tag == fifthThemeButtonTag){
             
             setTheme(theme:fifthThemeButtonTag)
-            
+            self.view.backgroundColor =
+                UIColor(red:204/255.0, green:210/255.0, blue:216/255.0, alpha:1.0)
+            self.soundSlider.backgroundColor =
+                UIColor(red:70/255.0, green:151/255.0, blue:233/255.0, alpha:1.0)
+            self.resetAnswersButton.backgroundColor =
+                UIColor(red:70/255.0, green:151/255.0, blue:233/255.0, alpha:1.0)
+            self.resetHighScoresButton.backgroundColor =
+                UIColor(red:70/255.0, green:151/255.0, blue:233/255.0, alpha:1.0)
+            self.soundLevelInicatorContainer.backgroundColor =
+                UIColor(red:70/255.0, green:151/255.0, blue:233/255.0, alpha:1.0)
+            self.colorSlider.backgroundColor =
+                UIColor(red:70/255.0, green:151/255.0, blue:233/255.0, alpha:1.0)
+            self.storeButton.backgroundColor =
+                UIColor(red:70/255.0, green:151/255.0, blue:233/255.0, alpha:1.0)
         }
         
     }

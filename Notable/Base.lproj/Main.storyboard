@@ -1058,10 +1058,10 @@
             </objects>
             <point key="canvasLocation" x="1555" y="1099"/>
         </scene>
-        <!--Settings-->
+        <!--settingsViewController-->
         <scene sceneID="K7c-Up-lZA">
             <objects>
-                <viewController restorationIdentifier="settingsViewController" storyboardIdentifier="settingsViewController" id="Kgj-Y2-xbP" customClass="SettingsViewController" customModule="Notable" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="settingsViewController" storyboardIdentifier="settingsViewController" title="settingsViewController" id="Kgj-Y2-xbP" customClass="SettingsViewController" customModule="Notable" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="FUD-oq-yCo"/>
                         <viewControllerLayoutGuide type="bottom" id="gHl-gr-5ga"/>
@@ -1152,6 +1152,7 @@
                                                     <constraint firstAttribute="width" constant="50" id="trO-bY-hDX"/>
                                                 </constraints>
                                                 <state key="normal">
+                                                    <color key="titleColor" red="0.89019614459999996" green="0.90980398650000005" blue="0.93725496529999996" alpha="1" colorSpace="deviceRGB"/>
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
@@ -1220,6 +1221,7 @@
                                                     <constraint firstAttribute="width" constant="50" id="wOY-tm-p68"/>
                                                 </constraints>
                                                 <state key="normal">
+                                                    <color key="titleColor" red="0.14117647707462311" green="0.15686275064945221" blue="0.18823531270027161" alpha="1" colorSpace="deviceRGB"/>
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
@@ -1290,6 +1292,7 @@
                                                     <constraint firstAttribute="width" constant="50" id="E0N-V0-rol"/>
                                                 </constraints>
                                                 <state key="normal">
+                                                    <color key="titleColor" red="0.65098041296005249" green="0.19215688109397888" blue="0.22745099663734436" alpha="1" colorSpace="deviceRGB"/>
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
@@ -1361,6 +1364,7 @@
                                                     <constraint firstAttribute="width" constant="50" id="rRp-du-Zd7"/>
                                                 </constraints>
                                                 <state key="normal">
+                                                    <color key="titleColor" red="0.43137258291244507" green="0.83529418706893921" blue="0.41960787773132324" alpha="1" colorSpace="deviceRGB"/>
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
@@ -1429,6 +1433,7 @@
                                                     <constraint firstAttribute="width" constant="50" id="hr1-la-D28"/>
                                                 </constraints>
                                                 <state key="normal">
+                                                    <color key="titleColor" red="0.27450981736183167" green="0.59215688705444336" blue="0.91372555494308472" alpha="1" colorSpace="deviceRGB"/>
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
@@ -1436,7 +1441,7 @@
                                                 </connections>
                                             </button>
                                         </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" red="0.80000007152557373" green="0.82352948188781738" blue="0.84705889225006104" alpha="1" colorSpace="deviceRGB"/>
                                         <constraints>
                                             <constraint firstItem="ezS-FD-hiO" firstAttribute="leading" secondItem="LIb-sK-GOF" secondAttribute="leading" id="1pu-NR-evN"/>
                                             <constraint firstAttribute="trailing" secondItem="InG-Jt-Dcr" secondAttribute="trailing" id="1qz-BZ-DKS"/>

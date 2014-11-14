@@ -106,8 +106,8 @@ class NGPause: UIViewController{
         if(delegate != nil) {
             var mNC = delegate!.navigationController as MasterNC
             self.dismissViewControllerAnimated(true, completion: {})
-           // mNC.popToViewControllerOfClass(settingsViewController())
-            //Grenuttag? - Not in the main stack? - new segue?
+//mNC.popToViewControllerOfClass(settingsViewController())
+//Grenuttag? - Not in the main stack? - new segue?
         }
     }
 

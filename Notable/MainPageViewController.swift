@@ -10,6 +10,7 @@ import UIKit
 
 class MainPageViewController: UIViewController,UITableViewDelegate ,UITableViewDataSource {
     
+
     @IBOutlet var newGameButton: UIButton!
     @IBOutlet var pointsTableView: UITableView!
     @IBOutlet var newGameContainer: UIView!
@@ -77,7 +78,7 @@ class MainPageViewController: UIViewController,UITableViewDelegate ,UITableViewD
     func prepareNavigationBar(){
         
         //for settings button
-        let image = UIImage(named: "settings") as UIImage?
+        let image = UIImage(named: "settings_button") as UIImage?
         let uiButton    = UIButton.buttonWithType(UIButtonType.System) as UIButton
         uiButton.frame  = CGRectMake(0, 0, 30, 30)
         uiButton.setBackgroundImage(image, forState: UIControlState.Normal)

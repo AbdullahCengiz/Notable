@@ -39,14 +39,6 @@ class StoreViewController: UIViewController {
         uiButton.addTarget(self, action:"backButtonAction:", forControlEvents: UIControlEvents.TouchUpInside)
         navItem.setLeftBarButtonItem(UIBarButtonItem(customView: uiButton), animated: true)
         navItem.hidesBackButton=true
-        
-        
-        //for logo
-        let logo = UIImage(named: "logo")
-        let imageView = UIImageView(image:logo)
-        imageView.frame = CGRectMake(0, 0, 30, 30)
-        imageView.contentMode = UIViewContentMode.ScaleAspectFit
-        navItem.titleView = imageView
 
         
     }
