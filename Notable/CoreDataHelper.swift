@@ -59,6 +59,7 @@ class CoreDataHelper
                     currentCategory.setValue(category.categoryId, forKey: "categoryId")
                     currentCategory.setValue(category.categoryName, forKey: "categoryName")
                     currentCategory.setValue(category.categoryPosition, forKey: "categoryPosition")
+                    currentCategory.setValue(category.status, forKey: "status")
                     
                 }
                 //Save questions
@@ -95,6 +96,7 @@ class CoreDataHelper
                 currentCategory.setValue(category.categoryId, forKey: "categoryId")
                 currentCategory.setValue(category.categoryName, forKey: "categoryName")
                 currentCategory.setValue(category.categoryPosition, forKey: "categoryPosition")
+                currentCategory.setValue(category.status, forKey: "status")
                 
             }
             //Save questions
@@ -110,11 +112,12 @@ class CoreDataHelper
     
     
     
-    func loadData(dataType:String) -> [AnyObject]?{
+    func loadData(dataType:String) -> (data:[AnyObject], checkStatus:Bool)?{
         var data: [AnyObject]? = []
     
         var context:NSManagedObjectContext = appDel!.managedObjectContext!
         var request : NSFetchRequest?
+        var isAllOfCategoriesChecked:Bool = true
     
         switch dataType {
         case "question":
@@ -143,13 +146,14 @@ class CoreDataHelper
                     currentQuestion.questionAnswer = currentQuestionObject.valueForKey("questionAnswer") as? String
                     currentQuestion.questionCategory = currentQuestionObject.valueForKey("questionCategory") as? Int
                     currentQuestion.questionExtraInfo = currentQuestionObject.valueForKey("questionExtraInfo") as? String
-            
+                    
                     data?.insert(currentQuestion, atIndex: counter)
 
                 }
                 
             } else {
                 
+                return nil
                 
             }
             
@@ -176,6 +180,14 @@ class CoreDataHelper
                     currentCategory.categoryId = currentCategorybject.valueForKey("categoryId") as? Int
                     currentCategory.categoryName = currentCategorybject.valueForKey("categoryName") as? String
                     currentCategory.categoryPosition = currentCategorybject.valueForKey("categoryPosition") as? Int
+                    currentCategory.status = currentCategorybject.valueForKey("status") as? Bool
+                    
+                    
+                    println("id: \(currentCategory.categoryId!) status: \(currentCategory.status!)")
+                    
+                    if(!currentCategory.status!){
+                        isAllOfCategoriesChecked = false
+                    }
                     
                     data?.insert(currentCategory, atIndex: counter)
                     
@@ -183,6 +195,7 @@ class CoreDataHelper
                 
             } else {
                 
+                return nil
                 
             }
             
@@ -221,6 +234,7 @@ class CoreDataHelper
                 
             } else {
                 
+                return nil
                 
             }
             
@@ -231,7 +245,7 @@ class CoreDataHelper
             println("Undefined Type")
         }
 
-        return data
+        return (data!,isAllOfCategoriesChecked)
     }
     
     
@@ -324,58 +338,46 @@ class CoreDataHelper
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    func updateCategory(#categoryId: Int , status: Bool){
+        
+        var appDel:AppDelegate = (UIApplication.sharedApplication().delegate) as AppDelegate
+        var context:NSManagedObjectContext = appDel.managedObjectContext!
+        
+        var request = NSFetchRequest(entityName: "Categories")
+        request.returnsObjectsAsFaults = false
+        
+        let categoryIdToUpdate: String = String(categoryId)
+        
+        println("categoryIdToUpdate = \(categoryIdToUpdate)")
+        request.predicate = NSPredicate(format: "categoryId = %@" , ""+categoryIdToUpdate)
+        var results:NSArray = context.executeFetchRequest(request, error: nil)!
+        println("loadedItemCount= \(results.count)")
+        
+        
+        println("categoryId:\(categoryId) newStatus=\(status)")
+
+        if(results.count > 0){
+            
+            for counter in 0..<results.count {
+                
+                var currentCategoryObject:NSManagedObject
+                currentCategoryObject = results[counter] as NSManagedObject
+                currentCategoryObject.setValue(status, forKey: "status")
+                context.save(nil)
+
+            }
+            
+        } else {
+            
+            println("Error!!!")
+            
+        }
+        
+        
+        
+    }
+
+
     
     
 }

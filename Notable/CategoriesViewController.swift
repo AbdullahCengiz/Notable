@@ -22,6 +22,8 @@ class CategoriesViewController: UIViewController,UITableViewDelegate ,UITableVie
     // for initial status of checkAll button
     var isAllOfCategoriesChecked: Bool = true
     
+    var cdHelper: CoreDataHelper?
+    
     @IBOutlet var categoriesTableView: UITableView!
     
     
@@ -34,10 +36,14 @@ class CategoriesViewController: UIViewController,UITableViewDelegate ,UITableVie
         
         self.categoriesTableView.delegate = self
         self.categoriesTableView.dataSource = self
-        
         self.automaticallyAdjustsScrollViewInsets = false;
         
+        cdHelper = CoreDataHelper()
+        
+        loadCategories()
 
+        
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -48,7 +54,6 @@ class CategoriesViewController: UIViewController,UITableViewDelegate ,UITableVie
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-
         prepareNavigationBar()
     }
     
@@ -73,7 +78,6 @@ class CategoriesViewController: UIViewController,UITableViewDelegate ,UITableVie
         checkBoxButton.tag=0 // if tag=0 button is unticked
         
         // if all of categories are ticked
-        
         if(isAllOfCategoriesChecked){
             
             checkBoxButton.setBackgroundImage(checkBoxCheckedImage, forState: UIControlState.Normal)
@@ -86,9 +90,9 @@ class CategoriesViewController: UIViewController,UITableViewDelegate ,UITableVie
         navItem.setRightBarButtonItem(UIBarButtonItem(customView: checkBoxButton), animated: true)
         navItem.hidesBackButton=true
         
-
         
-    
+        
+        
     }
     
     
@@ -104,7 +108,7 @@ class CategoriesViewController: UIViewController,UITableViewDelegate ,UITableVie
         
         let currentCategory = loadedArrayOfCategories[indexPath.row]
         
-        if(currentCategory.status){
+        if(currentCategory.status!){
             categoryCell.tickImage.hidden=false
             
         }
@@ -119,13 +123,13 @@ class CategoriesViewController: UIViewController,UITableViewDelegate ,UITableVie
     }
     
     
-     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         println("You selected cell #\(indexPath.row)!")
         let categoryCell :CategoryTableCell = categoriesTableView.cellForRowAtIndexPath(indexPath) as CategoryTableCell
         
         var selectedCategory : Category = loadedArrayOfCategories[indexPath.row]
         
-        if(selectedCategory.status){
+        if(selectedCategory.status!){
             selectedCategory.status = false
             
             
@@ -140,16 +144,17 @@ class CategoriesViewController: UIViewController,UITableViewDelegate ,UITableVie
         
         var selectedCategoryName :String = categoryCell.categoryNameLabel.text as String!
         
-       
+        
         //println("selectedCategory = \(selectedCategoryName)")
         
         
-        //updateCategory(categoryId:selectedCategory.categoryId!, status:selectedCategory.status!)
+        updateCategory(categoryId:selectedCategory.categoryId!, status:selectedCategory.status!)
         
         categoriesTableView.reloadData()
         
+        
     }
-
+    
     
     
     @IBAction func backButtonAction(sender:UIButton)
@@ -172,7 +177,7 @@ class CategoriesViewController: UIViewController,UITableViewDelegate ,UITableVie
                 
                 category.status=true
                 
-                //updateCategory(categoryId: category.categoryId, status: category.status)
+                updateCategory(categoryId: category.categoryId!, status: category.status!)
                 
             }
             
@@ -188,11 +193,11 @@ class CategoriesViewController: UIViewController,UITableViewDelegate ,UITableVie
                 
                 category.status=false
                 
-                //updateCategory(categoryId: category.categoryId, status: category.status)
+                updateCategory(categoryId: category.categoryId!, status: category.status!)
                 
                 
             }
-
+            
         }
         
         // reload categories tableview
@@ -204,54 +209,43 @@ class CategoriesViewController: UIViewController,UITableViewDelegate ,UITableVie
     
     
     
-    func setUpCategories(){
+    func updateCategory(#categoryId: Int , status: Bool){
         
         
-        //deleteAll()
+        println("categoryId: \(categoryId)  status: \(status)")
+    
+        cdHelper?.updateCategory(categoryId: categoryId, status: status)
         
-        saveCategories(arrayOfCategories)
-
+        loadCategories()
         
     }
     
     
-    func saveCategories(arrayOfCategories: [Category]){
-        var appDel:AppDelegate = (UIApplication.sharedApplication().delegate) as AppDelegate
-        var context:NSManagedObjectContext = appDel.managedObjectContext!
+    func loadCategories(){
         
-        println("in save categories")
+        loadedArrayOfCategories.removeAll(keepCapacity: false)
         
         
+       
         
-        for category in arrayOfCategories{
-            
-            var currentCategory:AnyObject
-            println("\(category.categoryName)")
-            currentCategory = NSEntityDescription.insertNewObjectForEntityForName("Categories", inManagedObjectContext: context) as NSManagedObject
-            
-            currentCategory.setValue(category.categoryName, forKey: "categoryName")
-            currentCategory.setValue(category.status, forKey: "status")
-            currentCategory.setValue(category.categoryId, forKey: "categoryId")
-            
-            context.save(nil)
-           //  println("Object Saved")
+        if let loadCategoryResult  = cdHelper?.loadData("category") {
+            loadedArrayOfCategories  = loadCategoryResult.data as [Category]
+            isAllOfCategoriesChecked  = loadCategoryResult.checkStatus as Bool
+            println("isAllCategoriesChecked: \(isAllOfCategoriesChecked)")
             
         }
         
-        println()
+    }
+    
+    
+    
+        
         
         
     }
     
     
-       
     
-    
-    
-   
-    
-    
-}
 
 
 

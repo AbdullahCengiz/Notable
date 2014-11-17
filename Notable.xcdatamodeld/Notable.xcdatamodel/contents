@@ -5,6 +5,7 @@
         <attribute name="categoryName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="categoryPosition" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="categoryReqLevel" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="status" optional="YES" attributeType="Boolean" syncable="YES"/>
     </entity>
     <entity name="Lessons" syncable="YES">
         <attribute name="lessonCategory" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
@@ -28,8 +29,8 @@
         <attribute name="questionType" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
+        <element name="Categories" positionX="-63" positionY="54" width="128" height="120"/>
         <element name="Lessons" positionX="-63" positionY="-18" width="128" height="178"/>
         <element name="Questions" positionX="-63" positionY="9" width="128" height="163"/>
-        <element name="Categories" positionX="-63" positionY="54" width="128" height="105"/>
     </elements>
 </model>

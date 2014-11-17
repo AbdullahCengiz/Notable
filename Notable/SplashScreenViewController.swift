@@ -92,7 +92,7 @@ class SplashScreenViewController: UIViewController {
         
        let databaseDictionary : NSDictionary = jsonObject as NSDictionary
         
-        //grab questions
+        //get questions
         var tableArray:NSArray = databaseDictionary["objects"] as NSArray
         var questionDictionary:NSDictionary = tableArray[0] as NSDictionary
         var questionRowArray:NSArray = questionDictionary["rows"] as NSArray
@@ -108,7 +108,7 @@ class SplashScreenViewController: UIViewController {
             
         }
         
-        //grab categories
+        //get categories
         var categoriesDictionary:NSDictionary = tableArray[1] as NSDictionary
         var categoryRowArray:NSArray = categoriesDictionary["rows"] as NSArray
         
@@ -123,7 +123,7 @@ class SplashScreenViewController: UIViewController {
         }
         
         
-        // grab Lessons
+        //get Lessons
         var lessonsDictionary:NSDictionary = tableArray[3] as NSDictionary
         var lessonRowArray:NSArray = lessonsDictionary["rows"] as NSArray
         
@@ -138,82 +138,73 @@ class SplashScreenViewController: UIViewController {
         }
 
         
-        //cdHelper!.saveData("question", data: questionsArray)
+        //
         //saveQuestions(questionsArray)
-        //cdHelper!.removeAllData("question")
+        cdHelper!.removeAllData("question")
         //loadQuestions()
         //save the questions to core data
-        //var savedQuestions : [Question] = cdHelper!.loadData("question") as [Question]
-    
+        
+        
+        // /ontrol for questions if there is not any get them from json
+        if(cdHelper!.loadData("question") == nil){
+            
+            cdHelper!.saveData("question", data: questionsArray)
+            
+        }
+        else{
+            
+            println("There are some lessons in CoreData")
+            
+        }
+
+
+        
+
         //cdHelper!.saveData("category", data: categoriesArray)
         //var savedCategories : [Category] = cdHelper!.loadData("category") as [Category]
-        //cdHelper!.removeAllData("category")
+        cdHelper!.removeAllData("category")
+        
+        
+        //control for category if there is not any get them from json
+        if(cdHelper!.loadData("category") == nil){
+            
+            cdHelper!.saveData("category", data: categoriesArray)
+            
+        }
+        else{
+            
+            println("There are some questions in CoreData")
+            
+        }
+
+
+        
+        
+        
         
         //cdHelper!.saveData("lesson", data: lessonsArray)
-        var savedLessons : [Lesson] = cdHelper!.loadData("lesson") as [Lesson]
-        //cdHelper!.removeAllData("lesson")
+        //var savedLessons : [Lesson] = cdHelper!.loadData("lesson") as [Lesson]
+        cdHelper!.removeAllData("lesson")
         
         
+        //control for lesson if there is not any get them from json
+        if(cdHelper!.loadData("lesson") == nil){
+            cdHelper!.saveData("lesson", data: lessonsArray)
+        }
+        else{
+            println("There are some lessons in CoreData")
+        }
         
         //go to main function
         Timer("goToMainPage", 2) {
             self .performSegueWithIdentifier("goToMainPage", sender: nil)
         }
 
+
         
     }
     
 
-    /*
-    
-    func updateCategory(#categoryId: String , status: Bool){
-    
-    
-    
-    var appDel:AppDelegate = (UIApplication.sharedApplication().delegate) as AppDelegate
-    var context:NSManagedObjectContext = appDel.managedObjectContext!
-    
-    var request = NSFetchRequest(entityName: "Categories")
-    request.returnsObjectsAsFaults = false
-    
-    let categoryIdToUpdate: String = categoryId
-    
-    
-    println("categoryIdToUpdate = \(categoryIdToUpdate)")
-    
-    request.predicate = NSPredicate(format: "categoryId = %@" , ""+categoryIdToUpdate)
-    
-    var results:NSArray = context.executeFetchRequest(request, error: nil)!
-    
-    
-    println("loadedItemCount= \(results.count)")
-    
-    if(results.count > 0){
-    
-    
-    
-    for counter in 0..<results.count {
-    
-    var currentCategoryObject:NSManagedObject
-    currentCategoryObject = results[counter] as NSManagedObject
-    currentCategoryObject.setValue(status, forKey: "status")
-    
-    context.save(nil)
-    
-    
-    }
-
-    
-    } else {
-    
-    println("Error!!!")
-    
-    }
-    
-    
-    
-    }
-    */
-    
+        
 }
 

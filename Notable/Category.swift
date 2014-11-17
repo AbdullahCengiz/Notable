@@ -14,20 +14,17 @@ class Category
     var categoryName:String?
     var categoryPosition:Int?
     var categoryReqLevel:Int?
-
-    var status: Bool = false
+    var status: Bool?
     
     init(){
         
     }
-    
-    
+
     init(categoriesRowArray:NSArray){
-        
         categoryId = categoriesRowArray[0] as? Int
         categoryName = categoriesRowArray[1] as? String
         categoryPosition = categoriesRowArray[2] as? Int
-        
+        status = false
     }
 
 }
