@@ -22,6 +22,8 @@ class CategoriesViewController: UIViewController,UITableViewDelegate ,UITableVie
     // for initial status of checkAll button
     var isAllOfCategoriesChecked: Bool = true
     
+    var cdHelper: CoreDataHelper?
+    
     @IBOutlet var categoriesTableView: UITableView!
     
     
@@ -34,10 +36,14 @@ class CategoriesViewController: UIViewController,UITableViewDelegate ,UITableVie
         
         self.categoriesTableView.delegate = self
         self.categoriesTableView.dataSource = self
-        
         self.automaticallyAdjustsScrollViewInsets = false;
         
+        cdHelper = CoreDataHelper()
+        
+        loadCategories()
 
+        
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -48,9 +54,6 @@ class CategoriesViewController: UIViewController,UITableViewDelegate ,UITableVie
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        
-        loadCategories()
-        
         prepareNavigationBar()
     }
     
@@ -75,7 +78,6 @@ class CategoriesViewController: UIViewController,UITableViewDelegate ,UITableVie
         checkBoxButton.tag=0 // if tag=0 button is unticked
         
         // if all of categories are ticked
-        
         if(isAllOfCategoriesChecked){
             
             checkBoxButton.setBackgroundImage(checkBoxCheckedImage, forState: UIControlState.Normal)
@@ -88,9 +90,9 @@ class CategoriesViewController: UIViewController,UITableViewDelegate ,UITableVie
         navItem.setRightBarButtonItem(UIBarButtonItem(customView: checkBoxButton), animated: true)
         navItem.hidesBackButton=true
         
-
         
-    
+        
+        
     }
     
     
@@ -106,7 +108,7 @@ class CategoriesViewController: UIViewController,UITableViewDelegate ,UITableVie
         
         let currentCategory = loadedArrayOfCategories[indexPath.row]
         
-        if(currentCategory.status){
+        if(currentCategory.status!){
             categoryCell.tickImage.hidden=false
             
         }
@@ -115,19 +117,19 @@ class CategoriesViewController: UIViewController,UITableViewDelegate ,UITableVie
         }
         
         
-        categoryCell.setCell(currentCategory.categoryName)
+        categoryCell.setCell(currentCategory.categoryName!)
         return categoryCell
         
     }
     
     
-     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         println("You selected cell #\(indexPath.row)!")
         let categoryCell :CategoryTableCell = categoriesTableView.cellForRowAtIndexPath(indexPath) as CategoryTableCell
         
         var selectedCategory : Category = loadedArrayOfCategories[indexPath.row]
         
-        if(selectedCategory.status){
+        if(selectedCategory.status!){
             selectedCategory.status = false
             
             
@@ -142,16 +144,17 @@ class CategoriesViewController: UIViewController,UITableViewDelegate ,UITableVie
         
         var selectedCategoryName :String = categoryCell.categoryNameLabel.text as String!
         
-       
+        
         //println("selectedCategory = \(selectedCategoryName)")
         
         
-        updateCategory(categoryId:selectedCategory.categoryId, status:selectedCategory.status)
+        updateCategory(categoryId:selectedCategory.categoryId!, status:selectedCategory.status!)
         
         categoriesTableView.reloadData()
         
+        
     }
-
+    
     
     
     @IBAction func backButtonAction(sender:UIButton)
@@ -174,7 +177,7 @@ class CategoriesViewController: UIViewController,UITableViewDelegate ,UITableVie
                 
                 category.status=true
                 
-                updateCategory(categoryId: category.categoryId, status: category.status)
+                updateCategory(categoryId: category.categoryId!, status: category.status!)
                 
             }
             
@@ -190,11 +193,11 @@ class CategoriesViewController: UIViewController,UITableViewDelegate ,UITableVie
                 
                 category.status=false
                 
-                updateCategory(categoryId: category.categoryId, status: category.status)
+                updateCategory(categoryId: category.categoryId!, status: category.status!)
                 
                 
             }
-
+            
         }
         
         // reload categories tableview
@@ -206,121 +209,14 @@ class CategoriesViewController: UIViewController,UITableViewDelegate ,UITableVie
     
     
     
-    func setUpCategories(){
-        
-        var category1 = Category(categoryId:"1", categoryName: "category1", status: false)
-        var category2 = Category(categoryId:"2", categoryName: "category2", status: false)
-        var category3 = Category(categoryId:"3", categoryName: "category3", status: false)
-        var category4 = Category(categoryId:"4", categoryName: "category4", status: false)
-        var category5 = Category(categoryId:"5", categoryName: "category5", status: false)
-        var category6 = Category(categoryId:"6", categoryName: "category6", status: false)
-        var category7 = Category(categoryId:"7", categoryName: "category7", status: false)
-        var category8 = Category(categoryId:"8", categoryName: "category8", status: false)
-        var category9 = Category(categoryId:"9", categoryName: "category9", status: false)
-        var category10 = Category(categoryId:"10", categoryName: "category10", status: false)
+    func updateCategory(#categoryId: Int , status: Bool){
         
         
-        arrayOfCategories.append(category1)
-        arrayOfCategories.append(category2)
-        arrayOfCategories.append(category3)
-        arrayOfCategories.append(category4)
-        arrayOfCategories.append(category5)
-        arrayOfCategories.append(category6)
-        arrayOfCategories.append(category7)
-        arrayOfCategories.append(category8)
-        arrayOfCategories.append(category9)
-        arrayOfCategories.append(category10)
-        
-        //deleteAll()
-        
-        saveCategories(arrayOfCategories)
-
-        
-    }
+        println("categoryId: \(categoryId)  status: \(status)")
     
-    
-    func saveCategories(arrayOfCategories: [Category]){
-        var appDel:AppDelegate = (UIApplication.sharedApplication().delegate) as AppDelegate
-        var context:NSManagedObjectContext = appDel.managedObjectContext!
-        
-        println("in save categories")
-        
-        
-        
-        for category in arrayOfCategories{
-            
-            var currentCategory:AnyObject
-            println("\(category.categoryName)")
-            currentCategory = NSEntityDescription.insertNewObjectForEntityForName("Categories", inManagedObjectContext: context) as NSManagedObject
-            
-            currentCategory.setValue(category.categoryName, forKey: "categoryName")
-            currentCategory.setValue(category.status, forKey: "status")
-            currentCategory.setValue(category.categoryId, forKey: "categoryId")
-            
-            context.save(nil)
-           //  println("Object Saved")
-            
-        }
-        
-        println()
+        cdHelper?.updateCategory(categoryId: categoryId, status: status)
         
         loadCategories()
-        
-        
-    }
-    
-    
-    func updateCategory(#categoryId: String , status: Bool){
-        
-        
-        
-        var appDel:AppDelegate = (UIApplication.sharedApplication().delegate) as AppDelegate
-        var context:NSManagedObjectContext = appDel.managedObjectContext!
-        
-        var request = NSFetchRequest(entityName: "Categories")
-        request.returnsObjectsAsFaults = false
-        
-        let categoryIdToUpdate: String = categoryId
-        
-        
-        println("categoryIdToUpdate = \(categoryIdToUpdate)")
-        
-        request.predicate = NSPredicate(format: "categoryId = %@" , ""+categoryIdToUpdate)
-        
-        var results:NSArray = context.executeFetchRequest(request, error: nil)!
-        
-        
-        println("loadedItemCount= \(results.count)")
-        
-        if(results.count > 0){
-            
-            
-            
-            for counter in 0..<results.count {
-                
-                var currentCategoryObject:NSManagedObject
-                currentCategoryObject = results[counter] as NSManagedObject
-                currentCategoryObject.setValue(status, forKey: "status")
-                
-                context.save(nil)
-
-                
-            }
-            
-            
-            
-            loadCategories()
-            
-            
-            
-            
-        } else {
-            
-            println("Error!!!")
-            
-        }
-
-        
         
     }
     
@@ -329,106 +225,27 @@ class CategoriesViewController: UIViewController,UITableViewDelegate ,UITableVie
         
         loadedArrayOfCategories.removeAll(keepCapacity: false)
         
-        var appDel:AppDelegate = (UIApplication.sharedApplication().delegate) as AppDelegate
-        var context:NSManagedObjectContext = appDel.managedObjectContext!
         
-        var request = NSFetchRequest(entityName: "Categories")
-        request.returnsObjectsAsFaults = false
-        
-        var results:NSArray = context.executeFetchRequest(request, error: nil)!
-        
-        
-        println("loadedItemCount= \(results.count)")
-        
-        if(results.count > 0){
-            
-            for counter in 0..<results.count {
-                
-                var currentCategoryObject:NSManagedObject
-                var currentCategory:Category = Category()
-                
-                currentCategoryObject = results[counter] as NSManagedObject
-                currentCategory.categoryName = currentCategoryObject.valueForKey("categoryName") as String
-                currentCategory.status = currentCategoryObject.valueForKey("status") as Bool
-                currentCategory.categoryId = currentCategoryObject.valueForKey("categoryId") as String
-                
-                if(!currentCategory.status){
-                    isAllOfCategoriesChecked = false
-                }
-                
-                
-                println("categoryName: \(currentCategory.categoryName)  categoryStatus: \(currentCategory.status)")
-                
-                loadedArrayOfCategories.append(currentCategory)
-                
-            }
-            
-            
-            for category in loadedArrayOfCategories{
-                
-                println("\(category.categoryName)")
-                
-            }
-
-            
-            
-        } else {
-            
-             setUpCategories()
-             println("Error!!!")
-            
-        }
-        
-        
-        
-        
-    }
-    
-    
-    
-    func deleteAll(){
        
-        loadedArrayOfCategories.removeAll(keepCapacity: false)
         
-        var appDel:AppDelegate = (UIApplication.sharedApplication().delegate) as AppDelegate
-        var context:NSManagedObjectContext = appDel.managedObjectContext!
-        
-        var request = NSFetchRequest(entityName: "Categories")
-        request.returnsObjectsAsFaults = false
-        
-        var results:NSArray = context.executeFetchRequest(request, error: nil)!
-        
-        
-        println("loadedItemCount= \(results.count)")
-        
-        if(results.count > 0){
-            
-            
-            var currentCategoryObject:NSManagedObject!
-            for currentCategoryObject: AnyObject in results
-            {
-                context.deleteObject(currentCategoryObject as NSManagedObject)
-            }
-            
-            context.save(nil)
-            
-            
-    
-            
-            
-        } else {
-            
-            println("Error!!!")
+        if let loadCategoryResult  = cdHelper?.loadData("category") {
+            loadedArrayOfCategories  = loadCategoryResult.data as [Category]
+            isAllOfCategoriesChecked  = loadCategoryResult.checkStatus as Bool
+            println("isAllCategoriesChecked: \(isAllOfCategoriesChecked)")
             
         }
-
+        
+    }
+    
+    
+    
+        
         
         
     }
-
     
     
-}
+    
 
 
 

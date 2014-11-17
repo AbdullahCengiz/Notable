@@ -10,21 +10,21 @@ import Foundation
 
 class Category
 {
-    var categoryId:String = "categoryId"
-    var categoryName:String = "categoryName"
-    var status: Bool = false
+    var categoryId:Int?
+    var categoryName:String?
+    var categoryPosition:Int?
+    var categoryReqLevel:Int?
+    var status: Bool?
     
     init(){
         
-        
     }
-    
-    
-    init(categoryId:String, categoryName: String, status: Bool){
-        self.categoryId = categoryId
-        self.categoryName = categoryName
-        self.status = status
+
+    init(categoriesRowArray:NSArray){
+        categoryId = categoriesRowArray[0] as? Int
+        categoryName = categoriesRowArray[1] as? String
+        categoryPosition = categoriesRowArray[2] as? Int
+        status = false
     }
-    
-    
+
 }

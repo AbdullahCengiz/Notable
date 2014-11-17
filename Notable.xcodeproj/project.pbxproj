@@ -25,6 +25,10 @@
 		ED234D911A14E35000DE5087 /* TrivQuiz.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED234D901A14E35000DE5087 /* TrivQuiz.swift */; };
 		ED234D941A14E35E00DE5087 /* Sound.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED234D921A14E35E00DE5087 /* Sound.swift */; };
 		ED234D951A14E35E00DE5087 /* SoundFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED234D931A14E35E00DE5087 /* SoundFile.swift */; };
+		ED234D981A14EB5F00DE5087 /* StreamReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED234D971A14EB5F00DE5087 /* StreamReader.swift */; };
+		ED234D9A1A1509CD00DE5087 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED234D991A1509CD00DE5087 /* Question.swift */; };
+		ED234D9C1A160E8800DE5087 /* Lesson.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED234D9B1A160E8800DE5087 /* Lesson.swift */; };
+		ED234DA01A16166800DE5087 /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED234D9F1A16166800DE5087 /* CoreDataHelper.swift */; };
 		ED466E0319F165DA00F14292 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED466E0219F165DA00F14292 /* AppDelegate.swift */; };
 		ED466E0519F165DA00F14292 /* SplashScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED466E0419F165DA00F14292 /* SplashScreenViewController.swift */; };
 		ED466E0819F165DA00F14292 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED466E0619F165DA00F14292 /* Main.storyboard */; };
@@ -66,6 +70,10 @@
 		ED234D901A14E35000DE5087 /* TrivQuiz.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrivQuiz.swift; sourceTree = "<group>"; };
 		ED234D921A14E35E00DE5087 /* Sound.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sound.swift; sourceTree = "<group>"; };
 		ED234D931A14E35E00DE5087 /* SoundFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundFile.swift; sourceTree = "<group>"; };
+		ED234D971A14EB5F00DE5087 /* StreamReader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StreamReader.swift; sourceTree = "<group>"; };
+		ED234D991A1509CD00DE5087 /* Question.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
+		ED234D9B1A160E8800DE5087 /* Lesson.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lesson.swift; sourceTree = "<group>"; };
+		ED234D9F1A16166800DE5087 /* CoreDataHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataHelper.swift; sourceTree = "<group>"; };
 		ED466DFD19F165DA00F14292 /* Notable.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Notable.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED466E0119F165DA00F14292 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ED466E0219F165DA00F14292 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -113,6 +121,8 @@
 			children = (
 				ED08FB9219F93AB400D6BE26 /* Point.swift */,
 				EDD14B7F1A029BBE004F7EA1 /* Category.swift */,
+				ED234D991A1509CD00DE5087 /* Question.swift */,
+				ED234D9B1A160E8800DE5087 /* Lesson.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -169,6 +179,9 @@
 		ED225B7B19F5341900D8784E /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				ED234D9E1A16163E00DE5087 /* CoreDataHelper */,
+				ED234D8F1A14E34500DE5087 /* Sound */,
+				ED234D961A14EB4400DE5087 /* Reader */,
 				ED225B7C19F5342300D8784E /* Timer */,
 			);
 			name = Utility;
@@ -207,6 +220,22 @@
 			name = Sound;
 			sourceTree = "<group>";
 		};
+		ED234D961A14EB4400DE5087 /* Reader */ = {
+			isa = PBXGroup;
+			children = (
+				ED234D971A14EB5F00DE5087 /* StreamReader.swift */,
+			);
+			name = Reader;
+			sourceTree = "<group>";
+		};
+		ED234D9E1A16163E00DE5087 /* CoreDataHelper */ = {
+			isa = PBXGroup;
+			children = (
+				ED234D9F1A16166800DE5087 /* CoreDataHelper.swift */,
+			);
+			name = CoreDataHelper;
+			sourceTree = "<group>";
+		};
 		ED38AD771A13716D0028366D /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
@@ -237,7 +266,6 @@
 		ED466DFF19F165DA00F14292 /* Notable */ = {
 			isa = PBXGroup;
 			children = (
-				ED234D8F1A14E34500DE5087 /* Sound */,
 				ED234D8E1A14E33C00DE5087 /* TrivQuiz */,
 				ED96CE951A0BDFD3007589F9 /* Resources */,
 				ED38AD771A13716D0028366D /* Navigation */,
@@ -419,6 +447,7 @@
 				ED234D951A14E35E00DE5087 /* SoundFile.swift in Sources */,
 				EDA9C6E91A090E1C00108A85 /* StoreViewController.swift in Sources */,
 				ED466E0519F165DA00F14292 /* SplashScreenViewController.swift in Sources */,
+				ED234D981A14EB5F00DE5087 /* StreamReader.swift in Sources */,
 				ED19B35019FAA0F200041AF0 /* CategoriesViewController.swift in Sources */,
 				ED08FB9019F9384400D6BE26 /* PointTableCell.swift in Sources */,
 				ED0363CC1A038A41004797B5 /* Notable.xcdatamodeld in Sources */,
@@ -429,10 +458,13 @@
 				ED19B34A19FA9B9800041AF0 /* PracticeViewController.swift in Sources */,
 				ED466E0319F165DA00F14292 /* AppDelegate.swift in Sources */,
 				ED08FB9319F93AB400D6BE26 /* Point.swift in Sources */,
+				ED234D9C1A160E8800DE5087 /* Lesson.swift in Sources */,
 				ED19B34D19FA9F9400041AF0 /* LessonsViewController.swift in Sources */,
 				EDD14B7E1A029A61004F7EA1 /* CategoryTableCell.swift in Sources */,
 				ED234D941A14E35E00DE5087 /* Sound.swift in Sources */,
+				ED234D9A1A1509CD00DE5087 /* Question.swift in Sources */,
 				ED225B8119F6629E00D8784E /* SettingsViewController.swift in Sources */,
+				ED234DA01A16166800DE5087 /* CoreDataHelper.swift in Sources */,
 				0DA8BD701A13AF63002F6F89 /* NGPause.swift in Sources */,
 				ED19B34719FA93C700041AF0 /* NewGameViewController.swift in Sources */,
 				EDD14B801A029BBE004F7EA1 /* Category.swift in Sources */,
@@ -555,6 +587,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Notable/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -566,6 +599,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Notable/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
