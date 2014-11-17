@@ -33,7 +33,7 @@ class SettingsViewController: UIViewController {
     @IBOutlet var soundLevelInicatorContainer: UIView!
     @IBOutlet var navItem: UINavigationItem!
     
-    @IBOutlet var colorSlider: UISlider!
+        @IBOutlet var colorSlider: UISlider!
     
     var tickImageArray : [UIImageView] = []
     
@@ -152,7 +152,7 @@ class SettingsViewController: UIViewController {
     }
     
     
-    
+
     
     
     @IBAction func selectThemeAction(sender:UIButton)
