@@ -62,6 +62,10 @@ class NewGameViewController: UIViewController {
         initUI()
     }
     
+    override func supportedInterfaceOrientations() -> Int {
+    return Int(UIInterfaceOrientationMask.Portrait.rawValue)
+}
+    
     
     func initUI(){
         
@@ -150,14 +154,7 @@ class NewGameViewController: UIViewController {
         self.presentViewController(pauseScreen, animated: true, completion: nil)
     }
     
-    
-    
-    
-    override func supportedInterfaceOrientations() -> Int {
-        return Int(UIInterfaceOrientationMask.All.rawValue)
-    }
-    
-    
+
     
     
     @IBAction func choiceAction(sender: AnyObject) {
