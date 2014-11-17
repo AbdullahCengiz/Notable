@@ -10,6 +10,7 @@
 		0DA8BD6D1A136816002F6F89 /* MasterNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DA8BD6C1A136816002F6F89 /* MasterNavigationController.swift */; };
 		0DA8BD6E1A136816002F6F89 /* MasterNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DA8BD6C1A136816002F6F89 /* MasterNavigationController.swift */; };
 		0DA8BD701A13AF63002F6F89 /* NGPause.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DA8BD6F1A13AF63002F6F89 /* NGPause.swift */; };
+		0DAD97A31A1A1EB80011E4AF /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DAD97A21A1A1EB80011E4AF /* Theme.swift */; };
 		ED0363CC1A038A41004797B5 /* Notable.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = ED0363CA1A038A41004797B5 /* Notable.xcdatamodeld */; };
 		ED089C9C1A110D7D00D3F034 /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED089C9B1A110D7D00D3F034 /* Timer.swift */; };
 		ED089C9E1A110E2B00D3F034 /* howling.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = ED089C9D1A110E2B00D3F034 /* howling.mp3 */; };
@@ -55,6 +56,7 @@
 		0DA7946F1A11122B00D2F131 /* Roboto-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Thin.ttf"; sourceTree = SOURCE_ROOT; };
 		0DA8BD6C1A136816002F6F89 /* MasterNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasterNavigationController.swift; sourceTree = "<group>"; };
 		0DA8BD6F1A13AF63002F6F89 /* NGPause.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NGPause.swift; sourceTree = "<group>"; };
+		0DAD97A21A1A1EB80011E4AF /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		ED0363CB1A038A41004797B5 /* Notable.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Notable.xcdatamodel; sourceTree = "<group>"; };
 		ED089C9B1A110D7D00D3F034 /* Timer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
 		ED089C9D1A110E2B00D3F034 /* howling.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = howling.mp3; sourceTree = "<group>"; };
@@ -107,6 +109,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0DAD97A11A1A1E9E0011E4AF /* Theme */ = {
+			isa = PBXGroup;
+			children = (
+				0DAD97A21A1A1EB80011E4AF /* Theme.swift */,
+			);
+			name = Theme;
+			sourceTree = "<group>";
+		};
 		ED08FB8E19F9382500D6BE26 /* TableCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -179,6 +189,7 @@
 		ED225B7B19F5341900D8784E /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				0DAD97A11A1A1E9E0011E4AF /* Theme */,
 				ED234D9E1A16163E00DE5087 /* CoreDataHelper */,
 				ED234D8F1A14E34500DE5087 /* Sound */,
 				ED234D961A14EB4400DE5087 /* Reader */,
@@ -460,6 +471,7 @@
 				ED08FB9319F93AB400D6BE26 /* Point.swift in Sources */,
 				ED234D9C1A160E8800DE5087 /* Lesson.swift in Sources */,
 				ED19B34D19FA9F9400041AF0 /* LessonsViewController.swift in Sources */,
+				0DAD97A31A1A1EB80011E4AF /* Theme.swift in Sources */,
 				EDD14B7E1A029A61004F7EA1 /* CategoryTableCell.swift in Sources */,
 				ED234D941A14E35E00DE5087 /* Sound.swift in Sources */,
 				ED234D9A1A1509CD00DE5087 /* Question.swift in Sources */,
