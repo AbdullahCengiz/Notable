@@ -45,6 +45,10 @@ class NewGameViewController: UIViewController {
     var firstProgressCell: UIView! , secondProgressCell : UIView! , firstSeperator : UIView!
     var width:NSNumber!, height:NSNumber!
     
+    @IBOutlet var noteView: UIView!
+    @IBOutlet var firstNoteLine: UIView!
+    
+    
     var pointLabel  = UILabel()
     var timer = NSTimer()
     var counter = 0
@@ -62,6 +66,10 @@ class NewGameViewController: UIViewController {
         initUI()
     }
     
+    override func supportedInterfaceOrientations() -> Int {
+    return Int(UIInterfaceOrientationMask.Portrait.rawValue)
+}
+    
     
     func initUI(){
         
@@ -76,6 +84,21 @@ class NewGameViewController: UIViewController {
         gameImageContainer.layer.cornerRadius = 4.0
         
         pointLabel.text = String(counter)
+        
+        prepareNoteView()
+        
+    }
+    
+    func prepareNoteView(){
+        
+        //need to add modify the constraints of notelines
+        firstNoteLine.setTranslatesAutoresizingMaskIntoConstraints(false)
+        noteView.setTranslatesAutoresizingMaskIntoConstraints(false)
+        
+        noteView.addConstraint(NSLayoutConstraint(
+            item:firstNoteLine, attribute:.CenterX,
+            relatedBy:.Equal, toItem:noteView,
+            attribute:.CenterX, multiplier:1, constant:0))
         
     }
     
@@ -149,15 +172,6 @@ class NewGameViewController: UIViewController {
         pauseScreen.delegate = self
         self.presentViewController(pauseScreen, animated: true, completion: nil)
     }
-    
-    
-    
-    
-    override func supportedInterfaceOrientations() -> Int {
-        return Int(UIInterfaceOrientationMask.All.rawValue)
-    }
-    
-    
     
     
     @IBAction func choiceAction(sender: AnyObject) {
