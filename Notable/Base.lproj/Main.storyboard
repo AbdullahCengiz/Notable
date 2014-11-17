@@ -901,7 +901,7 @@
                                 <rect key="frame" x="16" y="80" width="568" height="230"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ozy-0j-Yn9">
-                                        <rect key="frame" x="245" y="100" width="79" height="30"/>
+                                        <rect key="frame" x="15" y="192" width="79" height="30"/>
                                         <color key="backgroundColor" red="0.8862745098" green="0.90980392160000001" blue="0.93725490199999995" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="79" id="Jso-q5-osC"/>
@@ -914,11 +914,21 @@
                                             <action selector="playSound:" destination="92Z-xp-ug9" eventType="touchUpInside" id="RWP-U9-fPg"/>
                                         </connections>
                                     </button>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H3f-Bz-ENv" userLabel="1stNoteLine">
+                                        <rect key="frame" x="16" y="0.0" width="536" height="2"/>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="2" id="sru-3C-CxB"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="centerX" secondItem="ozy-0j-Yn9" secondAttribute="centerX" constant="-0.5" id="WR2-TJ-Fn8"/>
-                                    <constraint firstAttribute="centerY" secondItem="ozy-0j-Yn9" secondAttribute="centerY" id="Xpm-Kl-liD"/>
+                                    <constraint firstAttribute="trailing" secondItem="H3f-Bz-ENv" secondAttribute="trailing" constant="16" id="Mkp-OL-5cl"/>
+                                    <constraint firstItem="H3f-Bz-ENv" firstAttribute="top" secondItem="ZdI-nz-1SL" secondAttribute="top" id="i8N-xU-fhn"/>
+                                    <constraint firstAttribute="bottom" secondItem="ozy-0j-Yn9" secondAttribute="bottom" constant="8" id="lNe-qi-4h4"/>
+                                    <constraint firstItem="ozy-0j-Yn9" firstAttribute="leading" secondItem="ZdI-nz-1SL" secondAttribute="leading" constant="15" id="nbh-cS-LBG"/>
+                                    <constraint firstItem="H3f-Bz-ENv" firstAttribute="leading" secondItem="ZdI-nz-1SL" secondAttribute="leading" constant="16" id="ooY-yW-14g"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -959,10 +969,12 @@
                         <outlet property="cell9" destination="uuW-Qi-zAl" id="1OA-Qp-mxs"/>
                         <outlet property="firstChoiceContainer" destination="d2m-mM-VqT" id="86w-Qo-b1f"/>
                         <outlet property="firstChoiceNumberContainer" destination="Y6I-eI-TOe" id="rkq-Al-B8V"/>
+                        <outlet property="firstNoteLine" destination="H3f-Bz-ENv" id="KtL-Pg-9FL"/>
                         <outlet property="fourthChoiceContainer" destination="P9a-ir-epe" id="8tf-Rs-eFc"/>
                         <outlet property="fourthChoiceNumberContainer" destination="F7W-AD-Io1" id="KDK-Y0-QgT"/>
                         <outlet property="gameImageContainer" destination="ZdI-nz-1SL" id="Aez-zz-nJ6"/>
                         <outlet property="navItem" destination="4QA-GL-2y1" id="dWV-Ic-VOs"/>
+                        <outlet property="noteView" destination="ZdI-nz-1SL" id="OrG-6Z-7iR"/>
                         <outlet property="playSoundButton" destination="ozy-0j-Yn9" id="YBq-Y3-hRp"/>
                         <outlet property="progressViewContainer" destination="2ae-x8-qtC" id="PKI-8n-OVd"/>
                         <outlet property="secondChoiceContainer" destination="xeY-Ql-ban" id="AUQ-gk-G1j"/>
