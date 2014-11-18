@@ -32,17 +32,7 @@ class NewGameViewController: UIViewController {
     var soundLevelValue : Float!
     var answerLock : Bool = true
     
-    @IBOutlet var playSoundButton: UIButton!
-    @IBOutlet var gameImageContainer: UIView!
-    @IBOutlet var firstChoiceContainer: UIView!
-    @IBOutlet var firstChoiceNumberContainer: UIView!
-    @IBOutlet var secondChoiceContainer: UIView!
-    @IBOutlet var secondChoiceNumberContainer: UIView!
-    @IBOutlet var thirdChoiceContainer: UIView!
-    @IBOutlet var thirdChoiceNumberContainer: UIView!
-    @IBOutlet var fourthChoiceContainer: UIView!
-    @IBOutlet var fourthChoiceNumberContainer: UIView!
-    var firstProgressCell: UIView! , secondProgressCell : UIView! , firstSeperator : UIView!
+    
     var width:NSNumber!, height:NSNumber!
     
     @IBOutlet var noteView: UIView!
@@ -73,6 +63,7 @@ class NewGameViewController: UIViewController {
     
     func initUI(){
         
+        /*
         firstChoiceNumberContainer.layer.cornerRadius = fourthChoiceNumberContainer.frame.height/2
         firstChoiceContainer.layer.cornerRadius = 4.0
         secondChoiceNumberContainer.layer.cornerRadius = fourthChoiceNumberContainer.frame.height/2
@@ -86,19 +77,40 @@ class NewGameViewController: UIViewController {
         pointLabel.text = String(counter)
         
         prepareNoteView()
+        */
         
     }
     
     func prepareNoteView(){
         
+        /*
         //need to add modify the constraints of notelines
         firstNoteLine.setTranslatesAutoresizingMaskIntoConstraints(false)
         noteView.setTranslatesAutoresizingMaskIntoConstraints(false)
+        NSLayoutConstraint.deactivateConstraints(noteView.constraints())
+        NSLayoutConstraint.deactivateConstraints(firstNoteLine.constraints())
+        
+        //make dictionary for views
+        let viewsDictionary = ["firstNoteLine":firstNoteLine]
+        
+        
+        let firstNoteLine_constraint_H:Array = NSLayoutConstraint.constraintsWithVisualFormat("H:[firstNoteLine(\(noteView.frame.width))]", options: NSLayoutFormatOptions(0), metrics: nil, views: viewsDictionary)
+
+        let firstNoteLine_constraint_V:Array = NSLayoutConstraint.constraintsWithVisualFormat("V:[firstNoteLine(2)]", options: NSLayoutFormatOptions(0), metrics: nil, views: viewsDictionary)
+        
+        firstNoteLine.addConstraints(firstNoteLine_constraint_H)
+        firstNoteLine.addConstraints(firstNoteLine_constraint_V)
         
         noteView.addConstraint(NSLayoutConstraint(
             item:firstNoteLine, attribute:.CenterX,
             relatedBy:.Equal, toItem:noteView,
             attribute:.CenterX, multiplier:1, constant:0))
+        
+        noteView.addConstraint(NSLayoutConstraint(
+            item:firstNoteLine, attribute:NSLayoutAttribute.Top,
+            relatedBy:NSLayoutRelation.GreaterThanOrEqual, toItem:noteView,
+            attribute:NSLayoutAttribute.Top, multiplier:1, constant:100))
+        */
         
     }
     
