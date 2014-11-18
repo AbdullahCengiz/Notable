@@ -45,10 +45,12 @@ class MasterNC:UINavigationController, UINavigationControllerDelegate {
             if object_getClassName(vc) == object_getClassName(targetClass) {
                 self.popToViewController(vc as UIViewController, animated: true)
                 break
-            }
+                }
         }
     }
 
-
+//NSUserDefault
+    
+  
 
 }
