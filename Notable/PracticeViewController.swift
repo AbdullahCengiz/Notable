@@ -31,8 +31,18 @@ class PracticeViewController: UIViewController {
         super.viewWillAppear(animated)
         
         prepareNavigationBar()
+                styleView()
     }
     
+    func styleView() {
+        var bg:UIColor = UIColor.whiteColor()
+        var btn:UIColor = UIColor.whiteColor()
+        Theme().fetchThemeColors(&bg, buttonColor:&btn)
+        
+        self.view.backgroundColor = bg
+
+    }
+
     func prepareNavigationBar(){
         
         //for menubutton
@@ -57,4 +67,7 @@ class PracticeViewController: UIViewController {
             self.title = "newPractice"
             self.presentViewController(pauseScreen, animated: true, completion: nil)
         }
-    }
+}
+
+
+   

@@ -11,14 +11,15 @@ import UIKit
 class MainPageViewController: UIViewController,UITableViewDelegate ,UITableViewDataSource {
     
 
+    @IBOutlet var separator: UIView!
     @IBOutlet var newGameButton: UIButton!
     @IBOutlet var pointsTableView: UITableView!
     @IBOutlet var newGameContainer: UIView!
-    
     @IBOutlet var lessonsButton: UIButton!
     @IBOutlet var practiceButton: UIButton!
     @IBOutlet var chooseCategoriesButton: UIButton!
     @IBOutlet var practiceLessonsContainer: UIView!
+    
     var arrayOfPoints: [Point] = [Point]()
     var navBar:UINavigationBar!
     
@@ -67,11 +68,15 @@ class MainPageViewController: UIViewController,UITableViewDelegate ,UITableViewD
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        
+                styleView()
         sound = Sound()
         self.navigationController?.setNavigationBarHidden(false, animated: true)
         
+        self.title = "MainPage"
+        //var theme = Theme(targetClass: self)
+        //theme.setTheme("fifthTheme")
         
+
     }
     
     
@@ -88,11 +93,32 @@ class MainPageViewController: UIViewController,UITableViewDelegate ,UITableViewD
         self.navigationItem.hidesBackButton=true
     }
     
+    func styleView() {
+        var bg:UIColor = UIColor.whiteColor()
+        var btn:UIColor = UIColor.whiteColor()
+        Theme().fetchThemeColors(&bg, buttonColor:&btn)
+        
+        self.view.backgroundColor = bg
+        self.separator.backgroundColor = bg
+        self.newGameContainer.backgroundColor = btn
+        //self.pointsTableView.backgroundColor = bg
+        self.lessonsButton.backgroundColor = btn
+        self.practiceButton.backgroundColor = btn
+        self.chooseCategoriesButton.backgroundColor = btn
+        self.pointsTableView.reloadData()
+        
+        self.pointsTableView.separatorColor = btn
+    }
     
+    func tableView(tableView: UITableView!, canEditRowAtIndexPath indexPath: NSIndexPath!) -> Bool {
+        return true
+    }
     
-    
-    
-    
+    func tableView(tableView: UITableView!, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath!) {
+        if (editingStyle == UITableViewCellEditingStyle.Delete) {
+            // handle delete (by removing the data from your array and updating the tableview)
+        }
+    }
     @IBAction func settingsButtonAction(sender:UIButton)
     {
         println("Button Action From Code")
@@ -105,8 +131,6 @@ class MainPageViewController: UIViewController,UITableViewDelegate ,UITableViewD
         var point1 = Point(userName: "Alexander", point: "110p", madelsImage: "Gold.png")
         var point2 = Point(userName: "Alexander", point: "120p", madelsImage: "Silver.png")
         var point3 = Point(userName: "Alexander", point: "130p", madelsImage: "Bronze.png")
-        
-        
         
         
         arrayOfPoints.append(point1)
@@ -123,7 +147,7 @@ class MainPageViewController: UIViewController,UITableViewDelegate ,UITableViewD
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let pointCell :PointTableCell = self.pointsTableView.dequeueReusableCellWithIdentifier("pointCell") as PointTableCell
+        let pointCell: PointTableCell = self.pointsTableView.dequeueReusableCellWithIdentifier("pointCell") as PointTableCell
         
         
         let currentPoint = arrayOfPoints[indexPath.row]
@@ -132,6 +156,15 @@ class MainPageViewController: UIViewController,UITableViewDelegate ,UITableViewD
         
     }
     
+    func tableView(tableView: UITableView, willDisplayCell cell: PointTableCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        var bg:UIColor = UIColor.whiteColor()
+        var btn:UIColor = UIColor.whiteColor()
+        Theme().fetchThemeColors(&bg, buttonColor:&btn)
+        
+        cell.cellBackground.backgroundColor = bg
+       // cell.separatorColor.backgroundColor = btn
+        
+    }
     
     @IBAction func goToCategories(sender: AnyObject) {
         
@@ -168,6 +201,5 @@ class MainPageViewController: UIViewController,UITableViewDelegate ,UITableViewD
         sound.playSound(sound.confirmSound)
         
     }
-    
     
 }

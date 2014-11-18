@@ -64,15 +64,7 @@ class SplashScreenViewController: UIViewController {
     
     
     func saveThemeColors(){
-
-        //First ThemeColor
-        var firstThemeBackgroundColor = UIColor(red:226/255.0, green:232/255.0, blue:239/255.0, alpha:1.0)
-        var firstThemeBackgroundColorData: NSData = NSKeyedArchiver.archivedDataWithRootObject(firstThemeBackgroundColor)
-        NSUserDefaults.standardUserDefaults().setObject(firstThemeBackgroundColorData, forKey: "firstThemeBackgroundColor")
         
-        var firstThemeButtonColor = UIColor.whiteColor()
-        var firstThemeButtonColorData: NSData = NSKeyedArchiver.archivedDataWithRootObject(firstThemeButtonColor)
-        NSUserDefaults.standardUserDefaults().setObject(firstThemeButtonColorData, forKey: "firstThemeButtonColor")
         
         //Second ThemeColor
         var secondThemeBackgroundColor = UIColor.blackColor()

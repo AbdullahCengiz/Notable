@@ -51,5 +51,8 @@ class StoreViewController: UIViewController {
     }
 
 
-
+    func setColor(#backgroundColor:UIColor){
+        
+        self.view.backgroundColor = backgroundColor
+}
 }

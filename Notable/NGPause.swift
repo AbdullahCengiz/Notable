@@ -112,7 +112,11 @@ class NGPause: UIViewController{
     }
 
 
+func setColor(#backgroundColor:UIColor){
+    
+    self.view.backgroundColor = backgroundColor
 
+}
 }
 
 
@@ -123,4 +127,4 @@ class NGPause: UIViewController{
 
 
 
-    
+
