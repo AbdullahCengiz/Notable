@@ -32,28 +32,74 @@ class NewGameViewController: UIViewController {
     var soundLevelValue : Float!
     var answerLock : Bool = true
     
+    //constant definitions
+    let heightRateConstant:CGFloat = 0.73
+    let widthRateConstant:CGFloat = 1.35
     
-    var width:NSNumber!, height:NSNumber!
     
-    @IBOutlet var noteView: UIView!
-    @IBOutlet var firstNoteLine: UIView!
+    //get screenWidth and height from NSUserDefaults
+    let width = NSUserDefaults.standardUserDefaults().objectForKey("width") as CGFloat
+    let height = NSUserDefaults.standardUserDefaults().objectForKey("height") as CGFloat
+    
+    //init noteViewContainerHieght
+    let noteViewContainerPortraitHeight = (((NSUserDefaults.standardUserDefaults().objectForKey("height") as CGFloat)*408)/1136)
+    let noteViewContainerLandscapeHeight = (((NSUserDefaults.standardUserDefaults().objectForKey("height") as CGFloat)*408)/1136)*0.73
+    
+    //init constraint paramaters
+    //let firstNoteLinePortraitTopSpace = (((NSUserDefaults.standardUserDefaults().objectForKey("height") as CGFloat)*103)/1136)
+    var firstNoteLinePortraitTopSpace:CGFloat = 0
+    var firstNoteLineLandscapeTopSpace:CGFloat = 0
+    
+    var noteLinePortraitSpace:CGFloat = 0
+    var noteLineLandscapeSpace:CGFloat = 0
+    let noteLinePortraitIndentation = (((NSUserDefaults.standardUserDefaults().objectForKey("width") as CGFloat)*32)/640)
+    let noteLineLandscapeIndentation = (((NSUserDefaults.standardUserDefaults().objectForKey("width") as CGFloat)*32)/640)*1.35
     
     
     var pointLabel  = UILabel()
     var timer = NSTimer()
     var counter = 0
     
+    //for noteViewContainer
+    @IBOutlet var noteViewContainer: UIView!
+    
+    //for firstChoiceContainer
+    @IBOutlet var firstChoiceContainer: UIView!
+    
+    
+    //for noteView Constraints
+    //firstNoteLine
+    @IBOutlet var firstNoteLineTopSpace: NSLayoutConstraint!
+    @IBOutlet var firstNoteLineTrailingSpace: NSLayoutConstraint!
+    @IBOutlet var firstNoteLineLeadingSpace: NSLayoutConstraint!
+    @IBOutlet var firstNoteLineHeight: NSLayoutConstraint!
+    
+    //secondNoteLine
+    @IBOutlet var secondNoteLineTopSpace: NSLayoutConstraint!
+
+    //thirdNoteLine
+    @IBOutlet var thirdNoteLineTopSpace: NSLayoutConstraint!
+    
+    //fourthNoteLine
+    @IBOutlet var fourthNoteLineTopSpace: NSLayoutConstraint!
+    
+    //fifthNoteLine
+    @IBOutlet var fifthNoteLineTopSpace: NSLayoutConstraint!
+
+    
+    
+    
+    
+
     @IBOutlet var progressViewContainer: UIView!
     var navBar:UINavigationBar!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         navBar = self.navigationController?.navigationBar
-        // Do any additional setup after loading the view.
-        
         initVariables()
         
-        initUI()
+        
     }
     
     override func supportedInterfaceOrientations() -> Int {
@@ -63,6 +109,25 @@ class NewGameViewController: UIViewController {
     
     func initUI(){
         
+    
+        //getScreenOrientation
+        if(UIDevice.currentDevice().orientation.isLandscape){
+            
+            //println("ScreenOrientation = Landscape")
+            setLandscapeConstraints()
+    
+        }
+        else {
+            
+            //println("ScreenOrientation = Portrait")
+            setPortraitConstraints()
+        
+        }
+        
+        
+        //noteViewContainer.layer.cornerRadius = 4.0
+        
+
         /*
         firstChoiceNumberContainer.layer.cornerRadius = fourthChoiceNumberContainer.frame.height/2
         firstChoiceContainer.layer.cornerRadius = 4.0
@@ -81,36 +146,57 @@ class NewGameViewController: UIViewController {
         
     }
     
+    
+    func setLandscapeConstraints(){
+        
+        println("noteviewContainerLandscapeRealHeight = \(noteViewContainer.frame.size.height)")
+        
+        
+        firstNoteLineLandscapeTopSpace = ((noteViewContainer.frame.size.height*103)/408)
+        println("firstNoteLineLandscapeTopSpace = \(firstNoteLineLandscapeTopSpace)")
+        noteLineLandscapeSpace = (noteViewContainer.frame.size.height-(firstNoteLineLandscapeTopSpace*2+10))/4
+        
+        //for firstNoteView
+        //println("landscapeTopSpace = \(firstNoteLineLandscapeTopSpace)")
+        
+        firstNoteLineTopSpace.constant = firstNoteLineLandscapeTopSpace
+        firstNoteLineTrailingSpace.constant = noteLineLandscapeIndentation
+        firstNoteLineHeight.constant = 2
+        firstNoteLineLeadingSpace.constant = noteLineLandscapeIndentation
+        
+        secondNoteLineTopSpace.constant = noteLineLandscapeSpace
+        thirdNoteLineTopSpace.constant = noteLineLandscapeSpace
+        fourthNoteLineTopSpace.constant = noteLineLandscapeSpace
+        fifthNoteLineTopSpace.constant = noteLineLandscapeSpace
+        
+    }
+    
+    
+    func setPortraitConstraints(){
+        
+        firstNoteLinePortraitTopSpace = ((noteViewContainer.frame.size.height*103)/408)
+        println(noteViewContainer.frame)
+        noteLinePortraitSpace = (noteViewContainer.frame.size.height-(firstNoteLinePortraitTopSpace*2+10))/4
+        
+        println("noteviewContainerPortraitRealHeight = \(noteViewContainer.frame.size.height)")
+        println("firstNoteLinePortraitTopSpace = \(firstNoteLinePortraitTopSpace)")
+        println("noteLinePortraitSpace = \(noteLinePortraitSpace)")
+        
+        //for firstNoteView
+        firstNoteLineTopSpace.constant = firstNoteLinePortraitTopSpace
+        firstNoteLineTrailingSpace.constant = noteLinePortraitIndentation
+        firstNoteLineHeight.constant = 2
+        firstNoteLineLeadingSpace.constant = noteLinePortraitIndentation
+        
+        secondNoteLineTopSpace.constant = noteLinePortraitSpace
+        thirdNoteLineTopSpace.constant = noteLinePortraitSpace
+        fourthNoteLineTopSpace.constant = noteLinePortraitSpace
+        fifthNoteLineTopSpace.constant = noteLinePortraitSpace
+        
+    }
+    
     func prepareNoteView(){
         
-        /*
-        //need to add modify the constraints of notelines
-        firstNoteLine.setTranslatesAutoresizingMaskIntoConstraints(false)
-        noteView.setTranslatesAutoresizingMaskIntoConstraints(false)
-        NSLayoutConstraint.deactivateConstraints(noteView.constraints())
-        NSLayoutConstraint.deactivateConstraints(firstNoteLine.constraints())
-        
-        //make dictionary for views
-        let viewsDictionary = ["firstNoteLine":firstNoteLine]
-        
-        
-        let firstNoteLine_constraint_H:Array = NSLayoutConstraint.constraintsWithVisualFormat("H:[firstNoteLine(\(noteView.frame.width))]", options: NSLayoutFormatOptions(0), metrics: nil, views: viewsDictionary)
-
-        let firstNoteLine_constraint_V:Array = NSLayoutConstraint.constraintsWithVisualFormat("V:[firstNoteLine(2)]", options: NSLayoutFormatOptions(0), metrics: nil, views: viewsDictionary)
-        
-        firstNoteLine.addConstraints(firstNoteLine_constraint_H)
-        firstNoteLine.addConstraints(firstNoteLine_constraint_V)
-        
-        noteView.addConstraint(NSLayoutConstraint(
-            item:firstNoteLine, attribute:.CenterX,
-            relatedBy:.Equal, toItem:noteView,
-            attribute:.CenterX, multiplier:1, constant:0))
-        
-        noteView.addConstraint(NSLayoutConstraint(
-            item:firstNoteLine, attribute:NSLayoutAttribute.Top,
-            relatedBy:NSLayoutRelation.GreaterThanOrEqual, toItem:noteView,
-            attribute:NSLayoutAttribute.Top, multiplier:1, constant:100))
-        */
         
     }
     
@@ -125,7 +211,7 @@ class NewGameViewController: UIViewController {
         // control initial sound value
         if(soundLevel==nil){
             
-            println("No sound value !!!!!")
+            ////println("No sound value !!!!!")
             NSUserDefaults.standardUserDefaults().setObject(0.5, forKey: "sound")
             NSUserDefaults.standardUserDefaults().synchronize()
             soundLevelValue = 0.5;
@@ -133,7 +219,7 @@ class NewGameViewController: UIViewController {
         }else{
             //initial sound value found
             soundLevelValue = soundLevel! as Float
-            println("sound value in new Game = \(soundLevelValue)")
+            ////println("sound value in new Game = \(soundLevelValue)")
             }
         
     }
@@ -147,11 +233,12 @@ class NewGameViewController: UIViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-       
-        
+       //println("In viewWillAppear!!!")
+        noteViewContainer.layoutIfNeeded() // waits for noteViewContainer creation
         prepareNavigationBar()
+        initUI()
         
-        println("orientationChanged!!!!!!!!!")
+        ////println("orientationChanged!!!!!!!!!")
     }
     
     func prepareNavigationBar(){
@@ -178,7 +265,7 @@ class NewGameViewController: UIViewController {
     
     
     @IBAction func backButtonAction(sender:UIButton) {
-        println("Button Action From Code")
+        //println("Button Action From Code")
         var pauseScreen:NGPause = self.storyboard!.instantiateViewControllerWithIdentifier("PausedGameViewController") as NGPause
         self.title="newGame"
         pauseScreen.delegate = self
@@ -193,18 +280,14 @@ class NewGameViewController: UIViewController {
         
         if(answerLock){
             
-            
-            answerLock=false
-        
-        
-        
+        answerLock=false
         timer = NSTimer.scheduledTimerWithTimeInterval(0.0025, target: self, selector: Selector("update"), userInfo: nil, repeats: true)
         
         
         if(cellCounter<cellArray.count){
             
             
-            println(cellCounter)
+            //println(cellCounter)
             
             dispatch_async(dispatch_get_main_queue()) {
                 self.cellArray[self.cellCounter].backgroundColor = UIColor.greenColor()
@@ -250,18 +333,18 @@ class NewGameViewController: UIViewController {
             self.audioPlayer.volume = self.soundLevelValue
             self.audioPlayer.numberOfLoops = 1
             self.audioPlayer.prepareToPlay()
-            println(self.audioPlayer.duration)
+            //println(self.audioPlayer.duration)
             self.audioPlayer.play()
             
             
             
             if(self.audioPlayer.playing){
                 
-                println("Playing....")
+                //println("Playing....")
                 
             } else {
                 
-                println("Not playing!!!!!!!!")
+                //println("Not playing!!!!!!!!")
                 
             }
             
@@ -281,6 +364,49 @@ class NewGameViewController: UIViewController {
     }
     
     
+    override func willAnimateRotationToInterfaceOrientation(toInterfaceOrientation: UIInterfaceOrientation, duration: NSTimeInterval) {
+        
+        
+        if(toInterfaceOrientation.rawValue==3 || toInterfaceOrientation.rawValue==4){
+            
+            setLandscapeConstraints()
+            /*
+            //println("noteviewContainerPortraitHeight= \(noteViewContainer.frame.height)")
+            //println("noteviewContainerPortraitWidth= \(noteViewContainer.frame.width)")
+            */
+
+            /*
+            //println("firstChoiceContainerPortraitHeight= \(firstChoiceContainer.frame.height)")
+            //println("firstChoiceContainerPortraitWidth= \(firstChoiceContainer.frame.width)")
+            */
+        }
+        else {
+            
+            setPortraitConstraints()
+            
+        }
+        
+        ////println("to \(toInterfaceOrientation.rawValue)")
+        
+    }
+    
+    override func didRotateFromInterfaceOrientation(fromInterfaceOrientation: UIInterfaceOrientation) {
+        
+        ////println("from \(fromInterfaceOrientation.rawValue)")
+        
+        /*
+        //println("noteviewContainerLandsCapeHeight= \(noteViewContainer.frame.height)")
+        //println("noteviewContainerLandsCapeWidth= \(noteViewContainer.frame.width)")
+        */
+        
+        /*
+        //println("firstChoiceContainerLandsCapeHeight= \(firstChoiceContainer.frame.height)")
+        //println("firstChoiceContainerLandsCapeWidth= \(firstChoiceContainer.frame.width)")
+        */
+        
+    }
+    
+
     
 
 }

@@ -30,7 +30,6 @@ class MainPageViewController: UIViewController,UITableViewDelegate ,UITableViewD
     var width:NSNumber!, height:NSNumber!
     var sound:Sound!
     
-    
     @IBOutlet var navItem: UINavigationItem!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,7 +46,7 @@ class MainPageViewController: UIViewController,UITableViewDelegate ,UITableViewD
         //prepareUI()
         prepareNavigationBar()
         setUpPoints()
-        
+    
         
         //for new game container
         newGameContainer.layer.cornerRadius=4.0
