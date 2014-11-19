@@ -61,6 +61,8 @@ class MainPageViewController: UIViewController,UITableViewDelegate ,UITableViewD
         
         // Do any additional setup after loading the view.
     }
+    @IBOutlet var reklamContainerMainPage: UIView!
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

@@ -19,13 +19,22 @@ class StoreViewController: UIViewController {
         navBar = self.navigationController?.navigationBar
         prepareNavigationBar()
         storeViewImageContainer.layer.cornerRadius  = 4.0
-
-        // Do any additional setup after loading the view.
     }
+    
+    
+    //***HERE IS THE HIDE REKLAM ANIMATION ***
+    
+    
+    @IBOutlet var reklamContainer: UIView!
+    @IBAction func animateButtonPressed(sender: AnyObject) {
 
+        UIView.animateWithDuration(0.1, animations: {
+            self.reklamContainer.alpha = 0.0
+
+        })
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     func prepareNavigationBar(){

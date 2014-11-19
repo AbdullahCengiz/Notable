@@ -1569,7 +1569,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gvh-0J-RpJ" userLabel="ReklamContainer">
+                            <view contentMode="scaleToFill" restorationIdentifier="reklamContainer" translatesAutoresizingMaskIntoConstraints="NO" id="Gvh-0J-RpJ" userLabel="ReklamContainer">
                                 <rect key="frame" x="-4" y="550" width="608" height="50"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="REKLAM" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EcG-W8-oaY">
@@ -1591,7 +1591,7 @@
                                     <constraint firstAttribute="centerX" secondItem="EcG-W8-oaY" secondAttribute="centerX" id="j6Z-Fj-IjW"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ccc-bY-nmf">
+                            <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="removeAdsButton" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ccc-bY-nmf">
                                 <rect key="frame" x="16" y="484" width="568" height="50"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -1606,6 +1606,9 @@
                                 <variation key="heightClass=compact-widthClass=compact">
                                     <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="25"/>
                                 </variation>
+                                <connections>
+                                    <action selector="animateButtonPressed:" destination="Qzr-cf-kqp" eventType="touchUpInside" id="dQh-Hi-nWJ"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1lC-wG-v04">
                                 <rect key="frame" x="16" y="80" width="568" height="388"/>
@@ -1629,6 +1632,7 @@
                     <navigationItem key="navigationItem" id="TGK-VV-NJp"/>
                     <connections>
                         <outlet property="navItem" destination="TGK-VV-NJp" id="kf6-GI-IQl"/>
+                        <outlet property="reklamContainer" destination="Gvh-0J-RpJ" id="QUl-ho-Z82"/>
                         <outlet property="storeViewImageContainer" destination="1lC-wG-v04" id="2kM-xG-mR6"/>
                     </connections>
                 </viewController>
@@ -1807,7 +1811,7 @@
                                     <action selector="goToCategories:" destination="hHy-Fu-yYG" eventType="touchUpInside" id="LYE-qZ-CGP"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n05-RP-Pby" userLabel="ReklamContainer">
+                            <view contentMode="scaleToFill" restorationIdentifier="reklamContainerMainPage" translatesAutoresizingMaskIntoConstraints="NO" id="n05-RP-Pby" userLabel="ReklamContainer">
                                 <rect key="frame" x="-4" y="535" width="608" height="65"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="REKLAM" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fcu-Hu-9gE">
@@ -1966,6 +1970,7 @@
                         <outlet property="pointsTableView" destination="Gjg-kY-HET" id="Q8r-VA-yS8"/>
                         <outlet property="practiceButton" destination="1WU-ho-YnR" id="BJA-0g-jUb"/>
                         <outlet property="practiceLessonsContainer" destination="t7Q-9P-0sR" id="Xf8-Dh-eJG"/>
+                        <outlet property="reklamContainerMainPage" destination="n05-RP-Pby" id="YLl-0P-NE6"/>
                         <outlet property="separator" destination="wbA-JT-DF3" id="w42-iy-4fm"/>
                         <segue destination="Kgj-Y2-xbP" kind="show" identifier="goToSettings" id="suF-PE-GZo"/>
                         <segue destination="92Z-xp-ug9" kind="show" identifier="goToNewGame" id="xsw-Gl-IfI"/>
