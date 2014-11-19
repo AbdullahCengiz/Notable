@@ -934,6 +934,7 @@
                         <outlet property="endMessages" destination="9eG-c6-6K7" id="PrC-Sv-VQu"/>
                         <outlet property="pauseMessages" destination="5ZW-Ym-wiM" id="cPa-0E-CxG"/>
                         <outlet property="resumeMessages" destination="JJR-AA-lRG" id="ZJQ-bW-gva"/>
+                        <outlet property="settingsLabel" destination="QWO-Sw-DDg" id="jmh-hV-keZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ti5-vZ-Qci" userLabel="First Responder" sceneMemberID="firstResponder"/>

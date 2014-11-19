@@ -63,6 +63,10 @@ class LessonsViewController: UIViewController {
         self.nextButton.backgroundColor = btn
         self.lessonContentContainer.backgroundColor = btn
         
+        self.prevButton.setTitleColor(txt, forState: UIControlState.Normal)
+        self.nextButton.setTitleColor(txt, forState: UIControlState.Normal)
+
+        
     }
     
     func prepareNavigationBar(){

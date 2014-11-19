@@ -108,8 +108,29 @@ class SettingsViewController: UIViewController {
         super.viewWillAppear(animated)
         
          prepareNavigationBar()
+         styleView()
     }
     
+    func styleView() {
+        var bg:UIColor = UIColor.whiteColor()
+        var btn:UIColor = UIColor.whiteColor()
+        var txt:UIColor = UIColor.yellowColor()
+        Theme().fetchThemeColors(&bg, buttonColor:&btn, textColor:&txt)
+        
+        self.view.backgroundColor = bg
+        self.storeButton.backgroundColor = btn
+        self.resetAnswersButton.backgroundColor = btn
+        self.resetHighScoresButton.backgroundColor = btn
+        self.soundSlider.backgroundColor = btn
+        self.soundLevelInicatorContainer.backgroundColor = btn
+        
+        self.resetAnswersButton.setTitleColor(txt, forState: UIControlState.Normal)
+        self.resetHighScoresButton.setTitleColor(txt, forState: UIControlState.Normal)
+        self.storeButton.setTitleColor(txt, forState: UIControlState.Normal)
+        
+        
+        
+    }
     func prepareNavigationBar(){
         
         let image       = UIImage(named: "backbutton") as UIImage?

@@ -99,6 +99,7 @@ class MainPageViewController: UIViewController,UITableViewDelegate ,UITableViewD
         var btn:UIColor = UIColor.whiteColor()
         var txt:UIColor = UIColor.blueColor()
         Theme().fetchThemeColors(&bg, buttonColor:&btn, textColor:&txt)
+        
 
         //Background- and ButtonColors
         self.view.backgroundColor = bg
@@ -114,6 +115,7 @@ class MainPageViewController: UIViewController,UITableViewDelegate ,UITableViewD
         self.practiceButton.setTitleColor(txt, forState: UIControlState.Normal)
         self.chooseCategoriesButton.setTitleColor(txt, forState: UIControlState.Normal)
         self.newGameLabel.textColor = txt
+        
     }
     
     func tableView(tableView: UITableView!, canEditRowAtIndexPath indexPath: NSIndexPath!) -> Bool {

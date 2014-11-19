@@ -18,6 +18,8 @@ class NGPause: UIViewController{
     @IBOutlet weak var pauseMessages: UILabel!
     @IBOutlet weak var resumeMessages: UILabel!
     @IBOutlet weak var endMessages: UILabel!
+    @IBOutlet var settingsLabel: UILabel!
+
 
     
     required init(coder aDecoder: NSCoder) {
@@ -76,7 +78,24 @@ class NGPause: UIViewController{
         }
     
     override func viewWillAppear(animated: Bool) {
-    super.viewWillAppear(animated)
+        super.viewWillAppear(animated)
+        
+        styleView()
+    }
+    
+    func styleView() {
+        var bg:UIColor = UIColor.whiteColor()
+        var btn:UIColor = UIColor.whiteColor()
+        var txt:UIColor = UIColor.yellowColor()
+        Theme().fetchThemeColors(&bg, buttonColor:&btn, textColor:&txt)
+        
+        self.view.backgroundColor = bg
+        
+        self.pauseMessages.textColor = txt
+        self.endMessages.textColor = txt
+        self.settingsLabel.textColor = txt
+        
+        
     }
 
     
