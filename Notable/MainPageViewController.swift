@@ -69,7 +69,7 @@ class MainPageViewController: UIViewController,UITableViewDelegate ,UITableViewD
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-                styleView()
+        styleView()
         sound = Sound()
         self.navigationController?.setNavigationBarHidden(false, animated: true)
         

@@ -19,6 +19,7 @@ class SplashScreenViewController: UIViewController {
         
         println("inSplashScreen")
         createGameDatabase()
+        saveTheme()
         
         
 
@@ -59,6 +60,22 @@ class SplashScreenViewController: UIViewController {
         let height: AnyObject? = NSUserDefaults.standardUserDefaults().objectForKey("height")
     
         NSUserDefaults.standardUserDefaults().synchronize()
+        
+    }
+    
+    func saveTheme(){
+        
+        let selectedTheme: AnyObject? = NSUserDefaults.standardUserDefaults().objectForKey("selectedTheme")
+        
+        
+        if(selectedTheme==nil){
+            
+            NSUserDefaults.standardUserDefaults().setObject(0, forKey: "selectedTheme")
+            NSUserDefaults.standardUserDefaults().synchronize()
+            
+        }
+        
+        println("selectedTheme=\(selectedTheme!)")
         
     }
     
@@ -207,7 +224,7 @@ class SplashScreenViewController: UIViewController {
             counter++
             
         }
-
+        
         
         //
         //saveQuestions(questionsArray)
@@ -221,8 +238,7 @@ class SplashScreenViewController: UIViewController {
             
             cdHelper!.saveData("question", data: questionsArray)
             
-        }
-        else{
+        }else{
             
             println("There are some lessons in CoreData")
             

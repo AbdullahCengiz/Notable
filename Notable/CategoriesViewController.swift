@@ -66,6 +66,8 @@ class CategoriesViewController: UIViewController,UITableViewDelegate ,UITableVie
         
         self.view.backgroundColor = bg
         self.categoriesTableView.backgroundColor = bg
+        
+        categoriesTableView.reloadData()
 
         
     }

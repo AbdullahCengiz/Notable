@@ -21,6 +21,7 @@ class Theme
     }
     
     func fetchThemeColors(inout backgroundColor:UIColor, inout buttonColor:UIColor, inout textColor:UIColor) {
+        
         backgroundColor = UIColor.whiteColor()
         if let bgColorData = NSUserDefaults.standardUserDefaults().objectForKey("colorBackgrounds") as? NSData {
             println("Hej3")

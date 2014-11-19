@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SettingsViewController: UIViewController {
+class SettingsViewController: UIViewController{
     
     var navBar:UINavigationBar!
     
@@ -58,6 +58,10 @@ class SettingsViewController: UIViewController {
         
         initVariables()
         
+        
+        //get saved theme
+        let selectedTheme: Int = NSUserDefaults.standardUserDefaults().objectForKey("selectedTheme") as Int
+        setTheme(theme: selectedTheme)
     }
     
     
@@ -128,7 +132,8 @@ class SettingsViewController: UIViewController {
         self.resetHighScoresButton.setTitleColor(txt, forState: UIControlState.Normal)
         self.storeButton.setTitleColor(txt, forState: UIControlState.Normal)
         
-        
+
+
         
     }
     func prepareNavigationBar(){
@@ -173,45 +178,49 @@ class SettingsViewController: UIViewController {
     
     @IBAction func selectThemeAction(sender:UIButton){
         println("Theme Selection Settings!!! \(sender.tag)")
-        self.title = "Settings"
-        //var theme = Theme(targetClass: self)
+       
+        //save selectedTheme
+        NSUserDefaults.standardUserDefaults().setObject(sender.tag, forKey: "selectedTheme")
+        NSUserDefaults.standardUserDefaults().synchronize()
 
         let ud = NSUserDefaults.standardUserDefaults()
         var colorBackground:UIColor = UIColor(red:226/255.0, green:232/255.0, blue:239/255.0, alpha:1.0)
         var colorButtons:UIColor = UIColor.whiteColor()
-        var colorText:UIColor = UIColor.greenColor()
+        var colorText:UIColor = UIColor.blackColor()
         
         if(sender.tag == firstThemeButtonTag) {
+            setTheme(theme: firstThemeButtonTag)
             colorBackground = UIColor(red:226/255.0, green:232/255.0, blue:239/255.0, alpha:1.0)
             colorButtons = UIColor.whiteColor()
-            colorText = UIColor.redColor()
+            colorText = UIColor.blackColor()
         }
         
         else if (sender.tag == secondThemeButtonTag) {
+            setTheme(theme: secondThemeButtonTag)
             colorBackground = UIColor.blackColor()
             colorButtons = UIColor(red:36/255.0, green:40/255.0, blue:48/255.0, alpha:1.0)
-            colorText = UIColor.redColor()
+            colorText = UIColor.whiteColor()
         }
         
-        else if (sender.tag == thirdThemeButtonTag)
-            {
+        else if (sender.tag == thirdThemeButtonTag) {
+                setTheme(theme: thirdThemeButtonTag)
                 colorBackground = UIColor(red:36/255.0, green:40/255.0, blue:48/255.0, alpha:1.0)
                 colorButtons = UIColor(red:166/255.0, green:49/255.0, blue:58/255.0, alpha:1.0)
-                colorText = UIColor.redColor()
+                colorText = UIColor.whiteColor()
             }
         
-        else if (sender.tag == fourthThemeButtonTag)
-            {
+        else if (sender.tag == fourthThemeButtonTag) {
+                setTheme(theme: fourthThemeButtonTag)
                 colorBackground = UIColor(red:36/255.0, green:40/255.0, blue:48/255.0, alpha:1.0)
                 colorButtons = UIColor(red:110/255.0, green:213/255.0, blue:107/255.0, alpha:1.0)
-                colorText = UIColor.redColor()
+                colorText = UIColor.whiteColor()
             }
         
-        else if (sender.tag == fifthThemeButtonTag)
-            {
+        else if (sender.tag == fifthThemeButtonTag) {
+                setTheme(theme: fifthThemeButtonTag)
                 colorBackground = UIColor(red:204/255.0, green:210/255.0, blue:216/255.0, alpha:1.0)
                 colorButtons = UIColor(red:70/255.0, green:151/255.0, blue:233/255.0, alpha:1.0)
-                colorText = UIColor.redColor()
+                colorText = UIColor.whiteColor()
             }
         
         //First ThemeColor
@@ -219,10 +228,18 @@ class SettingsViewController: UIViewController {
         
         var colorBackgroundData: NSData = NSKeyedArchiver.archivedDataWithRootObject(colorBackground)
         var colorButtonsData: NSData = NSKeyedArchiver.archivedDataWithRootObject(colorButtons)
+        var colorTextData: NSData = NSKeyedArchiver.archivedDataWithRootObject(colorText)
         
         ud.setObject(colorBackgroundData, forKey: "colorBackgrounds")
         ud.setObject(colorButtonsData, forKey: "colorButtons")
+        ud.setObject(colorTextData, forKey: "colorText")
         ud.synchronize()
+        
+        
+        
+    
+        styleView()
+        
     }
     
     func setColor(#backgroundColor:UIColor,buttonColor:UIColor, textColor:UIColor){
@@ -263,5 +280,10 @@ class SettingsViewController: UIViewController {
         NSUserDefaults.standardUserDefaults().synchronize()
    
     }
- 
+    
+
+    
+
+
+
 }
