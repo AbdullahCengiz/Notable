@@ -8,8 +8,11 @@
 
 import UIKit
 
+
+
 class StoreViewController: UIViewController {
     var navBar:UINavigationBar!
+    
 
     @IBOutlet var storeViewImageContainer: UIView!
     @IBOutlet var navItem: UINavigationItem!
@@ -24,12 +27,17 @@ class StoreViewController: UIViewController {
     
     //***HERE IS THE HIDE REKLAM ANIMATION ***
     
-    
     @IBOutlet var reklamContainer: UIView!
     @IBAction func animateButtonPressed(sender: AnyObject) {
 
+        NSUserDefaults.standardUserDefaults().setObject(0, forKey: "reklam")
+        NSUserDefaults.standardUserDefaults().synchronize()
+        
+        
+        
         UIView.animateWithDuration(0.1, animations: {
             self.reklamContainer.alpha = 0.0
+            
 
         })
     }
@@ -64,4 +72,19 @@ class StoreViewController: UIViewController {
         
         self.view.backgroundColor = backgroundColor
 }
+    
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        let reklam: Int = NSUserDefaults.standardUserDefaults().objectForKey("reklam") as Int
+        
+        if(reklam==0){
+            
+            reklamContainer.hidden = true
+            
+        }
+
+        
+    }
 }

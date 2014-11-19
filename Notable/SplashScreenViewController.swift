@@ -20,6 +20,7 @@ class SplashScreenViewController: UIViewController {
         println("inSplashScreen")
         createGameDatabase()
         saveTheme()
+        checkReklamStatus()
         
         
 
@@ -74,10 +75,26 @@ class SplashScreenViewController: UIViewController {
             NSUserDefaults.standardUserDefaults().synchronize()
             
         }
-        
-        println("selectedTheme=\(selectedTheme!)")
+    
         
     }
+    
+    
+    func checkReklamStatus(){
+        
+        let reklam: AnyObject? = NSUserDefaults.standardUserDefaults().objectForKey("reklam")
+        
+        
+        if(reklam==nil){
+            
+            NSUserDefaults.standardUserDefaults().setObject(1, forKey: "reklam")
+            NSUserDefaults.standardUserDefaults().synchronize()
+            
+        }
+        
+        
+    }
+
     
     
     func saveThemeColors(){

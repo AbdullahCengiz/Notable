@@ -62,7 +62,7 @@ class MainPageViewController: UIViewController,UITableViewDelegate ,UITableViewD
         // Do any additional setup after loading the view.
     }
     @IBOutlet var reklamContainerMainPage: UIView!
-    
+  
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -76,8 +76,17 @@ class MainPageViewController: UIViewController,UITableViewDelegate ,UITableViewD
         self.navigationController?.setNavigationBarHidden(false, animated: true)
         
         self.title = "MainPage"
-        //var theme = Theme(targetClass: self)
-        //theme.setTheme("fifthTheme")
+        
+        
+        //controlReklamStatus
+        let reklam: Int = NSUserDefaults.standardUserDefaults().objectForKey("reklam") as Int
+
+        if(reklam==0){
+            
+            reklamContainerMainPage.hidden = true
+            
+        }
+        
         
 
     }
