@@ -20,7 +20,7 @@ class Theme
         //title = baseClass.title!!
     }
     
-    func fetchThemeColors(inout backgroundColor:UIColor, inout buttonColor:UIColor) {
+    func fetchThemeColors(inout backgroundColor:UIColor, inout buttonColor:UIColor, inout textColor:UIColor) {
         backgroundColor = UIColor.whiteColor()
         if let bgColorData = NSUserDefaults.standardUserDefaults().objectForKey("colorBackgrounds") as? NSData {
             println("Hej3")
@@ -38,6 +38,15 @@ class Theme
                 buttonColor = btnColor
             }
         }
+        textColor = UIColor.purpleColor()
+        if let textColorData = NSUserDefaults.standardUserDefaults().objectForKey("colorText") as? NSData {
+            println("Hej5")
+            if let txtColor = NSKeyedUnarchiver.unarchiveObjectWithData(textColorData) as? UIColor {
+                println("Hej6")
+                textColor = txtColor
+            }
+        }
+
         println("Color1 fetched \(backgroundColor), color \(buttonColor)")
     }
     

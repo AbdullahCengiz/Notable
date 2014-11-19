@@ -61,7 +61,8 @@ class CategoriesViewController: UIViewController,UITableViewDelegate ,UITableVie
     func styleView() {
         var bg:UIColor = UIColor.whiteColor()
         var btn:UIColor = UIColor.whiteColor()
-        Theme().fetchThemeColors(&bg, buttonColor:&btn)
+        var txt:UIColor = UIColor.blackColor()
+        Theme().fetchThemeColors(&bg, buttonColor:&btn, textColor:&txt)
         
         self.view.backgroundColor = bg
         self.categoriesTableView.backgroundColor = bg

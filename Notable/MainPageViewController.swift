@@ -11,6 +11,7 @@ import UIKit
 class MainPageViewController: UIViewController,UITableViewDelegate ,UITableViewDataSource {
     
 
+    @IBOutlet var newGameLabel: UILabel!
     @IBOutlet var separator: UIView!
     @IBOutlet var newGameButton: UIButton!
     @IBOutlet var pointsTableView: UITableView!
@@ -96,18 +97,23 @@ class MainPageViewController: UIViewController,UITableViewDelegate ,UITableViewD
     func styleView() {
         var bg:UIColor = UIColor.whiteColor()
         var btn:UIColor = UIColor.whiteColor()
-        Theme().fetchThemeColors(&bg, buttonColor:&btn)
-        
+        var txt:UIColor = UIColor.blueColor()
+        Theme().fetchThemeColors(&bg, buttonColor:&btn, textColor:&txt)
+
+        //Background- and ButtonColors
         self.view.backgroundColor = bg
         self.separator.backgroundColor = bg
         self.newGameContainer.backgroundColor = btn
-        //self.pointsTableView.backgroundColor = bg
         self.lessonsButton.backgroundColor = btn
         self.practiceButton.backgroundColor = btn
         self.chooseCategoriesButton.backgroundColor = btn
         self.pointsTableView.reloadData()
-        
         self.pointsTableView.separatorColor = btn
+        //TextColor
+        self.lessonsButton.setTitleColor(txt, forState: UIControlState.Normal)
+        self.practiceButton.setTitleColor(txt, forState: UIControlState.Normal)
+        self.chooseCategoriesButton.setTitleColor(txt, forState: UIControlState.Normal)
+        self.newGameLabel.textColor = txt
     }
     
     func tableView(tableView: UITableView!, canEditRowAtIndexPath indexPath: NSIndexPath!) -> Bool {
@@ -159,10 +165,15 @@ class MainPageViewController: UIViewController,UITableViewDelegate ,UITableViewD
     func tableView(tableView: UITableView, willDisplayCell cell: PointTableCell, forRowAtIndexPath indexPath: NSIndexPath) {
         var bg:UIColor = UIColor.whiteColor()
         var btn:UIColor = UIColor.whiteColor()
-        Theme().fetchThemeColors(&bg, buttonColor:&btn)
+        var txt: UIColor = UIColor.yellowColor()
+        Theme().fetchThemeColors(&bg, buttonColor:&btn, textColor:&txt)
         
         cell.cellBackground.backgroundColor = bg
        // cell.separatorColor.backgroundColor = btn
+        
+        cell.nameLabel.textColor = txt
+        cell.pointLabel.textColor = txt
+
         
     }
     

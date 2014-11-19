@@ -158,33 +158,39 @@ class SettingsViewController: UIViewController {
         let ud = NSUserDefaults.standardUserDefaults()
         var colorBackground:UIColor = UIColor(red:226/255.0, green:232/255.0, blue:239/255.0, alpha:1.0)
         var colorButtons:UIColor = UIColor.whiteColor()
+        var colorText:UIColor = UIColor.greenColor()
         
         if(sender.tag == firstThemeButtonTag) {
             colorBackground = UIColor(red:226/255.0, green:232/255.0, blue:239/255.0, alpha:1.0)
             colorButtons = UIColor.whiteColor()
+            colorText = UIColor.redColor()
         }
         
         else if (sender.tag == secondThemeButtonTag) {
             colorBackground = UIColor.blackColor()
             colorButtons = UIColor(red:36/255.0, green:40/255.0, blue:48/255.0, alpha:1.0)
+            colorText = UIColor.redColor()
         }
         
         else if (sender.tag == thirdThemeButtonTag)
             {
                 colorBackground = UIColor(red:36/255.0, green:40/255.0, blue:48/255.0, alpha:1.0)
                 colorButtons = UIColor(red:166/255.0, green:49/255.0, blue:58/255.0, alpha:1.0)
+                colorText = UIColor.redColor()
             }
         
         else if (sender.tag == fourthThemeButtonTag)
             {
                 colorBackground = UIColor(red:36/255.0, green:40/255.0, blue:48/255.0, alpha:1.0)
                 colorButtons = UIColor(red:110/255.0, green:213/255.0, blue:107/255.0, alpha:1.0)
+                colorText = UIColor.redColor()
             }
         
         else if (sender.tag == fifthThemeButtonTag)
             {
                 colorBackground = UIColor(red:204/255.0, green:210/255.0, blue:216/255.0, alpha:1.0)
                 colorButtons = UIColor(red:70/255.0, green:151/255.0, blue:233/255.0, alpha:1.0)
+                colorText = UIColor.redColor()
             }
         
         //First ThemeColor
@@ -198,7 +204,7 @@ class SettingsViewController: UIViewController {
         ud.synchronize()
     }
     
-    func setColor(#backgroundColor:UIColor,buttonColor:UIColor){
+    func setColor(#backgroundColor:UIColor,buttonColor:UIColor, textColor:UIColor){
     
         self.view.backgroundColor = backgroundColor
         self.soundSlider.backgroundColor = buttonColor
