@@ -49,6 +49,24 @@ class LessonsViewController: UIViewController {
         super.viewWillAppear(animated)
         
         prepareNavigationBar()
+        styleView()
+    }
+    
+    func styleView() {
+        var bg:UIColor = UIColor.whiteColor()
+        var btn:UIColor = UIColor.whiteColor()
+        var txt:UIColor = UIColor.blackColor()
+        Theme().fetchThemeColors(&bg, buttonColor:&btn, textColor:&txt)
+        
+        self.view.backgroundColor = bg
+        self.prevButton.backgroundColor = btn
+        self.nextButton.backgroundColor = btn
+        self.lessonContentContainer.backgroundColor = btn
+        
+        self.prevButton.setTitleColor(txt, forState: UIControlState.Normal)
+        self.nextButton.setTitleColor(txt, forState: UIControlState.Normal)
+
+        
     }
     
     func prepareNavigationBar(){
@@ -74,4 +92,9 @@ class LessonsViewController: UIViewController {
         self.title = "newLesson"
         self.presentViewController(pauseScreen, animated: true, completion: nil)
     }
+    
+    func setColor(#backgroundColor:UIColor,buttonColor:UIColor){
+    
+    self.view.backgroundColor = backgroundColor
+}
 }

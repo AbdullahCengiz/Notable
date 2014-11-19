@@ -19,6 +19,8 @@ class SplashScreenViewController: UIViewController {
         
         println("inSplashScreen")
         createGameDatabase()
+        saveTheme()
+        checkReklamStatus()
         
         
 
@@ -62,17 +64,41 @@ class SplashScreenViewController: UIViewController {
         
     }
     
+    func saveTheme(){
+        
+        let selectedTheme: AnyObject? = NSUserDefaults.standardUserDefaults().objectForKey("selectedTheme")
+        
+        
+        if(selectedTheme==nil){
+            
+            NSUserDefaults.standardUserDefaults().setObject(0, forKey: "selectedTheme")
+            NSUserDefaults.standardUserDefaults().synchronize()
+            
+        }
+    
+        
+    }
+    
+    
+    func checkReklamStatus(){
+        
+        let reklam: AnyObject? = NSUserDefaults.standardUserDefaults().objectForKey("reklam")
+        
+        
+        if(reklam==nil){
+            
+            NSUserDefaults.standardUserDefaults().setObject(1, forKey: "reklam")
+            NSUserDefaults.standardUserDefaults().synchronize()
+            
+        }
+        
+        
+    }
+
+    
     
     func saveThemeColors(){
-
-        //First ThemeColor
-        var firstThemeBackgroundColor = UIColor(red:226/255.0, green:232/255.0, blue:239/255.0, alpha:1.0)
-        var firstThemeBackgroundColorData: NSData = NSKeyedArchiver.archivedDataWithRootObject(firstThemeBackgroundColor)
-        NSUserDefaults.standardUserDefaults().setObject(firstThemeBackgroundColorData, forKey: "firstThemeBackgroundColor")
         
-        var firstThemeButtonColor = UIColor.whiteColor()
-        var firstThemeButtonColorData: NSData = NSKeyedArchiver.archivedDataWithRootObject(firstThemeButtonColor)
-        NSUserDefaults.standardUserDefaults().setObject(firstThemeButtonColorData, forKey: "firstThemeButtonColor")
         
         //Second ThemeColor
         var secondThemeBackgroundColor = UIColor.blackColor()
@@ -84,6 +110,11 @@ class SplashScreenViewController: UIViewController {
         NSUserDefaults.standardUserDefaults().setObject(secondThemeButtonColorData, forKey:
             "secondThemeButtonColor")
         
+        var secondThemeTextColor = UIColor.whiteColor()
+        var secondThemeTextColorData: NSData = NSKeyedArchiver.archivedDataWithRootObject(secondThemeTextColor)
+        NSUserDefaults.standardUserDefaults().setObject(secondThemeTextColorData, forKey:
+            "secondThemeTextColor")
+        
         //Third ThemeColor
         var thirdThemeBackgroundColor = UIColor(red:36/255.0, green:40/255.0, blue:48/255.0, alpha:1.0)
         var thirdThemeBackgroundColorData: NSData = NSKeyedArchiver.archivedDataWithRootObject(thirdThemeBackgroundColor)
@@ -93,6 +124,11 @@ class SplashScreenViewController: UIViewController {
         var thirdThemeButtonColorData: NSData = NSKeyedArchiver.archivedDataWithRootObject(thirdThemeButtonColor)
         NSUserDefaults.standardUserDefaults().setObject(thirdThemeButtonColorData, forKey:
             "thirdThemeButtonColor")
+        
+        var thirdThemeTextColor = UIColor.whiteColor()
+        var thirdThemeTextColorData: NSData = NSKeyedArchiver.archivedDataWithRootObject(thirdThemeTextColor)
+        NSUserDefaults.standardUserDefaults().setObject(thirdThemeTextColorData, forKey:
+            "thirdThemeTextColor")
         
         //Fourth ThemeColor
         var fourthThemeBackgroundColor = UIColor(red:36/255.0, green:40/255.0, blue:48/255.0, alpha:1.0)
@@ -104,6 +140,11 @@ class SplashScreenViewController: UIViewController {
         NSUserDefaults.standardUserDefaults().setObject(fourthThemeButtonColorData, forKey:
             "fourthThemeButtonColor")
         
+        var fourthThemeTextColor = UIColor.whiteColor()
+        var fourthThemeTextColorData: NSData = NSKeyedArchiver.archivedDataWithRootObject(fourthThemeTextColor)
+        NSUserDefaults.standardUserDefaults().setObject(fourthThemeTextColorData, forKey:
+            "fourthThemeTextColor")
+        
         //Fifth ThemeColor
         var fifthThemeBackgroundColor = UIColor(red:204/255.0, green:210/255.0, blue:216/255.0, alpha:1.0)
         var fifthThemeBackgroundColorData: NSData = NSKeyedArchiver.archivedDataWithRootObject(fifthThemeBackgroundColor)
@@ -113,6 +154,11 @@ class SplashScreenViewController: UIViewController {
         var fifthThemeButtonColorData: NSData = NSKeyedArchiver.archivedDataWithRootObject(fifthThemeButtonColor)
         NSUserDefaults.standardUserDefaults().setObject(fifthThemeButtonColorData, forKey:
             "fifthThemeButtonColor")
+        
+        var fifthThemeTextColor = UIColor.whiteColor()
+        var fifthThemeTextColorData: NSData = NSKeyedArchiver.archivedDataWithRootObject(fifthThemeTextColor)
+        NSUserDefaults.standardUserDefaults().setObject(fifthThemeTextColorData, forKey:
+            "fifthThemeTextColor")
         
         
         
@@ -195,7 +241,7 @@ class SplashScreenViewController: UIViewController {
             counter++
             
         }
-
+        
         
         //
         //saveQuestions(questionsArray)
@@ -209,8 +255,7 @@ class SplashScreenViewController: UIViewController {
             
             cdHelper!.saveData("question", data: questionsArray)
             
-        }
-        else{
+        }else{
             
             println("There are some lessons in CoreData")
             

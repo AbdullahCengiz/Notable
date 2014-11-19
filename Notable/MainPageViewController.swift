@@ -11,14 +11,16 @@ import UIKit
 class MainPageViewController: UIViewController,UITableViewDelegate ,UITableViewDataSource {
     
 
+    @IBOutlet var newGameLabel: UILabel!
+    @IBOutlet var separator: UIView!
     @IBOutlet var newGameButton: UIButton!
     @IBOutlet var pointsTableView: UITableView!
     @IBOutlet var newGameContainer: UIView!
-    
     @IBOutlet var lessonsButton: UIButton!
     @IBOutlet var practiceButton: UIButton!
     @IBOutlet var chooseCategoriesButton: UIButton!
     @IBOutlet var practiceLessonsContainer: UIView!
+    
     var arrayOfPoints: [Point] = [Point]()
     var navBar:UINavigationBar!
     
@@ -58,6 +60,8 @@ class MainPageViewController: UIViewController,UITableViewDelegate ,UITableViewD
         
         // Do any additional setup after loading the view.
     }
+    @IBOutlet var reklamContainerMainPage: UIView!
+  
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -66,11 +70,24 @@ class MainPageViewController: UIViewController,UITableViewDelegate ,UITableViewD
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        
+        styleView()
         sound = Sound()
         self.navigationController?.setNavigationBarHidden(false, animated: true)
         
+        self.title = "MainPage"
         
+        
+        //controlReklamStatus
+        let reklam: Int = NSUserDefaults.standardUserDefaults().objectForKey("reklam") as Int
+
+        if(reklam==0){
+            
+            reklamContainerMainPage.hidden = true
+            
+        }
+        
+        
+
     }
     
     
@@ -87,11 +104,39 @@ class MainPageViewController: UIViewController,UITableViewDelegate ,UITableViewD
         self.navigationItem.hidesBackButton=true
     }
     
+    func styleView() {
+        var bg:UIColor = UIColor.whiteColor()
+        var btn:UIColor = UIColor.whiteColor()
+        var txt:UIColor = UIColor.blueColor()
+        Theme().fetchThemeColors(&bg, buttonColor:&btn, textColor:&txt)
+        
+
+        //Background- and ButtonColors
+        self.view.backgroundColor = bg
+        self.separator.backgroundColor = bg
+        self.newGameContainer.backgroundColor = btn
+        self.lessonsButton.backgroundColor = btn
+        self.practiceButton.backgroundColor = btn
+        self.chooseCategoriesButton.backgroundColor = btn
+        self.pointsTableView.reloadData()
+        self.pointsTableView.separatorColor = btn
+        //TextColor
+        self.lessonsButton.setTitleColor(txt, forState: UIControlState.Normal)
+        self.practiceButton.setTitleColor(txt, forState: UIControlState.Normal)
+        self.chooseCategoriesButton.setTitleColor(txt, forState: UIControlState.Normal)
+        self.newGameLabel.textColor = txt
+        
+    }
     
+    func tableView(tableView: UITableView!, canEditRowAtIndexPath indexPath: NSIndexPath!) -> Bool {
+        return true
+    }
     
-    
-    
-    
+    func tableView(tableView: UITableView!, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath!) {
+        if (editingStyle == UITableViewCellEditingStyle.Delete) {
+            // handle delete (by removing the data from your array and updating the tableview)
+        }
+    }
     @IBAction func settingsButtonAction(sender:UIButton)
     {
         println("Button Action From Code")
@@ -104,8 +149,6 @@ class MainPageViewController: UIViewController,UITableViewDelegate ,UITableViewD
         var point1 = Point(userName: "Alexander", point: "110p", madelsImage: "Gold.png")
         var point2 = Point(userName: "Alexander", point: "120p", madelsImage: "Silver.png")
         var point3 = Point(userName: "Alexander", point: "130p", madelsImage: "Bronze.png")
-        
-        
         
         
         arrayOfPoints.append(point1)
@@ -122,7 +165,7 @@ class MainPageViewController: UIViewController,UITableViewDelegate ,UITableViewD
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let pointCell :PointTableCell = self.pointsTableView.dequeueReusableCellWithIdentifier("pointCell") as PointTableCell
+        let pointCell: PointTableCell = self.pointsTableView.dequeueReusableCellWithIdentifier("pointCell") as PointTableCell
         
         
         let currentPoint = arrayOfPoints[indexPath.row]
@@ -131,6 +174,20 @@ class MainPageViewController: UIViewController,UITableViewDelegate ,UITableViewD
         
     }
     
+    func tableView(tableView: UITableView, willDisplayCell cell: PointTableCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        var bg:UIColor = UIColor.whiteColor()
+        var btn:UIColor = UIColor.whiteColor()
+        var txt: UIColor = UIColor.yellowColor()
+        Theme().fetchThemeColors(&bg, buttonColor:&btn, textColor:&txt)
+        
+        cell.cellBackground.backgroundColor = bg
+       // cell.separatorColor.backgroundColor = btn
+        
+        cell.nameLabel.textColor = txt
+        cell.pointLabel.textColor = txt
+
+        
+    }
     
     @IBAction func goToCategories(sender: AnyObject) {
         
@@ -167,6 +224,5 @@ class MainPageViewController: UIViewController,UITableViewDelegate ,UITableViewD
         sound.playSound(sound.confirmSound)
         
     }
-    
     
 }

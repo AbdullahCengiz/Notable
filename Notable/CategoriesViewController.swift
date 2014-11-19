@@ -55,8 +55,22 @@ class CategoriesViewController: UIViewController,UITableViewDelegate ,UITableVie
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         prepareNavigationBar()
+        styleView()
     }
     
+    func styleView() {
+        var bg:UIColor = UIColor.whiteColor()
+        var btn:UIColor = UIColor.whiteColor()
+        var txt:UIColor = UIColor.blackColor()
+        Theme().fetchThemeColors(&bg, buttonColor:&btn, textColor:&txt)
+        
+        self.view.backgroundColor = bg
+        self.categoriesTableView.backgroundColor = bg
+        
+        categoriesTableView.reloadData()
+
+        
+    }
     func prepareNavigationBar(){
         
         //for back button

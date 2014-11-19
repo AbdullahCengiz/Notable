@@ -13,6 +13,7 @@ class PointTableCell: UITableViewCell {
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet var pointLabel: UILabel!
     @IBOutlet var medalsImage: UIImageView!
+    @IBOutlet var cellBackground: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -25,11 +26,11 @@ class PointTableCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    
     func setCell(nameLabel: String,pointLabel: String , image: String){
         self.nameLabel.text = nameLabel
         self.pointLabel.text = pointLabel
         self.medalsImage.image = UIImage(named:image)
         
     }
-
-}
+    }
