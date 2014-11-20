@@ -26,6 +26,17 @@ class NewGameViewController: UIViewController {
     @IBOutlet var cell9: UIView!
     @IBOutlet var cell10: UIView!
     
+    // for question choice numbers
+    @IBOutlet var firstChoiceNumberContainer: UIView!
+    @IBOutlet var firstChoiceContainer: UIView!
+    @IBOutlet var secondChoiceNumberContainer: UIView!
+    @IBOutlet var secondChoiceContainer: UIView!
+    @IBOutlet var thirdChoiceNumberContainer: UIView!
+    @IBOutlet var thirdChoiceContainer: UIView!
+    @IBOutlet var fourthChoiceNumberContainer: UIView!
+    @IBOutlet var fourthChoiceContainer: UIView!
+    
+    
     var cellArray : [UIView] = []
     var cellCounter:Int = 0
     var audioPlayer = AVAudioPlayer()
@@ -56,15 +67,22 @@ class NewGameViewController: UIViewController {
     let noteLineLandscapeIndentation = (((NSUserDefaults.standardUserDefaults().objectForKey("width") as CGFloat)*32)/640)*1.35
     
     
+    
+    
     var pointLabel  = UILabel()
     var timer = NSTimer()
     var counter = 0
     
+    //for rootView
+    //@IBOutlet var rootView: UIView!
+    
+    @IBOutlet var viewNewGameController: UIView!
+    @IBOutlet var TEMPtopindentation: UIView!
+    
+    
     //for noteViewContainer
     @IBOutlet var noteViewContainer: UIView!
     
-    //for firstChoiceContainer
-    @IBOutlet var firstChoiceContainer: UIView!
     
     
     //for noteView Constraints
@@ -86,10 +104,6 @@ class NewGameViewController: UIViewController {
     //fifthNoteLine
     @IBOutlet var fifthNoteLineTopSpace: NSLayoutConstraint!
 
-    
-    
-    
-    
 
     @IBOutlet var progressViewContainer: UIView!
     var navBar:UINavigationBar!
@@ -97,8 +111,10 @@ class NewGameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navBar = self.navigationController?.navigationBar
-        initVariables()
         
+        //getScreenOrientation
+        //self.layoutEverything(self.view)
+        initVariables()
         
     }
     
@@ -106,44 +122,47 @@ class NewGameViewController: UIViewController {
     return Int(UIInterfaceOrientationMask.Portrait.rawValue)
 }
     
+    func layoutEverything(x:UIView) {
+        println("x = \(x)")
+        x.layoutSubviews()
+        x.backgroundColor = getRandomColor()
+        for v in x.subviews as [UIView] {
+            v.layoutSubviews()
+            v.backgroundColor = getRandomColor()
+            println("v = \(v)")
+            if(v.subviews.count > 0) {
+                self.layoutEverything(v)
+            }
+        }
+        
+        
+        println("After for loop !!!!!")
+    }
+    
     
     func initUI(){
+       
+        
+        fourthChoiceContainer.setNeedsLayout()
+        firstChoiceNumberContainer.setNeedsLayout()
+        println("width=!!!!!!!! = \(fourthChoiceNumberContainer.frame.width)")
+        println("height=!!!!!!!! = \(fourthChoiceNumberContainer.frame.height)")
         
     
-        //getScreenOrientation
-        if(UIDevice.currentDevice().orientation.isLandscape){
-            
-            //println("ScreenOrientation = Landscape")
-            setLandscapeConstraints()
-    
-        }
-        else {
-            
-            //println("ScreenOrientation = Portrait")
-            setPortraitConstraints()
         
-        }
-        
-        
-        //noteViewContainer.layer.cornerRadius = 4.0
-        
-
-        /*
-        firstChoiceNumberContainer.layer.cornerRadius = fourthChoiceNumberContainer.frame.height/2
+        noteViewContainer.layer.cornerRadius = 4.0
+        firstChoiceNumberContainer.layer.cornerRadius = fourthChoiceNumberContainer.frame.width/2
         firstChoiceContainer.layer.cornerRadius = 4.0
-        secondChoiceNumberContainer.layer.cornerRadius = fourthChoiceNumberContainer.frame.height/2
+        secondChoiceNumberContainer.layer.cornerRadius = fourthChoiceNumberContainer.frame.width/2
         secondChoiceContainer.layer.cornerRadius = 4.0
-        thirdChoiceNumberContainer.layer.cornerRadius = fourthChoiceNumberContainer.frame.height/2
+        thirdChoiceNumberContainer.layer.cornerRadius = fourthChoiceNumberContainer.frame.width/2
         thirdChoiceContainer.layer.cornerRadius = 4.0
-        fourthChoiceNumberContainer.layer.cornerRadius = fourthChoiceNumberContainer.frame.height/2
+        fourthChoiceNumberContainer.layer.cornerRadius = fourthChoiceNumberContainer.frame.width/2
         fourthChoiceContainer.layer.cornerRadius = 4.0
-        gameImageContainer.layer.cornerRadius = 4.0
         
         pointLabel.text = String(counter)
         
-        prepareNoteView()
-        */
-        
+
     }
     
     
@@ -175,12 +194,12 @@ class NewGameViewController: UIViewController {
     func setPortraitConstraints(){
         
         firstNoteLinePortraitTopSpace = ((noteViewContainer.frame.size.height*103)/408)
-        println(noteViewContainer.frame)
+        println(noteViewContainer.superview!.frame)
         noteLinePortraitSpace = (noteViewContainer.frame.size.height-(firstNoteLinePortraitTopSpace*2+10))/4
         
-        println("noteviewContainerPortraitRealHeight = \(noteViewContainer.frame.size.height)")
+        /*println("noteviewContainerPortraitRealHeight = \(noteViewContainer.frame.size.height)")
         println("firstNoteLinePortraitTopSpace = \(firstNoteLinePortraitTopSpace)")
-        println("noteLinePortraitSpace = \(noteLinePortraitSpace)")
+        println("noteLinePortraitSpace = \(noteLinePortraitSpace)")*/
         
         //for firstNoteView
         firstNoteLineTopSpace.constant = firstNoteLinePortraitTopSpace
@@ -232,14 +251,19 @@ class NewGameViewController: UIViewController {
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        
+        //self.
        //println("In viewWillAppear!!!")
-        noteViewContainer.layoutIfNeeded() // waits for noteViewContainer creation
+         // waits for noteViewContainer creation
         prepareNavigationBar()
         initUI()
         
         ////println("orientationChanged!!!!!!!!!")
     }
+    
+    /*override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+    }*/
     
     func prepareNavigationBar(){
         
@@ -369,7 +393,7 @@ class NewGameViewController: UIViewController {
         
         if(toInterfaceOrientation.rawValue==3 || toInterfaceOrientation.rawValue==4){
             
-            setLandscapeConstraints()
+            //setLandscapeConstraints()
             /*
             //println("noteviewContainerPortraitHeight= \(noteViewContainer.frame.height)")
             //println("noteviewContainerPortraitWidth= \(noteViewContainer.frame.width)")
@@ -382,7 +406,7 @@ class NewGameViewController: UIViewController {
         }
         else {
             
-            setPortraitConstraints()
+            //setPortraitConstraints()
             
         }
         
@@ -405,6 +429,18 @@ class NewGameViewController: UIViewController {
         */
         
     }
+    
+    
+    func getRandomColor() -> UIColor{
+        
+        var randomRed:CGFloat = CGFloat(drand48())
+        var randomGreen:CGFloat = CGFloat(drand48())
+        var randomBlue:CGFloat = CGFloat(drand48())
+        
+        return UIColor(red: randomRed, green: randomGreen, blue: randomBlue, alpha: 1.0)
+        
+    }
+
     
 
     
