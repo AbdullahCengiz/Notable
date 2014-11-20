@@ -105,11 +105,13 @@ class NGPause: UIViewController{
             mNC.popToViewControllerOfClass(MainPageViewController())
             self.dismissViewControllerAnimated(true, completion: {})
             
+            
             mNC.popToViewControllerOfClass(PracticeViewController())
             self.dismissViewControllerAnimated(true, completion: {})
             
             mNC.popToViewControllerOfClass(LessonsViewController())
             self.dismissViewControllerAnimated(true, completion: {})
+
         }
      }
     

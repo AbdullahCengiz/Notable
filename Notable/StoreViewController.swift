@@ -14,6 +14,7 @@ class StoreViewController: UIViewController {
     var navBar:UINavigationBar!
     
 
+    @IBOutlet var animateBtn: UIButton!
     @IBOutlet var storeViewImageContainer: UIView!
     @IBOutlet var navItem: UINavigationItem!
     override func viewDidLoad() {
@@ -22,6 +23,7 @@ class StoreViewController: UIViewController {
         navBar = self.navigationController?.navigationBar
         prepareNavigationBar()
         storeViewImageContainer.layer.cornerRadius  = 4.0
+        animateBtn.layer.cornerRadius  = 4.0
     }
     
     
@@ -33,12 +35,16 @@ class StoreViewController: UIViewController {
         NSUserDefaults.standardUserDefaults().setObject(0, forKey: "reklam")
         NSUserDefaults.standardUserDefaults().synchronize()
         
+        let viewToAnimate = [reklamContainer]
         
-        
-        UIView.animateWithDuration(0.1, animations: {
-            self.reklamContainer.alpha = 0.0
+        UIView.performSystemAnimation(UISystemAnimation.Delete, onViews: viewToAnimate, options: nil, animations: {
+            // any changes defined here will occur
+            // in parallel with the system animation
             
-
+            }, completion: { finished in
+                // any code entered here will be applied
+                // once the animation has completed
+                
         })
     }
     override func didReceiveMemoryWarning() {

@@ -51,8 +51,8 @@ class MainPageViewController: UIViewController,UITableViewDelegate ,UITableViewD
     
         
         //for new game container
-        newGameContainer.layer.cornerRadius=4.0
-        practiceLessonsContainer.layer.cornerRadius=4.0
+        newGameContainer.layer.cornerRadius = 4.0
+        practiceLessonsContainer.layer.cornerRadius = 4.0
         chooseCategoriesButton.layer.cornerRadius = 4.0
         
         
@@ -86,8 +86,26 @@ class MainPageViewController: UIViewController,UITableViewDelegate ,UITableViewD
             
         }
         
+         var zeroHighScore: Int = NSUserDefaults.standardUserDefaults().objectForKey("zeroHighScore") as Int
+        
+        println(zeroHighScore)
+        if(zeroHighScore == 1){
+            
+            resetHighScores()
+            
+        }
+        
         
 
+    }
+    
+    
+    func resetHighScores(){
+        
+        arrayOfPoints.removeAll(keepCapacity: false)
+        
+        self.pointsTableView.reloadData()
+        
     }
     
     
@@ -107,7 +125,7 @@ class MainPageViewController: UIViewController,UITableViewDelegate ,UITableViewD
     func styleView() {
         var bg:UIColor = UIColor.whiteColor()
         var btn:UIColor = UIColor.whiteColor()
-        var txt:UIColor = UIColor.blueColor()
+        var txt:UIColor = UIColor.blackColor()
         Theme().fetchThemeColors(&bg, buttonColor:&btn, textColor:&txt)
         
 
@@ -137,8 +155,7 @@ class MainPageViewController: UIViewController,UITableViewDelegate ,UITableViewD
             // handle delete (by removing the data from your array and updating the tableview)
         }
     }
-    @IBAction func settingsButtonAction(sender:UIButton)
-    {
+    @IBAction func settingsButtonAction(sender:UIButton) {
         println("Button Action From Code")
         self.performSegueWithIdentifier("goToSettings", sender: nil)
     }
@@ -149,15 +166,14 @@ class MainPageViewController: UIViewController,UITableViewDelegate ,UITableViewD
         var point1 = Point(userName: "Alexander", point: "110p", madelsImage: "Gold.png")
         var point2 = Point(userName: "Alexander", point: "120p", madelsImage: "Silver.png")
         var point3 = Point(userName: "Alexander", point: "130p", madelsImage: "Bronze.png")
-        
-        
+    
         arrayOfPoints.append(point1)
         arrayOfPoints.append(point2)
         arrayOfPoints.append(point3)
         
         
-        
-    }
+        }
+    
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {

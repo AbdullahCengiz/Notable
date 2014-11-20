@@ -165,8 +165,7 @@ class NewGameViewController: UIViewController {
 
     }
     
-    
-    func setLandscapeConstraints(){
+    func prepareNoteView(){
         
         println("noteviewContainerLandscapeRealHeight = \(noteViewContainer.frame.size.height)")
         
@@ -214,10 +213,6 @@ class NewGameViewController: UIViewController {
         
     }
     
-    func prepareNoteView(){
-        
-        
-    }
     
     func initVariables(){
         

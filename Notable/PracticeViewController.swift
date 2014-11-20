@@ -11,14 +11,25 @@ import UIKit
 //frida samuelsson
 
 class PracticeViewController: UIViewController {
+    @IBOutlet var practiceContainer: UIView!
+    @IBOutlet var practiceTextBox: UIView!
     @IBOutlet var navItem: UINavigationItem!
+    @IBOutlet var practiceNoteName: UIButton!
     
+    var delegate:AnyObject?
     var navBar:UINavigationBar!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         navBar = self.navigationController?.navigationBar
         // Do any additional setup after loading the view.
+        
+        initUI()
+    }
+    
+    func initUI() {
+        self.practiceContainer.layer.cornerRadius = 4.0
+        self.practiceTextBox.layer.cornerRadius = 4.0
     }
     
     override func didReceiveMemoryWarning() {
@@ -41,7 +52,12 @@ class PracticeViewController: UIViewController {
         Theme().fetchThemeColors(&bg, buttonColor:&btn, textColor:&txt)
         
         self.view.backgroundColor = bg
-
+        self.practiceContainer.backgroundColor = btn
+        self.practiceTextBox.backgroundColor = btn
+        
+        
+        self.practiceNoteName.setTitleColor(txt, forState: UIControlState.Normal)
+        
     }
 
     func prepareNavigationBar(){
@@ -59,6 +75,7 @@ class PracticeViewController: UIViewController {
 
         
     }
+    
     
     
     @IBAction func backButtonAction(sender:UIButton)
