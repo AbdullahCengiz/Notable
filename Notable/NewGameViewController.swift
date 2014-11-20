@@ -110,19 +110,6 @@ class NewGameViewController: UIViewController {
     func initUI(){
         
     
-        //getScreenOrientation
-        if(UIDevice.currentDevice().orientation.isLandscape){
-            
-            //println("ScreenOrientation = Landscape")
-            setLandscapeConstraints()
-    
-        }
-        else {
-            
-            //println("ScreenOrientation = Portrait")
-            setPortraitConstraints()
-        
-        }
         
         
         //noteViewContainer.layer.cornerRadius = 4.0
@@ -146,8 +133,7 @@ class NewGameViewController: UIViewController {
         
     }
     
-    
-    func setLandscapeConstraints(){
+    func prepareNoteView(){
         
         println("noteviewContainerLandscapeRealHeight = \(noteViewContainer.frame.size.height)")
         
@@ -195,10 +181,6 @@ class NewGameViewController: UIViewController {
         
     }
     
-    func prepareNoteView(){
-        
-        
-    }
     
     func initVariables(){
         
@@ -367,24 +349,6 @@ class NewGameViewController: UIViewController {
     override func willAnimateRotationToInterfaceOrientation(toInterfaceOrientation: UIInterfaceOrientation, duration: NSTimeInterval) {
         
         
-        if(toInterfaceOrientation.rawValue==3 || toInterfaceOrientation.rawValue==4){
-            
-            setLandscapeConstraints()
-            /*
-            //println("noteviewContainerPortraitHeight= \(noteViewContainer.frame.height)")
-            //println("noteviewContainerPortraitWidth= \(noteViewContainer.frame.width)")
-            */
-
-            /*
-            //println("firstChoiceContainerPortraitHeight= \(firstChoiceContainer.frame.height)")
-            //println("firstChoiceContainerPortraitWidth= \(firstChoiceContainer.frame.width)")
-            */
-        }
-        else {
-            
-            setPortraitConstraints()
-            
-        }
         
         ////println("to \(toInterfaceOrientation.rawValue)")
         

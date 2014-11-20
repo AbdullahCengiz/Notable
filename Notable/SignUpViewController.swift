@@ -2,76 +2,23 @@
 //  SignUpViewController.swift
 //  Notable
 //
-//  Created by abdullah cengiz on 10/11/14.
-//  Copyright (c) 2014 abdullah cengiz. All rights reserved.
+//  Created by Frida Samuelsson on 20/11/14.
+//  Copyright (c) 2014 Trivato. All rights reserved.
 //
 
-import UIKit
+import Foundation
+import UIImage
 
-class SignUpViewController: UIViewController,FBLoginViewDelegate {
 
+func prepareNavigationBar(){
     
-    @IBOutlet var nextButton: UIButton!
-    @IBOutlet var fbLoginView: FBLoginView!
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        self.navigationController?.navigationBar.hidden = true
-        self.fbLoginView.delegate = self
-        self.fbLoginView.readPermissions = ["public_profile", "email", "user_friends"]
-        // Do any additional setup after loading the view.
-        
-        
-    }
-
-   
-    func loginViewShowingLoggedInUser(loginView : FBLoginView!) {
-        println("User Logged In")
-    }
-    
-    func loginViewFetchedUserInfo(loginView : FBLoginView!, user: FBGraphUser) {
-        println("User: \(user)")
-        println("User ID: \(user.objectID)")
-        println("User Name: \(user.first_name)")
-        var userEmail = user.objectForKey("email") as String
-        println("User Email: \(userEmail)")
-        
-        saveUserName(userName:user.first_name)
-        
-        
-        
-        
-        
-    }
-    
-    func loginViewShowingLoggedOutUser(loginView : FBLoginView!) {
-        println("User Logged Out")
-    }
-    
-    func loginView(loginView : FBLoginView!, handleError:NSError) {
-        println("Error: \(handleError.localizedDescription)")
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    
-    func saveUserName(#userName:String){
-        
-        NSUserDefaults.standardUserDefaults().setObject(userName, forKey: "userName")
-        NSUserDefaults.standardUserDefaults().synchronize()
-        
-        
-        self.performSegueWithIdentifier("goToMainPage", sender: nil)
-    }
-    
-    
-    @IBAction func next(sender: AnyObject) {
-        
-        self.performSegueWithIdentifier("goToMainPage", sender: nil)
-
-        
-    }
-    }
+    //for settings button
+    let image = UIImage(named: "settings_button") as UIImage?
+    let uiButton    = UIButton.buttonWithType(UIButtonType.System) as UIButton
+    uiButton.frame  = CGRectMake(0, 0, 30, 30)
+    uiButton.setBackgroundImage(image, forState: UIControlState.Normal)
+    uiButton.setTitle("", forState: UIControlState.Normal);
+    uiButton.addTarget(self, action:"settingsButtonAction:", forControlEvents: UIControlEvents.TouchUpInside)
+    self.navigationItem.setRightBarButtonItem(UIBarButtonItem(customView: uiButton), animated: true)
+    self.navigationItem.hidesBackButton=true
+}

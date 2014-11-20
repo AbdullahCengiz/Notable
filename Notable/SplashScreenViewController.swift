@@ -21,6 +21,7 @@ class SplashScreenViewController: UIViewController {
         createGameDatabase()
         saveTheme()
         checkReklamStatus()
+        checkHighScoreStatus()
         
         
 
@@ -89,6 +90,21 @@ class SplashScreenViewController: UIViewController {
             NSUserDefaults.standardUserDefaults().synchronize()
         }
     }
+    
+    func checkHighScoreStatus(){
+        
+        let zeroHighScore: AnyObject? = NSUserDefaults.standardUserDefaults().objectForKey("zeroHighScore")
+        
+        
+        if(zeroHighScore==nil){
+            
+            
+            NSUserDefaults.standardUserDefaults().setObject(0, forKey: "zeroHighScore")
+            NSUserDefaults.standardUserDefaults().synchronize()
+        }
+    }
+
+    
 
     
     

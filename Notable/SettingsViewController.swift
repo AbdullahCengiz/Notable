@@ -89,8 +89,23 @@ class SettingsViewController: UIViewController{
             colorSlider.value = soundValue
         }
         
+
+        
     }
     
+    @IBAction func highScoreButtonClicked(sender: AnyObject) {
+        
+        
+        NSUserDefaults.standardUserDefaults().setInteger(1, forKey: "zeroHighScore")
+        NSUserDefaults.standardUserDefaults().synchronize()
+        
+        println("It's clicked! Woho!")
+    }
+
+        
+       
+        
+
     
     func initVariables(){
         

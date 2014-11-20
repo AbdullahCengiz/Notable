@@ -16,6 +16,7 @@ class PracticeViewController: UIViewController {
     @IBOutlet var navItem: UINavigationItem!
     @IBOutlet var practiceNoteName: UIButton!
     
+    var delegate:AnyObject?
     var navBar:UINavigationBar!
     
     override func viewDidLoad() {
@@ -75,7 +76,7 @@ class PracticeViewController: UIViewController {
         
     }
     
-
+    
     
     @IBAction func backButtonAction(sender:UIButton)
     {
