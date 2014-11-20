@@ -73,8 +73,8 @@ class SettingsViewController: UIViewController{
         storeButton.layer.cornerRadius=4.0
         
         
-        var soundLevel: AnyObject? = NSUserDefaults.standardUserDefaults().objectForKey("sound")
         // control initial sound value
+        var soundLevel: AnyObject? = NSUserDefaults.standardUserDefaults().objectForKey("sound")
         if(soundLevel==nil){
             
             println("No sound value !!!!!")
@@ -82,15 +82,11 @@ class SettingsViewController: UIViewController{
             NSUserDefaults.standardUserDefaults().setObject(colorSlider.value, forKey: "sound")
             NSUserDefaults.standardUserDefaults().synchronize()
             
-            
-            
         }else{
             
             println("Sound value found = \(soundLevel!)")
             var soundValue : Float = soundLevel! as Float
             colorSlider.value = soundValue
-            
-            
         }
         
     }

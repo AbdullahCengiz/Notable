@@ -52,8 +52,8 @@ class MainPageViewController: UIViewController,UITableViewDelegate ,UITableViewD
         
         
         //for new game container
-        newGameContainer.layer.cornerRadius=4.0
-        practiceLessonsContainer.layer.cornerRadius=4.0
+        newGameContainer.layer.cornerRadius = 4.0
+        practiceLessonsContainer.layer.cornerRadius = 4.0
         chooseCategoriesButton.layer.cornerRadius = 4.0
         
         
@@ -108,7 +108,7 @@ class MainPageViewController: UIViewController,UITableViewDelegate ,UITableViewD
     func styleView() {
         var bg:UIColor = UIColor.whiteColor()
         var btn:UIColor = UIColor.whiteColor()
-        var txt:UIColor = UIColor.blueColor()
+        var txt:UIColor = UIColor.blackColor()
         Theme().fetchThemeColors(&bg, buttonColor:&btn, textColor:&txt)
         
 

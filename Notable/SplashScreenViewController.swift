@@ -75,10 +75,7 @@ class SplashScreenViewController: UIViewController {
             NSUserDefaults.standardUserDefaults().synchronize()
             
         }
-    
-        
     }
-    
     
     func checkReklamStatus(){
         
@@ -87,12 +84,10 @@ class SplashScreenViewController: UIViewController {
         
         if(reklam==nil){
             
+            
             NSUserDefaults.standardUserDefaults().setObject(1, forKey: "reklam")
             NSUserDefaults.standardUserDefaults().synchronize()
-            
         }
-        
-        
     }
 
     
