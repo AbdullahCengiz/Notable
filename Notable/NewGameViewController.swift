@@ -154,7 +154,7 @@ class NewGameViewController: UIViewController {
     func initUI(){
 
 
-        var numberCircleWidth = (((((NSUserDefaults.standardUserDefaults().objectForKey("height") as CGFloat)*1008)/1136))*60)/1008
+        var numberCircleWidth = (((((NSUserDefaults.standardUserDefaults().objectForKey("height") as CGFloat)*1008)/1136))*42)/1008
     
         
         firstChoiceNumberHeight.constant = numberCircleWidth
@@ -169,8 +169,7 @@ class NewGameViewController: UIViewController {
         fourthChoiceNumberHeight.constant = numberCircleWidth
         fourthChoiceNumberWidth.constant = numberCircleWidth
 
-        
-        println("width=!!!!!= \(firstChoiceNumberContainer.frame.size.width)")
+        println("firstChoiceContainer.height=!!!!!= \(firstChoiceContainer.frame.size.height)")
         println("numberCircleWidth=!!!!!= \(numberCircleWidth)")
         
         firstChoiceNumberContainer.frame = CGRectMake(firstChoiceNumberContainer.frame.minX, firstChoiceNumberContainer.frame.minY, numberCircleWidth, numberCircleWidth)
@@ -340,7 +339,7 @@ class NewGameViewController: UIViewController {
             //println(cellCounter)
             
             dispatch_async(dispatch_get_main_queue()) {
-                self.cellArray[self.cellCounter].backgroundColor = UIColor.greenColor()
+                self.cellArray[self.cellCounter].backgroundColor = UIColor(red: 0.35686275, green: 0.80784314, blue: 0.43137255, alpha: 1.0) // get true freen color
                 self.cellCounter++
                 
             }
@@ -462,6 +461,9 @@ class NewGameViewController: UIViewController {
         var randomRed:CGFloat = CGFloat(drand48())
         var randomGreen:CGFloat = CGFloat(drand48())
         var randomBlue:CGFloat = CGFloat(drand48())
+
+
+        println("red:\(randomRed)  green:\(randomBlue) green:\(randomGreen)")
         
         return UIColor(red: randomRed, green: randomGreen, blue: randomBlue, alpha: 1.0)
         
