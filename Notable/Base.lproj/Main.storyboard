@@ -33,7 +33,6 @@
             <string>Roboto-Light</string>
             <string>Roboto-Light</string>
             <string>Roboto-Light</string>
-            <string>Roboto-Light</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -1769,35 +1768,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E3J-sm-pen" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-252" y="333"/>
-        </scene>
-        <!--SignupPageViewController-->
-        <scene sceneID="rSC-Qa-TQF">
-            <objects>
-                <viewController title="SignupPageViewController" id="xoD-aZ-3bx" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="r16-lC-LrB"/>
-                        <viewControllerLayoutGuide type="bottom" id="KFn-8z-hP7"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="EUE-8Y-9uA">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zYa-hC-jrR">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="65"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="20"/>
-                                <state key="normal" title="Dummy Navigation Bar">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" red="0.89019614458084106" green="0.90980398654937744" blue="0.93725496530532837" alpha="1" colorSpace="deviceRGB"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="yeh-7x-wEV" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-365" y="1099"/>
         </scene>
         <!--MainPageViewController-->
         <scene sceneID="X6b-nE-QHs">
