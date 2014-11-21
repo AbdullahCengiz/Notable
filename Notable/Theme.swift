@@ -24,7 +24,7 @@ class Theme
         
         backgroundColor = UIColor(red:226/255.0, green:232/255.0, blue:239/255.0, alpha:1.0)
         if let bgColorData = NSUserDefaults.standardUserDefaults().objectForKey("colorBackgrounds") as? NSData {
-            println("Dummy bg color")
+            //println("Hej3")
             if let bgColor = NSKeyedUnarchiver.unarchiveObjectWithData(bgColorData) as? UIColor {
                 backgroundColor = bgColor
                 println("Dummy bg color 2")
@@ -33,7 +33,7 @@ class Theme
         
         buttonColor = UIColor.whiteColor()
         if let buttonColorData = NSUserDefaults.standardUserDefaults().objectForKey("colorButtons") as? NSData {
-            println("Dummy btn color")
+            //println("Hej4")
             if let btnColor = NSKeyedUnarchiver.unarchiveObjectWithData(buttonColorData) as? UIColor {
                 println("Dummy btn color 2")
                 buttonColor = btnColor
@@ -41,14 +41,14 @@ class Theme
         }
         textColor = UIColor.blackColor()
         if let textColorData = NSUserDefaults.standardUserDefaults().objectForKey("colorText") as? NSData {
-            println("Dummy txt color")
+            //println("Hej5")
             if let txtColor = NSKeyedUnarchiver.unarchiveObjectWithData(textColorData) as? UIColor {
                 println("Dummy txt color 2")
                 textColor = txtColor
             }
         }
 
-        println("Color1 fetched \(backgroundColor), color \(buttonColor)")
+        //println("Color1 fetched \(backgroundColor), color \(buttonColor)")
     }
     
     
