@@ -30,6 +30,9 @@ class LessonsViewController: UIViewController {
     
     
     func initUI(){
+        
+    println("width=!!!!\(prevButton.frame.width)")
+    println("height=!!!!\(prevButton.frame.height)")
     
     prevButton.layer.cornerRadius = prevButton.frame.height/2
     nextButton.layer.cornerRadius = nextButton.frame.height/2

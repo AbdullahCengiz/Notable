@@ -37,6 +37,19 @@ class NewGameViewController: UIViewController {
     @IBOutlet var fourthChoiceContainer: UIView!
     
     
+    //constraints for choiceButtons
+    @IBOutlet var firstChoiceNumberHeight: NSLayoutConstraint!
+    @IBOutlet var firstChoiceNumberWidth: NSLayoutConstraint!
+    @IBOutlet var secondChoiceNumberHeight: NSLayoutConstraint!
+    @IBOutlet var secondChoiceNumberWidth: NSLayoutConstraint!
+    @IBOutlet var thirdChoiceNumberHeight: NSLayoutConstraint!
+    @IBOutlet var thirdChoiceNumberWidth: NSLayoutConstraint!
+    @IBOutlet var fourthChoiceNumberHeight: NSLayoutConstraint!
+    @IBOutlet var fourthChoiceNumberWidth: NSLayoutConstraint!
+
+
+
+    
     var cellArray : [UIView] = []
     var cellCounter:Int = 0
     var audioPlayer = AVAudioPlayer()
@@ -111,9 +124,7 @@ class NewGameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navBar = self.navigationController?.navigationBar
-        
-        //getScreenOrientation
-        //self.layoutEverything(self.view)
+        initUI()
         initVariables()
         
     }
@@ -141,21 +152,41 @@ class NewGameViewController: UIViewController {
     
     
     func initUI(){
-       
-        
-        fourthChoiceContainer.setNeedsLayout()
-        firstChoiceNumberContainer.setNeedsLayout()
-        println("width=!!!!!!!! = \(fourthChoiceNumberContainer.frame.width)")
-        println("height=!!!!!!!! = \(fourthChoiceNumberContainer.frame.height)")
-        
+
+
+        var numberCircleWidth = (((((NSUserDefaults.standardUserDefaults().objectForKey("height") as CGFloat)*1008)/1136))*60)/1008
     
         
+        firstChoiceNumberHeight.constant = numberCircleWidth
+        firstChoiceNumberWidth.constant = numberCircleWidth
+
+        secondChoiceNumberHeight.constant = numberCircleWidth
+        secondChoiceNumberWidth.constant = numberCircleWidth
+
+        thirdChoiceNumberHeight.constant = numberCircleWidth
+        thirdChoiceNumberWidth.constant = numberCircleWidth
+
+        fourthChoiceNumberHeight.constant = numberCircleWidth
+        fourthChoiceNumberWidth.constant = numberCircleWidth
+
+        
+        println("width=!!!!!= \(firstChoiceNumberContainer.frame.size.width)")
+        println("numberCircleWidth=!!!!!= \(numberCircleWidth)")
+        
+        firstChoiceNumberContainer.frame = CGRectMake(firstChoiceNumberContainer.frame.minX, firstChoiceNumberContainer.frame.minY, numberCircleWidth, numberCircleWidth)
+
+        secondChoiceNumberContainer.frame = CGRectMake(secondChoiceNumberContainer.frame.minX, secondChoiceNumberContainer.frame.minY, numberCircleWidth, numberCircleWidth)
+
+         thirdChoiceNumberContainer.frame = CGRectMake(thirdChoiceNumberContainer.frame.minX, thirdChoiceNumberContainer.frame.minY, numberCircleWidth, numberCircleWidth)
+
+        fourthChoiceNumberContainer.frame = CGRectMake(fourthChoiceNumberContainer.frame.minX, fourthChoiceNumberContainer.frame.minY, numberCircleWidth, numberCircleWidth)
+
         noteViewContainer.layer.cornerRadius = 4.0
-        firstChoiceNumberContainer.layer.cornerRadius = fourthChoiceNumberContainer.frame.width/2
+        firstChoiceNumberContainer.layer.cornerRadius = firstChoiceNumberContainer.frame.width/2
         firstChoiceContainer.layer.cornerRadius = 4.0
-        secondChoiceNumberContainer.layer.cornerRadius = fourthChoiceNumberContainer.frame.width/2
+        secondChoiceNumberContainer.layer.cornerRadius = secondChoiceNumberContainer.frame.width/2
         secondChoiceContainer.layer.cornerRadius = 4.0
-        thirdChoiceNumberContainer.layer.cornerRadius = fourthChoiceNumberContainer.frame.width/2
+        thirdChoiceNumberContainer.layer.cornerRadius = thirdChoiceNumberContainer.frame.width/2
         thirdChoiceContainer.layer.cornerRadius = 4.0
         fourthChoiceNumberContainer.layer.cornerRadius = fourthChoiceNumberContainer.frame.width/2
         fourthChoiceContainer.layer.cornerRadius = 4.0
@@ -250,7 +281,7 @@ class NewGameViewController: UIViewController {
        //println("In viewWillAppear!!!")
          // waits for noteViewContainer creation
         prepareNavigationBar()
-        initUI()
+        
         
         ////println("orientationChanged!!!!!!!!!")
     }
@@ -300,7 +331,7 @@ class NewGameViewController: UIViewController {
         if(answerLock){
             
         answerLock=false
-        timer = NSTimer.scheduledTimerWithTimeInterval(0.0025, target: self, selector: Selector("update"), userInfo: nil, repeats: true)
+        timer = NSTimer.scheduledTimerWithTimeInterval(0.0015, target: self, selector: Selector("update"), userInfo: nil, repeats: true)
         
         
         if(cellCounter<cellArray.count){

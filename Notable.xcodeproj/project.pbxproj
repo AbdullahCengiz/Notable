@@ -17,6 +17,7 @@
 		ED089C9E1A110E2B00D3F034 /* howling.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = ED089C9D1A110E2B00D3F034 /* howling.mp3 */; };
 		ED08FB9019F9384400D6BE26 /* PointTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED08FB8F19F9384400D6BE26 /* PointTableCell.swift */; };
 		ED08FB9319F93AB400D6BE26 /* Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED08FB9219F93AB400D6BE26 /* Point.swift */; };
+		ED0B96B21A1F338A00A1A508 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED0B96B11A1F338A00A1A508 /* QuartzCore.framework */; };
 		ED19B34719FA93C700041AF0 /* NewGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED19B34619FA93C700041AF0 /* NewGameViewController.swift */; };
 		ED19B34A19FA9B9800041AF0 /* PracticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED19B34919FA9B9800041AF0 /* PracticeViewController.swift */; };
 		ED19B34D19FA9F9400041AF0 /* LessonsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED19B34C19FA9F9400041AF0 /* LessonsViewController.swift */; };
@@ -65,6 +66,7 @@
 		ED089C9D1A110E2B00D3F034 /* howling.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = howling.mp3; sourceTree = "<group>"; };
 		ED08FB8F19F9384400D6BE26 /* PointTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PointTableCell.swift; sourceTree = "<group>"; };
 		ED08FB9219F93AB400D6BE26 /* Point.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Point.swift; sourceTree = "<group>"; };
+		ED0B96B11A1F338A00A1A508 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		ED19B34619FA93C700041AF0 /* NewGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewGameViewController.swift; sourceTree = "<group>"; };
 		ED19B34919FA9B9800041AF0 /* PracticeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PracticeViewController.swift; sourceTree = "<group>"; };
 		ED19B34C19FA9F9400041AF0 /* LessonsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LessonsViewController.swift; sourceTree = "<group>"; };
@@ -100,6 +102,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED0B96B21A1F338A00A1A508 /* QuartzCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -270,6 +273,7 @@
 		ED466DF419F165DA00F14292 = {
 			isa = PBXGroup;
 			children = (
+				ED0B96B11A1F338A00A1A508 /* QuartzCore.framework */,
 				ED0363CA1A038A41004797B5 /* Notable.xcdatamodeld */,
 				ED466DFF19F165DA00F14292 /* Notable */,
 				ED466E1519F165DA00F14292 /* NotableTests */,
@@ -615,7 +619,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Notable/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -627,7 +631,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Notable/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

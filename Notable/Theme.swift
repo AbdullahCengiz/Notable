@@ -27,7 +27,7 @@ class Theme
             //println("Hej3")
             if let bgColor = NSKeyedUnarchiver.unarchiveObjectWithData(bgColorData) as? UIColor {
                 backgroundColor = bgColor
-                println("Dummy bg color 2")
+                //println("Dummy bg color 2")
             }
         }
         
@@ -35,7 +35,7 @@ class Theme
         if let buttonColorData = NSUserDefaults.standardUserDefaults().objectForKey("colorButtons") as? NSData {
             //println("Hej4")
             if let btnColor = NSKeyedUnarchiver.unarchiveObjectWithData(buttonColorData) as? UIColor {
-                println("Dummy btn color 2")
+                //println("Dummy btn color 2")
                 buttonColor = btnColor
             }
         }
@@ -43,7 +43,7 @@ class Theme
         if let textColorData = NSUserDefaults.standardUserDefaults().objectForKey("colorText") as? NSData {
             //println("Hej5")
             if let txtColor = NSKeyedUnarchiver.unarchiveObjectWithData(textColorData) as? UIColor {
-                println("Dummy txt color 2")
+                //println("Dummy txt color 2")
                 textColor = txtColor
             }
         }
