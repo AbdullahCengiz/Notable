@@ -360,9 +360,11 @@ class CoreDataHelper
                 var currentCategoryObject:NSManagedObject
                 currentCategoryObject = results[counter] as NSManagedObject
                 currentCategoryObject.setValue(status, forKey: "status")
-                context.save(nil)
+
 
             }
+
+            context.save(nil)
             
         } else {
             
@@ -414,6 +416,179 @@ class CoreDataHelper
 
         return data!
     }
+
+
+    func getQuestionsOfCategories(arrayOfCategories:[Category]) -> [AnyObject] {
+
+        var data: [Question]? = []
+
+        var context:NSManagedObjectContext = appDel!.managedObjectContext!
+        var isAllOfCategoriesChecked:Bool = true
+
+
+        println("Number of selected categories = \(arrayOfCategories.count)")
+
+        //create query
+        var questionQuery = ""
+
+        for index in 0..<arrayOfCategories.count {
+
+            //if there is only one category selected
+            if(index==0 && arrayOfCategories.count==1){
+
+                questionQuery = "questionCategory = \(arrayOfCategories[index].categoryId!)"
+                break
+            }
+
+            //if selected categories greater than 1
+            if(index==0 && arrayOfCategories.count>1){
+                questionQuery = "questionCategory = \(arrayOfCategories[index].categoryId!) OR "
+            }
+            else if(index==(arrayOfCategories.count-1)){
+
+                questionQuery  = "\(questionQuery) questionCategory = \(arrayOfCategories[index].categoryId!)"
+
+            }
+            else{
+
+                questionQuery  = "\(questionQuery) questionCategory = \(arrayOfCategories[index].categoryId!) OR "
+
+            }
+
+
+        }
+
+
+        println(questionQuery)
+
+
+        var request = NSFetchRequest(entityName: "Questions")
+        request.returnsObjectsAsFaults = false
+        request.predicate = NSPredicate(format: questionQuery)
+
+
+        var results:NSArray = context.executeFetchRequest(request, error: nil)!
+
+
+        println("getQuestion question Count= \(results.count)")
+
+        if(results.count > 0){
+
+            for counter in 0..<results.count {
+
+                var currentQuestionObject:NSManagedObject
+                var currentQuestion:Question = Question()
+
+                currentQuestionObject = results[counter] as NSManagedObject
+                currentQuestion.questionId = currentQuestionObject.valueForKey("questionId") as? Int
+                currentQuestion.questionType = currentQuestionObject.valueForKey("questionType") as? String
+                currentQuestion.questionContent = currentQuestionObject.valueForKey("questionContent") as? String
+                currentQuestion.questionCorrect = currentQuestionObject.valueForKey("questionCorrect") as? Int
+                currentQuestion.questionIncorrect = currentQuestionObject.valueForKey("questionIncorrect") as? Int
+                currentQuestion.questionAnswer = currentQuestionObject.valueForKey("questionAnswer") as? String
+                currentQuestion.questionCategory = currentQuestionObject.valueForKey("questionCategory") as? Int
+                currentQuestion.questionExtraInfo = currentQuestionObject.valueForKey("questionExtraInfo") as? String
+
+                data?.insert(currentQuestion, atIndex: counter)
+
+            }
+
+        }
+
+        //question contents before shuffle
+        for counter in 0..<data!.count {
+
+            println(data![counter].questionContent!)
+
+        }
+
+        println("!!!!!!!!!!!!!!!!!!!**********************!!!!!!!!!!!!!!!!!!!!!!")
+
+
+
+        //set other answers for questions
+        for counter in 0..<data!.count {
+
+            var randomQuestionFlag:Bool = true
+
+            println("Question \(counter)  right answer is \(data![counter].questionAnswer!) it's category = \(data![counter].questionCategory!)")
+
+
+            while(randomQuestionFlag){
+
+                let rnd = Int(arc4random_uniform(UInt32((data!.count)-1)))
+
+
+                if(rnd != counter){
+
+                    if(data![counter].questionCategory == data![rnd].questionCategory){
+
+                        if((data![counter].questionAlternativeAnswerId1!) == -1){
+                            data![counter].questionAlternativeAnswerId1 = data![rnd].questionId
+                            data![counter].questionAlternativeAnswer1 = data![rnd].questionAnswer
+                            println("Question \(counter) questionAlternativeAnswerId1 was set and it is \(data![counter].questionAlternativeAnswerId1!) it's category = \(data![rnd].questionCategory!)")
+
+
+                        }else if((data![counter].questionAlternativeAnswerId2!) == -1){
+
+                            if(data![rnd].questionId != data![counter].questionAlternativeAnswerId1){
+                                data![counter].questionAlternativeAnswerId2 = data![rnd].questionId
+                                data![counter].questionAlternativeAnswer2 = data![rnd].questionAnswer
+                                println("Question \(counter) questionAlternativeAnswerId2 was set  it is \(data![counter].questionAlternativeAnswerId2!) it's category = \(data![rnd].questionCategory!)")
+                            }
+
+                        }
+                        else if((data![counter].questionAlternativeAnswerId3!) == -1){
+
+                            if(data![rnd].questionId != data![counter].questionAlternativeAnswerId1 && data![rnd].questionId != data![counter].questionAlternativeAnswerId2){
+                                data![counter].questionAlternativeAnswerId3 = data![rnd].questionId
+                                data![counter].questionAlternativeAnswer3 = data![rnd].questionAnswer
+                                println("Question \(counter) questionAlternativeAnswerId3 was set it is \(data![counter].questionAlternativeAnswerId3!) and it's category = \(data![rnd].questionCategory!)")
+                                randomQuestionFlag = false
+
+                            }
+
+                        }
+
+                    }
+
+                }
+
+
+            }
+
+
+
+
+
+
+
+        }
+
+
+
+        //for shuffle array
+        for idx in 0..<data!.count {
+            let rnd = Int(arc4random_uniform(UInt32(idx)))
+            if rnd != idx {
+                swap(&data![idx], &data![rnd])
+            }
+        }
+
+
+        //question contents after shuffle
+        for counter in 0..<data!.count {
+
+            println(data![counter].questionContent!)
+            
+        }
+
+        return data!
+
+    }
+
+
+
     
     
 }

@@ -20,6 +20,10 @@ class MainPageViewController: UIViewController,UITableViewDelegate ,UITableViewD
     @IBOutlet var practiceButton: UIButton!
     @IBOutlet var chooseCategoriesButton: UIButton!
     @IBOutlet var practiceLessonsContainer: UIView!
+
+    //for rootView
+    @IBOutlet var rootView: UIView!
+
     
     var arrayOfPoints: [Point] = [Point]()
     var navBar:UINavigationBar!
@@ -33,6 +37,8 @@ class MainPageViewController: UIViewController,UITableViewDelegate ,UITableViewD
     var sound:Sound!
 
     var coreDataHelper: CoreDataHelper!
+
+    var gameQuestions:[Question]!
     
     @IBOutlet var navItem: UINavigationItem!
     override func viewDidLoad() {
@@ -159,7 +165,7 @@ class MainPageViewController: UIViewController,UITableViewDelegate ,UITableViewD
     }
     @IBAction func settingsButtonAction(sender:UIButton) {
         println("Button Action From Code")
-        self.performSegueWithIdentifier("goToSettings", sender: nil)
+        self.performSegueWithIdentifier("goToSettings", sender: "settings")
     }
     
     
@@ -210,7 +216,7 @@ class MainPageViewController: UIViewController,UITableViewDelegate ,UITableViewD
     @IBAction func goToCategories(sender: AnyObject) {
         
         println("categories!!!!")
-        self.performSegueWithIdentifier("goToCategories", sender: nil)
+        self.performSegueWithIdentifier("goToCategories", sender: "categories")
         
     }
     
@@ -220,7 +226,7 @@ class MainPageViewController: UIViewController,UITableViewDelegate ,UITableViewD
     @IBAction func goToLessonsAction(sender: AnyObject) {
         
         println("lessons!!!!")
-        self.performSegueWithIdentifier("goToLessons", sender: nil)
+        self.performSegueWithIdentifier("goToLessons", sender: "lessons")
         
     }
     
@@ -229,7 +235,7 @@ class MainPageViewController: UIViewController,UITableViewDelegate ,UITableViewD
     @IBAction func practiceAction(sender: AnyObject) {
         
         println("practice!!!!")
-        self.performSegueWithIdentifier("goToPractice", sender: nil)
+        self.performSegueWithIdentifier("goToPractice", sender: "practices")
         
     }
     
@@ -238,15 +244,45 @@ class MainPageViewController: UIViewController,UITableViewDelegate ,UITableViewD
         
         //println("newGame!!!!")
         //println("will control categories!!!!")
-        //coreDataHelper = CoreDataHelper()
-        //var selectedCategories:[AnyObject] = coreDataHelper.getCategories() as [AnyObject]
-        //println("NumberOfSelectedCategories  = \(selectedCategories.count)")
+        coreDataHelper = CoreDataHelper()
+        var selectedCategories:[Category] = coreDataHelper.getCategories() as [Category]
+        println("NumberOfSelectedCategories  = \(selectedCategories.count)")
 
+        gameQuestions  = coreDataHelper.getQuestionsOfCategories(selectedCategories) as [Question]
 
+        println("number of game questions  = \(gameQuestions.count)")
 
-        self.performSegueWithIdentifier("goToNewGame", sender: nil)
-        sound.playSound(sound.confirmSound)
-        
+        if(gameQuestions.count<10){
+
+            JLToast.makeText("Please add more categories").show()
+
+        }
+        else{
+
+            
+            
+
+            self.performSegueWithIdentifier("goToNewGame", sender: "newGame")
+            //self.performSegueWithIdentifier("goToNewGame", sender: nil)
+            
+            sound.playSound(sound.confirmSound)
+
+        }
+
     }
-    
+
+
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+
+        if(sender? as String == "newGame"){
+            let newGameViewController = (segue.destinationViewController as NewGameViewController)
+            newGameViewController.questions = gameQuestions
+        }
+
+    }
+
+
+
+
+        
 }

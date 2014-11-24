@@ -256,7 +256,7 @@ class SplashScreenViewController: UIViewController {
         
         //
         //saveQuestions(questionsArray)
-        cdHelper!.removeAllData("question")
+        //cdHelper!.removeAllData("question")
         //loadQuestions()
         //save the questions to core data
         
@@ -277,7 +277,7 @@ class SplashScreenViewController: UIViewController {
 
         //cdHelper!.saveData("category", data: categoriesArray)
         //var savedCategories : [Category] = cdHelper!.loadData("category") as [Category]
-        cdHelper!.removeAllData("category")
+        //cdHelper!.removeAllData("category")
         
         
         //control for category if there is not any get them from json
@@ -299,7 +299,7 @@ class SplashScreenViewController: UIViewController {
         
         //cdHelper!.saveData("lesson", data: lessonsArray)
         //var savedLessons : [Lesson] = cdHelper!.loadData("lesson") as [Lesson]
-        cdHelper!.removeAllData("lesson")
+        //cdHelper!.removeAllData("lesson")
         
         
         //control for lesson if there is not any get them from json

@@ -17,6 +17,9 @@
 		ED08FB9019F9384400D6BE26 /* PointTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED08FB8F19F9384400D6BE26 /* PointTableCell.swift */; };
 		ED08FB9319F93AB400D6BE26 /* Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED08FB9219F93AB400D6BE26 /* Point.swift */; };
 		ED0B96B21A1F338A00A1A508 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED0B96B11A1F338A00A1A508 /* QuartzCore.framework */; };
+		ED0B96B81A23432800A1A508 /* JLToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0B96B51A23432800A1A508 /* JLToast.swift */; };
+		ED0B96B91A23432800A1A508 /* JLToastCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0B96B61A23432800A1A508 /* JLToastCenter.swift */; };
+		ED0B96BA1A23432800A1A508 /* JLToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0B96B71A23432800A1A508 /* JLToastView.swift */; };
 		ED19B34719FA93C700041AF0 /* NewGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED19B34619FA93C700041AF0 /* NewGameViewController.swift */; };
 		ED19B34A19FA9B9800041AF0 /* PracticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED19B34919FA9B9800041AF0 /* PracticeViewController.swift */; };
 		ED19B34D19FA9F9400041AF0 /* LessonsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED19B34C19FA9F9400041AF0 /* LessonsViewController.swift */; };
@@ -65,6 +68,10 @@
 		ED08FB8F19F9384400D6BE26 /* PointTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PointTableCell.swift; sourceTree = "<group>"; };
 		ED08FB9219F93AB400D6BE26 /* Point.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Point.swift; sourceTree = "<group>"; };
 		ED0B96B11A1F338A00A1A508 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		ED0B96B41A23432800A1A508 /* JLToast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JLToast.h; sourceTree = "<group>"; };
+		ED0B96B51A23432800A1A508 /* JLToast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JLToast.swift; sourceTree = "<group>"; };
+		ED0B96B61A23432800A1A508 /* JLToastCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JLToastCenter.swift; sourceTree = "<group>"; };
+		ED0B96B71A23432800A1A508 /* JLToastView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JLToastView.swift; sourceTree = "<group>"; };
 		ED19B34619FA93C700041AF0 /* NewGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewGameViewController.swift; sourceTree = "<group>"; };
 		ED19B34919FA9B9800041AF0 /* PracticeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PracticeViewController.swift; sourceTree = "<group>"; };
 		ED19B34C19FA9F9400041AF0 /* LessonsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LessonsViewController.swift; sourceTree = "<group>"; };
@@ -140,6 +147,17 @@
 				ED234D9B1A160E8800DE5087 /* Lesson.swift */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		ED0B96B31A23432800A1A508 /* JLToast */ = {
+			isa = PBXGroup;
+			children = (
+				ED0B96B41A23432800A1A508 /* JLToast.h */,
+				ED0B96B51A23432800A1A508 /* JLToast.swift */,
+				ED0B96B61A23432800A1A508 /* JLToastCenter.swift */,
+				ED0B96B71A23432800A1A508 /* JLToastView.swift */,
+			);
+			path = JLToast;
 			sourceTree = "<group>";
 		};
 		ED19B34119FA931100041AF0 /* NewGame */ = {
@@ -263,6 +281,7 @@
 		ED466DF419F165DA00F14292 = {
 			isa = PBXGroup;
 			children = (
+				ED0B96B31A23432800A1A508 /* JLToast */,
 				ED0B96B11A1F338A00A1A508 /* QuartzCore.framework */,
 				ED0363CA1A038A41004797B5 /* Notable.xcdatamodeld */,
 				ED466DFF19F165DA00F14292 /* Notable */,
@@ -476,6 +495,7 @@
 				ED089C9C1A110D7D00D3F034 /* Timer.swift in Sources */,
 				ED19B34A19FA9B9800041AF0 /* PracticeViewController.swift in Sources */,
 				ED466E0319F165DA00F14292 /* AppDelegate.swift in Sources */,
+				ED0B96B81A23432800A1A508 /* JLToast.swift in Sources */,
 				ED08FB9319F93AB400D6BE26 /* Point.swift in Sources */,
 				ED234D9C1A160E8800DE5087 /* Lesson.swift in Sources */,
 				ED19B34D19FA9F9400041AF0 /* LessonsViewController.swift in Sources */,
@@ -485,6 +505,8 @@
 				ED234D9A1A1509CD00DE5087 /* Question.swift in Sources */,
 				ED225B8119F6629E00D8784E /* SettingsViewController.swift in Sources */,
 				ED234DA01A16166800DE5087 /* CoreDataHelper.swift in Sources */,
+				ED0B96B91A23432800A1A508 /* JLToastCenter.swift in Sources */,
+				ED0B96BA1A23432800A1A508 /* JLToastView.swift in Sources */,
 				0DA8BD701A13AF63002F6F89 /* NGPause.swift in Sources */,
 				ED19B34719FA93C700041AF0 /* NewGameViewController.swift in Sources */,
 				EDD14B801A029BBE004F7EA1 /* Category.swift in Sources */,
@@ -607,7 +629,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Notable/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -619,7 +641,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Notable/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
