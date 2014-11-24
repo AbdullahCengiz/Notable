@@ -258,26 +258,41 @@ class MainPageViewController: UIViewController,UITableViewDelegate ,UITableViewD
         var selectedCategories:[Category] = coreDataHelper.getCategories() as [Category]
         println("NumberOfSelectedCategories  = \(selectedCategories.count)")
 
-        gameQuestions  = coreDataHelper.getQuestionsOfCategories(selectedCategories) as [Question]
+        if(selectedCategories.count == 0){
 
-        println("number of game questions  = \(gameQuestions.count)")
-
-        if(gameQuestions.count<10){
-
-            JLToast.makeText("Please add more categories").show()
+            JLToast.makeText("Please add some categories").show()
 
         }
         else{
 
-            
-            
+            gameQuestions  = coreDataHelper.getQuestionsOfCategories(selectedCategories) as [Question]
 
-            self.performSegueWithIdentifier("goToNewGame", sender: "newGame")
-            //self.performSegueWithIdentifier("goToNewGame", sender: nil)
+            println("number of game questions  = \(gameQuestions.count)")
+
+            if(gameQuestions.count<10){
+
+                JLToast.makeText("Please add more categories").show()
+
+            }
+            else{
+
+
+
+
+                self.performSegueWithIdentifier("goToNewGame", sender: "newGame")
+                //self.performSegueWithIdentifier("goToNewGame", sender: nil)
+                
+                sound.playSound(sound.confirmSound)
+                
+            }
             
-            sound.playSound(sound.confirmSound)
 
         }
+
+
+
+
+
 
     }
 
