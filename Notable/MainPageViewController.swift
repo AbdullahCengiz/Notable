@@ -31,6 +31,8 @@ class MainPageViewController: UIViewController,UITableViewDelegate ,UITableViewD
     
     var width:NSNumber!, height:NSNumber!
     var sound:Sound!
+
+    var coreDataHelper: CoreDataHelper!
     
     @IBOutlet var navItem: UINavigationItem!
     override func viewDidLoad() {
@@ -234,9 +236,15 @@ class MainPageViewController: UIViewController,UITableViewDelegate ,UITableViewD
     
     @IBAction func newGameAction(sender: AnyObject) {
         
-        println("newGame!!!!")
+        //println("newGame!!!!")
+        //println("will control categories!!!!")
+        //coreDataHelper = CoreDataHelper()
+        //var selectedCategories:[AnyObject] = coreDataHelper.getCategories() as [AnyObject]
+        //println("NumberOfSelectedCategories  = \(selectedCategories.count)")
+
+
+
         self.performSegueWithIdentifier("goToNewGame", sender: nil)
-        
         sound.playSound(sound.confirmSound)
         
     }

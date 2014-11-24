@@ -334,10 +334,7 @@ class CoreDataHelper
 
     }
     
-    
-    
-    
-    
+
     func updateCategory(#categoryId: Int , status: Bool){
         
         var appDel:AppDelegate = (UIApplication.sharedApplication().delegate) as AppDelegate
@@ -372,12 +369,51 @@ class CoreDataHelper
             println("Error!!!")
             
         }
-        
-        
-        
     }
 
 
+
+    func getCategories() -> [AnyObject] {
+
+        var data: [AnyObject]? = []
+
+        var context:NSManagedObjectContext = appDel!.managedObjectContext!
+        var isAllOfCategoriesChecked:Bool = true
+
+
+
+            var request = NSFetchRequest(entityName: "Categories")
+            request.returnsObjectsAsFaults = false
+            request.predicate = NSPredicate(format: "status = %@" , true)
+            var results:NSArray = context.executeFetchRequest(request, error: nil)!
+
+
+            println("getCategories Category Count= \(results.count)")
+
+            if(results.count > 0){
+
+                for counter in 0..<results.count {
+
+                    var currentCategorybject:NSManagedObject
+                    var currentCategory:Category = Category()
+
+                    currentCategorybject = results[counter] as NSManagedObject
+                    currentCategory.categoryId = currentCategorybject.valueForKey("categoryId") as? Int
+                    currentCategory.categoryName = currentCategorybject.valueForKey("categoryName") as? String
+                    currentCategory.categoryPosition = currentCategorybject.valueForKey("categoryPosition") as? Int
+                    currentCategory.status = currentCategorybject.valueForKey("status") as? Bool
+
+                    if(currentCategory.status!){
+                        data?.append(currentCategory)
+                    }
+
+                }
+
+            }
+
+
+        return data!
+    }
     
     
 }

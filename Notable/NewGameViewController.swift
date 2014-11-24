@@ -156,7 +156,7 @@ class NewGameViewController: UIViewController {
 
         var numberCircleWidth = (((((NSUserDefaults.standardUserDefaults().objectForKey("height") as CGFloat)*1008)/1136))*42)/1008
     
-        
+
         firstChoiceNumberHeight.constant = numberCircleWidth
         firstChoiceNumberWidth.constant = numberCircleWidth
 
@@ -168,6 +168,8 @@ class NewGameViewController: UIViewController {
 
         fourthChoiceNumberHeight.constant = numberCircleWidth
         fourthChoiceNumberWidth.constant = numberCircleWidth
+
+
 
         println("firstChoiceContainer.height=!!!!!= \(firstChoiceContainer.frame.size.height)")
         println("numberCircleWidth=!!!!!= \(numberCircleWidth)")
