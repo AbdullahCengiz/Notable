@@ -11,6 +11,8 @@ import UIKit
 class MainPageViewController: UIViewController,UITableViewDelegate ,UITableViewDataSource {
     
 
+
+    @IBOutlet weak var scoreNumber: UILabel!
     @IBOutlet var newGameLabel: UILabel!
     @IBOutlet var separator: UIView!
     @IBOutlet var newGameButton: UIButton!
@@ -92,6 +94,9 @@ class MainPageViewController: UIViewController,UITableViewDelegate ,UITableViewD
             
             reklamContainerMainPage.hidden = true
             
+            //CHANGE THE MAINPAGE TRANSITION HERE**********
+        
+            
         }
         
          var zeroHighScore: Int = NSUserDefaults.standardUserDefaults().objectForKey("zeroHighScore") as Int
@@ -102,10 +107,15 @@ class MainPageViewController: UIViewController,UITableViewDelegate ,UITableViewD
             resetHighScores()
             
         }
+    
+    //getting the LatestScore
+         var pointLabel: Int = NSUserDefaults.standardUserDefaults().objectForKey("pointLabel") as Int
+        self.scoreNumber.text  = String(pointLabel)
         
         
-
     }
+
+
     
     
     func resetHighScores(){

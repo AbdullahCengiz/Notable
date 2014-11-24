@@ -22,6 +22,7 @@ class SplashScreenViewController: UIViewController {
         saveTheme()
         checkReklamStatus()
         checkHighScoreStatus()
+        scoreNumber()
         
         
 
@@ -103,7 +104,17 @@ class SplashScreenViewController: UIViewController {
             NSUserDefaults.standardUserDefaults().synchronize()
         }
     }
-
+    func scoreNumber(){
+        
+         let pointLabel: AnyObject? = NSUserDefaults.standardUserDefaults().objectForKey("pointLabel")
+        
+        if(pointLabel==nil){
+            
+            NSUserDefaults.standardUserDefaults().setObject(0, forKey: "pointLabel")
+            NSUserDefaults.standardUserDefaults().synchronize()
+            
+       }
+    }
     
 
     

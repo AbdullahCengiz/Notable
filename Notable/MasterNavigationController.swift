@@ -32,7 +32,7 @@ class MasterNC:UINavigationController, UINavigationControllerDelegate {
         //for logo
         println(self.visibleViewController.navigationItem.title)
         if self.visibleViewController.navigationItem.title == nil {
-            let logo = UIImage(named: "logo_small.png")
+            let logo = UIImage(named: "notable-app-icon-new-44.png")
             let imageView = UIImageView(image:logo)
             imageView.frame = CGRectMake(0, 0, 44, 44)
             self.visibleViewController.navigationItem.titleView = imageView
