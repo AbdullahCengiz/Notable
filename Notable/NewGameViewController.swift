@@ -284,6 +284,16 @@ class NewGameViewController: UIViewController {
         prepareNavigationBar()
         
         
+        var pointLabel: Int = NSUserDefaults.standardUserDefaults().objectForKey("pointLabel") as Int
+        
+        
+        
+        /*
+        if ("pointLabel" == nil) {
+        
+        println(pointLabel)
+        }*/
+        
         ////println("orientationChanged!!!!!!!!!")
     }
     
@@ -362,6 +372,9 @@ class NewGameViewController: UIViewController {
             bloat()
             
             answerLock = true
+            
+                NSUserDefaults.standardUserDefaults().setInteger(counter-1, forKey: "pointLabel")
+                NSUserDefaults.standardUserDefaults().synchronize()
             
         }
         
@@ -470,9 +483,4 @@ class NewGameViewController: UIViewController {
         return UIColor(red: randomRed, green: randomGreen, blue: randomBlue, alpha: 1.0)
         
     }
-
-    
-
-    
-
 }
