@@ -25,6 +25,7 @@ class MainPageViewController: UIViewController,UITableViewDelegate ,UITableViewD
 
     var arrayOfPoints: [Point] = [Point]()
     var navBar:UINavigationBar!
+    var gameQuestions: [Question]!
     
     let newGameButtonTag = 1
     let practiceButtonTag = 2

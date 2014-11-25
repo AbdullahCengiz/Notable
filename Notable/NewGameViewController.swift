@@ -11,7 +11,10 @@ import SpriteKit
 import AVFoundation
 import QuartzCore
 
-class NewGameViewController: UIViewController {
+class NewGameViewController: UIViewController, UITableViewDelegate {
+    
+    var delegate:AnyObject?
+    
     @IBOutlet var navItem: UINavigationItem!
     
     //for progressCell IBOutlets
@@ -46,8 +49,12 @@ class NewGameViewController: UIViewController {
     @IBOutlet var thirdChoiceNumberWidth: NSLayoutConstraint!
     @IBOutlet var fourthChoiceNumberHeight: NSLayoutConstraint!
     @IBOutlet var fourthChoiceNumberWidth: NSLayoutConstraint!
-
-
+    
+    required init(coder aDecoder: NSCoder) {
+        self.delegate = nil
+        super.init(coder: aDecoder)
+        //fatalError("init(coder:) has not been implemented")
+    }
 
     
     var cellArray : [UIView] = []
@@ -130,12 +137,23 @@ class NewGameViewController: UIViewController {
         navBar = self.navigationController?.navigationBar
         initUI()
         initVariables()
+        
 
 
         println("NumberOfQuestions: \(questions!.count)")
+       
+        
 
         
-    }
+        
+        /*
+        var myColor: UIColor = UIColor.blackColor()
+        textFieldBg.layer.borderColor! = myColor.CGColor
+        textFieldBg.layer.borderWidth = 1.0
+        textFieldBg.layer.cornerRadius = 4.0
+        */
+
+  }
     
     override func supportedInterfaceOrientations() -> Int {
     return Int(UIInterfaceOrientationMask.Portrait.rawValue)
@@ -293,22 +311,9 @@ class NewGameViewController: UIViewController {
         
         
         var pointLabel: Int = NSUserDefaults.standardUserDefaults().objectForKey("pointLabel") as Int
-        
-        
-        
-        /*
-        if ("pointLabel" == nil) {
-        
-        println(pointLabel)
-        }*/
-        
-        ////println("orientationChanged!!!!!!!!!")
     }
     
-    /*override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        
-    }*/
+ 
     
     func prepareNavigationBar(){
         
@@ -489,4 +494,15 @@ class NewGameViewController: UIViewController {
         return UIColor(red: randomRed, green: randomGreen, blue: randomBlue, alpha: 1.0)
 }
 
+@IBAction func testButton(sender: UIButton) {
+        
+var scoreScreen: NGScore = self.storyboard!.instantiateViewControllerWithIdentifier("HighScoreViewController") as NGScore
+    scoreScreen.delegate = self
+    self.presentViewController(scoreScreen, animated: true, completion: nil)
+        
+        // insert link to rest of code for getting it to the highscore here Frida!
+        
+    }
 }
+
+

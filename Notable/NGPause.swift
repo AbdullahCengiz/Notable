@@ -10,7 +10,6 @@ import Foundation
 import UIKit
 
 
-
 class NGPause: UIViewController{
 
     var delegate:AnyObject?
@@ -25,7 +24,6 @@ class NGPause: UIViewController{
     required init(coder aDecoder: NSCoder) {
         self.delegate = nil
         super.init(coder: aDecoder)
-        //fatalError("init(coder:) has not been implemented")
     }
     
     override func viewDidLoad() {
