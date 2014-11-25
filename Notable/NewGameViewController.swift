@@ -117,6 +117,10 @@ class NewGameViewController: UIViewController {
     //fifthNoteLine
     @IBOutlet var fifthNoteLineTopSpace: NSLayoutConstraint!
 
+    //for passing the variables from MainPageViewController
+    var questions : [Question]?
+
+
 
     @IBOutlet var progressViewContainer: UIView!
     var navBar:UINavigationBar!
@@ -126,6 +130,10 @@ class NewGameViewController: UIViewController {
         navBar = self.navigationController?.navigationBar
         initUI()
         initVariables()
+
+
+        println("NumberOfQuestions: \(questions!.count)")
+
         
     }
     
