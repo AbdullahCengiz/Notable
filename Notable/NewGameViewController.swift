@@ -377,12 +377,10 @@ class NewGameViewController: UIViewController {
                 NSUserDefaults.standardUserDefaults().synchronize()
             
         }
-        
     }
-    
-    
-    
-    
+
+
+
     @IBAction func playSound(sender: AnyObject) {
         
         // Grab the path, make sure to add it to your project!
@@ -467,9 +465,9 @@ class NewGameViewController: UIViewController {
         //println("firstChoiceContainerLandsCapeHeight= \(firstChoiceContainer.frame.height)")
         //println("firstChoiceContainerLandsCapeWidth= \(firstChoiceContainer.frame.width)")
         */
-        
+
     }
-    
+
     
     func getRandomColor() -> UIColor{
         
@@ -481,6 +479,6 @@ class NewGameViewController: UIViewController {
         println("red:\(randomRed)  green:\(randomBlue) green:\(randomGreen)")
         
         return UIColor(red: randomRed, green: randomGreen, blue: randomBlue, alpha: 1.0)
-        
-    }
+}
+
 }

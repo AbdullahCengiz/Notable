@@ -9,7 +9,7 @@
 import UIKit
 
 class MainPageViewController: UIViewController,UITableViewDelegate ,UITableViewDataSource {
-    
+
 
 
     @IBOutlet weak var scoreNumber: UILabel!
@@ -22,7 +22,7 @@ class MainPageViewController: UIViewController,UITableViewDelegate ,UITableViewD
     @IBOutlet var practiceButton: UIButton!
     @IBOutlet var chooseCategoriesButton: UIButton!
     @IBOutlet var practiceLessonsContainer: UIView!
-    
+
     var arrayOfPoints: [Point] = [Point]()
     var navBar:UINavigationBar!
     
@@ -35,7 +35,7 @@ class MainPageViewController: UIViewController,UITableViewDelegate ,UITableViewD
     var sound:Sound!
 
     var coreDataHelper: CoreDataHelper!
-    
+
     @IBOutlet var navItem: UINavigationItem!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,6 +63,7 @@ class MainPageViewController: UIViewController,UITableViewDelegate ,UITableViewD
         self.navigationController?.setNavigationBarHidden(false, animated: true)
         
         // Do any additional setup after loading the view.
+    
     }
     @IBOutlet var reklamContainerMainPage: UIView!
   
