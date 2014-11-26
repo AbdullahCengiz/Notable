@@ -44,6 +44,13 @@ class StoreViewController: UIViewController {
             }, completion: { finished in
                 // any code entered here will be applied
                 // once the animation has completed
+                UIView.animateWithDuration(2, animations: {
+                var newCenter = self.animateBtn.center
+                newCenter.y -= 100
+                self.animateBtn.center = newCenter
+            }, completion: { finished in
+                println("Basket doors opened!")
+        })
                 
         })
     }

@@ -20,6 +20,7 @@ class Point
     
     var userName = "Alexander"
     var point = "point"
+
     var madelsImage = "madelsImage"
     
     init(userName: String, point: String, madelsImage: String){

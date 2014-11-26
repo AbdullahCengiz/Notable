@@ -14,6 +14,7 @@ class PointTableCell: UITableViewCell {
     @IBOutlet var pointLabel: UILabel!
     @IBOutlet var medalsImage: UIImageView!
     @IBOutlet var cellBackground: UIView!
+  
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -26,40 +27,7 @@ class PointTableCell: UITableViewCell {
     
    
     
-    //Check if score is higher than NSUserDefaults stored value and change NSUserDefaults stored value if it's true
-    //FIX 26/11!!!!!!!!!!
-/*
-    var score = 5
-    var goldValue = 5000
-    var HSData: Int = NSUserDefaults.standardUserDefaults().integerForKey("HSData")
-    
-    /*
-    if score > NSUserDefaults.standardUserDefaults().integerForKey("HSData") {
-    NSUserDefaults.standardUserDefaults().setInteger(score, forKey: "HSdata")
-    NSUserDefaults.standardUserDefaults().synchronize()
-    */
-    
-    if (score = goldValue){
-        let goldValue = NSUserDefaults.standardUserDefaults().integerForKey("HSData")
-    NSUserDefaults.standardUserDefaults().setInteger(score, forKey: "HSdata")
-    NSUserDefaults.standardUserDefaults().synchronize()
-    
-    } else if (score < goldValue) {
-        let siverValue = NSUserDefaults.standardUserDefaults().integerForKey("HSData")
-    NSUserDefaults.standardUserDefaults().setInteger(score, forKey: "HSdata")
-    NSUserDefaults.standardUserDefaults().synchronize()
-    
-    } else if (score < silverValue) {
-        let bronzeValue = NSUserDefaults.standardUserDefaults().integerForKey("HSData")
-    NSUserDefaults.standardUserDefaults().setInteger(score, forKey: "HSdata")
-    NSUserDefaults.standardUserDefaults().synchronize()
-    
-    } else if (score < bronzeValue){
-    
-    println("Did not reach highscore")
-
-    }
-*/
+   
     
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
@@ -70,6 +38,8 @@ class PointTableCell: UITableViewCell {
     
     func setCell(nameLabel: String,pointLabel: String , image: String){
         var defaults = NSUserDefaults()
+        
+        /*
         var highscoreName = defaults.stringArrayForKey("highscoreName")
         
         var highscoreNameShow = defaults.stringArrayForKey("highscoreName")
@@ -81,8 +51,51 @@ class PointTableCell: UITableViewCell {
         var highscoreNumberShow = defaults.integerForKey("highscoreNumber")
         self.pointLabel.text = "Number: \(highscoreNumberShow)"
         
+        */
         
+        //Check if score is higher than NSUserDefaults stored value and change NSUserDefaults stored value if it's true
+        //score = datan på Main page nummer
+        
+        /*
+        var highscoreNumber: AnyObject? = NSUserDefaults.standardUserDefaults().objectForKey("highscoreNumber") as Int
+        
+        var highestValue:Int = 5000
+        
+        if(highscoreNumber == nil){
+            println(highscoreNumber)
+        }
+        
+       
+        
+        
+        if ((highscoreNumber! as Int) == highestValue) {
+        var goldValue = NSUserDefaults.standardUserDefaults().integerForKey("highscoreNumber")
+        NSUserDefaults.standardUserDefaults().setInteger((highscoreNumber! as Int), forKey: "highscoreNumber")
+        NSUserDefaults.standardUserDefaults().synchronize()
+        
+        } else if (highscoreNumber < goldValue) {
+        var siverValue = NSUserDefaults.standardUserDefaults().integerForKey("highscoreNumber")
+        NSUserDefaults.standardUserDefaults().setInteger((highscoreNumber! as Int), forKey: "highscoreNumber")
+        NSUserDefaults.standardUserDefaults().synchronize()
+        
+        } else if (highscoreNumber < silverValue) {
+        var bronzeValue = NSUserDefaults.standardUserDefaults().integerForKey("highscoreNumber")
+        NSUserDefaults.standardUserDefaults().setInteger((highscoreNumber! as Int), forKey: "highscoreNumber")
+        NSUserDefaults.standardUserDefaults().synchronize()
+        
+        } else if (highscoreNumber < bronzeValue){
+        
+        println("Did not reach highscore")
+        
+        }
+        
+*/
+        
+        
+        self.nameLabel.text = nameLabel
+        self.pointLabel.text = pointLabel
         self.medalsImage.image = UIImage(named:image)
+
         
     }
     }
