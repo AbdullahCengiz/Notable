@@ -7,13 +7,21 @@
 //
 
 import Foundation
+/*
+NSUserDefaults.standardUserDefaults().objectForKey("highscoreName")
+
+FIX 26/11!!!!!!!!!!
+*/
+
 
 class Point
+
 {
-    var userName = "userName"
-    var point = "point"
-    var madelsImage = "madelsImage"
     
+    var userName = "Alexander"
+    var point = "point"
+
+    var madelsImage = "madelsImage"
     
     init(userName: String, point: String, madelsImage: String){
         self.userName = userName
@@ -24,3 +32,4 @@ class Point
     
     
 }
+

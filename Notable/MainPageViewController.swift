@@ -9,7 +9,7 @@
 import UIKit
 
 class MainPageViewController: UIViewController,UITableViewDelegate ,UITableViewDataSource {
-    
+
 
 
     @IBOutlet weak var scoreNumber: UILabel!
@@ -23,12 +23,9 @@ class MainPageViewController: UIViewController,UITableViewDelegate ,UITableViewD
     @IBOutlet var chooseCategoriesButton: UIButton!
     @IBOutlet var practiceLessonsContainer: UIView!
 
-    //for rootView
-    @IBOutlet var rootView: UIView!
-
-    
     var arrayOfPoints: [Point] = [Point]()
     var navBar:UINavigationBar!
+    var gameQuestions: [Question]!
     
     let newGameButtonTag = 1
     let practiceButtonTag = 2
@@ -40,8 +37,6 @@ class MainPageViewController: UIViewController,UITableViewDelegate ,UITableViewD
 
     var coreDataHelper: CoreDataHelper!
 
-    var gameQuestions:[Question]!
-    
     @IBOutlet var navItem: UINavigationItem!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,7 +52,7 @@ class MainPageViewController: UIViewController,UITableViewDelegate ,UITableViewD
         
         //prepareUI()
         prepareNavigationBar()
-        setUpPoints()
+        
     
         
         //for new game container
@@ -69,6 +64,7 @@ class MainPageViewController: UIViewController,UITableViewDelegate ,UITableViewD
         self.navigationController?.setNavigationBarHidden(false, animated: true)
         
         // Do any additional setup after loading the view.
+    
     }
     @IBOutlet var reklamContainerMainPage: UIView!
   
@@ -113,6 +109,9 @@ class MainPageViewController: UIViewController,UITableViewDelegate ,UITableViewD
         self.scoreNumber.text  = String(pointLabel)
         
         
+        setUpPoints()
+        
+        
     }
 
 
@@ -131,8 +130,8 @@ class MainPageViewController: UIViewController,UITableViewDelegate ,UITableViewD
         
         //for settings button
         let image = UIImage(named: "settings_button") as UIImage?
-        let uiButton    = UIButton.buttonWithType(UIButtonType.System) as UIButton
-        uiButton.frame  = CGRectMake(0, 0, 30, 30)
+        let uiButton = UIButton.buttonWithType(UIButtonType.System) as UIButton
+        uiButton.frame = CGRectMake(0, 0, 30, 30)
         uiButton.setBackgroundImage(image, forState: UIControlState.Normal)
         uiButton.setTitle("", forState: UIControlState.Normal);
         uiButton.addTarget(self, action:"settingsButtonAction:", forControlEvents: UIControlEvents.TouchUpInside)
@@ -181,10 +180,42 @@ class MainPageViewController: UIViewController,UITableViewDelegate ,UITableViewD
     
     func setUpPoints(){
         
-        var point1 = Point(userName: "Alexander", point: "110p", madelsImage: "Gold.png")
-        var point2 = Point(userName: "Alexander", point: "120p", madelsImage: "Silver.png")
-        var point3 = Point(userName: "Alexander", point: "130p", madelsImage: "Bronze.png")
-    
+        arrayOfPoints.removeAll(keepCapacity: false)
+        
+        var highscoreNumberGold: Int = NSUserDefaults.standardUserDefaults().integerForKey("highscoreNumberGold") as Int
+        var highscoreNumberSilver: Int = NSUserDefaults.standardUserDefaults().integerForKey("highscoreNumberSilver") as Int
+        var highscoreNumberBronze: Int = NSUserDefaults.standardUserDefaults().integerForKey("highscoreNumberBronze") as Int
+        
+        
+        //getting the LatestScore
+        var pointLabel: Int = NSUserDefaults.standardUserDefaults().objectForKey("pointLabel") as Int
+        self.scoreNumber.text  = String(pointLabel)
+        
+        if (pointLabel > highscoreNumberGold){
+            highscoreNumberBronze = highscoreNumberSilver
+            highscoreNumberSilver = highscoreNumberGold
+            highscoreNumberGold = pointLabel
+        
+        }else if (pointLabel > highscoreNumberSilver){
+             highscoreNumberBronze = highscoreNumberSilver
+             highscoreNumberSilver = pointLabel
+        }
+        else if (pointLabel > highscoreNumberBronze){
+            highscoreNumberBronze = pointLabel
+        }
+        
+        
+        NSUserDefaults.standardUserDefaults().setInteger(highscoreNumberGold, forKey: "highscoreNumberGold")
+        NSUserDefaults.standardUserDefaults().synchronize()
+        NSUserDefaults.standardUserDefaults().setInteger(highscoreNumberSilver, forKey: "highscoreNumberSilver")
+        NSUserDefaults.standardUserDefaults().synchronize()
+        NSUserDefaults.standardUserDefaults().setInteger(highscoreNumberBronze, forKey: "highscoreNumberBronze")
+        NSUserDefaults.standardUserDefaults().synchronize()
+        
+        var point1 = Point(userName: "Frida", point: String(highscoreNumberGold), madelsImage: "Gold.png")
+        var point2 = Point(userName: "Frida", point: String(highscoreNumberSilver), madelsImage: "Silver.png")
+        var point3 = Point(userName: "Frida", point: String(highscoreNumberBronze), madelsImage: "Bronze.png")
+
         arrayOfPoints.append(point1)
         arrayOfPoints.append(point2)
         arrayOfPoints.append(point3)

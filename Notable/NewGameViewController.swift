@@ -11,7 +11,10 @@ import SpriteKit
 import AVFoundation
 import QuartzCore
 
-class NewGameViewController: UIViewController {
+class NewGameViewController: UIViewController, UITableViewDelegate {
+    
+    var delegate:AnyObject?
+    
     @IBOutlet var navItem: UINavigationItem!
 
     //for progressCell IBOutlets
@@ -52,8 +55,12 @@ class NewGameViewController: UIViewController {
     @IBOutlet var thirdChoiceNumberWidth: NSLayoutConstraint!
     @IBOutlet var fourthChoiceNumberHeight: NSLayoutConstraint!
     @IBOutlet var fourthChoiceNumberWidth: NSLayoutConstraint!
-
-
+    
+    required init(coder aDecoder: NSCoder) {
+        self.delegate = nil
+        super.init(coder: aDecoder)
+        //fatalError("init(coder:) has not been implemented")
+    }
 
 
     var cellArray : [UIView] = []
@@ -125,10 +132,13 @@ class NewGameViewController: UIViewController {
         navBar = self.navigationController?.navigationBar
         initUI()
         initVariables()
+        
 
         prepareGame(currentQuestion)
 
         println("NumberOfQuestions: \(questions!.count)")
+       
+        
 
     }
 
@@ -607,6 +617,17 @@ class NewGameViewController: UIViewController {
         println("red:\(randomRed)  green:\(randomBlue) green:\(randomGreen)")
 
         return UIColor(red: randomRed, green: randomGreen, blue: randomBlue, alpha: 1.0)
+}
+
+@IBAction func testButton(sender: UIButton) {
+        
+var scoreScreen: NGScore = self.storyboard!.instantiateViewControllerWithIdentifier("HighScoreViewController") as NGScore
+    scoreScreen.delegate = self
+    self.presentViewController(scoreScreen, animated: true, completion: nil)
+        
+        // insert link to rest of code for getting it to the highscore here Frida!
         
     }
 }
+
+

@@ -23,11 +23,66 @@ class SplashScreenViewController: UIViewController {
         checkReklamStatus()
         checkHighScoreStatus()
         scoreNumber()
-        
-        
-
+        highscoreName()
+        highscoreNumber()
     }
 
+        func scoreNumber(){
+        
+         var pointLabel: AnyObject? = NSUserDefaults.standardUserDefaults().objectForKey("pointLabel")
+        
+        if(pointLabel==nil){
+            
+            NSUserDefaults.standardUserDefaults().setObject(0, forKey: "pointLabel")
+            NSUserDefaults.standardUserDefaults().synchronize()
+            
+       }
+    }
+    func highscoreName(){
+        
+        var highscoreName: AnyObject? = NSUserDefaults.standardUserDefaults().objectForKey("highscoreName")
+        if(highscoreName==nil){
+            
+            NSUserDefaults.standardUserDefaults().setObject(0, forKey: "highscoreName")
+            NSUserDefaults.standardUserDefaults().synchronize()
+        }
+    }
+    func highscoreNumber(){
+        
+        var highscoreNumber: AnyObject? = NSUserDefaults.standardUserDefaults().objectForKey("highscoreNumber")
+        
+        if(highscoreNumber==nil){
+            
+            NSUserDefaults.standardUserDefaults().setObject(0, forKey: "highscoreNumber")
+            NSUserDefaults.standardUserDefaults().synchronize()
+            
+            println("Did not reach highscore")
+        }
+
+        
+        var goldValue:AnyObject? = NSUserDefaults.standardUserDefaults().objectForKey("pointLabel")
+        var silverValue:AnyObject? = NSUserDefaults.standardUserDefaults().objectForKey("pointLabel")
+        var bronzeValue:AnyObject? = NSUserDefaults.standardUserDefaults().objectForKey("pointLabel") 
+
+        if (goldValue==nil) {
+            NSUserDefaults.standardUserDefaults().setInteger(0, forKey: "highscoreNumberGold")
+            NSUserDefaults.standardUserDefaults().synchronize()
+            
+        }
+        
+        if (silverValue==nil) {
+            NSUserDefaults.standardUserDefaults().setInteger(0, forKey: "highscoreNumberSilver")
+            NSUserDefaults.standardUserDefaults().synchronize()
+            
+        }
+        
+        if (bronzeValue==nil) {
+            NSUserDefaults.standardUserDefaults().setInteger(0, forKey: "highscoreNumberBronze")
+            NSUserDefaults.standardUserDefaults().synchronize()
+            
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -104,17 +159,7 @@ class SplashScreenViewController: UIViewController {
             NSUserDefaults.standardUserDefaults().synchronize()
         }
     }
-    func scoreNumber(){
-        
-         let pointLabel: AnyObject? = NSUserDefaults.standardUserDefaults().objectForKey("pointLabel")
-        
-        if(pointLabel==nil){
-            
-            NSUserDefaults.standardUserDefaults().setObject(0, forKey: "pointLabel")
-            NSUserDefaults.standardUserDefaults().synchronize()
-            
-       }
-    }
+
     
 
     

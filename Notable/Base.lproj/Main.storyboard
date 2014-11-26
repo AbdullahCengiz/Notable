@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="8e6-19-os2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="8e6-19-os2">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
@@ -9,6 +9,9 @@
     </dependencies>
     <customFonts key="customFonts">
         <mutableArray key="Roboto-Light.ttf">
+            <string>Roboto-Light</string>
+            <string>Roboto-Light</string>
+            <string>Roboto-Light</string>
             <string>Roboto-Light</string>
             <string>Roboto-Light</string>
             <string>Roboto-Light</string>
@@ -116,8 +119,8 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="tick" translatesAutoresizingMaskIntoConstraints="NO" id="dgx-ua-Z8Z">
-                                                    <rect key="frame" x="498" y="24" width="30" height="30"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tick" translatesAutoresizingMaskIntoConstraints="NO" id="dgx-ua-Z8Z">
+                                                    <rect key="frame" x="530" y="24" width="30" height="30"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="ASb-FM-09P"/>
                                                         <constraint firstAttribute="width" constant="30" id="GY7-wM-GUh"/>
@@ -338,19 +341,19 @@
                                     <constraint firstAttribute="width" constant="44" id="PMy-b3-iJV"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Lesson" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IhV-q4-yoo">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lesson" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IhV-q4-yoo">
                                 <rect key="frame" x="206" y="137" width="96" height="36"/>
                                 <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="30"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="of 8" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fT5-IG-Kh6">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="of 8" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fT5-IG-Kh6">
                                 <rect key="frame" x="337" y="136" width="51" height="36"/>
                                 <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="30"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text=" X" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="evC-wF-XxL">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" X" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="evC-wF-XxL">
                                 <rect key="frame" x="303" y="136" width="26" height="36"/>
                                 <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="30"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -382,7 +385,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uqa-Js-mfN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1555" y="2689"/>
+            <point key="canvasLocation" x="1555" y="2651"/>
         </scene>
         <!--NewGameViewController-->
         <scene sceneID="wR1-8d-bQQ">
@@ -478,7 +481,7 @@
                                                                     <constraint firstItem="30n-96-DfL" firstAttribute="leading" secondItem="WFM-gj-gTv" secondAttribute="leading" id="nEU-G9-1HQ"/>
                                                                     <constraint firstItem="QYq-Fx-PU0" firstAttribute="height" secondItem="6jF-hi-Z2m" secondAttribute="height" id="nya-H5-gQm"/>
                                                                     <constraint firstAttribute="trailing" secondItem="6jF-hi-Z2m" secondAttribute="trailing" id="plg-zQ-Fbl"/>
-                                                                    <constraint firstAttribute="centerY" secondItem="30n-96-DfL" secondAttribute="centerY" multiplier="2" id="v82-W1-4OH"/>
+                                                                    <constraint firstAttribute="centerY" secondItem="30n-96-DfL" secondAttribute="centerY" multiplier="2" constant="1" id="v82-W1-4OH"/>
                                                                     <constraint firstAttribute="trailing" secondItem="e98-Cw-i5D" secondAttribute="trailing" id="wUG-uv-9oM"/>
                                                                     <constraint firstItem="6jF-hi-Z2m" firstAttribute="leading" secondItem="WFM-gj-gTv" secondAttribute="leading" id="xdo-UV-QjX"/>
                                                                     <constraint firstItem="nff-gh-BF8" firstAttribute="centerX" secondItem="6jF-hi-Z2m" secondAttribute="centerX" constant="-0.5" id="zf1-KU-aPS"/>
@@ -547,7 +550,7 @@
                                                 </connections>
                                             </button>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dkl-HS-Z4p" userLabel="FirstChoiceNumberContainer" customClass="UIButton">
-                                                <rect key="frame" x="15.5" y="13" width="25" height="25"/>
+                                                <rect key="frame" x="16" y="13" width="25" height="25"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MVq-ou-8SU">
                                                         <rect key="frame" x="8" y="4" width="9" height="18"/>
@@ -568,7 +571,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TcI-ao-3zT" userLabel="FirstChoiceButtonLeftIndentation">
-                                                <rect key="frame" x="0.0" y="0.0" width="15.5" height="49.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="16" height="50"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             </view>
                                         </subviews>
@@ -605,11 +608,11 @@
                                                 </connections>
                                             </button>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xad-oW-UcY" userLabel="SecondChoiceButtonLeftIndentation">
-                                                <rect key="frame" x="0.0" y="0.0" width="15.5" height="52"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="16" height="52"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mgh-su-Lfp" userLabel="SecondChoiceNumberContainer" customClass="UIButton">
-                                                <rect key="frame" x="15.5" y="14" width="25" height="25"/>
+                                                <rect key="frame" x="16" y="14" width="25" height="25"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yVM-ff-fRY">
                                                         <rect key="frame" x="8" y="4" width="9" height="18"/>
@@ -667,7 +670,7 @@
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pZg-yN-fPf" userLabel="ThirdChoiceNumberContainer" customClass="UIButton">
-                                                <rect key="frame" x="15.5" y="12" width="25" height="25"/>
+                                                <rect key="frame" x="16" y="12" width="25" height="25"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hV4-of-W7P" userLabel="3">
                                                         <rect key="frame" x="8" y="4" width="9" height="18"/>
@@ -722,7 +725,7 @@
                                                 </connections>
                                             </button>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="khY-gB-XxT" userLabel="FourthChoiceNumberContainer" customClass="UIButton">
-                                                <rect key="frame" x="15.5" y="12" width="25" height="25"/>
+                                                <rect key="frame" x="16" y="12" width="25" height="25"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RUH-d0-sjf" userLabel="4">
                                                         <rect key="frame" x="8" y="4" width="9" height="18"/>
@@ -772,35 +775,35 @@
                                 <constraints>
                                     <constraint firstItem="h0M-hp-5rf" firstAttribute="top" secondItem="kGo-DP-q5G" secondAttribute="bottom" id="20E-PS-4W7"/>
                                     <constraint firstItem="kGo-DP-q5G" firstAttribute="top" secondItem="See-Ar-dns" secondAttribute="bottom" id="3fD-tv-UQe"/>
-                                    <constraint firstAttribute="height" secondItem="Tac-zt-cDX" secondAttribute="height" multiplier="31.5" id="46u-KP-4ei"/>
+                                    <constraint firstAttribute="height" secondItem="Tac-zt-cDX" secondAttribute="height" multiplier="31.5" constant="-14.5" id="46u-KP-4ei"/>
                                     <constraint firstAttribute="height" secondItem="F1c-3m-dLs" secondAttribute="height" multiplier="2.47" id="4Qj-n1-y7h"/>
-                                    <constraint firstAttribute="height" secondItem="Ryo-Nd-sUB" secondAttribute="height" multiplier="31.5" id="7la-FT-PMK"/>
+                                    <constraint firstAttribute="height" secondItem="Ryo-Nd-sUB" secondAttribute="height" multiplier="31.5" constant="17" id="7la-FT-PMK"/>
                                     <constraint firstAttribute="width" priority="750" constant="568" id="8Ag-xc-l5K"/>
                                     <constraint firstAttribute="trailing" secondItem="See-Ar-dns" secondAttribute="trailing" id="9EF-4r-LaC"/>
                                     <constraint firstItem="15j-1J-4Jh" firstAttribute="top" secondItem="3hm-kX-2Sq" secondAttribute="bottom" id="9Kx-Hf-swh"/>
                                     <constraint firstAttribute="trailing" secondItem="3hm-kX-2Sq" secondAttribute="trailing" id="AD7-hH-UJv"/>
-                                    <constraint firstAttribute="height" secondItem="kGo-DP-q5G" secondAttribute="height" multiplier="31.5" id="AI9-zZ-r44"/>
+                                    <constraint firstAttribute="height" secondItem="kGo-DP-q5G" secondAttribute="height" multiplier="31.5" constant="-14.5" id="AI9-zZ-r44"/>
                                     <constraint firstItem="15j-1J-4Jh" firstAttribute="leading" secondItem="CdL-pc-PSK" secondAttribute="leading" id="Arr-hm-Uoo"/>
                                     <constraint firstItem="zNY-7Z-BKV" firstAttribute="leading" secondItem="CdL-pc-PSK" secondAttribute="leading" id="Egx-vp-23G"/>
                                     <constraint firstAttribute="trailing" secondItem="15j-1J-4Jh" secondAttribute="trailing" id="EpI-Qb-LWI"/>
                                     <constraint firstItem="Ryo-Nd-sUB" firstAttribute="top" secondItem="F1c-3m-dLs" secondAttribute="bottom" id="EpZ-vC-xJj"/>
                                     <constraint firstItem="1Vq-P7-rxc" firstAttribute="top" secondItem="h0M-hp-5rf" secondAttribute="bottom" id="FPr-hk-dva"/>
-                                    <constraint firstAttribute="height" secondItem="zNY-7Z-BKV" secondAttribute="height" multiplier="31.5" id="H4O-ew-TYk"/>
+                                    <constraint firstAttribute="height" secondItem="zNY-7Z-BKV" secondAttribute="height" multiplier="31.5" constant="17" id="H4O-ew-TYk"/>
                                     <constraint firstAttribute="trailing" secondItem="Ryo-Nd-sUB" secondAttribute="trailing" id="N46-Jl-0pK"/>
                                     <constraint firstAttribute="trailing" secondItem="iiy-qD-gyc" secondAttribute="trailing" id="PDf-Yo-l3S"/>
                                     <constraint firstAttribute="trailing" secondItem="h0M-hp-5rf" secondAttribute="trailing" id="Q5C-Im-PgQ"/>
-                                    <constraint firstAttribute="height" secondItem="15j-1J-4Jh" secondAttribute="height" multiplier="31.5" id="Qt8-hv-xrd"/>
+                                    <constraint firstAttribute="height" secondItem="15j-1J-4Jh" secondAttribute="height" multiplier="31.5" constant="17" id="Qt8-hv-xrd"/>
                                     <constraint firstItem="zNY-7Z-BKV" firstAttribute="top" secondItem="iiy-qD-gyc" secondAttribute="bottom" id="SJW-sS-5mq"/>
                                     <constraint firstItem="3hm-kX-2Sq" firstAttribute="top" secondItem="Ryo-Nd-sUB" secondAttribute="bottom" id="UaW-Ry-8LI"/>
                                     <constraint firstItem="F1c-3m-dLs" firstAttribute="leading" secondItem="CdL-pc-PSK" secondAttribute="leading" id="VDg-lJ-RBb"/>
-                                    <constraint firstAttribute="height" secondItem="iiy-qD-gyc" secondAttribute="height" multiplier="10.5" id="Vhf-qi-k1B"/>
+                                    <constraint firstAttribute="height" secondItem="iiy-qD-gyc" secondAttribute="height" multiplier="10.5" constant="-4" id="Vhf-qi-k1B"/>
                                     <constraint firstItem="Tac-zt-cDX" firstAttribute="top" secondItem="CdL-pc-PSK" secondAttribute="top" id="X4T-aQ-mqc"/>
                                     <constraint firstAttribute="trailing" secondItem="zNY-7Z-BKV" secondAttribute="trailing" id="Xih-Qn-bUk"/>
                                     <constraint firstItem="See-Ar-dns" firstAttribute="leading" secondItem="CdL-pc-PSK" secondAttribute="leading" id="Yhj-hu-Y1h"/>
-                                    <constraint firstAttribute="height" secondItem="h0M-hp-5rf" secondAttribute="height" multiplier="10.5" id="Zdy-MT-uFZ"/>
+                                    <constraint firstAttribute="height" secondItem="h0M-hp-5rf" secondAttribute="height" multiplier="10.5" constant="6.5" id="Zdy-MT-uFZ"/>
                                     <constraint firstAttribute="trailing" secondItem="kGo-DP-q5G" secondAttribute="trailing" id="dDT-Ew-1me"/>
                                     <constraint firstItem="Ryo-Nd-sUB" firstAttribute="leading" secondItem="CdL-pc-PSK" secondAttribute="leading" id="dR1-I4-O4L"/>
-                                    <constraint firstAttribute="height" secondItem="3hm-kX-2Sq" secondAttribute="height" multiplier="10.5" id="gby-Ia-JgH"/>
+                                    <constraint firstAttribute="height" secondItem="3hm-kX-2Sq" secondAttribute="height" multiplier="10.5" constant="-4" id="gby-Ia-JgH"/>
                                     <constraint firstItem="h0M-hp-5rf" firstAttribute="top" secondItem="kGo-DP-q5G" secondAttribute="bottom" id="jb9-T9-XfK"/>
                                     <constraint firstAttribute="trailing" secondItem="Tac-zt-cDX" secondAttribute="trailing" id="kgP-2D-kON"/>
                                     <constraint firstAttribute="trailing" secondItem="F1c-3m-dLs" secondAttribute="trailing" id="ldJ-9c-o7q"/>
@@ -808,7 +811,7 @@
                                     <constraint firstItem="1Vq-P7-rxc" firstAttribute="leading" secondItem="CdL-pc-PSK" secondAttribute="leading" id="mZY-U5-B6o"/>
                                     <constraint firstItem="h0M-hp-5rf" firstAttribute="leading" secondItem="CdL-pc-PSK" secondAttribute="leading" id="nww-O3-RiN"/>
                                     <constraint firstItem="Tac-zt-cDX" firstAttribute="leading" secondItem="CdL-pc-PSK" secondAttribute="leading" id="obh-Nc-PCg"/>
-                                    <constraint firstAttribute="height" secondItem="1Vq-P7-rxc" secondAttribute="height" multiplier="31.5" id="pCX-KK-WuZ"/>
+                                    <constraint firstAttribute="height" secondItem="1Vq-P7-rxc" secondAttribute="height" multiplier="31.5" constant="-14.5" id="pCX-KK-WuZ"/>
                                     <constraint firstItem="iiy-qD-gyc" firstAttribute="leading" secondItem="CdL-pc-PSK" secondAttribute="leading" id="paL-4P-5ab"/>
                                     <constraint firstItem="F1c-3m-dLs" firstAttribute="top" secondItem="Tac-zt-cDX" secondAttribute="bottom" id="pqC-gA-kFH"/>
                                     <constraint firstAttribute="height" secondItem="See-Ar-dns" secondAttribute="height" multiplier="10.25" constant="-12" id="uiC-8H-Tew"/>
@@ -1283,7 +1286,7 @@
                                     <constraint firstAttribute="bottom" secondItem="Smn-mh-Bzl" secondAttribute="bottom" id="khJ-tk-dd1"/>
                                     <constraint firstItem="QxV-RS-Ypu" firstAttribute="top" secondItem="2ae-x8-qtC" secondAttribute="top" id="o4p-cQ-Gew"/>
                                     <constraint firstItem="iVr-3j-u0Z" firstAttribute="leading" secondItem="2ae-x8-qtC" secondAttribute="leading" id="pIx-pe-bdT"/>
-                                    <constraint firstAttribute="width" priority="750" constant="1000" id="qjy-o2-uzo"/>
+                                    <constraint firstAttribute="width" priority="750" constant="600" id="qjy-o2-uzo"/>
                                     <constraint firstAttribute="height" secondItem="97b-Ef-Ts8" secondAttribute="height" id="rzd-E3-GfL"/>
                                     <constraint firstItem="Smn-mh-Bzl" firstAttribute="leading" secondItem="QxV-RS-Ypu" secondAttribute="trailing" id="sog-wJ-prK"/>
                                     <constraint firstAttribute="width" secondItem="CVc-Id-w90" secondAttribute="width" multiplier="10" id="wVU-FH-BL4"/>
@@ -1296,10 +1299,22 @@
                                     </mask>
                                 </variation>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HAT-Uw-lyi">
+                                <rect key="frame" x="15" y="80" width="72" height="30"/>
+                                <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="testButton">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="testButton:" destination="92Z-xp-ug9" eventType="touchUpInside" id="Gx1-GB-PkQ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.8862745098" green="0.90980392160000001" blue="0.93725490199999995" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="CdL-pc-PSK" secondAttribute="trailing" id="Byc-Pv-yrS"/>
+                            <constraint firstItem="HAT-Uw-lyi" firstAttribute="leading" secondItem="638-b9-r6F" secondAttribute="leadingMargin" constant="-1" id="N1m-Ll-26Z"/>
                             <constraint firstItem="2ae-x8-qtC" firstAttribute="leading" secondItem="638-b9-r6F" secondAttribute="leadingMargin" constant="-16" id="UTQ-ml-d0N"/>
                             <constraint firstItem="CdL-pc-PSK" firstAttribute="leading" secondItem="638-b9-r6F" secondAttribute="leadingMargin" id="aR7-vt-r6A"/>
                             <constraint firstItem="2ae-x8-qtC" firstAttribute="height" secondItem="638-b9-r6F" secondAttribute="height" multiplier="0.0248" id="cTb-1N-4x8"/>
@@ -1307,6 +1322,7 @@
                             <constraint firstItem="KfB-aO-cB3" firstAttribute="top" secondItem="2ae-x8-qtC" secondAttribute="bottom" id="qa8-UH-Tyu"/>
                             <constraint firstItem="CdL-pc-PSK" firstAttribute="top" secondItem="e82-MD-RM0" secondAttribute="bottom" id="sfH-wg-0hc"/>
                             <constraint firstAttribute="trailingMargin" secondItem="2ae-x8-qtC" secondAttribute="trailing" constant="-16" id="yTA-fK-HMC"/>
+                            <constraint firstItem="HAT-Uw-lyi" firstAttribute="top" secondItem="e82-MD-RM0" secondAttribute="bottom" constant="16" id="ycH-H9-MlA"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="4QA-GL-2y1"/>
@@ -1352,7 +1368,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5uc-xC-vZg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="494" y="1926"/>
+            <point key="canvasLocation" x="570" y="1917"/>
         </scene>
         <!--Paused Game Controller-->
         <scene sceneID="WxM-2c-6bO">
@@ -1403,7 +1419,7 @@
                                     <constraint firstAttribute="width" constant="44" id="Wui-fd-GsN"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" restorationIdentifier="pauseMessages" text="Your Game is Paused" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5ZW-Ym-wiM">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="pauseMessages" text="Your Game is Paused" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5ZW-Ym-wiM">
                                 <rect key="frame" x="159" y="122" width="283" height="36"/>
                                 <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="30"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -1487,7 +1503,101 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ti5-vZ-Qci" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="494" y="2694"/>
+            <point key="canvasLocation" x="570" y="2651"/>
+        </scene>
+        <!--HighScoreViewController-->
+        <scene sceneID="2qL-N1-LO6">
+            <objects>
+                <viewController restorationIdentifier="HighScoreViewController" storyboardIdentifier="HighScoreViewController" title="HighScoreViewController" modalTransitionStyle="crossDissolve" id="or4-Ak-hj9" userLabel="HighScoreViewController" customClass="NGScore" customModule="Notable" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="01V-lw-e3W"/>
+                        <viewControllerLayoutGuide type="bottom" id="ILL-u9-bhR"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="EBv-yB-4MX">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q4n-vC-iTw" userLabel="textFieldBg">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" restorationIdentifier="congratsView" translatesAutoresizingMaskIntoConstraints="NO" id="Gs1-uX-qoq" userLabel="congratsView">
+                                        <rect key="frame" x="16" y="135" width="568" height="175"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Congratulations!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FYx-wW-WQS">
+                                                <rect key="frame" x="194" y="72" width="181" height="30"/>
+                                                <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="25"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You have reached the highscore." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3wp-ZP-oii">
+                                                <rect key="frame" x="163" y="104" width="242" height="20"/>
+                                                <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="17"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="nameTextField" contentHorizontalAlignment="center" contentVerticalAlignment="center" usesAttributedText="YES" borderStyle="roundedRect" placeholder="Please enter your name" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="gdT-qX-iKv" userLabel="nameTextField">
+                                                <rect key="frame" x="160" y="132" width="202" height="30"/>
+                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <attributedString key="attributedText"/>
+                                                <textInputTraits key="textInputTraits" returnKeyType="send"/>
+                                            </textField>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="POL-8v-fjp">
+                                                <rect key="frame" x="370" y="132" width="39" height="30"/>
+                                                <color key="backgroundColor" red="0.89019614459999996" green="0.90980398650000005" blue="0.93725496529999996" alpha="1" colorSpace="deviceRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="39" id="Pyi-eY-wGc"/>
+                                                    <constraint firstAttribute="height" constant="30" id="QOd-Sm-0Z4"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="14"/>
+                                                <state key="normal" title="Send">
+                                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="centerX" secondItem="3wp-ZP-oii" secondAttribute="centerX" id="3ji-oH-qHB"/>
+                                            <constraint firstItem="POL-8v-fjp" firstAttribute="leading" secondItem="gdT-qX-iKv" secondAttribute="trailing" constant="8" id="3tE-hb-lMQ"/>
+                                            <constraint firstAttribute="centerY" secondItem="3wp-ZP-oii" secondAttribute="centerY" constant="-26.5" id="5rQ-Li-PHm"/>
+                                            <constraint firstAttribute="centerX" secondItem="FYx-wW-WQS" secondAttribute="centerX" constant="-0.5" id="6oI-Nd-NQ9"/>
+                                            <constraint firstAttribute="centerY" secondItem="FYx-wW-WQS" secondAttribute="centerY" constant="0.5" id="DbK-aR-xtU"/>
+                                            <constraint firstAttribute="centerX" secondItem="3wp-ZP-oii" secondAttribute="centerX" id="XnS-6k-BqP"/>
+                                            <constraint firstAttribute="centerX" secondItem="gdT-qX-iKv" secondAttribute="centerX" constant="23" id="b1s-Sd-7Oz"/>
+                                            <constraint firstAttribute="centerX" secondItem="FYx-wW-WQS" secondAttribute="centerX" constant="-0.5" id="eAJ-7g-fwv"/>
+                                            <constraint firstAttribute="centerY" secondItem="gdT-qX-iKv" secondAttribute="centerY" constant="-59.5" id="h4j-SZ-Vgn"/>
+                                            <constraint firstAttribute="centerY" secondItem="FYx-wW-WQS" secondAttribute="centerY" constant="0.5" id="iPH-gw-33C"/>
+                                            <constraint firstItem="POL-8v-fjp" firstAttribute="top" secondItem="Gs1-uX-qoq" secondAttribute="top" constant="132" id="iYh-Pa-MTr"/>
+                                            <constraint firstAttribute="centerY" secondItem="3wp-ZP-oii" secondAttribute="centerY" constant="-26.5" id="vPn-Bh-3r3"/>
+                                            <constraint firstAttribute="height" constant="175" id="zhp-Jh-SEl"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" red="0.89019614459999996" green="0.90980398650000005" blue="0.93725496529999996" alpha="1" colorSpace="deviceRGB"/>
+                                <constraints>
+                                    <constraint firstItem="Gs1-uX-qoq" firstAttribute="leading" secondItem="q4n-vC-iTw" secondAttribute="leading" constant="16" id="GgN-ze-ENA"/>
+                                    <constraint firstItem="Gs1-uX-qoq" firstAttribute="top" secondItem="q4n-vC-iTw" secondAttribute="top" constant="135" id="bVW-8I-FgT"/>
+                                    <constraint firstAttribute="trailing" secondItem="Gs1-uX-qoq" secondAttribute="trailing" constant="16" id="lj7-dR-fva"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="q4n-vC-iTw" secondAttribute="centerX" id="d7O-Mk-EbM"/>
+                            <constraint firstAttribute="centerY" secondItem="q4n-vC-iTw" secondAttribute="centerY" id="dGi-bu-ycK"/>
+                            <constraint firstItem="q4n-vC-iTw" firstAttribute="bottom" secondItem="ILL-u9-bhR" secondAttribute="top" id="s2B-rO-oeF"/>
+                            <constraint firstItem="q4n-vC-iTw" firstAttribute="leading" secondItem="EBv-yB-4MX" secondAttribute="leading" id="vnZ-Fp-OY5"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="congratsView" destination="Gs1-uX-qoq" id="1pR-c9-01O"/>
+                        <outlet property="nameTextField" destination="gdT-qX-iKv" id="4V1-iT-H64"/>
+                        <outlet property="textFieldBg" destination="q4n-vC-iTw" id="JHJ-C1-u3g"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="58e-V5-Xbu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="570" y="3315"/>
         </scene>
         <!--PracticeViewController-->
         <scene sceneID="ru4-kL-R0g">
@@ -1577,7 +1687,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kpc-Jf-p68" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1555" y="1099"/>
+            <point key="canvasLocation" x="1555" y="1085"/>
         </scene>
         <!--SettingsViewController-->
         <scene sceneID="K7c-Up-lZA">
@@ -2485,25 +2595,6 @@
                                 <color key="textColor" red="0.47450980392156861" green="0.48627450980392156" blue="0.51372549019607838" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BvS-8f-wpf" userLabel="ChooseCatagoriesButton">
-                                <rect key="frame" x="16" y="242" width="568" height="50"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="dfe-MA-UvB"/>
-                                    <constraint firstAttribute="width" priority="750" constant="568" id="oUR-qY-2se"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="22"/>
-                                <state key="normal" title="Choose Categories">
-                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <variation key="heightClass=regular-widthClass=compact" ambiguous="YES">
-                                    <rect key="frame" x="32" y="192" width="342" height="50"/>
-                                </variation>
-                                <connections>
-                                    <action selector="goToCategories:" destination="hHy-Fu-yYG" eventType="touchUpInside" id="LYE-qZ-CGP"/>
-                                </connections>
-                            </button>
                             <tableView clipsSubviews="YES" contentMode="bottom" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Gjg-kY-HET" userLabel="HighScoresTableView">
                                 <rect key="frame" x="16" y="359" width="568" height="150"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -2536,7 +2627,7 @@
                                                         <constraint firstAttribute="width" constant="32" id="cAi-iR-W2M"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1140p" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FEb-HJ-LMh">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="ScorePoints" text="1140p" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FEb-HJ-LMh">
                                                     <rect key="frame" x="452" y="14" width="92" height="21"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <constraints>
@@ -2552,7 +2643,7 @@
                                                         </mask>
                                                     </variation>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Alexander" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mSP-iX-GCe">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="Alexander" text="Alexander" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mSP-iX-GCe">
                                                     <rect key="frame" x="71" y="14" width="112" height="21"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <constraints>
@@ -2598,6 +2689,25 @@
                                     <outlet property="delegate" destination="hHy-Fu-yYG" id="ZRm-Vm-LZd"/>
                                 </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BvS-8f-wpf" userLabel="ChooseCatagoriesButton">
+                                <rect key="frame" x="16" y="242" width="568" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="dfe-MA-UvB"/>
+                                    <constraint firstAttribute="width" priority="750" constant="568" id="oUR-qY-2se"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="22"/>
+                                <state key="normal" title="Choose Categories">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="heightClass=regular-widthClass=compact" ambiguous="YES">
+                                    <rect key="frame" x="32" y="192" width="342" height="50"/>
+                                </variation>
+                                <connections>
+                                    <action selector="goToCategories:" destination="hHy-Fu-yYG" eventType="touchUpInside" id="LYE-qZ-CGP"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.88627450980392153" green="0.90980392156862744" blue="0.93725490196078431" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
