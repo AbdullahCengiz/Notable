@@ -11,6 +11,8 @@
 		0DA8BD6E1A136816002F6F89 /* MasterNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DA8BD6C1A136816002F6F89 /* MasterNavigationController.swift */; };
 		0DA8BD701A13AF63002F6F89 /* NGPause.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DA8BD6F1A13AF63002F6F89 /* NGPause.swift */; };
 		0DAD97A31A1A1EB80011E4AF /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DAD97A21A1A1EB80011E4AF /* Theme.swift */; };
+		ED01DA2C1A247B8200E7BF8E /* correct.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = ED01DA2A1A247B8200E7BF8E /* correct.mp3 */; };
+		ED01DA2D1A247B8200E7BF8E /* incorrect.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = ED01DA2B1A247B8200E7BF8E /* incorrect.mp3 */; };
 		ED0363CC1A038A41004797B5 /* Notable.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = ED0363CA1A038A41004797B5 /* Notable.xcdatamodeld */; };
 		ED089C9C1A110D7D00D3F034 /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED089C9B1A110D7D00D3F034 /* Timer.swift */; };
 		ED089C9E1A110E2B00D3F034 /* howling.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = ED089C9D1A110E2B00D3F034 /* howling.mp3 */; };
@@ -62,6 +64,8 @@
 		0DA8BD6C1A136816002F6F89 /* MasterNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasterNavigationController.swift; sourceTree = "<group>"; };
 		0DA8BD6F1A13AF63002F6F89 /* NGPause.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NGPause.swift; sourceTree = "<group>"; };
 		0DAD97A21A1A1EB80011E4AF /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		ED01DA2A1A247B8200E7BF8E /* correct.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = correct.mp3; sourceTree = "<group>"; };
+		ED01DA2B1A247B8200E7BF8E /* incorrect.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = incorrect.mp3; sourceTree = "<group>"; };
 		ED0363CB1A038A41004797B5 /* Notable.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Notable.xcdatamodel; sourceTree = "<group>"; };
 		ED089C9B1A110D7D00D3F034 /* Timer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
 		ED089C9D1A110E2B00D3F034 /* howling.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = howling.mp3; sourceTree = "<group>"; };
@@ -361,6 +365,8 @@
 		ED96CE951A0BDFD3007589F9 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				ED01DA2A1A247B8200E7BF8E /* correct.mp3 */,
+				ED01DA2B1A247B8200E7BF8E /* incorrect.mp3 */,
 				ED4051A81A1A036B003CE4F8 /* confirm.mp3 */,
 				ED234D8C1A14E33100DE5087 /* data.json */,
 				ED089C9D1A110E2B00D3F034 /* howling.mp3 */,
@@ -463,7 +469,9 @@
 				ED466E0819F165DA00F14292 /* Main.storyboard in Resources */,
 				ED466E0A19F165DA00F14292 /* Images.xcassets in Resources */,
 				ED4051A91A1A036B003CE4F8 /* confirm.mp3 in Resources */,
+				ED01DA2D1A247B8200E7BF8E /* incorrect.mp3 in Resources */,
 				ED234D8D1A14E33100DE5087 /* data.json in Resources */,
+				ED01DA2C1A247B8200E7BF8E /* correct.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -629,7 +637,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Notable/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -641,7 +649,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Notable/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

@@ -32,9 +32,7 @@ class SettingsViewController: UIViewController{
     @IBOutlet var resetHighScoresButton: UIButton!
     @IBOutlet var soundLevelInicatorContainer: UIView!
     @IBOutlet var navItem: UINavigationItem!
-    @IBOutlet var colorSlider: UISlider!
 
-    
     
     var tickImageArray : [UIImageView] = []
     
@@ -79,14 +77,14 @@ class SettingsViewController: UIViewController{
             
             println("No sound value !!!!!")
             
-            NSUserDefaults.standardUserDefaults().setObject(colorSlider.value, forKey: "sound")
+            NSUserDefaults.standardUserDefaults().setObject(soundSlider.value, forKey: "sound")
             NSUserDefaults.standardUserDefaults().synchronize()
             
         }else{
             
             println("Sound value found = \(soundLevel!)")
             var soundValue : Float = soundLevel! as Float
-            colorSlider.value = soundValue
+            soundSlider.value = soundValue
         }
         
 
@@ -123,7 +121,7 @@ class SettingsViewController: UIViewController{
         super.viewWillAppear(animated)
         
          prepareNavigationBar()
-         styleView()
+         //styleView()
     }
     
     func styleView() {
@@ -162,6 +160,7 @@ class SettingsViewController: UIViewController{
     
     
     func setTags(){
+
         
        firstTickImage.tag = firstThemeButtonTag
        firstThemeButton.tag = firstThemeButtonTag
@@ -177,6 +176,7 @@ class SettingsViewController: UIViewController{
         
        fifthTickImage.tag = fifthThemeButtonTag
        fifthThemeButton.tag = fifthThemeButtonTag
+
     }
     
     
@@ -259,7 +259,7 @@ class SettingsViewController: UIViewController{
         self.soundSlider.backgroundColor = buttonColor
         self.resetAnswersButton.backgroundColor = buttonColor
         self.soundLevelInicatorContainer.backgroundColor = buttonColor
-        self.colorSlider.backgroundColor = buttonColor
+        self.soundSlider.backgroundColor = buttonColor
         self.storeButton.backgroundColor = buttonColor
         
     }
