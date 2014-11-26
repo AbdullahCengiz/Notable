@@ -23,11 +23,30 @@ class SplashScreenViewController: UIViewController {
         checkReklamStatus()
         checkHighScoreStatus()
         scoreNumber()
-        
-        
-
+        highscoreName()
+        highscoreNumber()
     }
 
+    
+    func highscoreName(){
+        
+        let highscoreName: AnyObject? = NSUserDefaults.standardUserDefaults().objectForKey("highscoreName")
+        if("highscoreName"==nil){
+            
+            NSUserDefaults.standardUserDefaults().setObject(0, forKey: "highscoreName")
+            NSUserDefaults.standardUserDefaults().synchronize()
+        }
+    }
+    func highscoreNumber(){
+        
+        let highscoreNumber: AnyObject? = NSUserDefaults.standardUserDefaults().objectForKey("highscoreNumber")
+        if("highscoreNumber"==nil){
+            
+            NSUserDefaults.standardUserDefaults().setObject(0, forKey: "highscoreNumber")
+            NSUserDefaults.standardUserDefaults().synchronize()
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

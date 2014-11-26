@@ -44,6 +44,16 @@ class NGScore: UIViewController, UITableViewDelegate {
             self.nameTextField.text = "Enter Your Name" }
         // insert link to rest of code for getting it to the highscore here Frida!
         
+        func textFieldDidEndEditing(textField: UITextField!){
+           
+            NSUserDefaults.standardUserDefaults().didChangeValueForKey("highscoreName")
+            NSUserDefaults.standardUserDefaults().synchronize()
+            
+            println("Name inserted. Woho!")
+
+
+            NSUserDefaults.standardUserDefaults().synchronize()
+        }
         
     }
     override func didReceiveMemoryWarning() {
@@ -64,4 +74,7 @@ class NGScore: UIViewController, UITableViewDelegate {
         
         self.view.backgroundColor = backgroundColor
         
-    }}
+    }
+
+
+}
