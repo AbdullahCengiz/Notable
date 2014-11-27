@@ -68,8 +68,14 @@ class NGScore: UIViewController, UITableViewDelegate {
             
             
         } else {
-            self.nameTextField.text = "Insert NSUserDefault here"
+            self.nameTextField.text = "\(self.nameTextField.text)"
+                NSUserDefaults.standardUserDefaults().objectForKey("nameText")
+                NSUserDefaults.standardUserDefaults().synchronize()
+ 
+            
             println("entered name = \(self.nameTextField.text)")
+            
+            
         }
         
         // insert link to rest of code for getting it to the highscore here Frida!
@@ -84,6 +90,11 @@ class NGScore: UIViewController, UITableViewDelegate {
             
             
         }
+        
+        //Pop to MainPageControllerView
+        var mNC = delegate!.navigationController as MasterNC
+        mNC.popToViewControllerOfClass(MainPageViewController())
+        self.dismissViewControllerAnimated(true, completion: {})
     }
 
 }

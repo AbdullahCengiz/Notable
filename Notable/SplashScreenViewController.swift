@@ -27,6 +27,7 @@ class SplashScreenViewController: UIViewController {
         scoreNumber()
         highscoreName()
         highscoreNumber()
+        textFieldName()
         
     }
 
@@ -100,8 +101,7 @@ class SplashScreenViewController: UIViewController {
         saveReklam()
         checkAnimateBtnStatus()
         saveAnimateBtn()
-        
-        
+        textFieldName()
     }
     
     func getScreenSize(){
@@ -111,11 +111,9 @@ class SplashScreenViewController: UIViewController {
         var screenHeight: CGFloat = bounds.size.height
         
         saveScreenSize(width: screenWidth, height: screenHeight)
-        
     }
     
     func saveScreenSize(#width: CGFloat, height: CGFloat){
-        
         
         NSUserDefaults.standardUserDefaults().setObject(width, forKey: "width")
         NSUserDefaults.standardUserDefaults().setObject(height, forKey: "height")
@@ -124,20 +122,28 @@ class SplashScreenViewController: UIViewController {
         let height: AnyObject? = NSUserDefaults.standardUserDefaults().objectForKey("height")
     
         NSUserDefaults.standardUserDefaults().synchronize()
-        
     }
     
+    func textFieldName(){
+  
+    let nameText: AnyObject? =  NSUserDefaults.standardUserDefaults().objectForKey("nameText")
+        
+    NSUserDefaults.standardUserDefaults().synchronize()
+        println("textName is saved in SplashScreen!")
+        
+    }
+
     func saveReklam(){
         
     let removedReklam: AnyObject? = NSUserDefaults.standardUserDefaults().objectForKey("removedReklam")
-    
 
     }
+    
     func saveAnimateBtn(){
         
     let removedAnimateBtn: AnyObject? = NSUserDefaults.standardUserDefaults().objectForKey("removedAnimateBtn")
-        
     }
+    
     func saveTheme(){
         
         let selectedTheme: AnyObject? = NSUserDefaults.standardUserDefaults().objectForKey("selectedTheme")
