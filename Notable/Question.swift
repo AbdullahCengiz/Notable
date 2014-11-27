@@ -15,13 +15,19 @@ class Question
     var questionContent : String?
     var questionCorrect : Int?
     var questionIncorrect : Int?
-    var questionAnswer : String?
+    var questionAnswer : String!
     var questionAlternativeAnswer1 :String!
     var questionAlternativeAnswer2 :String!
     var questionAlternativeAnswer3 :String!
     var questionAlternativeAnswerId1 :Int? = -1 //not set
     var questionAlternativeAnswerId2 :Int? = -1 //not set
     var questionAlternativeAnswerId3 :Int? = -1 //not set
+    var questionAnswerIndex:Int = 0
+
+    var questionAlternativeAnswer1Added : Bool = false
+    var questionAlternativeAnswer2Added : Bool = false
+    var questionAlternativeAnswer3Added : Bool = false
+
     var questionCategory : Int?
     var questionExtraInfo : String?
     

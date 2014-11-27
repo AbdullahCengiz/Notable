@@ -16,18 +16,21 @@ class Sound
     var audioPlayer = AVAudioPlayer()
     var soundLevelValue:Float = 0.0
     var confirmSound : SoundFile!
+    var correctSound : SoundFile!
+    var incorrectSound : SoundFile!
     
     
     init(){
         
         confirmSound = SoundFile(soundName: "confirm", soundType: "mp3")
-        
-        
+        correctSound = SoundFile(soundName: "correct", soundType: "mp3")
+        incorrectSound = SoundFile(soundName: "incorrect", soundType: "mp3")
+
         var soundLevel: AnyObject? = NSUserDefaults.standardUserDefaults().objectForKey("sound")
         // control initial sound value
         if(soundLevel==nil){
             
-            println("No sound value !!!!!")
+            //println("No sound value !!!!!")
             NSUserDefaults.standardUserDefaults().setObject(0.5, forKey: "sound")
             NSUserDefaults.standardUserDefaults().synchronize()
             soundLevelValue = 0.5;
@@ -45,7 +48,7 @@ class Sound
     
     func playSound(soundFile:SoundFile){
         
-        println("in playSound!!")
+        //println("in playSound!!")
         
         var soundURL = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource(soundFile.soundName, ofType: soundFile.soundType)!)
         
@@ -64,11 +67,11 @@ class Sound
             
             if(self.audioPlayer.playing){
                 
-                println("Playing....")
+                //println("Playing....")
                 
             } else {
                 
-                println("Not playing!!!!!!!!")
+                //println("Not playing!!!!!!!!")
                 
             }
             

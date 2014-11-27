@@ -495,12 +495,14 @@ class CoreDataHelper
 
         }
 
+        /*
         //question contents before shuffle
         for counter in 0..<data!.count {
 
             println(data![counter].questionContent!)
 
         }
+        */
 
         println("!!!!!!!!!!!!!!!!!!!**********************!!!!!!!!!!!!!!!!!!!!!!")
 
@@ -511,7 +513,7 @@ class CoreDataHelper
 
             var randomQuestionFlag:Bool = true
 
-            println("Question \(counter)  right answer is \(data![counter].questionAnswer!) it's category = \(data![counter].questionCategory!)")
+            println("Question \(counter) right answer's category = \(data![counter].questionCategory!)  it is  = \(data![counter].questionAnswer!) ")
 
 
             while(randomQuestionFlag){
@@ -526,15 +528,14 @@ class CoreDataHelper
                         if((data![counter].questionAlternativeAnswerId1!) == -1){
                             data![counter].questionAlternativeAnswerId1 = data![rnd].questionId
                             data![counter].questionAlternativeAnswer1 = data![rnd].questionAnswer
-                            println("Question \(counter) questionAlternativeAnswerId1 was set and it is \(data![counter].questionAlternativeAnswerId1!) it's category = \(data![rnd].questionCategory!)")
-
+                            println("Question \(counter) questionAlternativeAnswerId1 was set and it is \(data![counter].questionAlternativeAnswerId1!) it's answer = \(data![rnd].questionAnswer!)")
 
                         }else if((data![counter].questionAlternativeAnswerId2!) == -1){
 
                             if(data![rnd].questionId != data![counter].questionAlternativeAnswerId1){
                                 data![counter].questionAlternativeAnswerId2 = data![rnd].questionId
                                 data![counter].questionAlternativeAnswer2 = data![rnd].questionAnswer
-                                println("Question \(counter) questionAlternativeAnswerId2 was set  it is \(data![counter].questionAlternativeAnswerId2!) it's category = \(data![rnd].questionCategory!)")
+                                println("Question \(counter) questionAlternativeAnswerId2 was set  it is \(data![counter].questionAlternativeAnswerId2!) it's answer = \(data![rnd].questionAnswer!)")
                             }
 
                         }
@@ -543,7 +544,7 @@ class CoreDataHelper
                             if(data![rnd].questionId != data![counter].questionAlternativeAnswerId1 && data![rnd].questionId != data![counter].questionAlternativeAnswerId2){
                                 data![counter].questionAlternativeAnswerId3 = data![rnd].questionId
                                 data![counter].questionAlternativeAnswer3 = data![rnd].questionAnswer
-                                println("Question \(counter) questionAlternativeAnswerId3 was set it is \(data![counter].questionAlternativeAnswerId3!) and it's category = \(data![rnd].questionCategory!)")
+                                println("Question \(counter) questionAlternativeAnswerId3 was set it is \(data![counter].questionAlternativeAnswerId3!) and it's answer = \(data![rnd].questionAnswer!)")
                                 randomQuestionFlag = false
 
                             }
@@ -566,6 +567,8 @@ class CoreDataHelper
         }
 
 
+        /*
+          // shuffle questions were commented
 
         //for shuffle array
         for idx in 0..<data!.count {
@@ -582,6 +585,7 @@ class CoreDataHelper
             println(data![counter].questionContent!)
             
         }
+        */
 
         return data!
 
