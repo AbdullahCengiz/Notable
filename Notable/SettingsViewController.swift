@@ -199,7 +199,7 @@ class SettingsViewController: UIViewController{
         var colorButtons:UIColor = UIColor.whiteColor()
         var colorText:UIColor = UIColor.blackColor()
         
-        if(sender.tag == firstThemeButtonTag) {
+        if(sender.tag == firstThemeButtonTag) {ud
             setTheme(theme: firstThemeButtonTag)
             colorBackground = UIColor(red:226/255.0, green:232/255.0, blue:239/255.0, alpha:1.0)
             colorButtons = UIColor.whiteColor()
