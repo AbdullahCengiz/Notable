@@ -122,7 +122,6 @@ class SettingsViewController: UIViewController{
         
          prepareNavigationBar()
          styleView()
-        
     }
     
     func styleView() {

@@ -62,7 +62,7 @@ class NewGameViewController: UIViewController, UITableViewDelegate {
         //fatalError("init(coder:) has not been implemented")
     }
 
-
+    
     var cellArray : [UIView] = []
     var choiceButtonArray : [UIButton] = []
 
@@ -142,6 +142,8 @@ class NewGameViewController: UIViewController, UITableViewDelegate {
 
     }
 
+
+    
     override func supportedInterfaceOrientations() -> Int {
         return Int(UIInterfaceOrientationMask.Portrait.rawValue)
     }
@@ -607,7 +609,18 @@ class NewGameViewController: UIViewController, UITableViewDelegate {
         
         ////println("from \(fromInterfaceOrientation.rawValue)")
         
+        /*
+        //println("noteviewContainerLandsCapeHeight= \(noteViewContainer.frame.height)")
+        //println("noteviewContainerLandsCapeWidth= \(noteViewContainer.frame.width)")
+        */
+        
+        /*
+        //println("firstChoiceContainerLandsCapeHeight= \(firstChoiceContainer.frame.height)")
+        //println("firstChoiceContainerLandsCapeWidth= \(firstChoiceContainer.frame.width)")
+        */
+
     }
+
     
     func getRandomColor() -> UIColor{
         
