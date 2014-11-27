@@ -1554,6 +1554,9 @@
                                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="sendButton:" destination="or4-Ak-hj9" eventType="touchUpInside" id="ZKh-Zm-JPF"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1593,6 +1596,7 @@
                     <connections>
                         <outlet property="congratsView" destination="Gs1-uX-qoq" id="1pR-c9-01O"/>
                         <outlet property="nameTextField" destination="gdT-qX-iKv" id="4V1-iT-H64"/>
+                        <outlet property="sendButton" destination="POL-8v-fjp" id="78y-Xc-y6D"/>
                         <outlet property="textFieldBg" destination="q4n-vC-iTw" id="JHJ-C1-u3g"/>
                     </connections>
                 </viewController>
@@ -2362,6 +2366,10 @@
                                     </mask>
                                 </variation>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1lC-wG-v04" userLabel="storeView">
+                                <rect key="frame" x="16" y="80" width="568" height="388"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="removeAdsButton" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ccc-bY-nmf">
                                 <rect key="frame" x="16" y="484" width="568" height="50"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -2386,10 +2394,6 @@
                                     <action selector="animateButtonPressed:" destination="Qzr-cf-kqp" eventType="touchUpInside" id="dQh-Hi-nWJ"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1lC-wG-v04" userLabel="storeView">
-                                <rect key="frame" x="16" y="80" width="568" height="388"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.88627450980392153" green="0.90980392156862744" blue="0.93725490196078431" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -2399,8 +2403,8 @@
                             <constraint firstItem="Gvh-0J-RpJ" firstAttribute="top" secondItem="Ccc-bY-nmf" secondAttribute="bottom" constant="16" id="NjG-l8-a3j"/>
                             <constraint firstItem="5wW-pC-JiW" firstAttribute="top" secondItem="Gvh-0J-RpJ" secondAttribute="bottom" id="Qza-wq-MMQ"/>
                             <constraint firstItem="1lC-wG-v04" firstAttribute="trailing" secondItem="gLW-Yo-OW4" secondAttribute="trailingMargin" id="nIz-LI-9qU"/>
+                            <constraint firstItem="5wW-pC-JiW" firstAttribute="top" secondItem="1lC-wG-v04" secondAttribute="bottom" priority="250" constant="16" id="nhg-pl-noh"/>
                             <constraint firstItem="Gvh-0J-RpJ" firstAttribute="leading" secondItem="gLW-Yo-OW4" secondAttribute="leadingMargin" constant="-20" id="piK-dO-9Ln"/>
-                            <constraint firstItem="5wW-pC-JiW" firstAttribute="top" secondItem="Ccc-bY-nmf" secondAttribute="bottom" priority="800" constant="16" id="snK-cX-bmv"/>
                             <constraint firstItem="1lC-wG-v04" firstAttribute="top" secondItem="W0W-KS-wEv" secondAttribute="bottom" constant="16" id="v42-S2-G6E"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Gvh-0J-RpJ" secondAttribute="trailing" constant="-20" id="w3X-6z-h8j"/>
                             <constraint firstItem="Ccc-bY-nmf" firstAttribute="leading" secondItem="gLW-Yo-OW4" secondAttribute="leadingMargin" id="yG4-aQ-E4e"/>
@@ -2748,6 +2752,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="BvS-8f-wpf" secondAttribute="trailing" id="LIt-ae-Qw7"/>
                             <constraint firstAttribute="trailingMargin" secondItem="n05-RP-Pby" secondAttribute="trailing" constant="-20" id="Mun-WN-aBT"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Gjg-kY-HET" secondAttribute="trailing" id="SAy-f7-NoN"/>
+                            <constraint firstItem="Nee-nj-7C5" firstAttribute="top" secondItem="Gjg-kY-HET" secondAttribute="bottom" priority="250" constant="16" id="UBS-BV-E5g"/>
                             <constraint firstItem="n05-RP-Pby" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Gjg-kY-HET" secondAttribute="bottom" constant="22" id="VCd-kb-yYe"/>
                             <constraint firstAttribute="centerX" secondItem="zx3-B8-ToF" secondAttribute="centerX" constant="-0.5" id="Xws-7c-IVJ"/>
                             <constraint firstItem="t7Q-9P-0sR" firstAttribute="top" secondItem="EaP-cJ-5lL" secondAttribute="bottom" constant="16" id="axG-x8-sog"/>

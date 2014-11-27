@@ -20,11 +20,14 @@ class SplashScreenViewController: UIViewController {
         println("inSplashScreen")
         createGameDatabase()
         saveTheme()
+        saveAnimateBtn()
         checkReklamStatus()
         checkHighScoreStatus()
+        checkAnimateBtnStatus()
         scoreNumber()
         highscoreName()
         highscoreNumber()
+        
     }
 
         func scoreNumber(){
@@ -95,6 +98,8 @@ class SplashScreenViewController: UIViewController {
         getScreenSize()
         saveThemeColors()
         saveReklam()
+        checkAnimateBtnStatus()
+        saveAnimateBtn()
         
         
     }
@@ -125,7 +130,13 @@ class SplashScreenViewController: UIViewController {
     func saveReklam(){
         
     let removedReklam: AnyObject? = NSUserDefaults.standardUserDefaults().objectForKey("removedReklam")
+    
 
+    }
+    func saveAnimateBtn(){
+        
+    let removedAnimateBtn: AnyObject? = NSUserDefaults.standardUserDefaults().objectForKey("removedAnimateBtn")
+        
     }
     func saveTheme(){
         
@@ -149,6 +160,18 @@ class SplashScreenViewController: UIViewController {
             
             
             NSUserDefaults.standardUserDefaults().setObject(1, forKey: "reklam")
+            NSUserDefaults.standardUserDefaults().synchronize()
+        }
+    }
+    func checkAnimateBtnStatus(){
+        
+        let animateBtn: AnyObject? = NSUserDefaults.standardUserDefaults().objectForKey("animateBtn")
+        
+        
+        if(animateBtn==nil){
+            
+            
+            NSUserDefaults.standardUserDefaults().setObject(1, forKey: "animateBtn")
             NSUserDefaults.standardUserDefaults().synchronize()
         }
     }

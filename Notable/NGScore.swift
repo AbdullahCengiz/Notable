@@ -19,6 +19,8 @@ class NGScore: UIViewController, UITableViewDelegate {
     @IBOutlet var textFieldBg: UIView!
     @IBOutlet var nameTextField: UITextField!
     @IBOutlet var congratsView: UIView!
+    @IBOutlet var sendButton: UIButton!
+
 
     
     required init(coder aDecoder: NSCoder) {
@@ -29,31 +31,11 @@ class NGScore: UIViewController, UITableViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         congratsView.layer.cornerRadius = 4.0
+        sendButton.layer.cornerRadius = 4.0
         
         
         println("in NGScoreViewController")
-        var nameTextField: UITextField!
-        
-        
-        if self.nameTextField.text.isEmpty {
-            
-            println("Clicked on testButton!")
-            
-            
-        } else {
-            self.nameTextField.text = "Enter Your Name" }
-        // insert link to rest of code for getting it to the highscore here Frida!
-        
-        func textFieldDidEndEditing(textField: UITextField!){
-           
-            NSUserDefaults.standardUserDefaults().didChangeValueForKey("highscoreName")
-            NSUserDefaults.standardUserDefaults().synchronize()
-            
-            println("Name inserted. Woho!")
 
-
-            NSUserDefaults.standardUserDefaults().synchronize()
-        }
         
     }
     override func didReceiveMemoryWarning() {
@@ -76,5 +58,32 @@ class NGScore: UIViewController, UITableViewDelegate {
         
     }
 
+      @IBAction func sendButton(sender: UIButton) {
+        var nameTextField: UITextField!
+        
+        
+        if self.nameTextField.text.isEmpty {
+            
+            println("Name not entered!")
+            
+            
+        } else {
+            self.nameTextField.text = "Insert NSUserDefault here"
+            println("entered name = \(self.nameTextField.text)")
+        }
+        
+        // insert link to rest of code for getting it to the highscore here Frida!
+        
+        
+        func textFieldDidEndEditing(textField: UITextField!){
+            
+            NSUserDefaults.standardUserDefaults().didChangeValueForKey("highscoreName")
+            NSUserDefaults.standardUserDefaults().synchronize()
+            
+            println("Name inserted. Woho!")
+            
+            
+        }
+    }
 
 }

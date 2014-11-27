@@ -36,9 +36,9 @@ class StoreViewController: UIViewController {
         
         if(removedReklam? == 0) {
             
-            removeReklam()
-
-    }
+    
+            
+         }
 
     }
     
@@ -48,7 +48,10 @@ class StoreViewController: UIViewController {
     @IBOutlet var reklamContainer: UIView!
     @IBAction func animateButtonPressed(sender: AnyObject?) {
         removeReklam()
+        
             }
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -91,10 +94,9 @@ class StoreViewController: UIViewController {
         if(reklam==0){
             
             reklamContainer.hidden = true
-            
-
+            animateBtn.hidden = true
         }
-
+        
         
     }
     
@@ -116,6 +118,21 @@ class StoreViewController: UIViewController {
         
   
     }
+    func removeAnimateBtn(){
+        
+        
+        
+        NSUserDefaults.standardUserDefaults().setObject(0, forKey: "animateBtn")
+        NSUserDefaults.standardUserDefaults().synchronize()
+        
+        let viewToAnimate: NSArray = [animateBtn]
+        
+        UIView.performSystemAnimation(UISystemAnimation.Delete, onViews:viewToAnimate, options: nil, animations: {
+            UIView.setAnimationBeginsFromCurrentState(true)
+            
+            }, completion: { finished in
+        })
+        }
+        
+    }
 
-    
-}
