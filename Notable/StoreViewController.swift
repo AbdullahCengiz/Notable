@@ -19,11 +19,26 @@ class StoreViewController: UIViewController {
     @IBOutlet var navItem: UINavigationItem!
     override func viewDidLoad() {
         super.viewDidLoad()
+
         
         navBar = self.navigationController?.navigationBar
         prepareNavigationBar()
         storeViewImageContainer.layer.cornerRadius  = 4.0
         animateBtn.layer.cornerRadius  = 4.0
+        
+        //get saved theme
+        
+        let removedReklam = NSUserDefaults.standardUserDefaults().objectForKey("removedReklam") as Int!
+        
+        println(removedReklam)
+
+        
+        if(removedReklam? == 0) {
+            
+            removeReklam()
+
+    }
+
     }
     
     
@@ -31,29 +46,8 @@ class StoreViewController: UIViewController {
     
     @IBOutlet var reklamContainer: UIView!
     @IBAction func animateButtonPressed(sender: AnyObject) {
-
-        NSUserDefaults.standardUserDefaults().setObject(0, forKey: "reklam")
-        NSUserDefaults.standardUserDefaults().synchronize()
-        
-        let viewToAnimate = [reklamContainer]
-        
-        UIView.performSystemAnimation(UISystemAnimation.Delete, onViews: viewToAnimate, options: nil, animations: {
-            // any changes defined here will occur
-            // in parallel with the system animation
-            
-            }, completion: { finished in
-                // any code entered here will be applied
-                // once the animation has completed
-                UIView.animateWithDuration(2, animations: {
-                var newCenter = self.animateBtn.center
-                newCenter.y -= 100
-                self.animateBtn.center = newCenter
-            }, completion: { finished in
-                println("Basket doors opened!")
-        })
-                
-        })
-    }
+        removeReklam()
+            }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -89,6 +83,7 @@ class StoreViewController: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        removeReklam()
         
         let reklam: Int = NSUserDefaults.standardUserDefaults().objectForKey("reklam") as Int
         
@@ -96,8 +91,32 @@ class StoreViewController: UIViewController {
             
             reklamContainer.hidden = true
             
+
         }
 
         
     }
+    
+    
+    func removeReklam(){
+        
+        
+        
+        NSUserDefaults.standardUserDefaults().setObject(0, forKey: "reklam")
+        NSUserDefaults.standardUserDefaults().synchronize()
+        
+        let viewToAnimate = [reklamContainer]
+        
+        UIView.performSystemAnimation(UISystemAnimation.Delete, onViews: viewToAnimate, options: nil, animations: {
+            //change nil to: UIViewAnimationOptionBeginFromCurrentState
+            UIView.setAnimationBeginsFromCurrentState(true)
+            
+            }, completion: { finished in
+        })
+
+        
+        
+        
+    }
+    
 }

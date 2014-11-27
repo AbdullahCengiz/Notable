@@ -94,6 +94,7 @@ class SplashScreenViewController: UIViewController {
         self.navigationController?.setNavigationBarHidden(true, animated: true)
         getScreenSize()
         saveThemeColors()
+        saveReklam()
         
         
     }
@@ -121,6 +122,11 @@ class SplashScreenViewController: UIViewController {
         
     }
     
+    func saveReklam(){
+        
+    let removedReklam: AnyObject? = NSUserDefaults.standardUserDefaults().objectForKey("removedReklam")
+
+    }
     func saveTheme(){
         
         let selectedTheme: AnyObject? = NSUserDefaults.standardUserDefaults().objectForKey("selectedTheme")

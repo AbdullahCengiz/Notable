@@ -38,6 +38,7 @@
             <string>Roboto-Light</string>
             <string>Roboto-Light</string>
             <string>Roboto-Light</string>
+            <string>Roboto-Light</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -2268,7 +2269,7 @@
                                 <rect key="frame" x="-4" y="550" width="608" height="50"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="REKLAM" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EcG-W8-oaY">
-                                        <rect key="frame" x="269" y="14" width="70" height="21"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="608" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="V4d-VR-6n9"/>
                                             <constraint firstAttribute="width" constant="70" id="bhj-lq-T87"/>
@@ -2276,30 +2277,52 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="V4d-VR-6n9"/>
+                                                <exclude reference="bhj-lq-T87"/>
+                                            </mask>
+                                        </variation>
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="EcG-W8-oaY" secondAttribute="bottom" id="6sy-HS-Z5g"/>
+                                    <constraint firstItem="EcG-W8-oaY" firstAttribute="top" secondItem="Gvh-0J-RpJ" secondAttribute="top" id="Aa1-9g-ezZ"/>
+                                    <constraint firstAttribute="trailing" secondItem="EcG-W8-oaY" secondAttribute="trailing" id="DNa-aP-PQh"/>
                                     <constraint firstAttribute="centerY" secondItem="EcG-W8-oaY" secondAttribute="centerY" constant="0.5" id="G3T-xH-ADj"/>
+                                    <constraint firstItem="EcG-W8-oaY" firstAttribute="leading" secondItem="Gvh-0J-RpJ" secondAttribute="leading" id="V3V-j0-zEw"/>
                                     <constraint firstAttribute="width" priority="750" constant="1000" id="Zcp-4U-ZC6"/>
                                     <constraint firstAttribute="height" constant="50" id="b7z-zg-omg"/>
                                     <constraint firstAttribute="centerX" secondItem="EcG-W8-oaY" secondAttribute="centerX" id="j6Z-Fj-IjW"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Zcp-4U-ZC6"/>
+                                        <exclude reference="G3T-xH-ADj"/>
+                                        <exclude reference="j6Z-Fj-IjW"/>
+                                    </mask>
+                                </variation>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="removeAdsButton" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ccc-bY-nmf">
                                 <rect key="frame" x="16" y="484" width="568" height="50"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" priority="750" constant="568" id="3WJ-bn-X5q"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="59N-W6-yfT"/>
+                                    <constraint firstAttribute="height" constant="50" id="59N-W6-yfT"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
+                                <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="18"/>
                                 <state key="normal" title="Remove Ads">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="3WJ-bn-X5q"/>
+                                    </mask>
+                                </variation>
                                 <variation key="heightClass=compact-widthClass=compact">
-                                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="25"/>
+                                    <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="25"/>
                                 </variation>
                                 <connections>
                                     <action selector="animateButtonPressed:" destination="Qzr-cf-kqp" eventType="touchUpInside" id="dQh-Hi-nWJ"/>
@@ -2312,14 +2335,15 @@
                         </subviews>
                         <color key="backgroundColor" red="0.88627450980392153" green="0.90980392156862744" blue="0.93725490196078431" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="1lC-wG-v04" firstAttribute="top" secondItem="W0W-KS-wEv" secondAttribute="bottom" constant="16" id="12A-4k-prH"/>
-                            <constraint firstItem="5wW-pC-JiW" firstAttribute="top" secondItem="Ccc-bY-nmf" secondAttribute="bottom" priority="500" constant="66" id="5gK-g2-G3p"/>
                             <constraint firstItem="Ccc-bY-nmf" firstAttribute="top" secondItem="1lC-wG-v04" secondAttribute="bottom" constant="16" id="7pU-pw-YMi"/>
                             <constraint firstItem="1lC-wG-v04" firstAttribute="leading" secondItem="gLW-Yo-OW4" secondAttribute="leadingMargin" id="E3c-KW-QIQ"/>
                             <constraint firstItem="Ccc-bY-nmf" firstAttribute="trailing" secondItem="gLW-Yo-OW4" secondAttribute="trailingMargin" id="JJr-mp-SUW"/>
                             <constraint firstItem="Gvh-0J-RpJ" firstAttribute="top" secondItem="Ccc-bY-nmf" secondAttribute="bottom" constant="16" id="NjG-l8-a3j"/>
+                            <constraint firstItem="5wW-pC-JiW" firstAttribute="top" secondItem="Gvh-0J-RpJ" secondAttribute="bottom" id="Qza-wq-MMQ"/>
                             <constraint firstItem="1lC-wG-v04" firstAttribute="trailing" secondItem="gLW-Yo-OW4" secondAttribute="trailingMargin" id="nIz-LI-9qU"/>
                             <constraint firstItem="Gvh-0J-RpJ" firstAttribute="leading" secondItem="gLW-Yo-OW4" secondAttribute="leadingMargin" constant="-20" id="piK-dO-9Ln"/>
+                            <constraint firstItem="5wW-pC-JiW" firstAttribute="top" secondItem="Ccc-bY-nmf" secondAttribute="bottom" priority="800" constant="16" id="snK-cX-bmv"/>
+                            <constraint firstItem="1lC-wG-v04" firstAttribute="top" secondItem="W0W-KS-wEv" secondAttribute="bottom" constant="16" id="v42-S2-G6E"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Gvh-0J-RpJ" secondAttribute="trailing" constant="-20" id="w3X-6z-h8j"/>
                             <constraint firstItem="Ccc-bY-nmf" firstAttribute="leading" secondItem="gLW-Yo-OW4" secondAttribute="leadingMargin" id="yG4-aQ-E4e"/>
                         </constraints>
@@ -2334,7 +2358,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a6T-Se-lsw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2308" y="333"/>
+            <point key="canvasLocation" x="2293" y="333"/>
         </scene>
         <!--MasterNC-->
         <scene sceneID="jda-KB-Xmx">
