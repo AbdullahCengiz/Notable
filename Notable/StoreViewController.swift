@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SpriteKit
 
 
 
@@ -45,7 +46,7 @@ class StoreViewController: UIViewController {
     //***HERE IS THE HIDE REKLAM ANIMATION ***
     
     @IBOutlet var reklamContainer: UIView!
-    @IBAction func animateButtonPressed(sender: AnyObject) {
+    @IBAction func animateButtonPressed(sender: AnyObject?) {
         removeReklam()
             }
     override func didReceiveMemoryWarning() {
@@ -100,23 +101,21 @@ class StoreViewController: UIViewController {
     
     func removeReklam(){
         
-        
+     
         
         NSUserDefaults.standardUserDefaults().setObject(0, forKey: "reklam")
         NSUserDefaults.standardUserDefaults().synchronize()
         
-        let viewToAnimate = [reklamContainer]
+        let viewToAnimate: NSArray = [reklamContainer]
         
-        UIView.performSystemAnimation(UISystemAnimation.Delete, onViews: viewToAnimate, options: nil, animations: {
-            //change nil to: UIViewAnimationOptionBeginFromCurrentState
+        UIView.performSystemAnimation(UISystemAnimation.Delete, onViews:viewToAnimate, options: nil, animations: {
             UIView.setAnimationBeginsFromCurrentState(true)
             
             }, completion: { finished in
         })
-
         
-        
-        
+  
     }
+
     
 }

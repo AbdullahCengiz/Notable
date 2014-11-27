@@ -292,6 +292,13 @@ class SettingsViewController: UIViewController{
    
     }
     
+    
+    
+    @IBAction func goToStore(sender: AnyObject) {
+        
+        self.performSegueWithIdentifier("goToStore", sender: nil)
+        
+    }
 
     
 
