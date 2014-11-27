@@ -121,7 +121,7 @@ class SettingsViewController: UIViewController{
         super.viewWillAppear(animated)
         
          prepareNavigationBar()
-         //styleView()
+         styleView()
     }
     
     func styleView() {
