@@ -14,13 +14,11 @@ import SpriteKit
 class StoreViewController: UIViewController {
     var navBar:UINavigationBar!
     
-
     @IBOutlet var animateBtn: UIButton!
     @IBOutlet var storeViewImageContainer: UIView!
     @IBOutlet var navItem: UINavigationItem!
     override func viewDidLoad() {
         super.viewDidLoad()
-
         
         navBar = self.navigationController?.navigationBar
         prepareNavigationBar()
@@ -32,24 +30,16 @@ class StoreViewController: UIViewController {
         let removedReklam = NSUserDefaults.standardUserDefaults().objectForKey("removedReklam") as Int!
         
         println(removedReklam)
-
-        
         if(removedReklam? == 0) {
-            
-    
-            
-         }
-
+        }
     }
-    
     
     //***HERE IS THE HIDE REKLAM ANIMATION ***
     
     @IBOutlet var reklamContainer: UIView!
     @IBAction func animateButtonPressed(sender: AnyObject?) {
         removeReklam()
-        
-            }
+    }
     
     
     override func didReceiveMemoryWarning() {
@@ -67,27 +57,25 @@ class StoreViewController: UIViewController {
         uiButton.addTarget(self, action:"backButtonAction:", forControlEvents: UIControlEvents.TouchUpInside)
         navItem.setLeftBarButtonItem(UIBarButtonItem(customView: uiButton), animated: true)
         navItem.hidesBackButton=true
-
-        
     }
     
     
-    @IBAction func backButtonAction(sender:UIButton)
-    {
+    @IBAction func backButtonAction(sender:UIButton) {
         println("Button Action From Code")
         self.navigationController?.popViewControllerAnimated(true)
     }
-
-
+    
+    
     func setColor(#backgroundColor:UIColor){
         
         self.view.backgroundColor = backgroundColor
-}
+    }
     
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         removeReklam()
+
         
         let reklam: Int = NSUserDefaults.standardUserDefaults().objectForKey("reklam") as Int
         
@@ -95,32 +83,27 @@ class StoreViewController: UIViewController {
             
             reklamContainer.hidden = true
             animateBtn.hidden = true
+
         }
-        
-        
     }
     
-    
     func removeReklam(){
-        
-     
         
         NSUserDefaults.standardUserDefaults().setObject(0, forKey: "reklam")
         NSUserDefaults.standardUserDefaults().synchronize()
         
         let viewToAnimate: NSArray = [reklamContainer]
         
+        
         UIView.performSystemAnimation(UISystemAnimation.Delete, onViews:viewToAnimate, options: nil, animations: {
             UIView.setAnimationBeginsFromCurrentState(true)
             
+            
             }, completion: { finished in
         })
-        
-  
     }
+    
     func removeAnimateBtn(){
-        
-        
         
         NSUserDefaults.standardUserDefaults().setObject(0, forKey: "animateBtn")
         NSUserDefaults.standardUserDefaults().synchronize()
@@ -132,7 +115,5 @@ class StoreViewController: UIViewController {
             
             }, completion: { finished in
         })
-        }
-        
     }
-
+}
