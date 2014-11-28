@@ -43,6 +43,14 @@
 		ED466E0819F165DA00F14292 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED466E0619F165DA00F14292 /* Main.storyboard */; };
 		ED466E0A19F165DA00F14292 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED466E0919F165DA00F14292 /* Images.xcassets */; };
 		ED466E1919F165DA00F14292 /* NotableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED466E1819F165DA00F14292 /* NotableTests.swift */; };
+		ED76AE181A276DC4000CA83C /* CheckError.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED76AE161A276DC4000CA83C /* CheckError.swift */; };
+		ED76AE191A276DC4000CA83C /* SoundGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED76AE171A276DC4000CA83C /* SoundGenerator.swift */; };
+		ED76AE201A27DD03000CA83C /* MHAudioBufferPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = ED76AE1D1A27DD03000CA83C /* MHAudioBufferPlayer.m */; };
+		ED76AE211A27DD03000CA83C /* Synth.m in Sources */ = {isa = PBXBuildFile; fileRef = ED76AE1F1A27DD03000CA83C /* Synth.m */; };
+		ED76AE231A27E40E000CA83C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED76AE221A27E40E000CA83C /* UIKit.framework */; };
+		ED76AE251A27E4B5000CA83C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED76AE241A27E4B5000CA83C /* Foundation.framework */; };
+		ED76AE271A27E5F1000CA83C /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED76AE261A27E5F1000CA83C /* AudioToolbox.framework */; };
+		ED76AE2A1A27F147000CA83C /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED76AE281A27F147000CA83C /* CoreAudio.framework */; };
 		ED7B218E1A011F5A00A2337D /* AutoLayutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7B218D1A011F5A00A2337D /* AutoLayutViewController.swift */; };
 		EDA9C6E91A090E1C00108A85 /* StoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA9C6E81A090E1C00108A85 /* StoreViewController.swift */; };
 		EDD14B7E1A029A61004F7EA1 /* CategoryTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD14B7D1A029A61004F7EA1 /* CategoryTableCell.swift */; };
@@ -102,6 +110,18 @@
 		ED466E1219F165DA00F14292 /* NotableTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NotableTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED466E1719F165DA00F14292 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ED466E1819F165DA00F14292 /* NotableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotableTests.swift; sourceTree = "<group>"; };
+		ED76AE161A276DC4000CA83C /* CheckError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckError.swift; sourceTree = "<group>"; };
+		ED76AE171A276DC4000CA83C /* SoundGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundGenerator.swift; sourceTree = "<group>"; };
+		ED76AE1B1A27DD02000CA83C /* Notable-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Notable-Bridging-Header.h"; sourceTree = "<group>"; };
+		ED76AE1C1A27DD03000CA83C /* MHAudioBufferPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MHAudioBufferPlayer.h; sourceTree = "<group>"; };
+		ED76AE1D1A27DD03000CA83C /* MHAudioBufferPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MHAudioBufferPlayer.m; sourceTree = "<group>"; };
+		ED76AE1E1A27DD03000CA83C /* Synth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Synth.h; sourceTree = "<group>"; };
+		ED76AE1F1A27DD03000CA83C /* Synth.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Synth.m; sourceTree = "<group>"; };
+		ED76AE221A27E40E000CA83C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		ED76AE241A27E4B5000CA83C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		ED76AE261A27E5F1000CA83C /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		ED76AE281A27F147000CA83C /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
+		ED76AE291A27F147000CA83C /* CoreAudioKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudioKit.framework; path = System/Library/Frameworks/CoreAudioKit.framework; sourceTree = SDKROOT; };
 		ED7B218D1A011F5A00A2337D /* AutoLayutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoLayutViewController.swift; sourceTree = "<group>"; };
 		EDA9C6E81A090E1C00108A85 /* StoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreViewController.swift; sourceTree = "<group>"; };
 		EDD14B7D1A029A61004F7EA1 /* CategoryTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryTableCell.swift; sourceTree = "<group>"; };
@@ -113,6 +133,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED76AE2A1A27F147000CA83C /* CoreAudio.framework in Frameworks */,
+				ED76AE271A27E5F1000CA83C /* AudioToolbox.framework in Frameworks */,
+				ED76AE251A27E4B5000CA83C /* Foundation.framework in Frameworks */,
+				ED76AE231A27E40E000CA83C /* UIKit.framework in Frameworks */,
 				ED0B96B21A1F338A00A1A508 /* QuartzCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -219,6 +243,7 @@
 		ED225B7B19F5341900D8784E /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				ED76AE1A1A27DCDB000CA83C /* SoundGenerator */,
 				0DAD97A11A1A1E9E0011E4AF /* Theme */,
 				ED234D9E1A16163E00DE5087 /* CoreDataHelper */,
 				ED234D8F1A14E34500DE5087 /* Sound */,
@@ -255,6 +280,8 @@
 		ED234D8F1A14E34500DE5087 /* Sound */ = {
 			isa = PBXGroup;
 			children = (
+				ED76AE161A276DC4000CA83C /* CheckError.swift */,
+				ED76AE171A276DC4000CA83C /* SoundGenerator.swift */,
 				ED234D921A14E35E00DE5087 /* Sound.swift */,
 				ED234D931A14E35E00DE5087 /* SoundFile.swift */,
 			);
@@ -288,8 +315,13 @@
 		ED466DF419F165DA00F14292 = {
 			isa = PBXGroup;
 			children = (
-				ED0B96B31A23432800A1A508 /* JLToast */,
+				ED76AE281A27F147000CA83C /* CoreAudio.framework */,
+				ED76AE291A27F147000CA83C /* CoreAudioKit.framework */,
+				ED76AE261A27E5F1000CA83C /* AudioToolbox.framework */,
+				ED76AE241A27E4B5000CA83C /* Foundation.framework */,
+				ED76AE221A27E40E000CA83C /* UIKit.framework */,
 				ED0B96B11A1F338A00A1A508 /* QuartzCore.framework */,
+				ED0B96B31A23432800A1A508 /* JLToast */,
 				ED0363CA1A038A41004797B5 /* Notable.xcdatamodeld */,
 				ED466DFF19F165DA00F14292 /* Notable */,
 				ED466E1519F165DA00F14292 /* NotableTests */,
@@ -355,6 +387,18 @@
 				ED466E1719F165DA00F14292 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		ED76AE1A1A27DCDB000CA83C /* SoundGenerator */ = {
+			isa = PBXGroup;
+			children = (
+				ED76AE1C1A27DD03000CA83C /* MHAudioBufferPlayer.h */,
+				ED76AE1D1A27DD03000CA83C /* MHAudioBufferPlayer.m */,
+				ED76AE1E1A27DD03000CA83C /* Synth.h */,
+				ED76AE1F1A27DD03000CA83C /* Synth.m */,
+				ED76AE1B1A27DD02000CA83C /* Notable-Bridging-Header.h */,
+			);
+			name = SoundGenerator;
 			sourceTree = "<group>";
 		};
 		ED7B218C1A011F3F00A2337D /* AutoLayout */ = {
@@ -502,12 +546,14 @@
 				ED0363CC1A038A41004797B5 /* Notable.xcdatamodeld in Sources */,
 				ED234D911A14E35000DE5087 /* TrivQuiz.swift in Sources */,
 				ED7B218E1A011F5A00A2337D /* AutoLayutViewController.swift in Sources */,
+				ED76AE211A27DD03000CA83C /* Synth.m in Sources */,
 				ED225B7919F205DB00D8784E /* MainPageViewController.swift in Sources */,
 				ED089C9C1A110D7D00D3F034 /* Timer.swift in Sources */,
 				ED19B34A19FA9B9800041AF0 /* PracticeViewController.swift in Sources */,
 				ED466E0319F165DA00F14292 /* AppDelegate.swift in Sources */,
 				ED0B96B81A23432800A1A508 /* JLToast.swift in Sources */,
 				ED08FB9319F93AB400D6BE26 /* Point.swift in Sources */,
+				ED76AE181A276DC4000CA83C /* CheckError.swift in Sources */,
 				ED234D9C1A160E8800DE5087 /* Lesson.swift in Sources */,
 				ED19B34D19FA9F9400041AF0 /* LessonsViewController.swift in Sources */,
 				0DAD97A31A1A1EB80011E4AF /* Theme.swift in Sources */,
@@ -521,7 +567,9 @@
 				ED0B96BA1A23432800A1A508 /* JLToastView.swift in Sources */,
 				0DA8BD701A13AF63002F6F89 /* NGPause.swift in Sources */,
 				ED19B34719FA93C700041AF0 /* NewGameViewController.swift in Sources */,
+				ED76AE201A27DD03000CA83C /* MHAudioBufferPlayer.m in Sources */,
 				EDD14B801A029BBE004F7EA1 /* Category.swift in Sources */,
+				ED76AE191A276DC4000CA83C /* SoundGenerator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -639,11 +687,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Notable/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Notable/Notable-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -651,11 +702,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Notable/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Notable/Notable-Bridging-Header.h";
 			};
 			name = Release;
 		};
