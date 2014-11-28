@@ -25,9 +25,10 @@ class SplashScreenViewController: UIViewController {
         checkHighScoreStatus()
         checkAnimateBtnStatus()
         scoreNumber()
-        highscoreName()
+        scoreName()
         highscoreNumber()
         textFieldName()
+        nameTextField()
         
     }
 
@@ -42,7 +43,7 @@ class SplashScreenViewController: UIViewController {
             
        }
     }
-    func highscoreName(){
+    func scoreName(){
         
         var highscoreName: AnyObject? = NSUserDefaults.standardUserDefaults().objectForKey("highscoreName")
         if(highscoreName==nil){
@@ -86,7 +87,39 @@ class SplashScreenViewController: UIViewController {
             
         }
     }
+    func nameTextField(){
+        
+        var highscoreName: AnyObject? = NSUserDefaults.standardUserDefaults().objectForKey("highscoreName")
+        
+        if(highscoreName==nil){
+            
+            NSUserDefaults.standardUserDefaults().setObject(0, forKey: "highscoreName")
+            NSUserDefaults.standardUserDefaults().synchronize()
+
+        }
+        
+    var goldValueName:AnyObject? = NSUserDefaults.standardUserDefaults().objectForKey("highscoreNameGold")
+    var silverValueName:AnyObject? = NSUserDefaults.standardUserDefaults().objectForKey("highscoreNameSilver")
+    var bronzeValueName:AnyObject? = NSUserDefaults.standardUserDefaults().objectForKey("highscoreNameBronze")
     
+    if (goldValueName==nil) {
+        NSUserDefaults.standardUserDefaults().setObject("GoldenName", forKey: "highscoreNameGold")
+        NSUserDefaults.standardUserDefaults().synchronize()
+    }
+    
+    if (silverValueName==nil) {
+        NSUserDefaults.standardUserDefaults().setObject("SilverName", forKey: "highscoreNameSilver")
+        NSUserDefaults.standardUserDefaults().synchronize()
+    
+    }
+    
+    if (bronzeValueName==nil) {
+        NSUserDefaults.standardUserDefaults().setObject("BronzeName", forKey: "highscoreNameBronze")
+        NSUserDefaults.standardUserDefaults().synchronize()
+    
+    }
+}
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -125,14 +158,18 @@ class SplashScreenViewController: UIViewController {
     }
     
     func textFieldName(){
-  
-    let nameText: AnyObject? =  NSUserDefaults.standardUserDefaults().objectForKey("nameText")
+        var highscoreNumber: AnyObject? = NSUserDefaults.standardUserDefaults().objectForKey("nameText")
         
-    NSUserDefaults.standardUserDefaults().synchronize()
+        if(highscoreNumber==nil){
+            
+            NSUserDefaults.standardUserDefaults().setObject(0, forKey: "nameText")
+            NSUserDefaults.standardUserDefaults().synchronize()
+        
+
         println("textName is saved in SplashScreen!")
         
+        }
     }
-
     func saveReklam(){
         
     let removedReklam: AnyObject? = NSUserDefaults.standardUserDefaults().objectForKey("removedReklam")

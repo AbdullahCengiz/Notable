@@ -11,7 +11,6 @@ import UIKit
 class MainPageViewController: UIViewController,UITableViewDelegate ,UITableViewDataSource {
 
 
-
     @IBOutlet weak var scoreNumber: UILabel!
     @IBOutlet var newGameLabel: UILabel!
     @IBOutlet var separator: UIView!
@@ -76,8 +75,11 @@ class MainPageViewController: UIViewController,UITableViewDelegate ,UITableViewD
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        
         styleView()
         sound = Sound()
+        setUpPoints()
+        
         self.navigationController?.setNavigationBarHidden(false, animated: true)
         
         self.title = "MainPage"
@@ -89,11 +91,9 @@ class MainPageViewController: UIViewController,UITableViewDelegate ,UITableViewD
         if(reklam==0){
             
             reklamContainerMainPage.hidden = true
-            
-            //CHANGE THE MAINPAGE TRANSITION HERE**********
-        
-            
         }
+    //CHANGE THE MAINPAGE TRANSITION HERE**********
+        
         
          var zeroHighScore: Int = NSUserDefaults.standardUserDefaults().objectForKey("zeroHighScore") as Int
         
@@ -105,24 +105,20 @@ class MainPageViewController: UIViewController,UITableViewDelegate ,UITableViewD
         }
     
     //getting the LatestScore
-         var pointLabel: Int = NSUserDefaults.standardUserDefaults().objectForKey("pointLabel") as Int
+        var pointLabel: Int = NSUserDefaults.standardUserDefaults().objectForKey("pointLabel") as Int
         self.scoreNumber.text  = String(pointLabel)
         
+        var nameText: Int = NSUserDefaults.standardUserDefaults().objectForKey("highscoreName") as Int
+        //self.userName.text  = String(pointLabel)
         
-        setUpPoints()
-        
-        
+       
     }
 
-
-    
-    
     func resetHighScores(){
         
         arrayOfPoints.removeAll(keepCapacity: false)
         
         self.pointsTableView.reloadData()
-        
     }
     
     
@@ -185,44 +181,27 @@ class MainPageViewController: UIViewController,UITableViewDelegate ,UITableViewD
         var highscoreNumberGold: Int = NSUserDefaults.standardUserDefaults().integerForKey("highscoreNumberGold") as Int
         var highscoreNumberSilver: Int = NSUserDefaults.standardUserDefaults().integerForKey("highscoreNumberSilver") as Int
         var highscoreNumberBronze: Int = NSUserDefaults.standardUserDefaults().integerForKey("highscoreNumberBronze") as Int
+
+        var highscoreNameGold: AnyObject? = NSUserDefaults.standardUserDefaults().objectForKey("highscoreNameGold")
+        var highscoreNameSilver: AnyObject? = NSUserDefaults.standardUserDefaults().objectForKey("highscoreNameSilver")
+        var highscoreNameBronze: AnyObject? = NSUserDefaults.standardUserDefaults().objectForKey("highscoreNameBronze")
         
-        
-        //getting the LatestScore
         var pointLabel: Int = NSUserDefaults.standardUserDefaults().objectForKey("pointLabel") as Int
+
         self.scoreNumber.text  = String(pointLabel)
         
-        if (pointLabel > highscoreNumberGold){
-            highscoreNumberBronze = highscoreNumberSilver
-            highscoreNumberSilver = highscoreNumberGold
-            highscoreNumberGold = pointLabel
         
-        }else if (pointLabel > highscoreNumberSilver){
-             highscoreNumberBronze = highscoreNumberSilver
-             highscoreNumberSilver = pointLabel
-        }
-        else if (pointLabel > highscoreNumberBronze){
-            highscoreNumberBronze = pointLabel
-        }
+        println(highscoreNameGold)
+        println(highscoreNameGold! as String)
         
+        var point1 = Point(userName: highscoreNameGold! as String, point: String(highscoreNumberGold), madelsImage: "Gold.png")
+        var point2 = Point(userName: highscoreNameSilver! as String, point: String(highscoreNumberSilver), madelsImage: "Silver.png")
+        var point3 = Point(userName: highscoreNameBronze! as String, point: String(highscoreNumberBronze), madelsImage: "Bronze.png")
         
-        NSUserDefaults.standardUserDefaults().setInteger(highscoreNumberGold, forKey: "highscoreNumberGold")
-        NSUserDefaults.standardUserDefaults().synchronize()
-        NSUserDefaults.standardUserDefaults().setInteger(highscoreNumberSilver, forKey: "highscoreNumberSilver")
-        NSUserDefaults.standardUserDefaults().synchronize()
-        NSUserDefaults.standardUserDefaults().setInteger(highscoreNumberBronze, forKey: "highscoreNumberBronze")
-        NSUserDefaults.standardUserDefaults().synchronize()
-        
-        var point1 = Point(userName: "Frida", point: String(highscoreNumberGold), madelsImage: "Gold.png")
-        var point2 = Point(userName: "Frida", point: String(highscoreNumberSilver), madelsImage: "Silver.png")
-        var point3 = Point(userName: "Frida", point: String(highscoreNumberBronze), madelsImage: "Bronze.png")
-
         arrayOfPoints.append(point1)
         arrayOfPoints.append(point2)
         arrayOfPoints.append(point3)
-        
-        
-        }
-    
+    }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
@@ -250,34 +229,26 @@ class MainPageViewController: UIViewController,UITableViewDelegate ,UITableViewD
         
         cell.nameLabel.textColor = txt
         cell.pointLabel.textColor = txt
-
-        
     }
     
     @IBAction func goToCategories(sender: AnyObject) {
         
         println("categories!!!!")
         self.performSegueWithIdentifier("goToCategories", sender: "categories")
-        
     }
-    
-    
-    
+
     
     @IBAction func goToLessonsAction(sender: AnyObject) {
         
         println("lessons!!!!")
         self.performSegueWithIdentifier("goToLessons", sender: "lessons")
-        
     }
-    
     
     
     @IBAction func practiceAction(sender: AnyObject) {
         
         println("practice!!!!")
         self.performSegueWithIdentifier("goToPractice", sender: "practices")
-        
     }
     
     
@@ -292,7 +263,6 @@ class MainPageViewController: UIViewController,UITableViewDelegate ,UITableViewD
         if(selectedCategories.count == 0){
 
             JLToast.makeText("Please add some categories").show()
-
         }
         else{
 
@@ -307,38 +277,19 @@ class MainPageViewController: UIViewController,UITableViewDelegate ,UITableViewD
             }
             else{
 
-
-
-
                 self.performSegueWithIdentifier("goToNewGame", sender: "newGame")
                 //self.performSegueWithIdentifier("goToNewGame", sender: nil)
                 
                 sound.playSound(sound.confirmSound)
-                
             }
-            
-
         }
-
-
-
-
-
-
     }
-
-
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
 
         if(sender? as String == "newGame"){
             let newGameViewController = (segue.destinationViewController as NewGameViewController)
             newGameViewController.questions = gameQuestions
         }
-
     }
-
-
-
-
-        
 }

@@ -60,7 +60,7 @@ class NGScore: UIViewController, UITableViewDelegate {
 
       @IBAction func sendButton(sender: UIButton) {
         var nameTextField: UITextField!
-        
+            setUpPoints()
         
         if self.nameTextField.text.isEmpty {
             
@@ -96,5 +96,63 @@ class NGScore: UIViewController, UITableViewDelegate {
         mNC.popToViewControllerOfClass(MainPageViewController())
         self.dismissViewControllerAnimated(true, completion: {})
     }
+    
+    
+    func setUpPoints(){
+        
+        
+        var highscoreNumberGold: Int = NSUserDefaults.standardUserDefaults().integerForKey("highscoreNumberGold") as Int
+        var highscoreNumberSilver: Int = NSUserDefaults.standardUserDefaults().integerForKey("highscoreNumberSilver") as Int
+        var highscoreNumberBronze: Int = NSUserDefaults.standardUserDefaults().integerForKey("highscoreNumberBronze") as Int
+        
+        
+        
+        var highscoreNameGold: AnyObject? = NSUserDefaults.standardUserDefaults().objectForKey("highscoreNameGold")
+        var highscoreNameSilver: AnyObject? = NSUserDefaults.standardUserDefaults().objectForKey("highscoreNameSilver")
+        var highscoreNameBronze: AnyObject? = NSUserDefaults.standardUserDefaults().objectForKey("highscoreNameBronze")
+
+        
+        
+        var pointLabel: Int = NSUserDefaults.standardUserDefaults().objectForKey("pointLabel") as Int
+
+    
+        
+        if (pointLabel > highscoreNumberGold){
+            highscoreNumberBronze = highscoreNumberSilver
+            highscoreNumberSilver = highscoreNumberGold
+            highscoreNumberGold = pointLabel
+            
+            
+            NSUserDefaults.standardUserDefaults().setObject(self.nameTextField.text, forKey: "highscoreNameGold")
+            NSUserDefaults.standardUserDefaults().synchronize()
+            
+            
+        }else if (pointLabel > highscoreNumberSilver){
+            highscoreNumberBronze = highscoreNumberSilver
+            highscoreNumberSilver = pointLabel
+            
+            NSUserDefaults.standardUserDefaults().setObject(self.nameTextField.text, forKey: "highscoreNameSilver")
+            NSUserDefaults.standardUserDefaults().synchronize()
+        }
+        else if (pointLabel > highscoreNumberBronze){
+            highscoreNumberBronze = pointLabel
+            
+            NSUserDefaults.standardUserDefaults().setObject(self.nameTextField.text, forKey: "highscoreNameBronze")
+            NSUserDefaults.standardUserDefaults().synchronize()
+            
+        }
+        
+        
+        NSUserDefaults.standardUserDefaults().setInteger(highscoreNumberGold, forKey: "highscoreNumberGold")
+        NSUserDefaults.standardUserDefaults().synchronize()
+        NSUserDefaults.standardUserDefaults().setInteger(highscoreNumberSilver, forKey: "highscoreNumberSilver")
+        NSUserDefaults.standardUserDefaults().synchronize()
+        NSUserDefaults.standardUserDefaults().setInteger(highscoreNumberBronze, forKey: "highscoreNumberBronze")
+        NSUserDefaults.standardUserDefaults().synchronize()
+        
+       
+        
+        }
+
 
 }
