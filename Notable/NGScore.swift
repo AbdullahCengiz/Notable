@@ -124,6 +124,8 @@ class NGScore: UIViewController, UITableViewDelegate {
             
             
             NSUserDefaults.standardUserDefaults().setObject(self.nameTextField.text, forKey: "highscoreNameGold")
+            NSUserDefaults.standardUserDefaults().setObject(highscoreNameGold, forKey: "highscoreNameSilver")
+            NSUserDefaults.standardUserDefaults().setObject(highscoreNameSilver, forKey: "highscoreNameBronze")
             NSUserDefaults.standardUserDefaults().synchronize()
             
             
@@ -132,6 +134,7 @@ class NGScore: UIViewController, UITableViewDelegate {
             highscoreNumberSilver = pointLabel
             
             NSUserDefaults.standardUserDefaults().setObject(self.nameTextField.text, forKey: "highscoreNameSilver")
+            NSUserDefaults.standardUserDefaults().setObject(highscoreNameSilver, forKey: "highscoreNameBronze")
             NSUserDefaults.standardUserDefaults().synchronize()
         }
         else if (pointLabel > highscoreNumberBronze){

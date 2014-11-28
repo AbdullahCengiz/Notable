@@ -631,16 +631,16 @@ class NewGameViewController: UIViewController, UITableViewDelegate {
 
 @IBAction func testButton(sender: UIButton) {
 
-/*
-var scoreScreen: NGScore = self.storyboard!.instantiateViewControllerWithIdentifier("HighScoreViewController") as NGScore
+
+    var scoreScreen: NGScore = self.storyboard!.instantiateViewControllerWithIdentifier("HighScoreViewController") as NGScore
     scoreScreen.delegate = self
     self.presentViewController(scoreScreen, animated: true, completion: nil)
         
         // insert link to rest of code for getting it to the highscore here Frida!
-*/
 
-    println(player.audioFormat)
-    initPlayer()
+
+    //println(player.audioFormat)
+    //initPlayer()
 
 
     }
