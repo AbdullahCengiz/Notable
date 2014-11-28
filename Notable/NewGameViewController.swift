@@ -14,6 +14,9 @@ import QuartzCore
 class NewGameViewController: UIViewController, UITableViewDelegate {
     
     var delegate:AnyObject?
+
+    var soundGenerator:SoundGenerator!
+    var note:UInt32!
     
     @IBOutlet var navItem: UINavigationItem!
 
@@ -56,15 +59,12 @@ class NewGameViewController: UIViewController, UITableViewDelegate {
     @IBOutlet var fourthChoiceNumberHeight: NSLayoutConstraint!
     @IBOutlet var fourthChoiceNumberWidth: NSLayoutConstraint!
     
-    required init(coder aDecoder: NSCoder) {
-        self.delegate = nil
-        super.init(coder: aDecoder)
-        //fatalError("init(coder:) has not been implemented")
-    }
+
 
     
     var cellArray : [UIView] = []
     var choiceButtonArray : [UIButton] = []
+    var player = MHAudioBufferPlayer()
 
     var cellCounter:Int = 0
     var audioPlayer = AVAudioPlayer()
@@ -588,7 +588,7 @@ class NewGameViewController: UIViewController, UITableViewDelegate {
     
     
     override func willAnimateRotationToInterfaceOrientation(toInterfaceOrientation: UIInterfaceOrientation, duration: NSTimeInterval) {
-        
+
         
         if(toInterfaceOrientation.rawValue==3 || toInterfaceOrientation.rawValue==4){
             
@@ -633,14 +633,31 @@ class NewGameViewController: UIViewController, UITableViewDelegate {
 }
 
 @IBAction func testButton(sender: UIButton) {
-        
+
+/*
 var scoreScreen: NGScore = self.storyboard!.instantiateViewControllerWithIdentifier("HighScoreViewController") as NGScore
     scoreScreen.delegate = self
     self.presentViewController(scoreScreen, animated: true, completion: nil)
         
         // insert link to rest of code for getting it to the highscore here Frida!
-        
+*/
+
+    println(player.audioFormat)
+    initPlayer()
+
+
     }
+
+
+    func initPlayer(){
+
+        var initDictionary = NSDictionary()
+
+       //var x =  player.prepare()
+
+    }
+
+
 }
 
 
