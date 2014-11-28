@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SpriteKit
 
 
 
@@ -35,9 +36,9 @@ class StoreViewController: UIViewController {
         
         if(removedReklam? == 0) {
             
-            removeReklam()
-
-    }
+    
+            
+         }
 
     }
     
@@ -45,9 +46,12 @@ class StoreViewController: UIViewController {
     //***HERE IS THE HIDE REKLAM ANIMATION ***
     
     @IBOutlet var reklamContainer: UIView!
-    @IBAction func animateButtonPressed(sender: AnyObject) {
+    @IBAction func animateButtonPressed(sender: AnyObject?) {
         removeReklam()
+        
             }
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -90,33 +94,45 @@ class StoreViewController: UIViewController {
         if(reklam==0){
             
             reklamContainer.hidden = true
-            
-
+            animateBtn.hidden = true
         }
-
+        
         
     }
     
     
     func removeReklam(){
         
-        
+     
         
         NSUserDefaults.standardUserDefaults().setObject(0, forKey: "reklam")
         NSUserDefaults.standardUserDefaults().synchronize()
         
-        let viewToAnimate = [reklamContainer]
+        let viewToAnimate: NSArray = [reklamContainer]
         
-        UIView.performSystemAnimation(UISystemAnimation.Delete, onViews: viewToAnimate, options: nil, animations: {
-            //change nil to: UIViewAnimationOptionBeginFromCurrentState
+        UIView.performSystemAnimation(UISystemAnimation.Delete, onViews:viewToAnimate, options: nil, animations: {
             UIView.setAnimationBeginsFromCurrentState(true)
             
             }, completion: { finished in
         })
-
+        
+  
+    }
+    func removeAnimateBtn(){
         
         
+        
+        NSUserDefaults.standardUserDefaults().setObject(0, forKey: "animateBtn")
+        NSUserDefaults.standardUserDefaults().synchronize()
+        
+        let viewToAnimate: NSArray = [animateBtn]
+        
+        UIView.performSystemAnimation(UISystemAnimation.Delete, onViews:viewToAnimate, options: nil, animations: {
+            UIView.setAnimationBeginsFromCurrentState(true)
+            
+            }, completion: { finished in
+        })
+        }
         
     }
-    
-}
+

@@ -20,11 +20,16 @@ class SplashScreenViewController: UIViewController {
         println("inSplashScreen")
         createGameDatabase()
         saveTheme()
+        saveAnimateBtn()
         checkReklamStatus()
         checkHighScoreStatus()
+        checkAnimateBtnStatus()
         scoreNumber()
-        highscoreName()
+        scoreName()
         highscoreNumber()
+        textFieldName()
+        nameTextField()
+        
     }
 
         func scoreNumber(){
@@ -38,7 +43,7 @@ class SplashScreenViewController: UIViewController {
             
        }
     }
-    func highscoreName(){
+    func scoreName(){
         
         var highscoreName: AnyObject? = NSUserDefaults.standardUserDefaults().objectForKey("highscoreName")
         if(highscoreName==nil){
@@ -82,7 +87,39 @@ class SplashScreenViewController: UIViewController {
             
         }
     }
+    func nameTextField(){
+        
+        var highscoreName: AnyObject? = NSUserDefaults.standardUserDefaults().objectForKey("highscoreName")
+        
+        if(highscoreName==nil){
+            
+            NSUserDefaults.standardUserDefaults().setObject(0, forKey: "highscoreName")
+            NSUserDefaults.standardUserDefaults().synchronize()
+
+        }
+        
+    var goldValueName:AnyObject? = NSUserDefaults.standardUserDefaults().objectForKey("highscoreNameGold")
+    var silverValueName:AnyObject? = NSUserDefaults.standardUserDefaults().objectForKey("highscoreNameSilver")
+    var bronzeValueName:AnyObject? = NSUserDefaults.standardUserDefaults().objectForKey("highscoreNameBronze")
     
+    if (goldValueName==nil) {
+        NSUserDefaults.standardUserDefaults().setObject("GoldenName", forKey: "highscoreNameGold")
+        NSUserDefaults.standardUserDefaults().synchronize()
+    }
+    
+    if (silverValueName==nil) {
+        NSUserDefaults.standardUserDefaults().setObject("SilverName", forKey: "highscoreNameSilver")
+        NSUserDefaults.standardUserDefaults().synchronize()
+    
+    }
+    
+    if (bronzeValueName==nil) {
+        NSUserDefaults.standardUserDefaults().setObject("BronzeName", forKey: "highscoreNameBronze")
+        NSUserDefaults.standardUserDefaults().synchronize()
+    
+    }
+}
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -95,8 +132,9 @@ class SplashScreenViewController: UIViewController {
         getScreenSize()
         saveThemeColors()
         saveReklam()
-        
-        
+        checkAnimateBtnStatus()
+        saveAnimateBtn()
+        textFieldName()
     }
     
     func getScreenSize(){
@@ -106,11 +144,9 @@ class SplashScreenViewController: UIViewController {
         var screenHeight: CGFloat = bounds.size.height
         
         saveScreenSize(width: screenWidth, height: screenHeight)
-        
     }
     
     func saveScreenSize(#width: CGFloat, height: CGFloat){
-        
         
         NSUserDefaults.standardUserDefaults().setObject(width, forKey: "width")
         NSUserDefaults.standardUserDefaults().setObject(height, forKey: "height")
@@ -119,14 +155,32 @@ class SplashScreenViewController: UIViewController {
         let height: AnyObject? = NSUserDefaults.standardUserDefaults().objectForKey("height")
     
         NSUserDefaults.standardUserDefaults().synchronize()
-        
     }
     
+    func textFieldName(){
+        var highscoreNumber: AnyObject? = NSUserDefaults.standardUserDefaults().objectForKey("nameText")
+        
+        if(highscoreNumber==nil){
+            
+            NSUserDefaults.standardUserDefaults().setObject(0, forKey: "nameText")
+            NSUserDefaults.standardUserDefaults().synchronize()
+        
+
+        println("textName is saved in SplashScreen!")
+        
+        }
+    }
     func saveReklam(){
         
     let removedReklam: AnyObject? = NSUserDefaults.standardUserDefaults().objectForKey("removedReklam")
 
     }
+    
+    func saveAnimateBtn(){
+        
+    let removedAnimateBtn: AnyObject? = NSUserDefaults.standardUserDefaults().objectForKey("removedAnimateBtn")
+    }
+    
     func saveTheme(){
         
         let selectedTheme: AnyObject? = NSUserDefaults.standardUserDefaults().objectForKey("selectedTheme")
@@ -149,6 +203,18 @@ class SplashScreenViewController: UIViewController {
             
             
             NSUserDefaults.standardUserDefaults().setObject(1, forKey: "reklam")
+            NSUserDefaults.standardUserDefaults().synchronize()
+        }
+    }
+    func checkAnimateBtnStatus(){
+        
+        let animateBtn: AnyObject? = NSUserDefaults.standardUserDefaults().objectForKey("animateBtn")
+        
+        
+        if(animateBtn==nil){
+            
+            
+            NSUserDefaults.standardUserDefaults().setObject(1, forKey: "animateBtn")
             NSUserDefaults.standardUserDefaults().synchronize()
         }
     }
