@@ -95,9 +95,6 @@ class NewGameViewController: UIViewController, UITableViewDelegate {
     let noteLinePortraitIndentation = (((NSUserDefaults.standardUserDefaults().objectForKey("width") as CGFloat)*32)/640)
     let noteLineLandscapeIndentation = (((NSUserDefaults.standardUserDefaults().objectForKey("width") as CGFloat)*32)/640)*1.35
 
-
-
-
     var pointLabel  = UILabel()
     var timer = NSTimer()
     var counter = 0
