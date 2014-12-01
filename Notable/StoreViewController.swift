@@ -17,6 +17,9 @@ class StoreViewController: UIViewController {
     @IBOutlet var animateBtn: UIButton!
     @IBOutlet var storeViewImageContainer: UIView!
     @IBOutlet var navItem: UINavigationItem!
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -41,9 +44,7 @@ class StoreViewController: UIViewController {
     @IBOutlet var reklamContainer: UIView!
     @IBAction func animateButtonPressed(sender: AnyObject?) {
         removeReklam()
-
     }
-    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -53,8 +54,8 @@ class StoreViewController: UIViewController {
         
         //for back button
         let image = UIImage(named: "backbutton") as UIImage?
-        let uiButton    = UIButton.buttonWithType(UIButtonType.System) as UIButton
-        uiButton.frame  = CGRectMake(0, 0, 25, 25)
+        let uiButton = UIButton.buttonWithType(UIButtonType.System) as UIButton
+        uiButton.frame = CGRectMake(0, 0, 25, 25)
         uiButton.setBackgroundImage(image, forState: UIControlState.Normal)
         uiButton.setTitle("", forState: UIControlState.Normal);
         uiButton.addTarget(self, action:"backButtonAction:", forControlEvents: UIControlEvents.TouchUpInside)
@@ -77,13 +78,13 @@ class StoreViewController: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        removeReklam()
+        
 
         
         let reklam: Int = NSUserDefaults.standardUserDefaults().objectForKey("reklam") as Int
         
         if(reklam==0){
-            
+            removeReklam()
             reklamContainer.hidden = true
             animateBtn.hidden = true
 

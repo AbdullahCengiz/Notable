@@ -39,6 +39,10 @@
             <string>Roboto-Light</string>
             <string>Roboto-Light</string>
             <string>Roboto-Light</string>
+            <string>Roboto-Light</string>
+            <string>Roboto-Light</string>
+            <string>Roboto-Light</string>
+            <string>Roboto-Light</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -89,7 +93,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="494" y="333"/>
+            <point key="canvasLocation" x="570" y="333"/>
         </scene>
         <!--CategoriesViewController-->
         <scene sceneID="2fv-Dy-3aN">
@@ -509,6 +513,18 @@
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="play_btn" translatesAutoresizingMaskIntoConstraints="NO" id="mJe-Ht-ZYh">
                                                         <rect key="frame" x="-16" y="-81" width="48" height="48"/>
                                                     </imageView>
+                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HAT-Uw-lyi">
+                                                        <rect key="frame" x="8" y="173" width="72" height="30"/>
+                                                        <color key="backgroundColor" red="0.89019614459999996" green="0.90980398650000005" blue="0.93725496529999996" alpha="1" colorSpace="deviceRGB"/>
+                                                        <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="15"/>
+                                                        <state key="normal" title="testButton">
+                                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <color key="titleShadowColor" red="0.89019614459999996" green="0.90980398650000005" blue="0.93725496529999996" alpha="1" colorSpace="deviceRGB"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="testButton:" destination="92Z-xp-ug9" eventType="touchUpInside" id="Gx1-GB-PkQ"/>
+                                                        </connections>
+                                                    </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
@@ -541,7 +557,7 @@
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c2g-O9-ByG" userLabel="FirstChoiceButton">
                                                 <rect key="frame" x="0.0" y="0.0" width="568" height="50"/>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
+                                                <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="18"/>
                                                 <state key="normal" title="F-Minor">
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -599,7 +615,7 @@
                                         <subviews>
                                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BiE-sW-dQ4" userLabel="SecondChoiceButton">
                                                 <rect key="frame" x="0.0" y="0.0" width="568" height="52"/>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
+                                                <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="18"/>
                                                 <state key="normal" title="E-Minor">
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -657,7 +673,7 @@
                                         <subviews>
                                             <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pb8-Vw-4I5" userLabel="ThirdChoiceButton">
                                                 <rect key="frame" x="0.0" y="0.0" width="568" height="49"/>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
+                                                <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="18"/>
                                                 <state key="normal" title="D-Minor">
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -716,7 +732,7 @@
                                         <subviews>
                                             <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Xd-9h-zOZ" userLabel="FourthChoiceButton">
                                                 <rect key="frame" x="0.0" y="0.0" width="568" height="50"/>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
+                                                <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="18"/>
                                                 <state key="normal" title="C-Minor">
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -1300,22 +1316,10 @@
                                     </mask>
                                 </variation>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HAT-Uw-lyi">
-                                <rect key="frame" x="15" y="80" width="72" height="30"/>
-                                <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="testButton">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="testButton:" destination="92Z-xp-ug9" eventType="touchUpInside" id="Gx1-GB-PkQ"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.8862745098" green="0.90980392160000001" blue="0.93725490199999995" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="CdL-pc-PSK" secondAttribute="trailing" id="Byc-Pv-yrS"/>
-                            <constraint firstItem="HAT-Uw-lyi" firstAttribute="leading" secondItem="638-b9-r6F" secondAttribute="leadingMargin" constant="-1" id="N1m-Ll-26Z"/>
                             <constraint firstItem="2ae-x8-qtC" firstAttribute="leading" secondItem="638-b9-r6F" secondAttribute="leadingMargin" constant="-16" id="UTQ-ml-d0N"/>
                             <constraint firstItem="CdL-pc-PSK" firstAttribute="leading" secondItem="638-b9-r6F" secondAttribute="leadingMargin" id="aR7-vt-r6A"/>
                             <constraint firstItem="2ae-x8-qtC" firstAttribute="height" secondItem="638-b9-r6F" secondAttribute="height" multiplier="0.0248" id="cTb-1N-4x8"/>
@@ -1323,7 +1327,6 @@
                             <constraint firstItem="KfB-aO-cB3" firstAttribute="top" secondItem="2ae-x8-qtC" secondAttribute="bottom" id="qa8-UH-Tyu"/>
                             <constraint firstItem="CdL-pc-PSK" firstAttribute="top" secondItem="e82-MD-RM0" secondAttribute="bottom" id="sfH-wg-0hc"/>
                             <constraint firstAttribute="trailingMargin" secondItem="2ae-x8-qtC" secondAttribute="trailing" constant="-16" id="yTA-fK-HMC"/>
-                            <constraint firstItem="HAT-Uw-lyi" firstAttribute="top" secondItem="e82-MD-RM0" secondAttribute="bottom" constant="16" id="ycH-H9-MlA"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="4QA-GL-2y1"/>
@@ -1466,7 +1469,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="settingsPage:" destination="lsU-gd-WyV" eventType="touchUpInside" id="lra-9q-vFE"/>
+                                    <action selector="settingsLink:" destination="lsU-gd-WyV" eventType="touchUpInside" id="fWq-0D-i8J"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1697,7 +1700,7 @@
         <!--SettingsViewController-->
         <scene sceneID="K7c-Up-lZA">
             <objects>
-                <viewController restorationIdentifier="settingsViewController" storyboardIdentifier="settingsViewController" title="settingsViewController" id="Kgj-Y2-xbP" userLabel="SettingsViewController" customClass="SettingsViewController" customModule="Notable" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="SettingsViewController" storyboardIdentifier="SettingsViewController" title="settingsViewController" id="Kgj-Y2-xbP" userLabel="SettingsViewController" customClass="SettingsViewController" customModule="Notable" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="FUD-oq-yCo"/>
                         <viewControllerLayoutGuide type="bottom" id="gHl-gr-5ga"/>
@@ -2327,7 +2330,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" restorationIdentifier="reklamContainer" translatesAutoresizingMaskIntoConstraints="NO" id="Gvh-0J-RpJ" userLabel="ReklamContainer">
+                            <view contentMode="scaleToFill" restorationIdentifier="reklamContainer" translatesAutoresizingMaskIntoConstraints="NO" id="Gvh-0J-RpJ" userLabel="reklamContainer">
                                 <rect key="frame" x="-4" y="550" width="608" height="50"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="REKLAM" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EcG-W8-oaY">
@@ -2452,7 +2455,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" restorationIdentifier="reklamContainerMainPage" translatesAutoresizingMaskIntoConstraints="NO" id="n05-RP-Pby" userLabel="ReklamContainer">
+                            <view contentMode="scaleToFill" restorationIdentifier="reklamContainerMainPage" translatesAutoresizingMaskIntoConstraints="NO" id="n05-RP-Pby" userLabel="reklamContainer">
                                 <rect key="frame" x="-4" y="535" width="608" height="65"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="REKLAM" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fcu-Hu-9gE">

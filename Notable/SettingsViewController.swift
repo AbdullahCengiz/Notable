@@ -11,6 +11,7 @@ import UIKit
 class SettingsViewController: UIViewController{
     
     var navBar:UINavigationBar!
+    var delegate:AnyObject?
     
     @IBOutlet var firstTickImage: UIImageView!
     @IBOutlet var secondTickImage: UIImageView!

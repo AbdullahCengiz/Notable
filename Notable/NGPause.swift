@@ -121,17 +121,17 @@ class NGPause: UIViewController{
         }
     }
 
-    @IBAction func settingsPage(sender: AnyObject) {
+    @IBAction func settingsLink(sender: AnyObject) {
         if(delegate != nil) {
-            var mNC = delegate!.navigationController as MasterNC
-            self.dismissViewControllerAnimated(true, completion: {
+
+            var settingsPage: SettingsViewController = self.storyboard!.instantiateViewControllerWithIdentifier("SettingsViewController") as SettingsViewController
             
-            })
+            settingsPage.delegate = self
             
-          mNC.popToViewControllerOfClass(SettingsViewController())
-            
-//Grenuttag? - Not in the main stack? - new segue?
+            self.presentViewController(settingsPage, animated: true, completion: nil)
         }
+
+        
     }
 
 
@@ -140,6 +140,7 @@ func setColor(#backgroundColor:UIColor){
     self.view.backgroundColor = backgroundColor
 
 }
+    
 }
 
 

@@ -193,11 +193,18 @@ class NewGameViewController: UIViewController, UITableViewDelegate {
 
         if (self.cellCounter == 10){
 
-            println("Finish game !!!!")
+        var scoreScreen: NGScore = self.storyboard!.instantiateViewControllerWithIdentifier("HighScoreViewController") as NGScore
+                        
+            scoreScreen.delegate = self
+                        
+            self.presentViewController(scoreScreen, animated: true, completion: nil)
+
+
+            /* println("Finish game !!!!")
             var pauseScreen:NGPause = self.storyboard!.instantiateViewControllerWithIdentifier("PausedGameViewController") as NGPause
             self.title="newGame"
             pauseScreen.delegate = self
-            self.presentViewController(pauseScreen, animated: true, completion: nil)
+            self.presentViewController(pauseScreen, animated: true, completion: nil) */
 
         } else {
             
@@ -542,14 +549,7 @@ class NewGameViewController: UIViewController, UITableViewDelegate {
 
 @IBAction func testButton(sender: UIButton) {
 
-
-    var scoreScreen: NGScore = self.storyboard!.instantiateViewControllerWithIdentifier("HighScoreViewController") as NGScore
-    scoreScreen.delegate = self
-    self.presentViewController(scoreScreen, animated: true, completion: nil)
-        
-        // insert link to rest of code for getting it to the highscore here Frida!
-
-
+//ABDULLAH - You can use the testbutton now!
 
     }
 
