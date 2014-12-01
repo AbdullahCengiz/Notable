@@ -16,6 +16,9 @@ class NGScore: UIViewController, UITableViewDelegate {
     
     var delegate: AnyObject?
 
+    @IBOutlet weak var medalImage: UIImageView!
+    @IBOutlet weak var medalName: UILabel!
+    @IBOutlet weak var scoreNumber: UILabel!
     @IBOutlet var textFieldBg: UIView!
     @IBOutlet var nameTextField: UITextField!
     @IBOutlet var congratsView: UIView!
@@ -45,6 +48,9 @@ class NGScore: UIViewController, UITableViewDelegate {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        
+        var pointLabel: Int = NSUserDefaults.standardUserDefaults().objectForKey("pointLabel") as Int
+        self.scoreNumber.text  = String(pointLabel)
     }
     
     func showFromRect(_rect: CGRect, inView view: UIView!, animated: Bool)(nameTextField: UITextField){

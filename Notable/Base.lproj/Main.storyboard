@@ -43,6 +43,9 @@
             <string>Roboto-Light</string>
             <string>Roboto-Light</string>
             <string>Roboto-Light</string>
+            <string>Roboto-Light</string>
+            <string>Roboto-Light</string>
+            <string>Roboto-Light</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -1525,35 +1528,35 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" restorationIdentifier="congratsView" translatesAutoresizingMaskIntoConstraints="NO" id="Gs1-uX-qoq" userLabel="congratsView">
-                                        <rect key="frame" x="16" y="135" width="568" height="175"/>
+                                        <rect key="frame" x="16" y="68" width="568" height="368"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Congratulations!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FYx-wW-WQS">
-                                                <rect key="frame" x="194" y="72" width="181" height="30"/>
+                                                <rect key="frame" x="194" y="20" width="181" height="30"/>
                                                 <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="25"/>
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You have reached the highscore." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3wp-ZP-oii">
-                                                <rect key="frame" x="163" y="104" width="242" height="20"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your score is" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3wp-ZP-oii">
+                                                <rect key="frame" x="236" y="58" width="97" height="20"/>
                                                 <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="17"/>
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="nameTextField" contentHorizontalAlignment="center" contentVerticalAlignment="center" usesAttributedText="YES" borderStyle="roundedRect" placeholder="Please enter your name" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="gdT-qX-iKv" userLabel="nameTextField">
-                                                <rect key="frame" x="160" y="132" width="202" height="30"/>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="nameTextField" contentHorizontalAlignment="center" contentVerticalAlignment="center" usesAttributedText="YES" borderStyle="roundedRect" placeholder="Enter your name here!" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="gdT-qX-iKv" userLabel="nameTextField">
+                                                <rect key="frame" x="189" y="269" width="190" height="30"/>
                                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <attributedString key="attributedText"/>
                                                 <textInputTraits key="textInputTraits" returnKeyType="send"/>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="POL-8v-fjp">
-                                                <rect key="frame" x="370" y="132" width="39" height="30"/>
+                                                <rect key="frame" x="265" y="307" width="39" height="34"/>
                                                 <color key="backgroundColor" red="0.89019614459999996" green="0.90980398650000005" blue="0.93725496529999996" alpha="1" colorSpace="deviceRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="39" id="Pyi-eY-wGc"/>
-                                                    <constraint firstAttribute="height" constant="30" id="QOd-Sm-0Z4"/>
+                                                    <constraint firstAttribute="height" constant="34" id="QOd-Sm-0Z4"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="14"/>
-                                                <state key="normal" title="Send">
+                                                <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="20"/>
+                                                <state key="normal" title="Ok">
                                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
@@ -1561,29 +1564,58 @@
                                                     <action selector="sendButton:" destination="or4-Ak-hj9" eventType="touchUpInside" id="ZKh-Zm-JPF"/>
                                                 </connections>
                                             </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="9999" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y6U-T2-4ud">
+                                                <rect key="frame" x="241" y="74" width="67" height="36"/>
+                                                <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="30"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="p" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sd2-NA-R84">
+                                                <rect key="frame" x="310" y="74" width="17" height="36"/>
+                                                <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="30"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Gold" translatesAutoresizingMaskIntoConstraints="NO" id="JKq-fF-nfJ">
+                                                <rect key="frame" x="259" y="138" width="51" height="50"/>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gold medal" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d7B-7I-KDS">
+                                                <rect key="frame" x="242" y="196" width="85" height="20"/>
+                                                <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="17"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="centerX" secondItem="3wp-ZP-oii" secondAttribute="centerX" id="3ji-oH-qHB"/>
-                                            <constraint firstItem="POL-8v-fjp" firstAttribute="leading" secondItem="gdT-qX-iKv" secondAttribute="trailing" constant="8" id="3tE-hb-lMQ"/>
-                                            <constraint firstAttribute="centerY" secondItem="3wp-ZP-oii" secondAttribute="centerY" constant="-26.5" id="5rQ-Li-PHm"/>
+                                            <constraint firstItem="POL-8v-fjp" firstAttribute="leading" secondItem="gdT-qX-iKv" secondAttribute="trailing" constant="-114" id="3tE-hb-lMQ"/>
+                                            <constraint firstAttribute="centerY" secondItem="3wp-ZP-oii" secondAttribute="centerY" constant="116" id="5rQ-Li-PHm"/>
+                                            <constraint firstItem="sd2-NA-R84" firstAttribute="top" secondItem="3wp-ZP-oii" secondAttribute="bottom" constant="-4" id="6Qw-2i-cxU"/>
                                             <constraint firstAttribute="centerX" secondItem="FYx-wW-WQS" secondAttribute="centerX" constant="-0.5" id="6oI-Nd-NQ9"/>
-                                            <constraint firstAttribute="centerY" secondItem="FYx-wW-WQS" secondAttribute="centerY" constant="0.5" id="DbK-aR-xtU"/>
+                                            <constraint firstItem="Y6U-T2-4ud" firstAttribute="top" secondItem="3wp-ZP-oii" secondAttribute="bottom" constant="-4" id="8nS-T6-Kes"/>
+                                            <constraint firstAttribute="centerY" secondItem="FYx-wW-WQS" secondAttribute="centerY" constant="149" id="DbK-aR-xtU"/>
+                                            <constraint firstItem="sd2-NA-R84" firstAttribute="leading" secondItem="Y6U-T2-4ud" secondAttribute="trailing" constant="2" id="Gur-2t-HDr"/>
                                             <constraint firstAttribute="centerX" secondItem="3wp-ZP-oii" secondAttribute="centerX" id="XnS-6k-BqP"/>
-                                            <constraint firstAttribute="centerX" secondItem="gdT-qX-iKv" secondAttribute="centerX" constant="23" id="b1s-Sd-7Oz"/>
+                                            <constraint firstAttribute="centerX" secondItem="gdT-qX-iKv" secondAttribute="centerX" id="b1s-Sd-7Oz"/>
+                                            <constraint firstAttribute="centerX" secondItem="Y6U-T2-4ud" secondAttribute="centerX" constant="9.5" id="bDh-JF-viw"/>
                                             <constraint firstAttribute="centerX" secondItem="FYx-wW-WQS" secondAttribute="centerX" constant="-0.5" id="eAJ-7g-fwv"/>
-                                            <constraint firstAttribute="centerY" secondItem="gdT-qX-iKv" secondAttribute="centerY" constant="-59.5" id="h4j-SZ-Vgn"/>
-                                            <constraint firstAttribute="centerY" secondItem="FYx-wW-WQS" secondAttribute="centerY" constant="0.5" id="iPH-gw-33C"/>
-                                            <constraint firstItem="POL-8v-fjp" firstAttribute="top" secondItem="Gs1-uX-qoq" secondAttribute="top" constant="132" id="iYh-Pa-MTr"/>
-                                            <constraint firstAttribute="centerY" secondItem="3wp-ZP-oii" secondAttribute="centerY" constant="-26.5" id="vPn-Bh-3r3"/>
-                                            <constraint firstAttribute="height" constant="175" id="zhp-Jh-SEl"/>
+                                            <constraint firstAttribute="centerY" secondItem="gdT-qX-iKv" secondAttribute="centerY" constant="-100" id="h4j-SZ-Vgn"/>
+                                            <constraint firstAttribute="centerY" secondItem="FYx-wW-WQS" secondAttribute="centerY" constant="149" id="iPH-gw-33C"/>
+                                            <constraint firstItem="POL-8v-fjp" firstAttribute="top" secondItem="Gs1-uX-qoq" secondAttribute="top" constant="307" id="iYh-Pa-MTr"/>
+                                            <constraint firstItem="JKq-fF-nfJ" firstAttribute="top" secondItem="Y6U-T2-4ud" secondAttribute="bottom" constant="28" id="mgI-Mr-LWo"/>
+                                            <constraint firstAttribute="centerX" secondItem="JKq-fF-nfJ" secondAttribute="centerX" id="rGq-pN-gwk"/>
+                                            <constraint firstItem="d7B-7I-KDS" firstAttribute="top" secondItem="JKq-fF-nfJ" secondAttribute="bottom" constant="8" id="tNf-m1-9cr"/>
+                                            <constraint firstAttribute="centerX" secondItem="d7B-7I-KDS" secondAttribute="centerX" constant="-0.5" id="tz6-fn-iNj"/>
+                                            <constraint firstAttribute="centerY" secondItem="3wp-ZP-oii" secondAttribute="centerY" constant="116" id="vPn-Bh-3r3"/>
+                                            <constraint firstAttribute="height" constant="368" id="zhp-Jh-SEl"/>
                                         </constraints>
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" red="0.89019614459999996" green="0.90980398650000005" blue="0.93725496529999996" alpha="1" colorSpace="deviceRGB"/>
                                 <constraints>
                                     <constraint firstItem="Gs1-uX-qoq" firstAttribute="leading" secondItem="q4n-vC-iTw" secondAttribute="leading" constant="16" id="GgN-ze-ENA"/>
-                                    <constraint firstItem="Gs1-uX-qoq" firstAttribute="top" secondItem="q4n-vC-iTw" secondAttribute="top" constant="135" id="bVW-8I-FgT"/>
+                                    <constraint firstItem="Gs1-uX-qoq" firstAttribute="top" secondItem="q4n-vC-iTw" secondAttribute="top" constant="68" id="bVW-8I-FgT"/>
                                     <constraint firstAttribute="trailing" secondItem="Gs1-uX-qoq" secondAttribute="trailing" constant="16" id="lj7-dR-fva"/>
                                 </constraints>
                             </view>
@@ -1598,14 +1630,17 @@
                     </view>
                     <connections>
                         <outlet property="congratsView" destination="Gs1-uX-qoq" id="1pR-c9-01O"/>
+                        <outlet property="medalImage" destination="JKq-fF-nfJ" id="HjB-KX-UOP"/>
+                        <outlet property="medalName" destination="d7B-7I-KDS" id="XS7-bJ-zJi"/>
                         <outlet property="nameTextField" destination="gdT-qX-iKv" id="4V1-iT-H64"/>
+                        <outlet property="scoreNumber" destination="Y6U-T2-4ud" id="8hx-uU-Z2O"/>
                         <outlet property="sendButton" destination="POL-8v-fjp" id="78y-Xc-y6D"/>
                         <outlet property="textFieldBg" destination="q4n-vC-iTw" id="JHJ-C1-u3g"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="58e-V5-Xbu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="570" y="3315"/>
+            <point key="canvasLocation" x="544" y="3318"/>
         </scene>
         <!--PracticeViewController-->
         <scene sceneID="ru4-kL-R0g">
@@ -2371,7 +2406,23 @@
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1lC-wG-v04" userLabel="storeView">
                                 <rect key="frame" x="16" y="80" width="568" height="388"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="reklam_no" image="reklam_no" translatesAutoresizingMaskIntoConstraints="NO" id="V5l-jp-UjD">
+                                        <rect key="frame" x="0.0" y="0.0" width="568" height="388"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="reklam_yes" image="reklam_yes" translatesAutoresizingMaskIntoConstraints="NO" id="HJK-pv-Zva">
+                                        <rect key="frame" x="0.0" y="0.0" width="568" height="388"/>
+                                    </imageView>
+                                </subviews>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="centerY" secondItem="HJK-pv-Zva" secondAttribute="centerY" id="B7e-xi-CNh"/>
+                                    <constraint firstAttribute="centerX" secondItem="V5l-jp-UjD" secondAttribute="centerX" id="BmF-3O-iMk"/>
+                                    <constraint firstAttribute="centerX" secondItem="HJK-pv-Zva" secondAttribute="centerX" id="Z5g-62-XyF"/>
+                                    <constraint firstAttribute="centerY" secondItem="V5l-jp-UjD" secondAttribute="centerY" id="f3b-7q-03T"/>
+                                    <constraint firstItem="HJK-pv-Zva" firstAttribute="width" secondItem="1lC-wG-v04" secondAttribute="width" id="fzY-Xh-KNk"/>
+                                    <constraint firstAttribute="width" secondItem="V5l-jp-UjD" secondAttribute="width" id="q8D-zF-iwK"/>
+                                </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="removeAdsButton" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ccc-bY-nmf">
                                 <rect key="frame" x="16" y="484" width="568" height="50"/>
@@ -2418,12 +2469,13 @@
                         <outlet property="animateBtn" destination="Ccc-bY-nmf" id="nRU-Cy-dZ3"/>
                         <outlet property="navItem" destination="TGK-VV-NJp" id="kf6-GI-IQl"/>
                         <outlet property="reklamContainer" destination="Gvh-0J-RpJ" id="QUl-ho-Z82"/>
+                        <outlet property="reklam_yes" destination="HJK-pv-Zva" id="hAS-Xh-61E"/>
                         <outlet property="storeViewImageContainer" destination="1lC-wG-v04" id="2kM-xG-mR6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a6T-Se-lsw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2293" y="333"/>
+            <point key="canvasLocation" x="2333" y="333"/>
         </scene>
         <!--MasterNC-->
         <scene sceneID="jda-KB-Xmx">
@@ -2796,9 +2848,12 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Gold" width="51" height="50"/>
         <image name="check" width="48" height="34"/>
         <image name="notable_splash" width="640" height="1136"/>
         <image name="play_btn" width="48" height="48"/>
+        <image name="reklam_no" width="568" height="388"/>
+        <image name="reklam_yes" width="568" height="388"/>
         <image name="resume_button" width="62" height="62"/>
     </resources>
 </document>

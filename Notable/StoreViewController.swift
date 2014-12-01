@@ -41,6 +41,7 @@ class StoreViewController: UIViewController {
     //***HERE IS THE HIDE REKLAM ANIMATION ***
     
 
+    @IBOutlet weak var reklam_yes: UIImageView!
     @IBOutlet var reklamContainer: UIView!
     @IBAction func animateButtonPressed(sender: AnyObject?) {
         removeReklam()
@@ -87,7 +88,6 @@ class StoreViewController: UIViewController {
             removeReklam()
             reklamContainer.hidden = true
             animateBtn.hidden = true
-
         }
     }
     
@@ -96,7 +96,7 @@ class StoreViewController: UIViewController {
         NSUserDefaults.standardUserDefaults().setObject(0, forKey: "reklam")
         NSUserDefaults.standardUserDefaults().synchronize()
         
-        let viewToAnimate: NSArray = [reklamContainer]
+        let viewToAnimate: NSArray = [reklamContainer, reklam_yes]
         
         
         UIView.performSystemAnimation(UISystemAnimation.Delete, onViews:viewToAnimate, options: nil, animations: {
