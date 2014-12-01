@@ -124,8 +124,12 @@ class NGPause: UIViewController{
     @IBAction func settingsPage(sender: AnyObject) {
         if(delegate != nil) {
             var mNC = delegate!.navigationController as MasterNC
-            self.dismissViewControllerAnimated(true, completion: {})
-//mNC.popToViewControllerOfClass(settingsViewController())
+            self.dismissViewControllerAnimated(true, completion: {
+            
+            })
+            
+          mNC.popToViewControllerOfClass(SettingsViewController())
+            
 //Grenuttag? - Not in the main stack? - new segue?
         }
     }

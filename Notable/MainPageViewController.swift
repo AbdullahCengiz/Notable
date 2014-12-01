@@ -198,7 +198,7 @@ class MainPageViewController: UIViewController,UITableViewDelegate ,UITableViewD
         var point3 = Point(userName: highscoreNameBronze! as String, point: String(highscoreNumberBronze), madelsImage: "Bronze.png")
         
         if((highscoreNumberGold as Int) == 0){
-            point1 = Point(userName: "No Record" as String, point: "", madelsImage: "Gold.png")
+            point1 = Point(userName: "No record" as String, point: "", madelsImage: "medal_no.png")
             arrayOfPoints.append(point1)
         }
         else {
@@ -208,7 +208,7 @@ class MainPageViewController: UIViewController,UITableViewDelegate ,UITableViewD
         }
         
         if((highscoreNumberSilver as Int) == 0){
-            point2 = Point(userName: "No Record" as String, point: "", madelsImage: "Gold.png")
+            point2 = Point(userName: "No record" as String, point: "", madelsImage: "medal_no.png")
             arrayOfPoints.append(point2)
         }
         else {
@@ -218,7 +218,7 @@ class MainPageViewController: UIViewController,UITableViewDelegate ,UITableViewD
         }
         
         if((highscoreNumberBronze as Int) == 0){
-            point3 = Point(userName: "No Record" as String, point: "", madelsImage: "Gold.png")
+            point3 = Point(userName: "No record" as String, point: "", madelsImage: "medal_no.png")
             arrayOfPoints.append(point3)
         }
         else {

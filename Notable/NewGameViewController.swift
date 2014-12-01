@@ -308,8 +308,8 @@ class NewGameViewController: UIViewController, UITableViewDelegate {
 
         //for menubutton
         let menuImage = UIImage(named: "menu_btn") as UIImage?
-        let menuButton    = UIButton.buttonWithType(UIButtonType.System) as UIButton
-        menuButton.frame  = CGRectMake(0, 0, 25, 25)
+        let menuButton = UIButton.buttonWithType(UIButtonType.System) as UIButton
+        menuButton.frame = CGRectMake(0, 0, 25, 25)
         menuButton.setBackgroundImage(menuImage, forState: UIControlState.Normal)
         menuButton.setTitle("", forState: UIControlState.Normal);
         menuButton.addTarget(self, action:"backButtonAction:", forControlEvents: UIControlEvents.TouchUpInside)
@@ -535,7 +535,7 @@ class NewGameViewController: UIViewController, UITableViewDelegate {
         var randomRed:CGFloat = CGFloat(drand48())
         var randomGreen:CGFloat = CGFloat(drand48())
         var randomBlue:CGFloat = CGFloat(drand48())
-        println("red:\(randomRed)  green:\(randomBlue) green:\(randomGreen)")
+        println("red:\(randomRed) green:\(randomBlue) green:\(randomGreen)")
 
         return UIColor(red: randomRed, green: randomGreen, blue: randomBlue, alpha: 1.0)
 }
@@ -550,14 +550,15 @@ class NewGameViewController: UIViewController, UITableViewDelegate {
         // insert link to rest of code for getting it to the highscore here Frida!
 
 
-    //println(player.audioFormat)
-    //initPlayer()
+
     }
 
     func initPlayer(){
 
         var initDictionary = NSDictionary()
 
-       //var x =  player.prepare()
+    //var x =  player.prepare()
+    //println(player.audioFormat)
+    //initPlayer()
     }
 }
