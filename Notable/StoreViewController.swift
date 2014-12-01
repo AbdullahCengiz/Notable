@@ -25,6 +25,7 @@ class StoreViewController: UIViewController {
         storeViewImageContainer.layer.cornerRadius  = 4.0
         animateBtn.layer.cornerRadius  = 4.0
         
+    
         //get saved theme
         
         let removedReklam = NSUserDefaults.standardUserDefaults().objectForKey("removedReklam") as Int!
@@ -36,9 +37,11 @@ class StoreViewController: UIViewController {
     
     //***HERE IS THE HIDE REKLAM ANIMATION ***
     
+
     @IBOutlet var reklamContainer: UIView!
     @IBAction func animateButtonPressed(sender: AnyObject?) {
         removeReklam()
+
     }
     
     

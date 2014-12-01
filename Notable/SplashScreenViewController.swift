@@ -29,7 +29,6 @@ class SplashScreenViewController: UIViewController {
         highscoreNumber()
         textFieldName()
         nameTextField()
-        
     }
 
         func scoreNumber(){
@@ -40,9 +39,9 @@ class SplashScreenViewController: UIViewController {
             
             NSUserDefaults.standardUserDefaults().setObject(0, forKey: "pointLabel")
             NSUserDefaults.standardUserDefaults().synchronize()
-            
        }
     }
+    
     func scoreName(){
         
         var highscoreName: AnyObject? = NSUserDefaults.standardUserDefaults().objectForKey("highscoreName")
@@ -52,6 +51,7 @@ class SplashScreenViewController: UIViewController {
             NSUserDefaults.standardUserDefaults().synchronize()
         }
     }
+    
     func highscoreNumber(){
         
         var highscoreNumber: AnyObject? = NSUserDefaults.standardUserDefaults().objectForKey("highscoreNumber")
@@ -72,21 +72,19 @@ class SplashScreenViewController: UIViewController {
         if (goldValue==nil) {
             NSUserDefaults.standardUserDefaults().setInteger(0, forKey: "highscoreNumberGold")
             NSUserDefaults.standardUserDefaults().synchronize()
-            
         }
         
         if (silverValue==nil) {
             NSUserDefaults.standardUserDefaults().setInteger(0, forKey: "highscoreNumberSilver")
             NSUserDefaults.standardUserDefaults().synchronize()
-            
         }
         
         if (bronzeValue==nil) {
             NSUserDefaults.standardUserDefaults().setInteger(0, forKey: "highscoreNumberBronze")
             NSUserDefaults.standardUserDefaults().synchronize()
-            
         }
     }
+    
     func nameTextField(){
         
         var highscoreName: AnyObject? = NSUserDefaults.standardUserDefaults().objectForKey("highscoreName")
@@ -95,28 +93,25 @@ class SplashScreenViewController: UIViewController {
             
             NSUserDefaults.standardUserDefaults().setObject(0, forKey: "highscoreName")
             NSUserDefaults.standardUserDefaults().synchronize()
-
         }
         
     var goldValueName:AnyObject? = NSUserDefaults.standardUserDefaults().objectForKey("highscoreNameGold")
     var silverValueName:AnyObject? = NSUserDefaults.standardUserDefaults().objectForKey("highscoreNameSilver")
     var bronzeValueName:AnyObject? = NSUserDefaults.standardUserDefaults().objectForKey("highscoreNameBronze")
-    
+        
     if (goldValueName==nil) {
-        NSUserDefaults.standardUserDefaults().setObject("GoldenName", forKey: "highscoreNameGold")
+        NSUserDefaults.standardUserDefaults().setObject("No record", forKey: "highscoreNameGold")
         NSUserDefaults.standardUserDefaults().synchronize()
     }
     
     if (silverValueName==nil) {
-        NSUserDefaults.standardUserDefaults().setObject("SilverName", forKey: "highscoreNameSilver")
+        NSUserDefaults.standardUserDefaults().setObject("No record", forKey: "highscoreNameSilver")
         NSUserDefaults.standardUserDefaults().synchronize()
-    
     }
     
     if (bronzeValueName==nil) {
-        NSUserDefaults.standardUserDefaults().setObject("BronzeName", forKey: "highscoreNameBronze")
+        NSUserDefaults.standardUserDefaults().setObject("No record", forKey: "highscoreNameBronze")
         NSUserDefaults.standardUserDefaults().synchronize()
-    
     }
 }
 

@@ -190,7 +190,6 @@ class MainPageViewController: UIViewController,UITableViewDelegate ,UITableViewD
 
         self.scoreNumber.text  = String(pointLabel)
         
-        
         println(highscoreNameGold)
         println(highscoreNameGold! as String)
         
@@ -198,9 +197,38 @@ class MainPageViewController: UIViewController,UITableViewDelegate ,UITableViewD
         var point2 = Point(userName: highscoreNameSilver! as String, point: String(highscoreNumberSilver), madelsImage: "Silver.png")
         var point3 = Point(userName: highscoreNameBronze! as String, point: String(highscoreNumberBronze), madelsImage: "Bronze.png")
         
-        arrayOfPoints.append(point1)
-        arrayOfPoints.append(point2)
-        arrayOfPoints.append(point3)
+        if((highscoreNumberGold as Int) == 0){
+            point1 = Point(userName: "No Record" as String, point: "", madelsImage: "Gold.png")
+            arrayOfPoints.append(point1)
+        }
+        else {
+            
+            arrayOfPoints.append(point1)
+            
+        }
+        
+        if((highscoreNumberSilver as Int) == 0){
+            point2 = Point(userName: "No Record" as String, point: "", madelsImage: "Gold.png")
+            arrayOfPoints.append(point2)
+        }
+        else {
+            
+            arrayOfPoints.append(point2)
+            
+        }
+        
+        if((highscoreNumberBronze as Int) == 0){
+            point3 = Point(userName: "No Record" as String, point: "", madelsImage: "Gold.png")
+            arrayOfPoints.append(point3)
+        }
+        else {
+            
+            arrayOfPoints.append(point3)
+            
+        }
+        
+       
+        
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
@@ -210,7 +238,6 @@ class MainPageViewController: UIViewController,UITableViewDelegate ,UITableViewD
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let pointCell: PointTableCell = self.pointsTableView.dequeueReusableCellWithIdentifier("pointCell") as PointTableCell
-        
         
         let currentPoint = arrayOfPoints[indexPath.row]
         pointCell.setCell(currentPoint.userName, pointLabel: currentPoint.point, image: currentPoint.madelsImage)
