@@ -133,6 +133,7 @@ import QuartzCore
     var noteArray:[String] = []
 
     var sharpFlatValueNotFound: Bool = true
+    var majorMinorFound: Bool = false
 
     @IBOutlet var progressViewContainer: UIView!
     var navBar:UINavigationBar!
@@ -146,7 +147,7 @@ import QuartzCore
 
         prepareGame(currentQuestion)
 
-        //println("NumberOfQuestions: \(questions!.count)")
+        ////println("NumberOfQuestions: \(questions!.count)")
 
     }
     
@@ -155,20 +156,20 @@ import QuartzCore
     }
 
     func layoutEverything(x:UIView) {
-        //println("x = \(x)")
+        ////println("x = \(x)")
         x.layoutSubviews()
         x.backgroundColor = getRandomColor()
         for v in x.subviews as [UIView] {
             v.layoutSubviews()
             v.backgroundColor = getRandomColor()
-            //println("v = \(v)")
+            ////println("v = \(v)")
             if(v.subviews.count > 0) {
                 self.layoutEverything(v)
             }
         }
 
 
-        //println("After for loop !!!!!")
+        ////println("After for loop !!!!!")
     }
 
     func initUI(){
@@ -189,8 +190,8 @@ import QuartzCore
         fourthChoiceNumberHeight.constant = numberCircleWidth
         fourthChoiceNumberWidth.constant = numberCircleWidth
 
-        ////println("firstChoiceContainer.height=!!!!!= \(firstChoiceContainer.frame.size.height)")
-        ////println("numberCircleWidth=!!!!!= \(numberCircleWidth)")
+        //////println("firstChoiceContainer.height=!!!!!= \(firstChoiceContainer.frame.size.height)")
+        //////println("numberCircleWidth=!!!!!= \(numberCircleWidth)")
 
         firstChoiceNumberContainer.frame = CGRectMake(firstChoiceNumberContainer.frame.minX, firstChoiceNumberContainer.frame.minY, numberCircleWidth, numberCircleWidth)
         secondChoiceNumberContainer.frame = CGRectMake(secondChoiceNumberContainer.frame.minX, secondChoiceNumberContainer.frame.minY, numberCircleWidth, numberCircleWidth)
@@ -220,11 +221,11 @@ import QuartzCore
 
 
 
-        //println("cellCounter = \(cellCounter)")
+        ////println("cellCounter = \(cellCounter)")
 
         if (self.cellCounter == 10){
 
-            //println("Finish game !!!!")
+            ////println("Finish game !!!!")
             var pauseScreen:NGPause = self.storyboard!.instantiateViewControllerWithIdentifier("PausedGameViewController") as NGPause
             self.title="newGame"
             pauseScreen.delegate = self
@@ -233,167 +234,47 @@ import QuartzCore
         }
         else{
 
-            //println("questions.count: \(questions!.count)  currentQuestionIndex = \(currentQuestion)")
+            ////println("questions.count: \(questions!.count)  currentQuestionIndex = \(currentQuestion)")
             //resets current question
 
 
             //get question sound
             println("questionContent = \(questions![currentQuestion].questionContent!)")
-
-            //get length of question content
-            var questionContentLenght:Int = (questions![currentQuestion].questionContent!).utf16Count
-            //println("count = \(questionContentLenght)")
+            println("questionContent = \(questions![currentQuestion].questionAnswer!)")
 
 
-            for characterCounter in 0..<questionContentLenght {
-
-
-                if(questionContentLenght==2){
-                    //basic notes
-
-
-                    //get noteValue
-                    if (characterCounter == 0){
-
-                        var currentNoteCharacter:String =  String(Array((questions![currentQuestion].questionContent!))[characterCounter])
-
-
-                        for currentNoteCharacterCounter in 0..<noteArray.count {
-
-                            if(noteArray[currentNoteCharacterCounter] == currentNoteCharacter){
-                                println("currentNoteCharacter = \(currentNoteCharacter) and currentNoteValue = \(currentNoteCharacterCounter)")
-                                currentNoteValue = String(currentNoteCharacterCounter)
-                                break
-                            }
-
-                        }
-
-                        //println("currentNoteCharacter = \(currentNoteCharacter)")
-
-                    }
-
-
-                    // set currentSharpFlatValue to 0
-                    currentSharpFlatValue  = 0
-
-                    //get octav
-                    if (characterCounter == questionContentLenght-1){
-
-                        currentOctav = String(Array((questions![currentQuestion].questionContent!))[characterCounter]).toInt()!
-                        //println("currentOctav = \(currentOctav)")
-
-                    }
+            //call function with question parameter
 
 
 
-                } else if (questionContentLenght==3){
 
 
-                    sharpFlatValueNotFound=true
+            //getNoteSoundFromQuestionContent(questions![currentQuestion].questionContent!)
 
-                    //get noteValue
-                    if (characterCounter == 1){
-
-                        var currentNoteCharacter:String =  String(Array((questions![currentQuestion].questionContent!))[characterCounter-1])+String(Array((questions![currentQuestion].questionContent!))[characterCounter])
-
-
-                        println("will look for \(currentNoteCharacter)")
-
-
-                        for currentNoteCharacterCounter in 0..<noteArray.count {
-
-                            if(noteArray[currentNoteCharacterCounter] == currentNoteCharacter){
-                                println("currentNoteCharacter = \(currentNoteCharacter) and currentNoteValue = \(currentNoteCharacterCounter)")
-                                currentNoteValue = String(currentNoteCharacterCounter)
-                                currentSharpFlatValue = 0
-                                sharpFlatValueNotFound = false
-                                break
-                            }
-
-                        }
-
-                        // add comment here
-                        if(sharpFlatValueNotFound){
-
-                            println("will look for \(currentNoteCharacter) not found")
-
-                            currentNoteCharacter =  String(Array((questions![currentQuestion].questionContent!))[characterCounter-1])
-
-                            println("will look for \(currentNoteCharacter)")
-
-
-                            for currentNoteCharacterCounter in 0..<noteArray.count {
-
-                                if(noteArray[currentNoteCharacterCounter] == currentNoteCharacter){
-                                    println("currentNoteCharacter = \(currentNoteCharacter) and currentNoteValue = \(currentNoteCharacterCounter)")
-                                    currentNoteValue = String(currentNoteCharacterCounter)
-                                    currentSharpFlatValue = 0
-
-
-                                    println("possibleSharpOrFlatValue = \(String(Array((questions![currentQuestion].questionContent!))[characterCounter]))")
-
-
-                                    if(String(Array((questions![currentQuestion].questionContent!))[characterCounter])=="#"){
-
-                                        currentSharpFlatValue  = 1
-
-                                    }
-                                    else{
-
-                                        currentSharpFlatValue  = -1
-
-                                    }
-
-
-                                    break
-                                }
-                                
-                            }
+            getNoteSoundFromQuestionContent("D3|F3|A3")
 
 
 
-                        }
+            /*
 
-                        //println("currentNoteCharacter = \(currentNoteCharacter)")
-
-                    }
-
-
-                    //get octav
-                    if (characterCounter == questionContentLenght-1){
-                        
-                        currentOctav = String(Array((questions![currentQuestion].questionContent!))[characterCounter]).toInt()!
-                        println("currentOctav = \(currentOctav)")
-                        
-                    }
-
-                    
-                    
+            let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
+            dispatch_async(dispatch_get_global_queue(priority, 0)) {
+                // do some task
+                dispatch_async(dispatch_get_main_queue()) {
+                    // update some UI
+                    //sleep(2)
+                    self.playNote(49)
                 }
-
-                else {
-
-
-                    currentNote  = 110
-
-                }
-
-                //println(Array((questions![currentQuestion].questionContent!))[characterCounter])
-
-
-
             }
 
-
-            currentNote = getCurrentNoteValue(octav:currentOctav, noteValue:currentNoteValue.toInt()!, sharpFlatValue:currentSharpFlatValue )
-
-
-            playNote(currentNote)
+            */
 
 
 
 
-            
+
+
+
             resetQuestion(questions![currentQuestion])
 
             //clears colors of buttons
@@ -404,7 +285,7 @@ import QuartzCore
 
             // decide the right answers place
             let rnd = Int(arc4random_uniform(UInt32(4)))
-            //println("rightAnswer position is \(rnd)")
+            ////println("rightAnswer position is \(rnd)")
 
             // put answers to choice buttons
             for buttonCounter in 0..<choiceButtonArray.count {
@@ -437,7 +318,7 @@ import QuartzCore
                         choiceButtonArray[buttonCounter].setTitle(questions![currentQuestion].questionAlternativeAnswer3, forState: .Normal)
                         questions![currentQuestion].questionAlternativeAnswer3Added = true
 
-                        //println("\(questions![currentQuestion].questionAlternativeAnswer3) ")
+                        ////println("\(questions![currentQuestion].questionAlternativeAnswer3) ")
 
                     }
                 }
@@ -446,6 +327,23 @@ import QuartzCore
             lockButtons(false)
         }
     }
+
+
+    func playNotesInOrder(timer: NSTimer) {
+        // Something after a delay
+
+
+
+        var arr:AnyObject = timer.userInfo!
+
+        var counter32:Int = arr[0] as Int
+
+        println("playNotesInOrder and play \(counter32)")
+
+
+        playNote(Int32(counter))
+    }
+
 
     func resetQuestion(question:Question){
 
@@ -473,7 +371,7 @@ import QuartzCore
         // control initial sound value
         if(soundLevel==nil){
 
-            //////println("No sound value !!!!!")
+            ////////println("No sound value !!!!!")
             NSUserDefaults.standardUserDefaults().setObject(0.5, forKey: "sound")
             NSUserDefaults.standardUserDefaults().synchronize()
             soundLevelValue = 0.5;
@@ -492,7 +390,7 @@ import QuartzCore
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         //self.
-        ////println("In viewWillAppear!!!")
+        //////println("In viewWillAppear!!!")
         // waits for noteViewContainer creation
         prepareNavigationBar()
         var pointLabel: Int = NSUserDefaults.standardUserDefaults().objectForKey("pointLabel") as Int
@@ -520,7 +418,7 @@ import QuartzCore
 
 
     @IBAction func backButtonAction(sender:UIButton) {
-        ////println("Button Action From Code")
+        //////println("Button Action From Code")
         var pauseScreen:NGPause = self.storyboard!.instantiateViewControllerWithIdentifier("PausedGameViewController") as NGPause
         self.title="newGame"
         pauseScreen.delegate = self
@@ -532,12 +430,12 @@ import QuartzCore
         var choiceButton = sender as UIButton
 
 
-        //println("tag: \(choiceButton.tag) questionAnswerIndex= \(questions![currentQuestion].questionAnswerIndex)")
+        ////println("tag: \(choiceButton.tag) questionAnswerIndex= \(questions![currentQuestion].questionAnswerIndex)")
 
         // locks buttons
         lockButtons(true)
 
-        //println(choiceButton.tag)
+        ////println(choiceButton.tag)
 
         if(answerLock){
 
@@ -564,7 +462,7 @@ import QuartzCore
                 timer = NSTimer.scheduledTimerWithTimeInterval(0.0005, target: self, selector: Selector("updateRightAnswer"), userInfo: nil, repeats: true)
                 if(cellCounter<cellArray.count){
 
-                    ////println(cellCounter)
+                    //////println(cellCounter)
                     dispatch_async(dispatch_get_main_queue()) {
                         self.cellArray[self.cellCounter].backgroundColor = UIColor(red: 0.35686275, green: 0.80784314, blue: 0.43137255, alpha: 1.0) // gets true green color
                         self.cellCounter++
@@ -618,7 +516,7 @@ import QuartzCore
 
             pointLabel.text = String(realScore)
 
-            //println("counter = \(counter) realScore = \(realScore)")
+            ////println("counter = \(counter) realScore = \(realScore)")
 
             timer.invalidate()
             bloat()
@@ -639,7 +537,7 @@ import QuartzCore
         if(counter==realScore){
 
             pointLabel.text = String(realScore)
-            //println("counter = \(counter) realScore = \(realScore)")
+            ////println("counter = \(counter) realScore = \(realScore)")
             counter=realScore
             timer.invalidate()
             bloat()
@@ -705,22 +603,22 @@ import QuartzCore
             //setPortraitConstraints()
         }
         
-        //////println("to \(toInterfaceOrientation.rawValue)")
+        ////////println("to \(toInterfaceOrientation.rawValue)")
         
     }
     
     override func didRotateFromInterfaceOrientation(fromInterfaceOrientation: UIInterfaceOrientation) {
         
-        //////println("from \(fromInterfaceOrientation.rawValue)")
+        ////////println("from \(fromInterfaceOrientation.rawValue)")
         
         /*
-        ////println("noteviewContainerLandsCapeHeight= \(noteViewContainer.frame.height)")
-        ////println("noteviewContainerLandsCapeWidth= \(noteViewContainer.frame.width)")
+        //////println("noteviewContainerLandsCapeHeight= \(noteViewContainer.frame.height)")
+        //////println("noteviewContainerLandsCapeWidth= \(noteViewContainer.frame.width)")
         */
         
         /*
-        ////println("firstChoiceContainerLandsCapeHeight= \(firstChoiceContainer.frame.height)")
-        ////println("firstChoiceContainerLandsCapeWidth= \(firstChoiceContainer.frame.width)")
+        //////println("firstChoiceContainerLandsCapeHeight= \(firstChoiceContainer.frame.height)")
+        //////println("firstChoiceContainerLandsCapeWidth= \(firstChoiceContainer.frame.width)")
         */
 
     }
@@ -730,7 +628,7 @@ import QuartzCore
         var randomRed:CGFloat = CGFloat(drand48())
         var randomGreen:CGFloat = CGFloat(drand48())
         var randomBlue:CGFloat = CGFloat(drand48())
-        //println("red:\(randomRed)  green:\(randomBlue) green:\(randomGreen)")
+        ////println("red:\(randomRed)  green:\(randomBlue) green:\(randomGreen)")
 
         return UIColor(red: randomRed, green: randomGreen, blue: randomBlue, alpha: 1.0)
 }
@@ -760,7 +658,7 @@ import QuartzCore
         initArray.append(soundLevelValue) // for soundLevelValue
         myPlayer = myPlayer.prepare(initArray)
         myPlayer = myPlayer.runBlock(initArray)
-        //println(myPlayer)
+        ////println(myPlayer)
 
     }
 
@@ -792,10 +690,20 @@ import QuartzCore
 
     func playNote(noteId:Int32){
 
+        println("in play note")
+
         synthLock.lock()
         // The tag of each button corresponds to its MIDI note number.
         synth.playNote(noteId)
         synthLock.unlock()
+
+        /*
+        if(noteId<90){
+            sleep(1)
+            playNote(49)
+
+        }
+        */
 
     }
 
@@ -803,7 +711,7 @@ import QuartzCore
     func getCurrentNoteValue(#octav:Int,noteValue:Int, sharpFlatValue:Int) -> Int32 {
 
 
-        println("sharpFlatValue!!!!!!!!!!!!!!!! = \(sharpFlatValue)")
+        //println("sharpFlatValue!!!!!!!!!!!!!!!! = \(sharpFlatValue)")
 
         var value:Int32  = 0
 
@@ -845,7 +753,7 @@ import QuartzCore
 
         }
 
-        println("noteValue = \(value)")
+        //println("noteValue = \(value)")
 
         return value
 
@@ -853,7 +761,205 @@ import QuartzCore
 
 
 
+    func getNoteSoundFromQuestionContent(questionContent:String){
+
+            majorMinorFound=false // reset major minor status
+
+
+            //get length of question content
+            var questionContentLenght:Int = (questionContent).utf16Count
+            ////println("count = \(questionContentLenght)")
+
+
+            for characterCounter in 0..<questionContentLenght {
+
+
+                if(questionContentLenght==2){
+                    //basic notes
+
+
+                     //println("Will find \(questionContent)")
+
+                    //get noteValue
+                    if (characterCounter == 0){
+
+                        var currentNoteCharacter:String =  String(Array(questionContent)[characterCounter])
+
+
+                        for currentNoteCharacterCounter in 0..<noteArray.count {
+
+                            if(noteArray[currentNoteCharacterCounter] == currentNoteCharacter){
+                                //println("currentNoteCharacter = \(currentNoteCharacter) and currentNoteValue = \(currentNoteCharacterCounter)")
+                                currentNoteValue = String(currentNoteCharacterCounter)
+                                break
+                            }
+
+                        }
+
+                        ////println("currentNoteCharacter = \(currentNoteCharacter)")
+
+                    }
+
+
+                    // set currentSharpFlatValue to 0
+                    currentSharpFlatValue  = 0
+
+                    //get octav
+                    if (characterCounter == questionContentLenght-1){
+
+                        currentOctav = String(Array(questionContent)[characterCounter]).toInt()!
+                        ////println("currentOctav = \(currentOctav)")
+
+                    }
+
+
+
+                } else if (questionContentLenght==3){
+
+
+                    //println("Will find \(questionContent)")
+
+
+                    sharpFlatValueNotFound=true
+
+                    //get noteValue
+                    if (characterCounter == 1){
+
+                        var currentNoteCharacter:String =  String(Array(questionContent)[characterCounter-1])+String(Array(questionContent)[characterCounter])
+
+
+                        //println("will look for \(currentNoteCharacter)")
+
+
+                        for currentNoteCharacterCounter in 0..<noteArray.count {
+
+                            if(noteArray[currentNoteCharacterCounter] == currentNoteCharacter){
+                                //println("currentNoteCharacter = \(currentNoteCharacter) and currentNoteValue = \(currentNoteCharacterCounter)")
+                                currentNoteValue = String(currentNoteCharacterCounter)
+                                currentSharpFlatValue = 0
+                                sharpFlatValueNotFound = false
+                                break
+                            }
+
+                        }
+
+                        // add comment here
+                        if(sharpFlatValueNotFound){
+
+                            //println("will look for \(currentNoteCharacter) not found")
+
+                            currentNoteCharacter =  String(Array(questionContent)[characterCounter-1])
+
+                            //println("will look for \(currentNoteCharacter)")
+
+
+                            for currentNoteCharacterCounter in 0..<noteArray.count {
+
+                                if(noteArray[currentNoteCharacterCounter] == currentNoteCharacter){
+                                    //println("currentNoteCharacter = \(currentNoteCharacter) and currentNoteValue = \(currentNoteCharacterCounter)")
+                                    currentNoteValue = String(currentNoteCharacterCounter)
+                                    currentSharpFlatValue = 0
+
+
+                                    //println("possibleSharpOrFlatValue = \(String(Array(questionContent)[characterCounter]))")
+
+
+                                    if(String(Array(questionContent)[characterCounter])=="#"){
+
+                                        currentSharpFlatValue  = 1
+
+                                    }
+                                    else{
+
+                                        currentSharpFlatValue  = -1
+
+                                    }
+
+
+                                    break
+                                }
+
+                            }
+
+
+
+                        }
+
+                        ////println("currentNoteCharacter = \(currentNoteCharacter)")
+
+                    }
+
+
+                    //get octav
+                    if (characterCounter == questionContentLenght-1){
+
+                        currentOctav = String(Array(questionContent)[characterCounter]).toInt()!
+                        //println("currentOctav = \(currentOctav)")
+
+                    }
+
+
+
+                }
+
+                else {
+
+                    //minor or major note
+
+                     //println("Will find \(questionContent)")
+
+
+                    let minorOrMajorNoteContentArray:[NSString] = split(questionContent as String, { $0 == "|" }, maxSplit: 3, allowEmptySlices: true)
+
+                    //println("minorOrMajorNoteContentArray = \(minorOrMajorNoteContentArray)")
+
+
+                    let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
+                    dispatch_async(dispatch_get_global_queue(priority, 0)) {
+                        // do some task
+                        dispatch_async(dispatch_get_main_queue()) {
+                            // update some UI
+                            //sleep(2)
+                            self.getNoteSoundFromQuestionContent(minorOrMajorNoteContentArray[0])
+                            NSThread.sleepForTimeInterval(0.5)
+                            self.getNoteSoundFromQuestionContent(minorOrMajorNoteContentArray[1])
+                            NSThread.sleepForTimeInterval(0.5)
+                            self.getNoteSoundFromQuestionContent(minorOrMajorNoteContentArray[2])
+                        }
+                    }
+
+
+
+
+                    majorMinorFound=true
+                    break
+                    //currentNote  = 110
+
+                }
+
+                ////println(Array((questions![currentQuestion].questionContent!))[characterCounter])
+
+
+
+            }
+
+
+        if(!majorMinorFound){
+            currentNote = getCurrentNoteValue(octav:currentOctav, noteValue:currentNoteValue.toInt()!, sharpFlatValue:currentSharpFlatValue )
+
+
+            println("Will play note \(questionContent) and noteId = \(currentNote)")
+
+            playNote(currentNote)
+            //majorMinorFound=false
+        }
+
+
+
+
+    }
+
+
+
 
 }
-
-
