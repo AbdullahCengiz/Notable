@@ -79,7 +79,7 @@ class StoreViewController: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        
+        styleView()
 
         
         let reklam: Int = NSUserDefaults.standardUserDefaults().objectForKey("reklam") as Int
@@ -91,6 +91,19 @@ class StoreViewController: UIViewController {
         }
     }
     
+    func styleView() {
+        
+        var bg:UIColor = UIColor.whiteColor()
+        var btn:UIColor = UIColor.whiteColor()
+        var txt:UIColor = UIColor.blackColor()
+        Theme().fetchThemeColors(&bg, buttonColor:&btn, textColor:&txt)
+
+        self.view.backgroundColor = bg
+        self.storeViewImageContainer.backgroundColor = btn
+        self.animateBtn.backgroundColor = btn
+        self.animateBtn.setTitleColor(txt, forState: UIControlState.Normal)
+    }
+
     func removeReklam(){
         
         NSUserDefaults.standardUserDefaults().setObject(0, forKey: "reklam")

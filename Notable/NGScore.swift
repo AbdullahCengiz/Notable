@@ -16,6 +16,9 @@ class NGScore: UIViewController, UITableViewDelegate {
     
     var delegate: AnyObject?
 
+    @IBOutlet var p: UILabel!
+    @IBOutlet var congrats: UILabel!
+    @IBOutlet var yourScoreIs: UILabel!
     @IBOutlet weak var medalNamez: UILabel!
     @IBOutlet weak var medalImage: UIImageView!
     @IBOutlet weak var scoreNumber: UILabel!
@@ -53,6 +56,7 @@ class NGScore: UIViewController, UITableViewDelegate {
         super.viewWillAppear(animated)
         
         medalTypes()
+        styleView()
         //medalView()
         
         
@@ -60,6 +64,31 @@ class NGScore: UIViewController, UITableViewDelegate {
         var pointLabel: Int = NSUserDefaults.standardUserDefaults().objectForKey("pointLabel") as Int
         self.scoreNumber.text  = String(pointLabel)
     }
+    
+    func styleView() {
+        
+        var bg:UIColor = UIColor.whiteColor()
+        var btn:UIColor = UIColor.whiteColor()
+        var txt:UIColor = UIColor.blackColor()
+        Theme().fetchThemeColors(&bg, buttonColor:&btn, textColor:&txt)
+        
+        self.textFieldBg.backgroundColor = bg
+        self.sendButton.backgroundColor = bg
+        
+        self.congratsView.backgroundColor = btn
+        
+        self.sendButton.setTitleColor(txt, forState: UIControlState.Normal)
+        self.medalNamez.textColor = txt
+        self.scoreNumber.textColor = txt
+        self.congrats.textColor = txt
+        self.yourScoreIs.textColor = txt
+        self.p.textColor = txt
+        
+        
+        
+    }
+    
+
     
     func showFromRect(_rect: CGRect, inView view: UIView!, animated: Bool)(nameTextField: UITextField){
         

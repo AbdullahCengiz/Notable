@@ -143,7 +143,8 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="categoryNameLabel" destination="IFW-Me-73g" id="byQ-vm-i6k"/>
+                                            <outlet property="categoryNameLabel" destination="IFW-Me-73g" id="HwZ-oW-A7x"/>
+                                            <outlet property="categoryTableCell" destination="l6i-aU-50h" id="w4U-Rs-3tk"/>
                                             <outlet property="tickImage" destination="dgx-ua-Z8Z" id="K0M-3Z-mdp"/>
                                         </connections>
                                     </tableViewCell>
@@ -1637,13 +1638,16 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="congrats" destination="FYx-wW-WQS" id="h1o-fW-cZh"/>
                         <outlet property="congratsView" destination="Gs1-uX-qoq" id="1pR-c9-01O"/>
                         <outlet property="medalImage" destination="JKq-fF-nfJ" id="HjB-KX-UOP"/>
                         <outlet property="medalNamez" destination="d7B-7I-KDS" id="BX5-4f-1tT"/>
                         <outlet property="nameTextField" destination="gdT-qX-iKv" id="4V1-iT-H64"/>
+                        <outlet property="p" destination="sd2-NA-R84" id="dkc-Rl-pv5"/>
                         <outlet property="scoreNumber" destination="Y6U-T2-4ud" id="8hx-uU-Z2O"/>
                         <outlet property="sendButton" destination="POL-8v-fjp" id="78y-Xc-y6D"/>
                         <outlet property="textFieldBg" destination="q4n-vC-iTw" id="JHJ-C1-u3g"/>
+                        <outlet property="yourScoreIs" destination="3wp-ZP-oii" id="tss-bM-MtH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="58e-V5-Xbu" userLabel="First Responder" sceneMemberID="firstResponder"/>

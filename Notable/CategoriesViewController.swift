@@ -25,8 +25,9 @@ class CategoriesViewController: UIViewController,UITableViewDelegate ,UITableVie
     var cdHelper: CoreDataHelper?
     
     @IBOutlet var categoriesTableView: UITableView!
-    
-    
+
+
+
     var navBar:UINavigationBar!
     
     override func viewDidLoad() {
@@ -41,9 +42,6 @@ class CategoriesViewController: UIViewController,UITableViewDelegate ,UITableVie
         cdHelper = CoreDataHelper()
         
         loadCategories()
-
-        
-        
     }
     
     override func didReceiveMemoryWarning() {
@@ -68,9 +66,8 @@ class CategoriesViewController: UIViewController,UITableViewDelegate ,UITableVie
         self.categoriesTableView.backgroundColor = bg
         
         categoriesTableView.reloadData()
-
-        
     }
+    
     func prepareNavigationBar(){
         
         //for back button
@@ -97,21 +94,13 @@ class CategoriesViewController: UIViewController,UITableViewDelegate ,UITableVie
             checkBoxButton.setBackgroundImage(checkBoxCheckedImage, forState: UIControlState.Normal)
             
             checkBoxButton.tag=1 // if tag=1 button is ticked
-            
         }
         
         checkBoxButton.addTarget(self, action:"checkAllButtonAction:", forControlEvents: UIControlEvents.TouchUpInside)
         navItem.setRightBarButtonItem(UIBarButtonItem(customView: checkBoxButton), animated: true)
         navItem.hidesBackButton=true
-        
-        
-        
-        
     }
-    
-    
-    
-    
+
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
         return loadedArrayOfCategories.count
