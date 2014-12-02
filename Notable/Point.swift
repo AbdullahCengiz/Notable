@@ -14,9 +14,7 @@ FIX 26/11!!!!!!!!!!
 */
 
 
-class Point
-
-{
+class Point {
     
     var userName = "Alexander"
     var point = "point"
@@ -28,7 +26,5 @@ class Point
         self.madelsImage = madelsImage
         
     }
-    
-    
 }
 

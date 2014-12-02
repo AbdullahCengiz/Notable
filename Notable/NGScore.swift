@@ -24,7 +24,7 @@ class NGScore: UIViewController, UITableViewDelegate {
     @IBOutlet var congratsView: UIView!
     @IBOutlet var sendButton: UIButton!
 
-
+    var arrayOfMedals: [Medal] = []
     
     required init(coder aDecoder: NSCoder) {
         self.delegate = nil
@@ -38,9 +38,11 @@ class NGScore: UIViewController, UITableViewDelegate {
         
         
         println("in NGScoreViewController")
-
         
+    self.navigationController?.setNavigationBarHidden(false, animated: true)
+
     }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -49,6 +51,11 @@ class NGScore: UIViewController, UITableViewDelegate {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
+        medalTypes()
+        //medalView()
+        
+        
+        //getting the LatestScore
         var pointLabel: Int = NSUserDefaults.standardUserDefaults().objectForKey("pointLabel") as Int
         self.scoreNumber.text  = String(pointLabel)
     }
@@ -61,9 +68,67 @@ class NGScore: UIViewController, UITableViewDelegate {
     func setColor(#backgroundColor:UIColor){
         
         self.view.backgroundColor = backgroundColor
+    }
+    
+    func setMedal(#image: String){
+        var defaults = NSUserDefaults()
+        self.medalImage.image = UIImage(named: image)
+    }
+    
+    func medalView() {
+        let anyMedal: UIImageView = self.medalImage
+        let currentMedal = arrayOfMedals[0]
+        //setMedal(image: currentMedal.medalImage)
+    }
+    
+    func medalTypes() {
         
+        arrayOfMedals.removeAll(keepCapacity: false)
+        
+        var highscoreNumberGold: Int = NSUserDefaults.standardUserDefaults().integerForKey("highscoreNumberGold") as Int
+        var highscoreNumberSilver: Int = NSUserDefaults.standardUserDefaults().integerForKey("highscoreNumberSilver") as Int
+        var highscoreNumberBronze: Int = NSUserDefaults.standardUserDefaults().integerForKey("highscoreNumberBronze") as Int
+        
+        var pointLabel: Int = NSUserDefaults.standardUserDefaults().objectForKey("pointLabel") as Int
+        self.scoreNumber.text  = String(pointLabel)
+        
+        var med1: Medal  = Medal(medalImage: "Gold.png")
+        var med2: Medal  = Medal(medalImage: "Silver.png")
+        var med3: Medal  = Medal(medalImage: "Bronze.png")
+        
+        var medalName:String = ""
+        
+        if(pointLabel >= highscoreNumberGold){
+           
+            medalName = "Gold.png"
+            
+        }
+
+        else if(pointLabel >= highscoreNumberSilver){
+           
+            medalName = "Silver.png"
+            
+            
+        }
+        
+        else if(pointLabel >= highscoreNumberBronze){
+            
+            medalName = "Bronze.png"
+            
+        } else {
+            
+            medalName = "medal_no.png"
+
+            }
+        
+        
+        setMedal(image: medalName)
+        
+    
     }
 
+
+    
       @IBAction func sendButton(sender: UIButton) {
         var nameTextField: UITextField!
             setUpPoints()

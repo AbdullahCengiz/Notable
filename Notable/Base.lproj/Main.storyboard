@@ -1576,8 +1576,12 @@
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Gold" translatesAutoresizingMaskIntoConstraints="NO" id="JKq-fF-nfJ">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JKq-fF-nfJ">
                                                 <rect key="frame" x="259" y="138" width="51" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="4Yl-Xx-14d"/>
+                                                    <constraint firstAttribute="width" constant="51" id="5lk-gC-pbJ"/>
+                                                </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gold medal" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d7B-7I-KDS">
                                                 <rect key="frame" x="242" y="196" width="85" height="20"/>
@@ -2848,7 +2852,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Gold" width="51" height="50"/>
         <image name="check" width="48" height="34"/>
         <image name="notable_splash" width="640" height="1136"/>
         <image name="play_btn" width="48" height="48"/>

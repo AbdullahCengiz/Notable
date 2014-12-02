@@ -11,6 +11,7 @@
 		0DA8BD6E1A136816002F6F89 /* MasterNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DA8BD6C1A136816002F6F89 /* MasterNavigationController.swift */; };
 		0DA8BD701A13AF63002F6F89 /* NGPause.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DA8BD6F1A13AF63002F6F89 /* NGPause.swift */; };
 		0DAAB2CC1A24A8BD0065C59F /* NGScore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DAAB2CB1A24A8BD0065C59F /* NGScore.swift */; };
+		0DABD4161A2DA83900023AB9 /* Medal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DABD4151A2DA83900023AB9 /* Medal.swift */; };
 		0DAD97A31A1A1EB80011E4AF /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DAD97A21A1A1EB80011E4AF /* Theme.swift */; };
 		ED01DA2C1A247B8200E7BF8E /* correct.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = ED01DA2A1A247B8200E7BF8E /* correct.mp3 */; };
 		ED01DA2D1A247B8200E7BF8E /* incorrect.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = ED01DA2B1A247B8200E7BF8E /* incorrect.mp3 */; };
@@ -73,6 +74,7 @@
 		0DA8BD6C1A136816002F6F89 /* MasterNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasterNavigationController.swift; sourceTree = "<group>"; };
 		0DA8BD6F1A13AF63002F6F89 /* NGPause.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NGPause.swift; sourceTree = "<group>"; };
 		0DAAB2CB1A24A8BD0065C59F /* NGScore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NGScore.swift; sourceTree = "<group>"; };
+		0DABD4151A2DA83900023AB9 /* Medal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Medal.swift; sourceTree = "<group>"; };
 		0DAD97A21A1A1EB80011E4AF /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		ED01DA2A1A247B8200E7BF8E /* correct.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = correct.mp3; sourceTree = "<group>"; };
 		ED01DA2B1A247B8200E7BF8E /* incorrect.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = incorrect.mp3; sourceTree = "<group>"; };
@@ -175,6 +177,7 @@
 				EDD14B7F1A029BBE004F7EA1 /* Category.swift */,
 				ED234D991A1509CD00DE5087 /* Question.swift */,
 				ED234D9B1A160E8800DE5087 /* Lesson.swift */,
+				0DABD4151A2DA83900023AB9 /* Medal.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -560,6 +563,7 @@
 				EDD14B7E1A029A61004F7EA1 /* CategoryTableCell.swift in Sources */,
 				ED234D941A14E35E00DE5087 /* Sound.swift in Sources */,
 				0DAAB2CC1A24A8BD0065C59F /* NGScore.swift in Sources */,
+				0DABD4161A2DA83900023AB9 /* Medal.swift in Sources */,
 				ED234D9A1A1509CD00DE5087 /* Question.swift in Sources */,
 				ED225B8119F6629E00D8784E /* SettingsViewController.swift in Sources */,
 				ED234DA01A16166800DE5087 /* CoreDataHelper.swift in Sources */,

@@ -22,19 +22,12 @@ class PointTableCell: UITableViewCell {
     }
     
     // self.nameLabel.setTitle = "\(self.nameTextField.text)"
-
-
-    
-   
-    
-   
     
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
     }
-    
     
     func setCell(nameLabel: String,pointLabel: String , image: String){
         var defaults = NSUserDefaults()
@@ -90,7 +83,6 @@ class PointTableCell: UITableViewCell {
         }
         
 */
-        
         
         self.nameLabel.text = nameLabel
         self.pointLabel.text = pointLabel
