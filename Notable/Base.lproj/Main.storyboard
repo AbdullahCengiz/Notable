@@ -1635,7 +1635,7 @@
                     <connections>
                         <outlet property="congratsView" destination="Gs1-uX-qoq" id="1pR-c9-01O"/>
                         <outlet property="medalImage" destination="JKq-fF-nfJ" id="HjB-KX-UOP"/>
-                        <outlet property="medalName" destination="d7B-7I-KDS" id="XS7-bJ-zJi"/>
+                        <outlet property="medalNamez" destination="d7B-7I-KDS" id="BX5-4f-1tT"/>
                         <outlet property="nameTextField" destination="gdT-qX-iKv" id="4V1-iT-H64"/>
                         <outlet property="scoreNumber" destination="Y6U-T2-4ud" id="8hx-uU-Z2O"/>
                         <outlet property="sendButton" destination="POL-8v-fjp" id="78y-Xc-y6D"/>

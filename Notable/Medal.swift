@@ -11,9 +11,11 @@ import Foundation
 class Medal {
 
     var medalImage = "medalImage"
+    var medalNamez = "medalNamez"
     
-    init(medalImage: String){
+    init(medalNamez: String, medalImage: String){
 
         self.medalImage = medalImage
+        self.medalNamez = medalNamez
     }
 }

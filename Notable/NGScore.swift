@@ -16,13 +16,14 @@ class NGScore: UIViewController, UITableViewDelegate {
     
     var delegate: AnyObject?
 
+    @IBOutlet weak var medalNamez: UILabel!
     @IBOutlet weak var medalImage: UIImageView!
-    @IBOutlet weak var medalName: UILabel!
     @IBOutlet weak var scoreNumber: UILabel!
     @IBOutlet var textFieldBg: UIView!
     @IBOutlet var nameTextField: UITextField!
     @IBOutlet var congratsView: UIView!
     @IBOutlet var sendButton: UIButton!
+
 
     var arrayOfMedals: [Medal] = []
     
@@ -73,12 +74,13 @@ class NGScore: UIViewController, UITableViewDelegate {
     func setMedal(#image: String){
         var defaults = NSUserDefaults()
         self.medalImage.image = UIImage(named: image)
+
     }
     
     func medalView() {
-        let anyMedal: UIImageView = self.medalImage
-        let currentMedal = arrayOfMedals[0]
-        //setMedal(image: currentMedal.medalImage)
+        let anyMedal: UIImageView = self.medalImage,
+        currentMedal = arrayOfMedals[0]
+        setMedal(image: currentMedal.medalImage)
     }
     
     func medalTypes() {
@@ -92,39 +94,32 @@ class NGScore: UIViewController, UITableViewDelegate {
         var pointLabel: Int = NSUserDefaults.standardUserDefaults().objectForKey("pointLabel") as Int
         self.scoreNumber.text  = String(pointLabel)
         
-        var med1: Medal  = Medal(medalImage: "Gold.png")
-        var med2: Medal  = Medal(medalImage: "Silver.png")
-        var med3: Medal  = Medal(medalImage: "Bronze.png")
+        var med1: Medal  = Medal(medalNamez: "Gold medal", medalImage: "Gold.png")
+        var med2: Medal  = Medal(medalNamez: "Silver medal", medalImage: "Silver.png")
+        var med3: Medal  = Medal(medalNamez: "Bronze medal", medalImage: "Bronze.png")
         
-        var medalName:String = ""
+        var medalNamez:String = ""
         
         if(pointLabel >= highscoreNumberGold){
            
-            medalName = "Gold.png"
-            
-        }
-
-        else if(pointLabel >= highscoreNumberSilver){
+            medalNamez = "Gold.png"
+            self.medalNamez.text = "Gold medal"
+       
+        } else if(pointLabel >= highscoreNumberSilver){
            
-            medalName = "Silver.png"
+            medalNamez = "Silver.png"
+            self.medalNamez.text = "Silver medal"
+        } else if(pointLabel >= highscoreNumberBronze){
             
-            
-        }
-        
-        else if(pointLabel >= highscoreNumberBronze){
-            
-            medalName = "Bronze.png"
-            
+            medalNamez = "Bronze.png"
+             self.medalNamez.text = "Bronze medal"
         } else {
             
-            medalName = "medal_no.png"
-
+            medalNamez = "medal_no.png"
+            self.medalNamez.text = "No medal"
             }
         
-        
-        setMedal(image: medalName)
-        
-    
+        setMedal(image: medalNamez)
     }
 
 
