@@ -194,6 +194,8 @@ class MainPageViewController: UIViewController,UITableViewDelegate ,UITableViewD
         var point1 = Point(userName: highscoreNameGold! as String, point: String(highscoreNumberGold), madelsImage: "Gold.png")
         var point2 = Point(userName: highscoreNameSilver! as String, point: String(highscoreNumberSilver), madelsImage: "Silver.png")
         var point3 = Point(userName: highscoreNameBronze! as String, point: String(highscoreNumberBronze), madelsImage: "Bronze.png")
+        var txt2:UIColor = UIColor.grayColor()
+
         
         if((highscoreNumberGold as Int) == 0){
             point1 = Point(userName: "No record" as String, point: "", madelsImage: "medal_no.png")
@@ -206,6 +208,8 @@ class MainPageViewController: UIViewController,UITableViewDelegate ,UITableViewD
         
         if((highscoreNumberSilver as Int) == 0){
             point2 = Point(userName: "No record" as String, point: "", madelsImage: "medal_no.png")
+            
+            
             arrayOfPoints.append(point2)
             
         } else {
@@ -216,6 +220,7 @@ class MainPageViewController: UIViewController,UITableViewDelegate ,UITableViewD
         if((highscoreNumberBronze as Int) == 0){
             point3 = Point(userName: "No record" as String, point: "", madelsImage: "medal_no.png")
             arrayOfPoints.append(point3)
+
             
         } else {
             

@@ -104,19 +104,26 @@ class NGScore: UIViewController, UITableViewDelegate {
            
             medalNamez = "Gold.png"
             self.medalNamez.text = "Gold medal"
-       
+            self.nameTextField.hidden = false
+            
         } else if(pointLabel >= highscoreNumberSilver){
            
             medalNamez = "Silver.png"
             self.medalNamez.text = "Silver medal"
+            self.nameTextField.hidden = false
+            
         } else if(pointLabel >= highscoreNumberBronze){
             
             medalNamez = "Bronze.png"
              self.medalNamez.text = "Bronze medal"
+             self.nameTextField.hidden = false
+            
         } else {
             
             medalNamez = "medal_no.png"
             self.medalNamez.text = "No medal"
+            self.nameTextField.hidden = true
+            
             }
         
         setMedal(image: medalNamez)
