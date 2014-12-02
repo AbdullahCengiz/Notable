@@ -14,7 +14,6 @@ import QuartzCore
 @objc class NewGameViewController: UIViewController, UITableViewDelegate {
     
     var delegate:AnyObject?
-
     var soundGenerator:SoundGenerator!
     var note:UInt32!
 
@@ -52,7 +51,6 @@ import QuartzCore
     @IBOutlet var fourthChoiceNumberContainer: UIView!
     @IBOutlet var fourthChoiceContainer: UIView!
 
-
     //constraints for choiceButtons
     @IBOutlet var firstChoiceNumberHeight: NSLayoutConstraint!
     @IBOutlet var firstChoiceNumberWidth: NSLayoutConstraint!
@@ -62,9 +60,6 @@ import QuartzCore
     @IBOutlet var thirdChoiceNumberWidth: NSLayoutConstraint!
     @IBOutlet var fourthChoiceNumberHeight: NSLayoutConstraint!
     @IBOutlet var fourthChoiceNumberWidth: NSLayoutConstraint!
-    
-
-
     
     var cellArray : [UIView] = []
     var choiceButtonArray : [UIButton] = []
@@ -78,7 +73,6 @@ import QuartzCore
     //constant definitions
     let heightRateConstant:CGFloat = 0.73
     let widthRateConstant:CGFloat = 1.35
-
 
     //get screenWidth and height from NSUserDefaults
     let width = NSUserDefaults.standardUserDefaults().objectForKey("width") as CGFloat
@@ -98,9 +92,6 @@ import QuartzCore
     let noteLinePortraitIndentation = (((NSUserDefaults.standardUserDefaults().objectForKey("width") as CGFloat)*32)/640)
     let noteLineLandscapeIndentation = (((NSUserDefaults.standardUserDefaults().objectForKey("width") as CGFloat)*32)/640)*1.35
 
-
-
-
     var pointLabel  = UILabel()
     var timer = NSTimer()
     var counter = 0
@@ -119,7 +110,6 @@ import QuartzCore
     //for noteView Constraints
     //firstNoteLine
     @IBOutlet var firstNoteLineHeight: NSLayoutConstraint!
-
 
     //for passing the variables from MainPageViewController
     var questions : [Question]?
@@ -159,8 +149,6 @@ import QuartzCore
         //println("NumberOfQuestions: \(questions!.count)")
 
     }
-
-
     
     override func supportedInterfaceOrientations() -> Int {
         return Int(UIInterfaceOrientationMask.Portrait.rawValue)
@@ -183,13 +171,11 @@ import QuartzCore
         //println("After for loop !!!!!")
     }
 
-
     func initUI(){
 
 
 
         var numberCircleWidth = (((((NSUserDefaults.standardUserDefaults().objectForKey("height") as CGFloat)*1008)/1136))*42)/1008
-
 
         firstChoiceNumberHeight.constant = numberCircleWidth
         firstChoiceNumberWidth.constant = numberCircleWidth
@@ -227,8 +213,6 @@ import QuartzCore
         fourthChoiceButton.layer.cornerRadius = 4.0
 
         pointLabel.text = String(counter)
-
-
     }
 
     func prepareGame(currentQuestion:Int){
@@ -431,8 +415,7 @@ import QuartzCore
                     choiceButtonArray[buttonCounter].setTitle(questions![currentQuestion].questionAnswer, forState: .Normal)
                     questions![currentQuestion].questionAnswerIndex = rnd
                     print("\(questions![currentQuestion].questionAnswer) ")
-                }
-                else{
+                } else {
                     // puts the other answers
                     if(!(questions![currentQuestion].questionAlternativeAnswer1Added)){
 
@@ -442,16 +425,14 @@ import QuartzCore
                         print("\(questions![currentQuestion].questionAlternativeAnswer1) ")
 
 
-                    }
-                    else if(!(questions![currentQuestion].questionAlternativeAnswer2Added)){
+                    } else if(!(questions![currentQuestion].questionAlternativeAnswer2Added)){
 
                         choiceButtonArray[buttonCounter].setTitle(questions![currentQuestion].questionAlternativeAnswer2, forState: .Normal)
                         questions![currentQuestion].questionAlternativeAnswer2Added = true
 
                         print("\(questions![currentQuestion].questionAlternativeAnswer2) ")
 
-                    }
-                    else if(!(questions![currentQuestion].questionAlternativeAnswer3Added)){
+                    } else if(!(questions![currentQuestion].questionAlternativeAnswer3Added)){
 
                         choiceButtonArray[buttonCounter].setTitle(questions![currentQuestion].questionAlternativeAnswer3, forState: .Normal)
                         questions![currentQuestion].questionAlternativeAnswer3Added = true
@@ -459,15 +440,10 @@ import QuartzCore
                         //println("\(questions![currentQuestion].questionAlternativeAnswer3) ")
 
                     }
-
                 }
-
             }
-
-
             //unlocks choice buttons
             lockButtons(false)
-
         }
     }
 
@@ -476,10 +452,7 @@ import QuartzCore
         question.questionAlternativeAnswer1Added = false
         question.questionAlternativeAnswer2Added = false
         question.questionAlternativeAnswer3Added = false
-
     }
-
-
 
     func initVariables(){
 
@@ -509,14 +482,12 @@ import QuartzCore
             //initial sound value found
             soundLevelValue = soundLevel! as Float
         }
-
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
@@ -527,13 +498,12 @@ import QuartzCore
         var pointLabel: Int = NSUserDefaults.standardUserDefaults().objectForKey("pointLabel") as Int
     }
 
-
     func prepareNavigationBar(){
 
         //for menubutton
         let menuImage = UIImage(named: "menu_btn") as UIImage?
-        let menuButton    = UIButton.buttonWithType(UIButtonType.System) as UIButton
-        menuButton.frame  = CGRectMake(0, 0, 25, 25)
+        let menuButton = UIButton.buttonWithType(UIButtonType.System) as UIButton
+        menuButton.frame = CGRectMake(0, 0, 25, 25)
         menuButton.setBackgroundImage(menuImage, forState: UIControlState.Normal)
         menuButton.setTitle("", forState: UIControlState.Normal);
         menuButton.addTarget(self, action:"backButtonAction:", forControlEvents: UIControlEvents.TouchUpInside)
@@ -546,8 +516,6 @@ import QuartzCore
         pointLabel.textAlignment = NSTextAlignment.Center
         navItem.setRightBarButtonItem(UIBarButtonItem(customView: pointLabel), animated: true)
         navItem.hidesBackButton=true
-
-
     }
 
 
@@ -559,10 +527,7 @@ import QuartzCore
         self.presentViewController(pauseScreen, animated: true, completion: nil)
     }
 
-
     @IBAction func choiceAction(sender: AnyObject) {
-
-
 
         var choiceButton = sender as UIButton
 
@@ -596,20 +561,16 @@ import QuartzCore
                 //sets answerlock
                 answerLock=false
 
-                timer = NSTimer.scheduledTimerWithTimeInterval(0.0010, target: self, selector: Selector("updateRightAnswer"), userInfo: nil, repeats: true)
+                timer = NSTimer.scheduledTimerWithTimeInterval(0.0005, target: self, selector: Selector("updateRightAnswer"), userInfo: nil, repeats: true)
                 if(cellCounter<cellArray.count){
 
                     ////println(cellCounter)
                     dispatch_async(dispatch_get_main_queue()) {
                         self.cellArray[self.cellCounter].backgroundColor = UIColor(red: 0.35686275, green: 0.80784314, blue: 0.43137255, alpha: 1.0) // gets true green color
                         self.cellCounter++
-
                     }
-
                 }
-
-            }
-            else {
+            } else {
                 //wrong answer
                 sound.playSound(sound.incorrectSound)
 
@@ -625,38 +586,28 @@ import QuartzCore
                 if(realScore>0){
                     //decrements the score
                     realScore = realScore-100
-                    timer = NSTimer.scheduledTimerWithTimeInterval(0.0010, target: self, selector: Selector("updateWrongAnswer"), userInfo: nil, repeats: true)
-                }
-                else{
+                    timer = NSTimer.scheduledTimerWithTimeInterval(0.0005, target: self, selector: Selector("updateWrongAnswer"), userInfo: nil, repeats: true)
+                
+                } else {
 
                     answerLock = true
                     getNextQuestion(isAnswerTrue:false)
-
                 }
-
             }
-
         }
-
     }
 
     func lockButtons(status:Bool){
-
 
         for choiceButton in choiceButtonArray {
 
             if(status){
                 choiceButton.enabled = false
-            }
-            else {
+            } else {
 
                 choiceButton.enabled = true
-
             }
-
-
         }
-
     }
 
     func updateRightAnswer(){
@@ -678,14 +629,10 @@ import QuartzCore
 
             NSUserDefaults.standardUserDefaults().setInteger(realScore, forKey: "pointLabel")
             NSUserDefaults.standardUserDefaults().synchronize()
-
         }
-
     }
 
-
     func updateWrongAnswer(){
-
 
         pointLabel.text = String(counter--)
 
@@ -702,23 +649,18 @@ import QuartzCore
 
             NSUserDefaults.standardUserDefaults().setInteger(realScore, forKey: "pointLabel")
             NSUserDefaults.standardUserDefaults().synchronize()
-
         }
-
     }
-
 
     func getNextQuestion(#isAnswerTrue:Bool){
         var arr = [isAnswerTrue]
         var timer = NSTimer.scheduledTimerWithTimeInterval(0.75, target: self, selector: Selector("nextQuestion"), userInfo: arr, repeats: false)
     }
 
-
     func nextQuestion() {
 
         if(answerStatus){
             //answer is true
-
 
             //removes current question from questions array
             questions!.removeAtIndex(currentQuestion)
@@ -726,9 +668,7 @@ import QuartzCore
             //prepares gameview for next question
             prepareGame(currentQuestion)
             
-        }
-        else{
-
+        } else {
 
             //answer is false
             if(currentQuestion+1 < questions!.count-1){
@@ -736,21 +676,14 @@ import QuartzCore
                 //prepares gameview for next question
                 prepareGame(currentQuestion)
                 
-            }
-            else{
+            } else {
                 
                 //prepares gameview for next question
                 currentQuestion = 0
                 prepareGame(currentQuestion)
-                
             }
-            
         }
-        
-        
     }
-    
-    
     
     func bloat() {
         var animation = CABasicAnimation(keyPath: "transform.scale")
@@ -761,19 +694,15 @@ import QuartzCore
         pointLabel.layer.addAnimation(animation, forKey: nil)
     }
     
-    
     override func willAnimateRotationToInterfaceOrientation(toInterfaceOrientation: UIInterfaceOrientation, duration: NSTimeInterval) {
 
-        
         if(toInterfaceOrientation.rawValue==3 || toInterfaceOrientation.rawValue==4){
             
             //setLandscapeConstraints()
             
-        }
-        else {
+        } else {
             
             //setPortraitConstraints()
-            
         }
         
         //////println("to \(toInterfaceOrientation.rawValue)")
