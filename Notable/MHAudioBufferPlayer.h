@@ -102,7 +102,8 @@ typedef void (^MHAudioBufferPlayerBlock)(AudioQueueBufferRef buffer, AudioStream
  * Be sure to set the block before you start the MHAudioBufferPlayer.
  */
 - (void)start;
-- (void)prepare:(Float64)sampleRate;
+- (MHAudioBufferPlayer*)runBlock:(NSArray*)initArray;
+- (MHAudioBufferPlayer*)prepare:(NSArray*)initArray;
 
 
 /*

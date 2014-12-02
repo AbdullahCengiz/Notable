@@ -100,6 +100,7 @@
 		ED234D991A1509CD00DE5087 /* Question.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		ED234D9B1A160E8800DE5087 /* Lesson.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lesson.swift; sourceTree = "<group>"; };
 		ED234D9F1A16166800DE5087 /* CoreDataHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataHelper.swift; sourceTree = "<group>"; };
+		ED3099851A288F46000665AD /* Notable-Swift.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Notable-Swift.h"; sourceTree = "<group>"; };
 		ED4051A81A1A036B003CE4F8 /* confirm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = confirm.mp3; sourceTree = "<group>"; };
 		ED466DFD19F165DA00F14292 /* Notable.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Notable.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED466E0119F165DA00F14292 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -243,6 +244,7 @@
 		ED225B7B19F5341900D8784E /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				ED3099861A2C9F8C000665AD /* Playground */,
 				ED76AE1A1A27DCDB000CA83C /* SoundGenerator */,
 				0DAD97A11A1A1E9E0011E4AF /* Theme */,
 				ED234D9E1A16163E00DE5087 /* CoreDataHelper */,
@@ -302,6 +304,13 @@
 				ED234D9F1A16166800DE5087 /* CoreDataHelper.swift */,
 			);
 			name = CoreDataHelper;
+			sourceTree = "<group>";
+		};
+		ED3099861A2C9F8C000665AD /* Playground */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Playground;
 			sourceTree = "<group>";
 		};
 		ED38AD771A13716D0028366D /* Navigation */ = {
@@ -397,6 +406,7 @@
 				ED76AE1E1A27DD03000CA83C /* Synth.h */,
 				ED76AE1F1A27DD03000CA83C /* Synth.m */,
 				ED76AE1B1A27DD02000CA83C /* Notable-Bridging-Header.h */,
+				ED3099851A288F46000665AD /* Notable-Swift.h */,
 			);
 			name = SoundGenerator;
 			sourceTree = "<group>";
@@ -690,7 +700,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Notable/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Notable/Notable-Bridging-Header.h";
@@ -705,7 +715,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Notable/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Notable/Notable-Bridging-Header.h";

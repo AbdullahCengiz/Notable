@@ -11,12 +11,16 @@ import SpriteKit
 import AVFoundation
 import QuartzCore
 
-class NewGameViewController: UIViewController, UITableViewDelegate {
+@objc class NewGameViewController: UIViewController, UITableViewDelegate {
     
     var delegate:AnyObject?
 
     var soundGenerator:SoundGenerator!
     var note:UInt32!
+
+    var synthLock = NSLock()
+    var synth : Synth!
+    var myPlayer = MHAudioBufferPlayer()
     
     @IBOutlet var navItem: UINavigationItem!
 
@@ -64,7 +68,6 @@ class NewGameViewController: UIViewController, UITableViewDelegate {
     
     var cellArray : [UIView] = []
     var choiceButtonArray : [UIButton] = []
-    var player = MHAudioBufferPlayer()
 
     var cellCounter:Int = 0
     var audioPlayer = AVAudioPlayer()
@@ -121,8 +124,25 @@ class NewGameViewController: UIViewController, UITableViewDelegate {
     //for passing the variables from MainPageViewController
     var questions : [Question]?
     var currentQuestion: Int = 0
+    var currentOctav:Int = 0
+    var currentOctav1:Int = 0
+    var currentOctav2:Int = 0
 
+    var currentNoteValue:String = ""
+    var currentNoteValue2:String = ""
+    var currentNoteValue3:String = ""
 
+    var currentSharpFlatValue:Int = 0
+    var currentSharpFlatValue1:Int = 0
+    var currentSharpFlatValu2:Int = 0
+
+    var currentNote:Int32 = 0
+    var currentNote1:Int32 = 0
+    var currentNote2:Int32 = 0
+
+    var noteArray:[String] = []
+
+    var sharpFlatValueNotFound: Bool = true
 
     @IBOutlet var progressViewContainer: UIView!
     var navBar:UINavigationBar!
@@ -132,13 +152,11 @@ class NewGameViewController: UIViewController, UITableViewDelegate {
         navBar = self.navigationController?.navigationBar
         initUI()
         initVariables()
-        
+        initPlayer()
 
         prepareGame(currentQuestion)
 
-        println("NumberOfQuestions: \(questions!.count)")
-       
-        
+        //println("NumberOfQuestions: \(questions!.count)")
 
     }
 
@@ -149,24 +167,25 @@ class NewGameViewController: UIViewController, UITableViewDelegate {
     }
 
     func layoutEverything(x:UIView) {
-        println("x = \(x)")
+        //println("x = \(x)")
         x.layoutSubviews()
         x.backgroundColor = getRandomColor()
         for v in x.subviews as [UIView] {
             v.layoutSubviews()
             v.backgroundColor = getRandomColor()
-            println("v = \(v)")
+            //println("v = \(v)")
             if(v.subviews.count > 0) {
                 self.layoutEverything(v)
             }
         }
 
 
-        println("After for loop !!!!!")
+        //println("After for loop !!!!!")
     }
 
 
     func initUI(){
+
 
 
         var numberCircleWidth = (((((NSUserDefaults.standardUserDefaults().objectForKey("height") as CGFloat)*1008)/1136))*42)/1008
@@ -184,8 +203,8 @@ class NewGameViewController: UIViewController, UITableViewDelegate {
         fourthChoiceNumberHeight.constant = numberCircleWidth
         fourthChoiceNumberWidth.constant = numberCircleWidth
 
-        //println("firstChoiceContainer.height=!!!!!= \(firstChoiceContainer.frame.size.height)")
-        //println("numberCircleWidth=!!!!!= \(numberCircleWidth)")
+        ////println("firstChoiceContainer.height=!!!!!= \(firstChoiceContainer.frame.size.height)")
+        ////println("numberCircleWidth=!!!!!= \(numberCircleWidth)")
 
         firstChoiceNumberContainer.frame = CGRectMake(firstChoiceNumberContainer.frame.minX, firstChoiceNumberContainer.frame.minY, numberCircleWidth, numberCircleWidth)
         secondChoiceNumberContainer.frame = CGRectMake(secondChoiceNumberContainer.frame.minX, secondChoiceNumberContainer.frame.minY, numberCircleWidth, numberCircleWidth)
@@ -215,11 +234,13 @@ class NewGameViewController: UIViewController, UITableViewDelegate {
     func prepareGame(currentQuestion:Int){
 
 
-        println("cellCounter = \(cellCounter)")
+
+
+        //println("cellCounter = \(cellCounter)")
 
         if (self.cellCounter == 10){
 
-            println("Finish game !!!!")
+            //println("Finish game !!!!")
             var pauseScreen:NGPause = self.storyboard!.instantiateViewControllerWithIdentifier("PausedGameViewController") as NGPause
             self.title="newGame"
             pauseScreen.delegate = self
@@ -228,12 +249,166 @@ class NewGameViewController: UIViewController, UITableViewDelegate {
         }
         else{
 
-
-
-
-
-            println("questions.count: \(questions!.count)  currentQuestionIndex = \(currentQuestion)")
+            //println("questions.count: \(questions!.count)  currentQuestionIndex = \(currentQuestion)")
             //resets current question
+
+
+            //get question sound
+            println("questionContent = \(questions![currentQuestion].questionContent!)")
+
+            //get length of question content
+            var questionContentLenght:Int = (questions![currentQuestion].questionContent!).utf16Count
+            //println("count = \(questionContentLenght)")
+
+
+            for characterCounter in 0..<questionContentLenght {
+
+
+                if(questionContentLenght==2){
+                    //basic notes
+
+
+                    //get noteValue
+                    if (characterCounter == 0){
+
+                        var currentNoteCharacter:String =  String(Array((questions![currentQuestion].questionContent!))[characterCounter])
+
+
+                        for currentNoteCharacterCounter in 0..<noteArray.count {
+
+                            if(noteArray[currentNoteCharacterCounter] == currentNoteCharacter){
+                                println("currentNoteCharacter = \(currentNoteCharacter) and currentNoteValue = \(currentNoteCharacterCounter)")
+                                currentNoteValue = String(currentNoteCharacterCounter)
+                                break
+                            }
+
+                        }
+
+                        //println("currentNoteCharacter = \(currentNoteCharacter)")
+
+                    }
+
+
+                    // set currentSharpFlatValue to 0
+                    currentSharpFlatValue  = 0
+
+                    //get octav
+                    if (characterCounter == questionContentLenght-1){
+
+                        currentOctav = String(Array((questions![currentQuestion].questionContent!))[characterCounter]).toInt()!
+                        //println("currentOctav = \(currentOctav)")
+
+                    }
+
+
+
+                } else if (questionContentLenght==3){
+
+
+                    sharpFlatValueNotFound=true
+
+                    //get noteValue
+                    if (characterCounter == 1){
+
+                        var currentNoteCharacter:String =  String(Array((questions![currentQuestion].questionContent!))[characterCounter-1])+String(Array((questions![currentQuestion].questionContent!))[characterCounter])
+
+
+                        println("will look for \(currentNoteCharacter)")
+
+
+                        for currentNoteCharacterCounter in 0..<noteArray.count {
+
+                            if(noteArray[currentNoteCharacterCounter] == currentNoteCharacter){
+                                println("currentNoteCharacter = \(currentNoteCharacter) and currentNoteValue = \(currentNoteCharacterCounter)")
+                                currentNoteValue = String(currentNoteCharacterCounter)
+                                currentSharpFlatValue = 0
+                                sharpFlatValueNotFound = false
+                                break
+                            }
+
+                        }
+
+                        // add comment here
+                        if(sharpFlatValueNotFound){
+
+                            println("will look for \(currentNoteCharacter) not found")
+
+                            currentNoteCharacter =  String(Array((questions![currentQuestion].questionContent!))[characterCounter-1])
+
+                            println("will look for \(currentNoteCharacter)")
+
+
+                            for currentNoteCharacterCounter in 0..<noteArray.count {
+
+                                if(noteArray[currentNoteCharacterCounter] == currentNoteCharacter){
+                                    println("currentNoteCharacter = \(currentNoteCharacter) and currentNoteValue = \(currentNoteCharacterCounter)")
+                                    currentNoteValue = String(currentNoteCharacterCounter)
+                                    currentSharpFlatValue = 0
+
+
+                                    println("possibleSharpOrFlatValue = \(String(Array((questions![currentQuestion].questionContent!))[characterCounter]))")
+
+
+                                    if(String(Array((questions![currentQuestion].questionContent!))[characterCounter])=="#"){
+
+                                        currentSharpFlatValue  = 1
+
+                                    }
+                                    else{
+
+                                        currentSharpFlatValue  = -1
+
+                                    }
+
+
+                                    break
+                                }
+                                
+                            }
+
+
+
+                        }
+
+                        //println("currentNoteCharacter = \(currentNoteCharacter)")
+
+                    }
+
+
+                    //get octav
+                    if (characterCounter == questionContentLenght-1){
+                        
+                        currentOctav = String(Array((questions![currentQuestion].questionContent!))[characterCounter]).toInt()!
+                        println("currentOctav = \(currentOctav)")
+                        
+                    }
+
+                    
+                    
+                }
+
+                else {
+
+
+                    currentNote  = 110
+
+                }
+
+                //println(Array((questions![currentQuestion].questionContent!))[characterCounter])
+
+
+
+            }
+
+
+            currentNote = getCurrentNoteValue(octav:currentOctav, noteValue:currentNoteValue.toInt()!, sharpFlatValue:currentSharpFlatValue )
+
+
+            playNote(currentNote)
+
+
+
+
             
             resetQuestion(questions![currentQuestion])
 
@@ -243,11 +418,9 @@ class NewGameViewController: UIViewController, UITableViewDelegate {
             thirdChoiceButton.backgroundColor = UIColor.clearColor()
             fourthChoiceButton.backgroundColor = UIColor.clearColor()
 
-
-
             // decide the right answers place
             let rnd = Int(arc4random_uniform(UInt32(4)))
-            println("rightAnswer position is \(rnd)")
+            //println("rightAnswer position is \(rnd)")
 
             // put answers to choice buttons
             for buttonCounter in 0..<choiceButtonArray.count {
@@ -283,7 +456,7 @@ class NewGameViewController: UIViewController, UITableViewDelegate {
                         choiceButtonArray[buttonCounter].setTitle(questions![currentQuestion].questionAlternativeAnswer3, forState: .Normal)
                         questions![currentQuestion].questionAlternativeAnswer3Added = true
 
-                        println("\(questions![currentQuestion].questionAlternativeAnswer3) ")
+                        //println("\(questions![currentQuestion].questionAlternativeAnswer3) ")
 
                     }
 
@@ -316,15 +489,18 @@ class NewGameViewController: UIViewController, UITableViewDelegate {
         //initiliaze progress cells
         cellArray = [cell1,cell2,cell3,cell4,cell5,cell6,cell7,cell8,cell9,cell10]
 
-        ////initiliaze game buttons
+        //initiliaze game buttons
         choiceButtonArray = [firstChoiceButton,secondChoiceButton,thirdChoiceButton,fourthChoiceButton]
+
+        //initiliaze noteArray
+        noteArray = ["C","C#","D","D#","E","F","F#","G","G#","A","A#","H"]
 
         // gets initial sound level
         var soundLevel: AnyObject? = NSUserDefaults.standardUserDefaults().objectForKey("sound")
         // control initial sound value
         if(soundLevel==nil){
 
-            ////println("No sound value !!!!!")
+            //////println("No sound value !!!!!")
             NSUserDefaults.standardUserDefaults().setObject(0.5, forKey: "sound")
             NSUserDefaults.standardUserDefaults().synchronize()
             soundLevelValue = 0.5;
@@ -332,7 +508,6 @@ class NewGameViewController: UIViewController, UITableViewDelegate {
         }else{
             //initial sound value found
             soundLevelValue = soundLevel! as Float
-
         }
 
     }
@@ -346,7 +521,7 @@ class NewGameViewController: UIViewController, UITableViewDelegate {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         //self.
-        //println("In viewWillAppear!!!")
+        ////println("In viewWillAppear!!!")
         // waits for noteViewContainer creation
         prepareNavigationBar()
         var pointLabel: Int = NSUserDefaults.standardUserDefaults().objectForKey("pointLabel") as Int
@@ -377,7 +552,7 @@ class NewGameViewController: UIViewController, UITableViewDelegate {
 
 
     @IBAction func backButtonAction(sender:UIButton) {
-        //println("Button Action From Code")
+        ////println("Button Action From Code")
         var pauseScreen:NGPause = self.storyboard!.instantiateViewControllerWithIdentifier("PausedGameViewController") as NGPause
         self.title="newGame"
         pauseScreen.delegate = self
@@ -392,12 +567,12 @@ class NewGameViewController: UIViewController, UITableViewDelegate {
         var choiceButton = sender as UIButton
 
 
-        println("tag: \(choiceButton.tag) questionAnswerIndex= \(questions![currentQuestion].questionAnswerIndex)")
+        //println("tag: \(choiceButton.tag) questionAnswerIndex= \(questions![currentQuestion].questionAnswerIndex)")
 
         // locks buttons
         lockButtons(true)
 
-        println(choiceButton.tag)
+        //println(choiceButton.tag)
 
         if(answerLock){
 
@@ -424,7 +599,7 @@ class NewGameViewController: UIViewController, UITableViewDelegate {
                 timer = NSTimer.scheduledTimerWithTimeInterval(0.0010, target: self, selector: Selector("updateRightAnswer"), userInfo: nil, repeats: true)
                 if(cellCounter<cellArray.count){
 
-                    //println(cellCounter)
+                    ////println(cellCounter)
                     dispatch_async(dispatch_get_main_queue()) {
                         self.cellArray[self.cellCounter].backgroundColor = UIColor(red: 0.35686275, green: 0.80784314, blue: 0.43137255, alpha: 1.0) // gets true green color
                         self.cellCounter++
@@ -492,7 +667,7 @@ class NewGameViewController: UIViewController, UITableViewDelegate {
 
             pointLabel.text = String(realScore)
 
-            println("counter = \(counter) realScore = \(realScore)")
+            //println("counter = \(counter) realScore = \(realScore)")
 
             timer.invalidate()
             bloat()
@@ -517,7 +692,7 @@ class NewGameViewController: UIViewController, UITableViewDelegate {
         if(counter==realScore){
 
             pointLabel.text = String(realScore)
-            println("counter = \(counter) realScore = \(realScore)")
+            //println("counter = \(counter) realScore = \(realScore)")
             counter=realScore
             timer.invalidate()
             bloat()
@@ -601,61 +776,153 @@ class NewGameViewController: UIViewController, UITableViewDelegate {
             
         }
         
-        ////println("to \(toInterfaceOrientation.rawValue)")
+        //////println("to \(toInterfaceOrientation.rawValue)")
         
     }
     
     override func didRotateFromInterfaceOrientation(fromInterfaceOrientation: UIInterfaceOrientation) {
         
-        ////println("from \(fromInterfaceOrientation.rawValue)")
+        //////println("from \(fromInterfaceOrientation.rawValue)")
         
         /*
-        //println("noteviewContainerLandsCapeHeight= \(noteViewContainer.frame.height)")
-        //println("noteviewContainerLandsCapeWidth= \(noteViewContainer.frame.width)")
+        ////println("noteviewContainerLandsCapeHeight= \(noteViewContainer.frame.height)")
+        ////println("noteviewContainerLandsCapeWidth= \(noteViewContainer.frame.width)")
         */
         
         /*
-        //println("firstChoiceContainerLandsCapeHeight= \(firstChoiceContainer.frame.height)")
-        //println("firstChoiceContainerLandsCapeWidth= \(firstChoiceContainer.frame.width)")
+        ////println("firstChoiceContainerLandsCapeHeight= \(firstChoiceContainer.frame.height)")
+        ////println("firstChoiceContainerLandsCapeWidth= \(firstChoiceContainer.frame.width)")
         */
 
     }
 
-    
     func getRandomColor() -> UIColor{
         
         var randomRed:CGFloat = CGFloat(drand48())
         var randomGreen:CGFloat = CGFloat(drand48())
         var randomBlue:CGFloat = CGFloat(drand48())
-        println("red:\(randomRed)  green:\(randomBlue) green:\(randomGreen)")
+        //println("red:\(randomRed)  green:\(randomBlue) green:\(randomGreen)")
 
         return UIColor(red: randomRed, green: randomGreen, blue: randomBlue, alpha: 1.0)
 }
 
 @IBAction func testButton(sender: UIButton) {
 
-/*
-var scoreScreen: NGScore = self.storyboard!.instantiateViewControllerWithIdentifier("HighScoreViewController") as NGScore
+    /*
+    var scoreScreen: NGScore = self.storyboard!.instantiateViewControllerWithIdentifier("HighScoreViewController") as NGScore
     scoreScreen.delegate = self
     self.presentViewController(scoreScreen, animated: true, completion: nil)
         
         // insert link to rest of code for getting it to the highscore here Frida!
-*/
-
-    println(player.audioFormat)
-    initPlayer()
-
+    */
 
     }
 
 
     func initPlayer(){
 
-        var initDictionary = NSDictionary()
-
-       //var x =  player.prepare()
+        var initArray : [AnyObject] = []
+        initArray.append(16000) // for sample rate
+        initArray.append(1) // for channels
+        initArray.append(16) // for bitsPerChannel
+        initArray.append(1024) // for buffer
+        initArray.append(self) // for newGameViewController instance
+        initArray.append(myPlayer) // for sending players' itself
+        initArray.append(soundLevelValue) // for soundLevelValue
+        myPlayer = myPlayer.prepare(initArray)
+        myPlayer = myPlayer.runBlock(initArray)
+        //println(myPlayer)
 
     }
+
+
+
+    @IBAction func TouchDown(sender: AnyObject) {
+
+
+       playNote(currentNote)
+
+
+    }
+
+
+    @IBAction func TouchUp(sender: AnyObject) {
+
+        synthLock.lock()
+        // The tag of each button corresponds to its MIDI note number.
+
+        synth.releaseNote(61)
+        //synth.playNote(62)
+        //synth.playNote(63)
+        //synth.playNote(64)
+
+        synthLock.unlock()
+
+    }
+
+
+    func playNote(noteId:Int32){
+
+        synthLock.lock()
+        // The tag of each button corresponds to its MIDI note number.
+        synth.playNote(noteId)
+        synthLock.unlock()
+
+    }
+
+
+    func getCurrentNoteValue(#octav:Int,noteValue:Int, sharpFlatValue:Int) -> Int32 {
+
+
+        println("sharpFlatValue!!!!!!!!!!!!!!!! = \(sharpFlatValue)")
+
+        var value:Int32  = 0
+
+
+        if(noteValue != 0 && noteValue != 11 ){
+
+            value = 12+(octav*12)+noteValue + sharpFlatValue
+
+        }
+        else{
+                // if noteValue is equals 0 and 11 sharpFlatValue is important and it effects octav
+
+            if(sharpFlatValue == 0){
+
+                value = 12+(octav*12)+noteValue + sharpFlatValue
+
+            }
+            else if(sharpFlatValue == 1 && noteValue == 11) {
+
+                value = 12+((octav+1)*12)+noteValue+sharpFlatValue
+
+            }
+            else if(sharpFlatValue == 1 && noteValue != 11) {
+
+                 value = 12+(octav*12)+noteValue + sharpFlatValue
+                
+            }
+            else if(sharpFlatValue == -1 && noteValue != 0) {
+
+                value = 12+(octav*12)+noteValue + sharpFlatValue
+
+            }
+            else if(sharpFlatValue == -1 && noteValue == 0) {
+
+                value = 12+((octav-1)*12)+noteValue+sharpFlatValue
+
+            }
+
+
+        }
+
+        println("noteValue = \(value)")
+
+        return value
+
+    }
+
+
 
 
 }
