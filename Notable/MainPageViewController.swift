@@ -92,16 +92,15 @@ class MainPageViewController: UIViewController,UITableViewDelegate ,UITableViewD
             
             reklamContainerMainPage.hidden = true
         }
-    //CHANGE THE MAINPAGE TRANSITION HERE**********
-        
-        
+   
+        //CHANGE THE MAINPAGE TRANSITION HERE**********
+
          var zeroHighScore: Int = NSUserDefaults.standardUserDefaults().objectForKey("zeroHighScore") as Int
         
         println(zeroHighScore)
         if(zeroHighScore == 1){
             
             resetHighScores()
-            
         }
     
     //getting the LatestScore
@@ -110,18 +109,13 @@ class MainPageViewController: UIViewController,UITableViewDelegate ,UITableViewD
         
         var nameText: Int = NSUserDefaults.standardUserDefaults().objectForKey("highscoreName") as Int
         //self.userName.text  = String(pointLabel)
-        
-       
     }
 
     func resetHighScores(){
         
-        self.scoreNumber.text = "0"
-        
-       // arrayOfPoints.removeAll(keepCapacity: false)
-        
-        self.pointsTableView.reloadData()
-    }
+                
+        setUpPoints()
+        }
     
     
     func prepareNavigationBar(){
@@ -157,7 +151,6 @@ class MainPageViewController: UIViewController,UITableViewDelegate ,UITableViewD
         self.practiceButton.setTitleColor(txt, forState: UIControlState.Normal)
         self.chooseCategoriesButton.setTitleColor(txt, forState: UIControlState.Normal)
         self.newGameLabel.textColor = txt
-        
     }
     
     func tableView(tableView: UITableView!, canEditRowAtIndexPath indexPath: NSIndexPath!) -> Bool {
@@ -205,7 +198,6 @@ class MainPageViewController: UIViewController,UITableViewDelegate ,UITableViewD
         } else {
             
             arrayOfPoints.append(point1)
-            
         }
         
         if((highscoreNumberSilver as Int) == 0){
@@ -223,19 +215,13 @@ class MainPageViewController: UIViewController,UITableViewDelegate ,UITableViewD
             point3 = Point(userName: "No record" as String, point: "", madelsImage: "medal_no.png")
             arrayOfPoints.append(point3)
 
-            
         } else {
             
             arrayOfPoints.append(point3)
-            
         }
-        
-       
-        
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
-    {
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return arrayOfPoints.count
     }
     

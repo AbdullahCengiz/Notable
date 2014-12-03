@@ -96,6 +96,11 @@ class SettingsViewController: UIViewController{
         
         
         NSUserDefaults.standardUserDefaults().setInteger(1, forKey: "zeroHighScore")
+        NSUserDefaults.standardUserDefaults().setInteger(0, forKey: "highscoreNumberGold")
+        NSUserDefaults.standardUserDefaults().setInteger(0, forKey: "highscoreNumberSilver")
+        NSUserDefaults.standardUserDefaults().setInteger(0, forKey: "highscoreNumberBronze")
+        NSUserDefaults.standardUserDefaults().synchronize()
+
         NSUserDefaults.standardUserDefaults().synchronize()
         
         println("It's clicked! Woho!")

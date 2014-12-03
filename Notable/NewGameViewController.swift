@@ -727,7 +727,7 @@ import QuartzCore
 
     func playNote(noteId:Int32){
 
-        println("in play note")
+        //println("in play note")
 
         synthLock.lock()
         // The tag of each button corresponds to its MIDI note number.
@@ -985,7 +985,7 @@ import QuartzCore
             currentNote = getCurrentNoteValue(octav:currentOctav, noteValue:currentNoteValue.toInt()!, sharpFlatValue:currentSharpFlatValue )
 
 
-            println("Will play note \(questionContent) and noteId = \(currentNote)")
+           // println("Will play note \(questionContent) and noteId = \(currentNote)")
 
             playNote(currentNote)
             //majorMinorFound=false
