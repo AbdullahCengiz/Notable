@@ -18,7 +18,7 @@ import QuartzCore
     var note:UInt32!
 
     var synthLock = NSLock()
-    var synth : Synth!
+    var synth: Synth!
     var myPlayer = MHAudioBufferPlayer()
 
     //for noteView
@@ -238,7 +238,7 @@ import QuartzCore
         
         // ********!!!change the number of questions here!!!*********
         
-            if (self.cellCounter == 10){
+            if (self.cellCounter == 1){
                 
                 var scoreScreen: NGScore = self.storyboard!.instantiateViewControllerWithIdentifier("HighScoreViewController") as NGScore
                 

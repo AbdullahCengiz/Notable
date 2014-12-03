@@ -16,6 +16,8 @@ class NGScore: UIViewController, UITableViewDelegate {
     
     var delegate: AnyObject?
     var timer:NSTimer!
+    var sound = Sound()
+    var audioPlayer = AVAudioPlayer()
 
     @IBOutlet var p: UILabel!
     @IBOutlet var congrats: UILabel!
@@ -52,6 +54,8 @@ class NGScore: UIViewController, UITableViewDelegate {
         var timer = NSTimer()
     timer = NSTimer.scheduledTimerWithTimeInterval(0.0005, target: self, selector: Selector("pointLabel"), userInfo: nil, repeats: true)
 */
+        
+        
     }
     
     
@@ -69,11 +73,11 @@ class NGScore: UIViewController, UITableViewDelegate {
         //medalView()
         scoreCountDown()
         
-        
         //getting the LatestScore
-        
+       
         self.scoreNumber.text  = String(pointLabel)
         
+        sound.playSound(sound.drumrollSound)
         timer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self,
             selector: Selector("scoreCountDown"), userInfo: nil, repeats: true)
         }
@@ -206,7 +210,7 @@ class NGScore: UIViewController, UITableViewDelegate {
     
     func scoreCountDown() {
         
-      scoreNumber.text = String(counter++)
+        scoreNumber.text = String(counter++)
         
         println("counter=\(counter) pointLabel = \(pointLabel)")
 
