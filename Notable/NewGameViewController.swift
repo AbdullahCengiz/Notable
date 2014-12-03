@@ -222,22 +222,15 @@ import QuartzCore
     }
 
     func prepareGame(currentQuestion:Int){
-
-
-
-
-        ////println("cellCounter = \(cellCounter)")
-
-        if (self.cellCounter == 10){
-
-            ////println("Finish game !!!!")
-            var pauseScreen:NGPause = self.storyboard!.instantiateViewControllerWithIdentifier("PausedGameViewController") as NGPause
-            self.title="newGame"
-            pauseScreen.delegate = self
-            self.presentViewController(pauseScreen, animated: true, completion: nil)
-
-        }
-        else{
+            
+            if (self.cellCounter == 10){
+                
+                var scoreScreen: NGScore = self.storyboard!.instantiateViewControllerWithIdentifier("HighScoreViewController") as NGScore
+                
+                scoreScreen.delegate = self
+                
+                self.presentViewController(scoreScreen, animated: true, completion: nil)
+        }else{
 
             ////println("questions.count: \(questions!.count)  currentQuestionIndex = \(currentQuestion)")
             //resets current question
@@ -251,15 +244,9 @@ import QuartzCore
             //call function with question parameter
 
 
-
-
-
             //getNoteSoundFromQuestionContent(questions![currentQuestion].questionContent!)
 
             getNoteSoundFromQuestionContent("D3|F3|A3")
-
-
-
             /*
 
             let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
@@ -273,13 +260,6 @@ import QuartzCore
             }
 
             */
-
-
-
-
-
-
-
             resetQuestion(questions![currentQuestion])
 
             //clears colors of buttons
@@ -324,7 +304,6 @@ import QuartzCore
                         questions![currentQuestion].questionAlternativeAnswer3Added = true
 
                         ////println("\(questions![currentQuestion].questionAlternativeAnswer3) ")
-
                     }
                 }
             }
@@ -332,7 +311,6 @@ import QuartzCore
             lockButtons(false)
         }
     }
-
 
     func playNotesInOrder(timer: NSTimer) {
         // Something after a delay

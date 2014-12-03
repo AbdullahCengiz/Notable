@@ -116,7 +116,9 @@ class MainPageViewController: UIViewController,UITableViewDelegate ,UITableViewD
 
     func resetHighScores(){
         
-        arrayOfPoints.removeAll(keepCapacity: false)
+        self.scoreNumber.text = "0"
+        
+       // arrayOfPoints.removeAll(keepCapacity: false)
         
         self.pointsTableView.reloadData()
     }
