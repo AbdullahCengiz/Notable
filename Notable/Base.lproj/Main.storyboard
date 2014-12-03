@@ -114,6 +114,7 @@
                                 <rect key="frame" x="16" y="80" width="568" height="504"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" restorationIdentifier="categoryCell" selectionStyle="none" indentationWidth="10" reuseIdentifier="categoryCell" rowHeight="78" id="i8n-Gt-6td" userLabel="CategoryTableCell" customClass="CategoryTableCell" customModule="Notable" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="536" height="44"/>
@@ -142,6 +143,7 @@
                                                 <constraint firstItem="dgx-ua-Z8Z" firstAttribute="trailing" secondItem="l6i-aU-50h" secondAttribute="trailingMargin" constant="-16" id="rxI-Qk-Yew"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <outlet property="categoryNameLabel" destination="IFW-Me-73g" id="HwZ-oW-A7x"/>
                                             <outlet property="categoryTableCell" destination="l6i-aU-50h" id="w4U-Rs-3tk"/>
@@ -2640,7 +2642,9 @@
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1WU-ho-YnR">
                                         <rect key="frame" x="0.0" y="0.0" width="284" height="50"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="22"/>
+                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <state key="normal" title="Practice">
                                             <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -2654,6 +2658,7 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NES-fn-WLz">
                                         <rect key="frame" x="285" y="0.0" width="283" height="50"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="22"/>
                                         <state key="normal" title="Lessons">
                                             <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>

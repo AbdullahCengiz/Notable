@@ -37,7 +37,9 @@ class CategoriesViewController: UIViewController,UITableViewDelegate ,UITableVie
         
         self.categoriesTableView.delegate = self
         self.categoriesTableView.dataSource = self
-        self.automaticallyAdjustsScrollViewInsets = false;
+        self.automaticallyAdjustsScrollViewInsets = false
+        
+        categoriesTableView.layer.cornerRadius = 4.0
         
         cdHelper = CoreDataHelper()
         
