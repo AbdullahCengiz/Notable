@@ -15,6 +15,7 @@ import AVFoundation
 class NGScore: UIViewController, UITableViewDelegate {
     
     var delegate: AnyObject?
+    var timer:NSTimer!
 
     @IBOutlet var p: UILabel!
     @IBOutlet var congrats: UILabel!
@@ -29,6 +30,9 @@ class NGScore: UIViewController, UITableViewDelegate {
 
 
     var arrayOfMedals: [Medal] = []
+    var counter = 0
+    var realScore = 0
+    var pointLabel: Int = NSUserDefaults.standardUserDefaults().objectForKey("pointLabel") as Int
     
     required init(coder aDecoder: NSCoder) {
         self.delegate = nil
@@ -44,8 +48,13 @@ class NGScore: UIViewController, UITableViewDelegate {
         println("in NGScoreViewController")
         
     self.navigationController?.setNavigationBarHidden(false, animated: true)
-
+   /*
+        var timer = NSTimer()
+    timer = NSTimer.scheduledTimerWithTimeInterval(0.0005, target: self, selector: Selector("pointLabel"), userInfo: nil, repeats: true)
+*/
     }
+    
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -58,12 +67,17 @@ class NGScore: UIViewController, UITableViewDelegate {
         medalTypes()
         styleView()
         //medalView()
+        scoreCountDown()
         
         
         //getting the LatestScore
-        var pointLabel: Int = NSUserDefaults.standardUserDefaults().objectForKey("pointLabel") as Int
+        
         self.scoreNumber.text  = String(pointLabel)
-    }
+        
+        timer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self,
+            selector: Selector("scoreCountDown"), userInfo: nil, repeats: true)
+        }
+    
     
     func styleView() {
         
@@ -83,12 +97,7 @@ class NGScore: UIViewController, UITableViewDelegate {
         self.congrats.textColor = txt
         self.yourScoreIs.textColor = txt
         self.p.textColor = txt
-        
-        
-        
     }
-    
-
     
     func showFromRect(_rect: CGRect, inView view: UIView!, animated: Bool)(nameTextField: UITextField){
         
@@ -158,7 +167,6 @@ class NGScore: UIViewController, UITableViewDelegate {
         setMedal(image: medalNamez)
     }
 
-
     
       @IBAction func sendButton(sender: UIButton) {
         var nameTextField: UITextField!
@@ -170,14 +178,13 @@ class NGScore: UIViewController, UITableViewDelegate {
             
             
         } else {
+            
             self.nameTextField.text = "\(self.nameTextField.text)"
                 NSUserDefaults.standardUserDefaults().objectForKey("nameText")
                 NSUserDefaults.standardUserDefaults().synchronize()
  
             
             println("entered name = \(self.nameTextField.text)")
-            
-            
         }
         
         // insert link to rest of code for getting it to the highscore here Frida!
@@ -189,8 +196,6 @@ class NGScore: UIViewController, UITableViewDelegate {
             NSUserDefaults.standardUserDefaults().synchronize()
             
             println("Name inserted. Woho!")
-            
-            
         }
         
         //Pop to MainPageControllerView
@@ -199,6 +204,22 @@ class NGScore: UIViewController, UITableViewDelegate {
         self.dismissViewControllerAnimated(true, completion: {})
     }
     
+    func scoreCountDown() {
+        
+      scoreNumber.text = String(counter++)
+        
+        println("counter=\(counter) pointLabel = \(pointLabel)")
+
+        if(counter==pointLabel){
+            
+           scoreNumber.text = String(pointLabel)
+            
+            timer!.invalidate()
+            
+            NSUserDefaults.standardUserDefaults().setInteger(realScore, forKey: "pointLabel")
+            NSUserDefaults.standardUserDefaults().synchronize()
+        }
+    }
     
     func setUpPoints(){
         
@@ -207,23 +228,17 @@ class NGScore: UIViewController, UITableViewDelegate {
         var highscoreNumberSilver: Int = NSUserDefaults.standardUserDefaults().integerForKey("highscoreNumberSilver") as Int
         var highscoreNumberBronze: Int = NSUserDefaults.standardUserDefaults().integerForKey("highscoreNumberBronze") as Int
         
-        
-        
         var highscoreNameGold: AnyObject? = NSUserDefaults.standardUserDefaults().objectForKey("highscoreNameGold")
         var highscoreNameSilver: AnyObject? = NSUserDefaults.standardUserDefaults().objectForKey("highscoreNameSilver")
         var highscoreNameBronze: AnyObject? = NSUserDefaults.standardUserDefaults().objectForKey("highscoreNameBronze")
 
-        
-        
         var pointLabel: Int = NSUserDefaults.standardUserDefaults().objectForKey("pointLabel") as Int
-
-    
+        
         
         if (pointLabel > highscoreNumberGold){
             highscoreNumberBronze = highscoreNumberSilver
             highscoreNumberSilver = highscoreNumberGold
             highscoreNumberGold = pointLabel
-            
             
             NSUserDefaults.standardUserDefaults().setObject(self.nameTextField.text, forKey: "highscoreNameGold")
             NSUserDefaults.standardUserDefaults().setObject(highscoreNameGold, forKey: "highscoreNameSilver")
@@ -231,22 +246,20 @@ class NGScore: UIViewController, UITableViewDelegate {
             NSUserDefaults.standardUserDefaults().synchronize()
             
             
-        }else if (pointLabel > highscoreNumberSilver){
+        } else if (pointLabel > highscoreNumberSilver){
             highscoreNumberBronze = highscoreNumberSilver
             highscoreNumberSilver = pointLabel
             
             NSUserDefaults.standardUserDefaults().setObject(self.nameTextField.text, forKey: "highscoreNameSilver")
             NSUserDefaults.standardUserDefaults().setObject(highscoreNameSilver, forKey: "highscoreNameBronze")
             NSUserDefaults.standardUserDefaults().synchronize()
-        }
-        else if (pointLabel > highscoreNumberBronze){
+            
+        } else if (pointLabel > highscoreNumberBronze) {
             highscoreNumberBronze = pointLabel
             
             NSUserDefaults.standardUserDefaults().setObject(self.nameTextField.text, forKey: "highscoreNameBronze")
             NSUserDefaults.standardUserDefaults().synchronize()
-            
         }
-        
         
         NSUserDefaults.standardUserDefaults().setInteger(highscoreNumberGold, forKey: "highscoreNumberGold")
         NSUserDefaults.standardUserDefaults().synchronize()
@@ -254,10 +267,5 @@ class NGScore: UIViewController, UITableViewDelegate {
         NSUserDefaults.standardUserDefaults().synchronize()
         NSUserDefaults.standardUserDefaults().setInteger(highscoreNumberBronze, forKey: "highscoreNumberBronze")
         NSUserDefaults.standardUserDefaults().synchronize()
-        
-       
-        
         }
-
-
 }

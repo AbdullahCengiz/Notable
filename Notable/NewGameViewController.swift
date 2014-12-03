@@ -190,17 +190,9 @@ import QuartzCore
 */
 
     func addNote(){
-
-
-
-
-
-
     }
 
     func initUI(){
-
-
 
         var numberCircleWidth = (((((NSUserDefaults.standardUserDefaults().objectForKey("height") as CGFloat)*1008)/1136))*42)/1008
 
@@ -243,7 +235,9 @@ import QuartzCore
     }
 
     func prepareGame(currentQuestion:Int){
-            
+        
+        // ********!!!change the number of questions here!!!*********
+        
             if (self.cellCounter == 10){
                 
                 var scoreScreen: NGScore = self.storyboard!.instantiateViewControllerWithIdentifier("HighScoreViewController") as NGScore
@@ -452,7 +446,6 @@ import QuartzCore
         navItem.setRightBarButtonItem(UIBarButtonItem(customView: pointLabel), animated: true)
         navItem.hidesBackButton=true
     }
-
 
     @IBAction func backButtonAction(sender:UIButton) {
         //////println("Button Action From Code")
@@ -705,8 +698,6 @@ import QuartzCore
 
 
        playNote(currentNote)
-
-
     }
 
 
@@ -741,7 +732,6 @@ import QuartzCore
 
         }
         */
-
     }
 
 
@@ -757,8 +747,7 @@ import QuartzCore
 
             value = 12+(octav*12)+noteValue + sharpFlatValue
 
-        }
-        else{
+        }else{
                 // if noteValue is equals 0 and 11 sharpFlatValue is important and it effects octav
 
             if(sharpFlatValue == 0){
@@ -786,8 +775,6 @@ import QuartzCore
                 value = 12+((octav-1)*12)+noteValue+sharpFlatValue
 
             }
-
-
         }
 
         //println("noteValue = \(value)")
@@ -795,8 +782,6 @@ import QuartzCore
         return value
 
     }
-
-
 
     func getNoteSoundFromQuestionContent(questionContent:String){
 
@@ -834,9 +819,7 @@ import QuartzCore
                         }
 
                         ////println("currentNoteCharacter = \(currentNoteCharacter)")
-
                     }
-
 
                     // set currentSharpFlatValue to 0
                     currentSharpFlatValue  = 0
@@ -846,11 +829,8 @@ import QuartzCore
 
                         currentOctav = String(Array(questionContent)[characterCounter]).toInt()!
                         ////println("currentOctav = \(currentOctav)")
-
                     }
-
-
-
+                    
                 } else if (questionContentLenght==3){
 
 
@@ -877,7 +857,6 @@ import QuartzCore
                                 sharpFlatValueNotFound = false
                                 break
                             }
-
                         }
 
                         // add comment here
@@ -905,27 +884,19 @@ import QuartzCore
 
                                         currentSharpFlatValue  = 1
 
-                                    }
-                                    else{
+                                    }else{
 
                                         currentSharpFlatValue  = -1
 
                                     }
-
-
                                     break
                                 }
-
                             }
-
-
-
                         }
 
                         ////println("currentNoteCharacter = \(currentNoteCharacter)")
 
                     }
-
 
                     //get octav
                     if (characterCounter == questionContentLenght-1){
@@ -934,12 +905,7 @@ import QuartzCore
                         //println("currentOctav = \(currentOctav)")
 
                     }
-
-
-
-                }
-
-                else {
+                } else {
 
                     //minor or major note
 
