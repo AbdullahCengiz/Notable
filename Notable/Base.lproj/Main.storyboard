@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="8e6-19-os2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="8e6-19-os2">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -516,19 +516,72 @@
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7nM-1n-czC" userLabel="CleffLeftView">
                                                                 <rect key="frame" x="0.0" y="0.0" width="189.5" height="211"/>
                                                                 <subviews>
-                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H89-AH-V8D" userLabel="Buttoncontainer">
+                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H89-AH-V8D" userLabel="ButtonContainer">
                                                                         <rect key="frame" x="0.0" y="0.0" width="94.5" height="211"/>
-                                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                                    </view>
-                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="roK-44-NNj" userLabel="CleffContainer">
-                                                                        <rect key="frame" x="94.5" y="0.0" width="95" height="211"/>
                                                                         <subviews>
-                                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vdG-Ro-Oo7" userLabel="GCleffTopIndentation">
-                                                                                <rect key="frame" x="-0.5" y="0.0" width="95" height="29"/>
+                                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h9r-cg-IHp" userLabel="ButtonTopIndentation">
+                                                                                <rect key="frame" x="0.0" y="0.0" width="94.5" height="169.5"/>
                                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                             </view>
-                                                                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gclef" translatesAutoresizingMaskIntoConstraints="NO" id="blj-XC-y5z" userLabel="GCleffImage">
-                                                                                <rect key="frame" x="19.5" y="29" width="56" height="161.5"/>
+                                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9kS-bE-eL0" userLabel="ButtonLeftIndentation">
+                                                                                <rect key="frame" x="0.0" y="169" width="28.5" height="42"/>
+                                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                                            </view>
+                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WB6-gu-3gu" userLabel="PlayButton">
+                                                                                <rect key="frame" x="28.5" y="169" width="24.5" height="25"/>
+                                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                                                <constraints>
+                                                                                    <constraint firstAttribute="width" secondItem="WB6-gu-3gu" secondAttribute="height" multiplier="1:1" id="LRK-gD-rSD"/>
+                                                                                </constraints>
+                                                                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                                                <state key="normal" image="play_btn">
+                                                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                                                </state>
+                                                                                <connections>
+                                                                                    <action selector="TouchDown:" destination="92Z-xp-ug9" eventType="touchUpInside" id="0fL-bp-LaH"/>
+                                                                                </connections>
+                                                                            </button>
+                                                                        </subviews>
+                                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="height" secondItem="h9r-cg-IHp" secondAttribute="height" multiplier="1.244" id="5Pb-To-hQP"/>
+                                                                            <constraint firstAttribute="height" secondItem="WB6-gu-3gu" secondAttribute="height" id="74u-hh-D7d"/>
+                                                                            <constraint firstItem="h9r-cg-IHp" firstAttribute="top" secondItem="H89-AH-V8D" secondAttribute="top" id="7e5-fS-SDT"/>
+                                                                            <constraint firstItem="9kS-bE-eL0" firstAttribute="width" secondItem="H89-AH-V8D" secondAttribute="width" multiplier="0.3" id="Bp1-Yu-Max"/>
+                                                                            <constraint firstAttribute="height" secondItem="WB6-gu-3gu" secondAttribute="height" multiplier="8.5" id="HVN-ym-CUY"/>
+                                                                            <constraint firstItem="h9r-cg-IHp" firstAttribute="leading" secondItem="H89-AH-V8D" secondAttribute="leading" id="NF9-Lr-x4t"/>
+                                                                            <constraint firstItem="WB6-gu-3gu" firstAttribute="top" secondItem="9kS-bE-eL0" secondAttribute="bottom" id="OaF-om-Vcx"/>
+                                                                            <constraint firstItem="9kS-bE-eL0" firstAttribute="leading" secondItem="H89-AH-V8D" secondAttribute="leading" id="V0h-iS-85V"/>
+                                                                            <constraint firstItem="WB6-gu-3gu" firstAttribute="top" secondItem="h9r-cg-IHp" secondAttribute="bottom" id="ZQ9-8y-39l"/>
+                                                                            <constraint firstItem="WB6-gu-3gu" firstAttribute="top" secondItem="H89-AH-V8D" secondAttribute="top" constant="176" id="ZY9-vI-pbt"/>
+                                                                            <constraint firstItem="WB6-gu-3gu" firstAttribute="leading" secondItem="9kS-bE-eL0" secondAttribute="trailing" id="iGp-xr-aT1"/>
+                                                                            <constraint firstItem="9kS-bE-eL0" firstAttribute="height" secondItem="H89-AH-V8D" secondAttribute="height" id="itc-3G-nqU"/>
+                                                                            <constraint firstAttribute="trailing" secondItem="h9r-cg-IHp" secondAttribute="trailing" id="jrO-jk-DUt"/>
+                                                                            <constraint firstItem="WB6-gu-3gu" firstAttribute="top" secondItem="H89-AH-V8D" secondAttribute="top" id="jue-FU-nQ5"/>
+                                                                            <constraint firstItem="9kS-bE-eL0" firstAttribute="top" secondItem="h9r-cg-IHp" secondAttribute="bottom" id="qkE-rx-QgR"/>
+                                                                            <constraint firstItem="9kS-bE-eL0" firstAttribute="top" secondItem="H89-AH-V8D" secondAttribute="top" id="wQP-hP-4Lr"/>
+                                                                            <constraint firstAttribute="bottom" secondItem="9kS-bE-eL0" secondAttribute="bottom" id="yLX-1p-Bu2"/>
+                                                                        </constraints>
+                                                                        <variation key="default">
+                                                                            <mask key="constraints">
+                                                                                <exclude reference="itc-3G-nqU"/>
+                                                                                <exclude reference="wQP-hP-4Lr"/>
+                                                                                <exclude reference="74u-hh-D7d"/>
+                                                                                <exclude reference="OaF-om-Vcx"/>
+                                                                                <exclude reference="ZY9-vI-pbt"/>
+                                                                                <exclude reference="jue-FU-nQ5"/>
+                                                                            </mask>
+                                                                        </variation>
+                                                                    </view>
+                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="roK-44-NNj" userLabel="CleffContainer">
+                                                                        <rect key="frame" x="94" y="0.0" width="95" height="211"/>
+                                                                        <subviews>
+                                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vdG-Ro-Oo7" userLabel="GCleffTopIndentation">
+                                                                                <rect key="frame" x="0.0" y="0.0" width="95" height="29"/>
+                                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                                            </view>
+                                                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gclef" translatesAutoresizingMaskIntoConstraints="NO" id="blj-XC-y5z" userLabel="GCleffImage">
+                                                                                <rect key="frame" x="19" y="29" width="56" height="161.5"/>
                                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="width" secondItem="blj-XC-y5z" secondAttribute="height" multiplier="111:321" id="5iO-X3-Qvr"/>
@@ -544,13 +597,13 @@
                                                                                 <rect key="frame" x="0.0" y="0.0" width="95" height="211"/>
                                                                                 <subviews>
                                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YfM-9W-bgz" userLabel="FCleffTopIndentation">
-                                                                                        <rect key="frame" x="-0.5" y="0.0" width="95" height="42"/>
+                                                                                        <rect key="frame" x="0.0" y="0.0" width="95" height="42"/>
                                                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                                     </view>
                                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="raS-Eg-VYS" userLabel="FCleffView">
                                                                                         <rect key="frame" x="0.0" y="42" width="95" height="169"/>
                                                                                         <subviews>
-                                                                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fclef" translatesAutoresizingMaskIntoConstraints="NO" id="E5c-BL-b1d" userLabel="FCleffImage">
+                                                                                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fclef" translatesAutoresizingMaskIntoConstraints="NO" id="E5c-BL-b1d" userLabel="FCleffImage">
                                                                                                 <rect key="frame" x="0.0" y="0.0" width="105" height="120.5"/>
                                                                                             </imageView>
                                                                                         </subviews>
@@ -627,7 +680,7 @@
                                                                 </variation>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Kc-Dg-xBs" userLabel="NoteView">
-                                                                <rect key="frame" x="189.5" y="0.0" width="378.5" height="211"/>
+                                                                <rect key="frame" x="189" y="0.0" width="378.5" height="211"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                             </view>
                                                         </subviews>
@@ -1464,18 +1517,22 @@
                         <outlet property="cell7" destination="qRF-35-HQS" id="XnG-aO-hM8"/>
                         <outlet property="cell8" destination="bv8-Lu-3NP" id="0YX-fM-CHg"/>
                         <outlet property="cell9" destination="zOk-9G-loB" id="3aw-eN-iav"/>
+                        <outlet property="fifthNoteLine" destination="e98-Cw-i5D" id="x1h-7Q-TWr"/>
                         <outlet property="firstChoiceButton" destination="c2g-O9-ByG" id="3iN-PR-fJM"/>
                         <outlet property="firstChoiceContainer" destination="3hm-kX-2Sq" id="9wC-jW-yL1"/>
                         <outlet property="firstChoiceNumberContainer" destination="Dkl-HS-Z4p" id="Alf-N0-kgC"/>
                         <outlet property="firstChoiceNumberHeight" destination="3Yd-MG-5oJ" id="di5-hI-VsT"/>
                         <outlet property="firstChoiceNumberWidth" destination="Ye2-f3-vwD" id="mG3-w8-OpA"/>
+                        <outlet property="firstNoteLine" destination="6jF-hi-Z2m" id="GeZ-M9-fl1"/>
                         <outlet property="firstNoteLineHeight" destination="Rhk-MJ-eAk" id="Qw5-fh-bZi"/>
                         <outlet property="fourthChoiceButton" destination="8Xd-9h-zOZ" id="6cA-RS-ugW"/>
                         <outlet property="fourthChoiceContainer" destination="iiy-qD-gyc" id="cAH-YL-fyL"/>
                         <outlet property="fourthChoiceNumberContainer" destination="khY-gB-XxT" id="2Pd-kZ-TPW"/>
                         <outlet property="fourthChoiceNumberHeight" destination="FHf-pP-fqp" id="khf-4U-Anv"/>
                         <outlet property="fourthChoiceNumberWidth" destination="ryJ-8s-kCE" id="aKf-lz-UdG"/>
+                        <outlet property="fourthNoteLine" destination="QYq-Fx-PU0" id="7aw-EH-pff"/>
                         <outlet property="navItem" destination="4QA-GL-2y1" id="dWV-Ic-VOs"/>
+                        <outlet property="noteView" destination="1Kc-Dg-xBs" id="kfz-Kt-Pax"/>
                         <outlet property="noteViewContainer" destination="F1c-3m-dLs" id="gs4-4E-KDh"/>
                         <outlet property="progressViewContainer" destination="2ae-x8-qtC" id="PKI-8n-OVd"/>
                         <outlet property="secondChoiceButton" destination="BiE-sW-dQ4" id="C0o-Xo-RW6"/>
@@ -1483,11 +1540,13 @@
                         <outlet property="secondChoiceNumberContainer" destination="Mgh-su-Lfp" id="m5t-mX-buF"/>
                         <outlet property="secondChoiceNumberHeight" destination="FOt-yI-hVm" id="8kB-vh-N9d"/>
                         <outlet property="secondChoiceNumberWidth" destination="owX-xM-sdX" id="wD5-HI-PaQ"/>
+                        <outlet property="secondNoteLine" destination="30n-96-DfL" id="ZEk-69-7RF"/>
                         <outlet property="thirdChoiceButton" destination="pb8-Vw-4I5" id="8kH-gw-0Lf"/>
                         <outlet property="thirdChoiceContainer" destination="h0M-hp-5rf" id="TSr-IX-5el"/>
                         <outlet property="thirdChoiceNumberContainer" destination="pZg-yN-fPf" id="fzd-qK-cew"/>
                         <outlet property="thirdChoiceNumberHeight" destination="uXV-2B-oa8" id="hV0-Ln-2U7"/>
                         <outlet property="thirdChoiceNumberWidth" destination="pop-D0-cGX" id="aCh-RU-BWk"/>
+                        <outlet property="thirdNoteLine" destination="nff-gh-BF8" id="vaG-Tp-u25"/>
                         <outlet property="view" destination="638-b9-r6F" id="pEX-97-KY7"/>
                         <outlet property="viewNewGameController" destination="CdL-pc-PSK" id="psr-K2-x4h"/>
                     </connections>
@@ -2922,6 +2981,7 @@
         <image name="fclef" width="177" height="285"/>
         <image name="gclef" width="177" height="285"/>
         <image name="notable_splash" width="640" height="1136"/>
+        <image name="play_btn" width="48" height="48"/>
         <image name="resume_button" width="62" height="62"/>
     </resources>
 </document>

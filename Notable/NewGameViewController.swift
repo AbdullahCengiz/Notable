@@ -20,6 +20,16 @@ import QuartzCore
     var synthLock = NSLock()
     var synth : Synth!
     var myPlayer = MHAudioBufferPlayer()
+
+    //for noteView
+    @IBOutlet var noteView: UIView!
+
+    //for noteLines
+    @IBOutlet var firstNoteLine: UIView!
+    @IBOutlet var secondNoteLine: UIView!
+    @IBOutlet var thirdNoteLine: UIView!
+    @IBOutlet var fourthNoteLine: UIView!
+    @IBOutlet var fifthNoteLine: UIView!
     
     @IBOutlet var navItem: UINavigationItem!
 
@@ -155,6 +165,7 @@ import QuartzCore
         return Int(UIInterfaceOrientationMask.Portrait.rawValue)
     }
 
+    /*
     func layoutEverything(x:UIView) {
         ////println("x = \(x)")
         x.layoutSubviews()
@@ -170,6 +181,16 @@ import QuartzCore
 
 
         ////println("After for loop !!!!!")
+    }
+*/
+
+    func addNote(){
+
+
+
+
+
+
     }
 
     func initUI(){
