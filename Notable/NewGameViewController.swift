@@ -32,7 +32,12 @@ import QuartzCore
     @IBOutlet var fifthNoteLine: UIView!
     
     @IBOutlet var navItem: UINavigationItem!
-
+    
+    @IBOutlet var L1: UILabel!
+    @IBOutlet var L2: UILabel!
+    @IBOutlet var L3: UILabel!
+    @IBOutlet var L4: UILabel!
+    
     //for progressCell IBOutlets
     @IBOutlet var cell1: UIView!
     @IBOutlet var cell2: UIView!
@@ -414,8 +419,41 @@ import QuartzCore
         //////println("In viewWillAppear!!!")
         // waits for noteViewContainer creation
         prepareNavigationBar()
+        styleView()
+
         var pointLabel: Int = NSUserDefaults.standardUserDefaults().objectForKey("pointLabel") as Int
     }
+    
+   func styleView() {
+            
+        var bg:UIColor = UIColor.whiteColor()
+        var btn:UIColor = UIColor.whiteColor()
+        var txt:UIColor = UIColor.blackColor()
+            
+        Theme().fetchThemeColors(&bg, buttonColor:&btn, textColor:&txt)
+        
+        self.view.backgroundColor = bg
+    
+        self.firstChoiceNumberContainer.backgroundColor = bg
+        self.secondChoiceNumberContainer.backgroundColor = bg
+        self.thirdChoiceNumberContainer.backgroundColor = bg
+        self.fourthChoiceNumberContainer.backgroundColor = bg
+    
+        self.firstChoiceButton.backgroundColor = btn
+        self.secondChoiceButton.backgroundColor = btn
+        self.thirdChoiceButton.backgroundColor = btn
+        self.fourthChoiceButton.backgroundColor = btn
+    
+        self.L1.textColor = txt
+        self.L2.textColor = txt
+        self.L3.textColor = txt
+        self.L4.textColor = txt
+    
+        self.firstChoiceButton.setTitleColor(txt, forState: UIControlState.Normal)
+        self.secondChoiceButton.setTitleColor(txt, forState: UIControlState.Normal)
+        self.thirdChoiceButton.setTitleColor(txt, forState: UIControlState.Normal)
+        self.fourthChoiceButton.setTitleColor(txt, forState: UIControlState.Normal)
+        }
 
     func prepareNavigationBar(){
 

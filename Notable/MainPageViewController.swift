@@ -141,7 +141,6 @@ class MainPageViewController: UIViewController,UITableViewDelegate ,UITableViewD
         var txt:UIColor = UIColor.blackColor()
         Theme().fetchThemeColors(&bg, buttonColor:&btn, textColor:&txt)
         
-
         //Background- and ButtonColors
         self.view.backgroundColor = bg
         self.separator.backgroundColor = bg
@@ -173,7 +172,6 @@ class MainPageViewController: UIViewController,UITableViewDelegate ,UITableViewD
         self.performSegueWithIdentifier("goToSettings", sender: "settings")
     }
     
-    
     func setUpPoints(){
         
         arrayOfPoints.removeAll(keepCapacity: false)
@@ -196,12 +194,13 @@ class MainPageViewController: UIViewController,UITableViewDelegate ,UITableViewD
         var point1 = Point(userName: highscoreNameGold! as String, point: String(highscoreNumberGold), madelsImage: "Gold.png")
         var point2 = Point(userName: highscoreNameSilver! as String, point: String(highscoreNumberSilver), madelsImage: "Silver.png")
         var point3 = Point(userName: highscoreNameBronze! as String, point: String(highscoreNumberBronze), madelsImage: "Bronze.png")
+        var txt2:UIColor = UIColor.grayColor()
+
         
         if((highscoreNumberGold as Int) == 0){
             point1 = Point(userName: "No record" as String, point: "", madelsImage: "medal_no.png")
             arrayOfPoints.append(point1)
-        }
-        else {
+        } else {
             
             arrayOfPoints.append(point1)
             
@@ -209,19 +208,21 @@ class MainPageViewController: UIViewController,UITableViewDelegate ,UITableViewD
         
         if((highscoreNumberSilver as Int) == 0){
             point2 = Point(userName: "No record" as String, point: "", madelsImage: "medal_no.png")
+            
+            
             arrayOfPoints.append(point2)
-        }
-        else {
+            
+        } else {
             
             arrayOfPoints.append(point2)
             
         }
-        
         if((highscoreNumberBronze as Int) == 0){
             point3 = Point(userName: "No record" as String, point: "", madelsImage: "medal_no.png")
             arrayOfPoints.append(point3)
-        }
-        else {
+
+            
+        } else {
             
             arrayOfPoints.append(point3)
             

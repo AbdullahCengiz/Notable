@@ -16,12 +16,19 @@ class NGScore: UIViewController, UITableViewDelegate {
     
     var delegate: AnyObject?
 
+    @IBOutlet var p: UILabel!
+    @IBOutlet var congrats: UILabel!
+    @IBOutlet var yourScoreIs: UILabel!
+    @IBOutlet weak var medalNamez: UILabel!
+    @IBOutlet weak var medalImage: UIImageView!
+    @IBOutlet weak var scoreNumber: UILabel!
     @IBOutlet var textFieldBg: UIView!
     @IBOutlet var nameTextField: UITextField!
     @IBOutlet var congratsView: UIView!
     @IBOutlet var sendButton: UIButton!
 
 
+    var arrayOfMedals: [Medal] = []
     
     required init(coder aDecoder: NSCoder) {
         self.delegate = nil
@@ -35,9 +42,11 @@ class NGScore: UIViewController, UITableViewDelegate {
         
         
         println("in NGScoreViewController")
-
         
+    self.navigationController?.setNavigationBarHidden(false, animated: true)
+
     }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -45,7 +54,41 @@ class NGScore: UIViewController, UITableViewDelegate {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        
+        medalTypes()
+        styleView()
+        //medalView()
+        
+        
+        //getting the LatestScore
+        var pointLabel: Int = NSUserDefaults.standardUserDefaults().objectForKey("pointLabel") as Int
+        self.scoreNumber.text  = String(pointLabel)
     }
+    
+    func styleView() {
+        
+        var bg:UIColor = UIColor.whiteColor()
+        var btn:UIColor = UIColor.whiteColor()
+        var txt:UIColor = UIColor.blackColor()
+        Theme().fetchThemeColors(&bg, buttonColor:&btn, textColor:&txt)
+        
+        self.textFieldBg.backgroundColor = bg
+        self.sendButton.backgroundColor = bg
+        
+        self.congratsView.backgroundColor = btn
+        
+        self.sendButton.setTitleColor(txt, forState: UIControlState.Normal)
+        self.medalNamez.textColor = txt
+        self.scoreNumber.textColor = txt
+        self.congrats.textColor = txt
+        self.yourScoreIs.textColor = txt
+        self.p.textColor = txt
+        
+        
+        
+    }
+    
+
     
     func showFromRect(_rect: CGRect, inView view: UIView!, animated: Bool)(nameTextField: UITextField){
         
@@ -55,9 +98,68 @@ class NGScore: UIViewController, UITableViewDelegate {
     func setColor(#backgroundColor:UIColor){
         
         self.view.backgroundColor = backgroundColor
+    }
+    
+    func setMedal(#image: String){
+        var defaults = NSUserDefaults()
+        self.medalImage.image = UIImage(named: image)
+
+    }
+    
+    func medalView() {
+        let anyMedal: UIImageView = self.medalImage,
+        currentMedal = arrayOfMedals[0]
+        setMedal(image: currentMedal.medalImage)
+    }
+    
+    func medalTypes() {
         
+        arrayOfMedals.removeAll(keepCapacity: false)
+        
+        var highscoreNumberGold: Int = NSUserDefaults.standardUserDefaults().integerForKey("highscoreNumberGold") as Int
+        var highscoreNumberSilver: Int = NSUserDefaults.standardUserDefaults().integerForKey("highscoreNumberSilver") as Int
+        var highscoreNumberBronze: Int = NSUserDefaults.standardUserDefaults().integerForKey("highscoreNumberBronze") as Int
+        
+        var pointLabel: Int = NSUserDefaults.standardUserDefaults().objectForKey("pointLabel") as Int
+        self.scoreNumber.text  = String(pointLabel)
+        
+        var med1: Medal  = Medal(medalNamez: "Gold medal", medalImage: "Gold.png")
+        var med2: Medal  = Medal(medalNamez: "Silver medal", medalImage: "Silver.png")
+        var med3: Medal  = Medal(medalNamez: "Bronze medal", medalImage: "Bronze.png")
+        
+        var medalNamez:String = ""
+        
+        if(pointLabel >= highscoreNumberGold){
+           
+            medalNamez = "Gold.png"
+            self.medalNamez.text = "Gold medal"
+            self.nameTextField.hidden = false
+            
+        } else if(pointLabel >= highscoreNumberSilver){
+           
+            medalNamez = "Silver.png"
+            self.medalNamez.text = "Silver medal"
+            self.nameTextField.hidden = false
+            
+        } else if(pointLabel >= highscoreNumberBronze){
+            
+            medalNamez = "Bronze.png"
+             self.medalNamez.text = "Bronze medal"
+             self.nameTextField.hidden = false
+            
+        } else {
+            
+            medalNamez = "medal_no.png"
+            self.medalNamez.text = "No medal"
+            self.nameTextField.hidden = true
+            
+            }
+        
+        setMedal(image: medalNamez)
     }
 
+
+    
       @IBAction func sendButton(sender: UIButton) {
         var nameTextField: UITextField!
             setUpPoints()
