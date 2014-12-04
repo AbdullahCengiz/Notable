@@ -18,6 +18,7 @@ class Sound
     var confirmSound : SoundFile!
     var correctSound : SoundFile!
     var incorrectSound : SoundFile!
+    var drumrollSound: SoundFile
     
     
     init(){
@@ -25,6 +26,7 @@ class Sound
         confirmSound = SoundFile(soundName: "confirm", soundType: "mp3")
         correctSound = SoundFile(soundName: "correct", soundType: "mp3")
         incorrectSound = SoundFile(soundName: "incorrect", soundType: "mp3")
+        drumrollSound = SoundFile(soundName: "drumroll", soundType: "wav")
 
         var soundLevel: AnyObject? = NSUserDefaults.standardUserDefaults().objectForKey("sound")
         // control initial sound value
@@ -35,8 +37,7 @@ class Sound
             NSUserDefaults.standardUserDefaults().synchronize()
             soundLevelValue = 0.5;
             
-        }
-        else{
+        }else{
             //initial sound value found
             soundLevelValue = soundLevel! as Float
             

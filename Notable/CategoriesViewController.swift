@@ -26,8 +26,6 @@ class CategoriesViewController: UIViewController,UITableViewDelegate ,UITableVie
     
     @IBOutlet var categoriesTableView: UITableView!
 
-
-
     var navBar:UINavigationBar!
     
     override func viewDidLoad() {
@@ -50,7 +48,6 @@ class CategoriesViewController: UIViewController,UITableViewDelegate ,UITableVie
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
@@ -103,8 +100,7 @@ class CategoriesViewController: UIViewController,UITableViewDelegate ,UITableVie
         navItem.hidesBackButton=true
     }
 
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
-    {
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return loadedArrayOfCategories.count
     }
     
@@ -116,18 +112,14 @@ class CategoriesViewController: UIViewController,UITableViewDelegate ,UITableVie
         if(currentCategory.status!){
             categoryCell.tickImage.hidden=false
             
-        }
-        else{
+        }else{
             categoryCell.tickImage.hidden = true
         }
         
-        
         categoryCell.setCell(currentCategory.categoryName!)
         return categoryCell
-        
     }
-    
-    
+
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         println("You selected cell #\(indexPath.row)!")
         let categoryCell :CategoryTableCell = categoriesTableView.cellForRowAtIndexPath(indexPath) as CategoryTableCell
@@ -142,35 +134,25 @@ class CategoriesViewController: UIViewController,UITableViewDelegate ,UITableVie
                 self.checkBoxButton.setBackgroundImage(self.checkBoxUnCheckedImage, forState: UIControlState.Normal)
             }
             
-        }
-        else{
+        }else{
             selectedCategory.status = true
         }
         
         var selectedCategoryName :String = categoryCell.categoryNameLabel.text as String!
         
-        
         //println("selectedCategory = \(selectedCategoryName)")
-        
         
         updateCategory(categoryId:selectedCategory.categoryId!, status:selectedCategory.status!)
         
         categoriesTableView.reloadData()
-        
-        
     }
     
-    
-    
-    @IBAction func backButtonAction(sender:UIButton)
-    {
+    @IBAction func backButtonAction(sender:UIButton) {
         println("Button Action From Code")
         self.navigationController?.popViewControllerAnimated(true)
     }
     
-    
-    @IBAction func  checkAllButtonAction(sender:UIButton)
-    {
+    @IBAction func  checkAllButtonAction(sender:UIButton) {
         
         if(sender.tag == 0){
             
@@ -183,12 +165,8 @@ class CategoriesViewController: UIViewController,UITableViewDelegate ,UITableVie
                 category.status=true
                 
                 updateCategory(categoryId: category.categoryId!, status: category.status!)
-                
             }
-            
-            
-        }
-        else {
+        } else {
             
             sender.setBackgroundImage(checkBoxUnCheckedImage, forState: UIControlState.Normal)
             sender.tag = 0
@@ -199,30 +177,19 @@ class CategoriesViewController: UIViewController,UITableViewDelegate ,UITableVie
                 category.status=false
                 
                 updateCategory(categoryId: category.categoryId!, status: category.status!)
-                
-                
             }
-            
         }
-        
         // reload categories tableview
         categoriesTableView.reloadData()
-        
-        
-        
     }
     
-    
-    
     func updateCategory(#categoryId: Int , status: Bool){
-        
         
         println("categoryId: \(categoryId)  status: \(status)")
     
         cdHelper?.updateCategory(categoryId: categoryId, status: status)
         
         loadCategories()
-        
     }
     
     
@@ -230,29 +197,10 @@ class CategoriesViewController: UIViewController,UITableViewDelegate ,UITableVie
         
         loadedArrayOfCategories.removeAll(keepCapacity: false)
         
-        
-       
-        
         if let loadCategoryResult  = cdHelper?.loadData("category") {
             loadedArrayOfCategories  = loadCategoryResult.data as [Category]
             isAllOfCategoriesChecked  = loadCategoryResult.checkStatus as Bool
             println("isAllCategoriesChecked: \(isAllOfCategoriesChecked)")
-            
         }
-        
     }
-    
-    
-    
-        
-        
-        
-    }
-    
-    
-    
-
-
-
-
-
+}
