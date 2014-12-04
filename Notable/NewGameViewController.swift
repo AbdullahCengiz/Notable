@@ -159,6 +159,7 @@ import QuartzCore
         initUI()
         initVariables()
         initPlayer()
+        addNote()
 
         prepareGame(currentQuestion)
 
@@ -191,8 +192,41 @@ import QuartzCore
 
     func addNote(){
 
+        var note:UIView = UIView()
+
+        noteView.setTranslatesAutoresizingMaskIntoConstraints(false)
+        note.setTranslatesAutoresizingMaskIntoConstraints(false)
+        note.backgroundColor = UIColor.redColor()
+
+        noteView.addSubview(note)
+
+        noteView.alpha  = 0.5
+
+       // println(" (secondNoteLine.X)=\(secondNoteLine.bounds.origin.x)")
+        println(" (secondNoteLine.maxY)=\(secondNoteLine.frame.maxY)")
+
+        var noteHeight = height*(46/1136)
+
+        noteView.addConstraint(NSLayoutConstraint(item:note, attribute:NSLayoutAttribute.Height,relatedBy:NSLayoutRelation.Equal, toItem: noteView,attribute:NSLayoutAttribute.Height, multiplier:(0.1227), constant:0))
 
 
+        var heightConstraint = NSLayoutConstraint(item: note, attribute: NSLayoutAttribute.Width, relatedBy: NSLayoutRelation.Equal, toItem: note, attribute: NSLayoutAttribute.Height, multiplier: 1/1, constant: 0)
+
+        noteView.addConstraint(heightConstraint)
+
+
+        noteView.addConstraint(NSLayoutConstraint(
+            item:note, attribute:.CenterX,
+            relatedBy:.Equal, toItem:noteView,
+            attribute:.CenterX, multiplier:1, constant:0))
+
+        println("heightConstraint == !!!!!!! \(heightConstraint.constant)")
+
+
+        noteView.addConstraint(NSLayoutConstraint(
+            item:note, attribute:.CenterY,
+            relatedBy:.Equal, toItem:noteView,
+            attribute:.CenterY, multiplier:1.125, constant:0))
 
 
 
@@ -749,10 +783,9 @@ import QuartzCore
 
     func playNote(noteId:Int32){
 
-        println("in play note")
+        //println("in play note")
 
         synthLock.lock()
-        // The tag of each button corresponds to its MIDI note number.
         synth.playNote(noteId)
         synthLock.unlock()
 
@@ -781,7 +814,6 @@ import QuartzCore
 
         }
         else{
-                // if noteValue is equals 0 and 11 sharpFlatValue is important and it effects octav
 
             if(sharpFlatValue == 0){
 
@@ -1007,7 +1039,7 @@ import QuartzCore
             currentNote = getCurrentNoteValue(octav:currentOctav, noteValue:currentNoteValue.toInt()!, sharpFlatValue:currentSharpFlatValue )
 
 
-            println("Will play note \(questionContent) and noteId = \(currentNote)")
+            //println("Will play note \(questionContent) and noteId = \(currentNote)")
 
             playNote(currentNote)
             //majorMinorFound=false

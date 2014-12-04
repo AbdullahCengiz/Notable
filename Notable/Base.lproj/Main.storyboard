@@ -586,7 +586,7 @@
                                                                                 <rect key="frame" x="0.0" y="0.0" width="95" height="29"/>
                                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                             </view>
-                                                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gclef" translatesAutoresizingMaskIntoConstraints="NO" id="blj-XC-y5z" userLabel="GCleffImage">
+                                                                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gclef" translatesAutoresizingMaskIntoConstraints="NO" id="blj-XC-y5z" userLabel="GCleffImage">
                                                                                 <rect key="frame" x="19" y="29" width="56" height="161.5"/>
                                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                                 <constraints>
@@ -609,7 +609,7 @@
                                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="raS-Eg-VYS" userLabel="FCleffView">
                                                                                         <rect key="frame" x="0.0" y="42" width="95" height="169"/>
                                                                                         <subviews>
-                                                                                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fclef" translatesAutoresizingMaskIntoConstraints="NO" id="E5c-BL-b1d" userLabel="FCleffImage">
+                                                                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fclef" translatesAutoresizingMaskIntoConstraints="NO" id="E5c-BL-b1d" userLabel="FCleffImage">
                                                                                                 <rect key="frame" x="0.0" y="0.0" width="105" height="120.5"/>
                                                                                             </imageView>
                                                                                         </subviews>
@@ -685,9 +685,9 @@
                                                                     </mask>
                                                                 </variation>
                                                             </view>
-                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Kc-Dg-xBs" userLabel="NoteView">
+                                                            <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Kc-Dg-xBs" userLabel="NoteView">
                                                                 <rect key="frame" x="189" y="0.0" width="378.5" height="211"/>
-                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                                <color key="backgroundColor" red="0.1960784495" green="0.78823536630000002" blue="0.98823535439999999" alpha="1" colorSpace="deviceRGB"/>
                                                             </view>
                                                         </subviews>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -3051,6 +3051,8 @@
         <image name="gclef" width="177" height="285"/>
         <image name="notable_splash" width="640" height="1136"/>
         <image name="play_btn" width="48" height="48"/>
+        <image name="reklam_no" width="568" height="388"/>
+        <image name="reklam_yes" width="568" height="388"/>
         <image name="resume_button" width="62" height="62"/>
     </resources>
 </document>
