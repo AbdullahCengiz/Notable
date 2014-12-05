@@ -305,7 +305,8 @@ class MainPageViewController: UIViewController,UITableViewDelegate ,UITableViewD
 
         if(sender? as String == "newGame"){
             let newGameViewController = (segue.destinationViewController as NewGameViewController)
-            newGameViewController.questions = gameQuestions
+            var newGame = newGameViewController.initTrivQuiz()
+            newGame.questions = gameQuestions
         }
     }
 }

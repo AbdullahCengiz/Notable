@@ -75,7 +75,6 @@ ToneEvent;
  * @param midiNote the MIDI note number
  */
 - (void)releaseNote:(int)midiNote;
-- (void)prepare:(UInt32)sampleRate;
 
 /*
  * Fills up a buffer with a mono waveform in signed little-endian 16-bit format.

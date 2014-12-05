@@ -55,6 +55,7 @@
 		ED76AE2A1A27F147000CA83C /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED76AE281A27F147000CA83C /* CoreAudio.framework */; };
 		ED7B218E1A011F5A00A2337D /* AutoLayutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7B218D1A011F5A00A2337D /* AutoLayutViewController.swift */; };
 		EDA9C6E91A090E1C00108A85 /* StoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA9C6E81A090E1C00108A85 /* StoreViewController.swift */; };
+		EDAD76211A3094C7004A9C16 /* TrivNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAD76201A3094C7004A9C16 /* TrivNoteView.swift */; };
 		EDD14B7E1A029A61004F7EA1 /* CategoryTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD14B7D1A029A61004F7EA1 /* CategoryTableCell.swift */; };
 		EDD14B801A029BBE004F7EA1 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD14B7F1A029BBE004F7EA1 /* Category.swift */; };
 /* End PBXBuildFile section */
@@ -129,6 +130,7 @@
 		ED76AE291A27F147000CA83C /* CoreAudioKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudioKit.framework; path = System/Library/Frameworks/CoreAudioKit.framework; sourceTree = SDKROOT; };
 		ED7B218D1A011F5A00A2337D /* AutoLayutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoLayutViewController.swift; sourceTree = "<group>"; };
 		EDA9C6E81A090E1C00108A85 /* StoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreViewController.swift; sourceTree = "<group>"; };
+		EDAD76201A3094C7004A9C16 /* TrivNoteView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrivNoteView.swift; sourceTree = "<group>"; };
 		EDD14B7D1A029A61004F7EA1 /* CategoryTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryTableCell.swift; sourceTree = "<group>"; };
 		EDD14B7F1A029BBE004F7EA1 /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -249,7 +251,6 @@
 		ED225B7B19F5341900D8784E /* Utility */ = {
 			isa = PBXGroup;
 			children = (
-				ED3099861A2C9F8C000665AD /* Playground */,
 				ED76AE1A1A27DCDB000CA83C /* SoundGenerator */,
 				0DAD97A11A1A1E9E0011E4AF /* Theme */,
 				ED234D9E1A16163E00DE5087 /* CoreDataHelper */,
@@ -280,6 +281,7 @@
 			isa = PBXGroup;
 			children = (
 				ED234D901A14E35000DE5087 /* TrivQuiz.swift */,
+				EDAD76201A3094C7004A9C16 /* TrivNoteView.swift */,
 			);
 			name = TrivQuiz;
 			sourceTree = "<group>";
@@ -309,13 +311,6 @@
 				ED234D9F1A16166800DE5087 /* CoreDataHelper.swift */,
 			);
 			name = CoreDataHelper;
-			sourceTree = "<group>";
-		};
-		ED3099861A2C9F8C000665AD /* Playground */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Playground;
 			sourceTree = "<group>";
 		};
 		ED38AD771A13716D0028366D /* Navigation */ = {
@@ -568,6 +563,7 @@
 				ED089C9C1A110D7D00D3F034 /* Timer.swift in Sources */,
 				ED19B34A19FA9B9800041AF0 /* PracticeViewController.swift in Sources */,
 				ED466E0319F165DA00F14292 /* AppDelegate.swift in Sources */,
+				EDAD76211A3094C7004A9C16 /* TrivNoteView.swift in Sources */,
 				ED0B96B81A23432800A1A508 /* JLToast.swift in Sources */,
 				ED08FB9319F93AB400D6BE26 /* Point.swift in Sources */,
 				ED76AE181A276DC4000CA83C /* CheckError.swift in Sources */,

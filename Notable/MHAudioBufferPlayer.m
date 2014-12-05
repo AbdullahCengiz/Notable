@@ -253,9 +253,6 @@ static void PlayCallback(void *inUserData, AudioQueueRef inAudioQueue, AudioQueu
     blockSelf.synth = [[Synth alloc] initWithSampleRate:16000];
 
 
-
-
-
     myPlayer.block = ^(AudioQueueBufferRef buffer, AudioStreamBasicDescription audioFormat)
     {
 
