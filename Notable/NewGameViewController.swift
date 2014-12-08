@@ -13,6 +13,18 @@ import QuartzCore
 
 @objc class NewGameViewController: UIViewController, UITableViewDelegate {
 
+    //for clefs
+    @IBOutlet var gclefImage: UIImageView!
+    @IBOutlet var fclefImage: UIImageView!
+
+    //for extra ledger lines
+    @IBOutlet var firstTopLine: UIView!
+    @IBOutlet var secondTopLine: UIView!
+    @IBOutlet var thirdTopLine: UIView!
+
+    @IBOutlet var firstBottomLine: UIView!
+    @IBOutlet var secondBottomLine: UIView!
+    @IBOutlet var thirdBottomLine: UIView!
 
     var newGame:TrivQuiz!
     var synthLock = NSLock()
@@ -270,6 +282,7 @@ import QuartzCore
 
                 //changes color of right answer button
                 choiceButton.backgroundColor = UIColor(red: 0.94117647, green: 0.40392157, blue: 0.40392157, alpha: 1.0) // gets false red color
+                choiceButtonArray[newGame.questions[currentQuestion].questionAnswerIndex].backgroundColor = UIColor(red: 0.35686275, green: 0.80784314, blue: 0.43137255, alpha: 1.0) // gets true green color
 
                 //sets answerlock
                 answerLock=false

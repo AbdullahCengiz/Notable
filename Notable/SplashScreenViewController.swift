@@ -340,6 +340,9 @@ class SplashScreenViewController: UIViewController {
         var questionsArray : [Question]  = []
         var counter=0
         for questionObjectArray in questionRowArray {
+
+
+            println(questionObjectArray)
             
             var currentQuestion:Question = Question(questionRowArray: questionObjectArray as NSArray)
             questionsArray.insert(currentQuestion, atIndex: counter)
@@ -391,7 +394,7 @@ class SplashScreenViewController: UIViewController {
             
         }else{
             
-            println("There are some lessons in CoreData")
+            println("There are some questions in CoreData")
             
         }
 
@@ -411,7 +414,7 @@ class SplashScreenViewController: UIViewController {
         }
         else{
             
-            println("There are some questions in CoreData")
+            println("There are some categories in CoreData")
             
         }
 

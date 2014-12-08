@@ -23,6 +23,7 @@ class Question
     var questionAlternativeAnswerId2 :Int? = -1 //not set
     var questionAlternativeAnswerId3 :Int? = -1 //not set
     var questionAnswerIndex:Int = 0
+    var questionClefType:String!
 
     var questionAlternativeAnswer1Added : Bool = false
     var questionAlternativeAnswer2Added : Bool = false
@@ -34,13 +35,19 @@ class Question
     init(questionRowArray:NSArray){
         
         questionType = questionRowArray[0] as? String
+
+         println("questionType= \(questionType)")
+
         questionId = questionRowArray[1] as? Int
         questionContent = questionRowArray[2] as? String
         questionCorrect = questionRowArray[3] as? Int
         questionIncorrect = questionRowArray[4] as? Int
         questionAnswer = questionRowArray[5] as? String
         questionCategory = questionRowArray[6] as? Int
-        questionExtraInfo = questionRowArray[7] as? String
+        //questionExtraInfo = questionRowArray[7] as? String
+        questionClefType =  questionRowArray[7] as? String
+
+        println("questionClefType= \(questionClefType)")
         
     }
     

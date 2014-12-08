@@ -44,6 +44,7 @@ class CoreDataHelper
                 currentQuestion.setValue(question.questionAnswer, forKey: "questionAnswer")
                 currentQuestion.setValue(question.questionCategory, forKey: "questionCategory")
                 currentQuestion.setValue(question.questionExtraInfo, forKey: "questionExtraInfo")
+                currentQuestion.setValue(question.questionClefType, forKey: "questionClefType")
         
             }
             //Save questions
@@ -146,6 +147,7 @@ class CoreDataHelper
                     currentQuestion.questionAnswer = currentQuestionObject.valueForKey("questionAnswer") as? String
                     currentQuestion.questionCategory = currentQuestionObject.valueForKey("questionCategory") as? Int
                     currentQuestion.questionExtraInfo = currentQuestionObject.valueForKey("questionExtraInfo") as? String
+                     currentQuestion.questionClefType = currentQuestionObject.valueForKey("questionClefType") as? String
                     
                     data?.insert(currentQuestion, atIndex: counter)
 
@@ -487,7 +489,7 @@ class CoreDataHelper
                 currentQuestion.questionIncorrect = currentQuestionObject.valueForKey("questionIncorrect") as? Int
                 currentQuestion.questionAnswer = currentQuestionObject.valueForKey("questionAnswer") as? String
                 currentQuestion.questionCategory = currentQuestionObject.valueForKey("questionCategory") as? Int
-                currentQuestion.questionExtraInfo = currentQuestionObject.valueForKey("questionExtraInfo") as? String
+                currentQuestion.questionClefType = currentQuestionObject.valueForKey("questionClefType") as? String
 
                 data?.insert(currentQuestion, atIndex: counter)
 

@@ -684,10 +684,10 @@
                                                             <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Kc-Dg-xBs" userLabel="NoteView">
                                                                 <rect key="frame" x="252" y="0.0" width="316" height="211"/>
                                                                 <subviews>
-                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Dy-2d-2Nh" userLabel="TopLinesContainer">
+                                                                    <view tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Dy-2d-2Nh" userLabel="TopLinesContainer">
                                                                         <rect key="frame" x="0.0" y="0.0" width="316" height="70.5"/>
                                                                         <subviews>
-                                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="afY-Ja-bRc" userLabel="1stTopLine">
+                                                                            <view tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="afY-Ja-bRc" userLabel="1stTopLine">
                                                                                 <rect key="frame" x="126.5" y="16.5" width="63" height="2"/>
                                                                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                                                 <constraints>
@@ -700,7 +700,7 @@
                                                                                     </mask>
                                                                                 </variation>
                                                                             </view>
-                                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TrU-Hs-Kiy" userLabel="2ndTopLine">
+                                                                            <view tag="2" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TrU-Hs-Kiy" userLabel="2ndTopLine">
                                                                                 <rect key="frame" x="126.5" y="34.5" width="63" height="2"/>
                                                                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                                                 <constraints>
@@ -713,7 +713,7 @@
                                                                                     </mask>
                                                                                 </variation>
                                                                             </view>
-                                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xMg-lF-VMn" userLabel="3rdTopLine">
+                                                                            <view tag="3" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xMg-lF-VMn" userLabel="3rdTopLine">
                                                                                 <rect key="frame" x="126.5" y="52.5" width="63" height="2"/>
                                                                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                                                 <constraints>
@@ -740,10 +740,10 @@
                                                                             <constraint firstAttribute="centerY" secondItem="TrU-Hs-Kiy" secondAttribute="centerY" id="q42-i5-3Xy"/>
                                                                         </constraints>
                                                                     </view>
-                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gij-47-sK2" userLabel="BottomLinesContainer">
+                                                                    <view tag="2" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gij-47-sK2" userLabel="BottomLinesContainer">
                                                                         <rect key="frame" x="0.0" y="141" width="316" height="70"/>
                                                                         <subviews>
-                                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xwz-TK-1mc" userLabel="1stBottomLine">
+                                                                            <view tag="4" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xwz-TK-1mc" userLabel="1stBottomLine">
                                                                                 <rect key="frame" x="126" y="16.5" width="63" height="2"/>
                                                                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                                                 <constraints>
@@ -756,7 +756,7 @@
                                                                                     </mask>
                                                                                 </variation>
                                                                             </view>
-                                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YgK-u1-596" userLabel="2ndBottomLine">
+                                                                            <view tag="5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YgK-u1-596" userLabel="2ndBottomLine">
                                                                                 <rect key="frame" x="126" y="34" width="63" height="2"/>
                                                                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                                                 <constraints>
@@ -769,7 +769,7 @@
                                                                                     </mask>
                                                                                 </variation>
                                                                             </view>
-                                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="er8-Ue-OKq" userLabel="3rdBottomLine">
+                                                                            <view tag="6" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="er8-Ue-OKq" userLabel="3rdBottomLine">
                                                                                 <rect key="frame" x="126" y="52" width="63" height="2"/>
                                                                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                                                 <constraints>
@@ -1661,7 +1661,9 @@
                         <outlet property="cell7" destination="qRF-35-HQS" id="XnG-aO-hM8"/>
                         <outlet property="cell8" destination="bv8-Lu-3NP" id="0YX-fM-CHg"/>
                         <outlet property="cell9" destination="zOk-9G-loB" id="3aw-eN-iav"/>
+                        <outlet property="fclefImage" destination="E5c-BL-b1d" id="oOi-fv-Rms"/>
                         <outlet property="fifthNoteLine" destination="e98-Cw-i5D" id="x1h-7Q-TWr"/>
+                        <outlet property="firstBottomLine" destination="xwz-TK-1mc" id="5VA-6e-nYI"/>
                         <outlet property="firstChoiceButton" destination="c2g-O9-ByG" id="3iN-PR-fJM"/>
                         <outlet property="firstChoiceContainer" destination="3hm-kX-2Sq" id="9wC-jW-yL1"/>
                         <outlet property="firstChoiceNumberContainer" destination="Dkl-HS-Z4p" id="Alf-N0-kgC"/>
@@ -1669,28 +1671,34 @@
                         <outlet property="firstChoiceNumberWidth" destination="Ye2-f3-vwD" id="mG3-w8-OpA"/>
                         <outlet property="firstNoteLine" destination="6jF-hi-Z2m" id="GeZ-M9-fl1"/>
                         <outlet property="firstNoteLineHeight" destination="Rhk-MJ-eAk" id="Qw5-fh-bZi"/>
+                        <outlet property="firstTopLine" destination="afY-Ja-bRc" id="UVG-mC-3xw"/>
                         <outlet property="fourthChoiceButton" destination="8Xd-9h-zOZ" id="6cA-RS-ugW"/>
                         <outlet property="fourthChoiceContainer" destination="iiy-qD-gyc" id="cAH-YL-fyL"/>
                         <outlet property="fourthChoiceNumberContainer" destination="khY-gB-XxT" id="2Pd-kZ-TPW"/>
                         <outlet property="fourthChoiceNumberHeight" destination="FHf-pP-fqp" id="khf-4U-Anv"/>
                         <outlet property="fourthChoiceNumberWidth" destination="ryJ-8s-kCE" id="aKf-lz-UdG"/>
                         <outlet property="fourthNoteLine" destination="QYq-Fx-PU0" id="7aw-EH-pff"/>
+                        <outlet property="gclefImage" destination="blj-XC-y5z" id="eKk-nx-xaS"/>
                         <outlet property="navItem" destination="4QA-GL-2y1" id="dWV-Ic-VOs"/>
                         <outlet property="noteView" destination="1Kc-Dg-xBs" id="kfz-Kt-Pax"/>
                         <outlet property="noteViewContainer" destination="F1c-3m-dLs" id="gs4-4E-KDh"/>
                         <outlet property="progressViewContainer" destination="2ae-x8-qtC" id="PKI-8n-OVd"/>
+                        <outlet property="secondBottomLine" destination="YgK-u1-596" id="u2J-Hz-pyA"/>
                         <outlet property="secondChoiceButton" destination="BiE-sW-dQ4" id="C0o-Xo-RW6"/>
                         <outlet property="secondChoiceContainer" destination="See-Ar-dns" id="cYa-eA-K0Z"/>
                         <outlet property="secondChoiceNumberContainer" destination="Mgh-su-Lfp" id="m5t-mX-buF"/>
                         <outlet property="secondChoiceNumberHeight" destination="FOt-yI-hVm" id="8kB-vh-N9d"/>
                         <outlet property="secondChoiceNumberWidth" destination="owX-xM-sdX" id="wD5-HI-PaQ"/>
                         <outlet property="secondNoteLine" destination="30n-96-DfL" id="ZEk-69-7RF"/>
+                        <outlet property="secondTopLine" destination="TrU-Hs-Kiy" id="WAO-6Z-SOT"/>
+                        <outlet property="thirdBottomLine" destination="er8-Ue-OKq" id="Q3t-0T-zzd"/>
                         <outlet property="thirdChoiceButton" destination="pb8-Vw-4I5" id="8kH-gw-0Lf"/>
                         <outlet property="thirdChoiceContainer" destination="h0M-hp-5rf" id="TSr-IX-5el"/>
                         <outlet property="thirdChoiceNumberContainer" destination="pZg-yN-fPf" id="fzd-qK-cew"/>
                         <outlet property="thirdChoiceNumberHeight" destination="uXV-2B-oa8" id="hV0-Ln-2U7"/>
                         <outlet property="thirdChoiceNumberWidth" destination="pop-D0-cGX" id="aCh-RU-BWk"/>
                         <outlet property="thirdNoteLine" destination="nff-gh-BF8" id="vaG-Tp-u25"/>
+                        <outlet property="thirdTopLine" destination="xMg-lF-VMn" id="B3I-yw-H30"/>
                         <outlet property="view" destination="638-b9-r6F" id="pEX-97-KY7"/>
                         <outlet property="viewNewGameController" destination="CdL-pc-PSK" id="psr-K2-x4h"/>
                     </connections>
