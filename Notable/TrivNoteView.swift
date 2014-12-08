@@ -17,7 +17,7 @@ import QuartzCore
 
 class TrivNoteView
 {
-
+    var currentNoteIndex:Int!
     var noteView:UIView!
     var newGameVC:NewGameViewController!
     var position:CGFloat!
@@ -36,6 +36,7 @@ class TrivNoteView
 
         // makes extra lines visible
         //makeExtraLinesVisible()
+        currentNoteIndex = noteIndex
 
         var questionContent = questionContent
 
@@ -46,9 +47,11 @@ class TrivNoteView
 
         if(majorMinorFlag || noteIndex==1){
             clearAllScrollNotes() //reset noteView
+            println("drawing \(questionContent)")
         }
         else{
 
+            println("drawing \(questionContent)")
 
         }
 
@@ -155,6 +158,8 @@ class TrivNoteView
 
 
         if(clefType == "gclef"){
+            //makes line container visible
+            newGameVC.lineContainer.hidden = false
 
             newGameVC.fclefImage.hidden=true
             newGameVC.gclefImage.hidden=false
@@ -204,22 +209,24 @@ class TrivNoteView
                 position = 1.335          //16
                 arrangeTopAndBottomLines(firstTopLineFlag: false, secondTopLineFlag: false, thirdTopLineFlag: false, firstBottomLineFlag: false, secondBottomLineFlag: false, thirdBottomLineFlag: false)
             case "H3":
-                position = 1.501          //19
+                position = 1.584         //19
                 arrangeTopAndBottomLines(firstTopLineFlag: false, secondTopLineFlag: false, thirdTopLineFlag: false, firstBottomLineFlag: true, secondBottomLineFlag: false, thirdBottomLineFlag: false)
             case "F3":
-                position = 1.750          //22
-                arrangeTopAndBottomLines(firstTopLineFlag: false, secondTopLineFlag: false, thirdTopLineFlag: false, firstBottomLineFlag: true, secondBottomLineFlag: true, thirdBottomLineFlag: false)
+                position = 1.833           //22
+                arrangeTopAndBottomLines(firstTopLineFlag: false, secondTopLineFlag: false, thirdTopLineFlag: false, firstBottomLineFlag: true, secondBottomLineFlag: true, thirdBottomLineFlag: true)
             case "A4":
                 position = 1.086          //13
                 arrangeTopAndBottomLines(firstTopLineFlag: false, secondTopLineFlag: false, thirdTopLineFlag: false, firstBottomLineFlag: false, secondBottomLineFlag: false, thirdBottomLineFlag: false)
             case "G3":
-                position = 1.667          //21
+                position = 1.750          //21
                 arrangeTopAndBottomLines(firstTopLineFlag: false, secondTopLineFlag: false, thirdTopLineFlag: false, firstBottomLineFlag: true, secondBottomLineFlag: true, thirdBottomLineFlag: false)
             default:
                 position = -10
             }
         }
-        else{
+        else if (clefType == "fclef"){
+            //makes line container visible
+            newGameVC.lineContainer.hidden = false
 
             newGameVC.fclefImage.hidden=false
             newGameVC.gclefImage.hidden=true
@@ -271,27 +278,35 @@ class TrivNoteView
                 position = 1.335          //16 *
                 arrangeTopAndBottomLines(firstTopLineFlag: false, secondTopLineFlag: false, thirdTopLineFlag: false, firstBottomLineFlag: false, secondBottomLineFlag: false, thirdBottomLineFlag: false)
             case "D2":
-                position = 1.501          //19 *
+                position = 1.584         //19 *
                 arrangeTopAndBottomLines(firstTopLineFlag: false, secondTopLineFlag: false, thirdTopLineFlag: false, firstBottomLineFlag: true, secondBottomLineFlag: false, thirdBottomLineFlag: false)
             case "A1":
-                position = 1.750          //22 *
+                position = 1.833           //22 *
                 arrangeTopAndBottomLines(firstTopLineFlag: false, secondTopLineFlag: false, thirdTopLineFlag: false, firstBottomLineFlag: true, secondBottomLineFlag: true, thirdBottomLineFlag: true)
             case "C3":
                 position = 1.086          //13 *
                 arrangeTopAndBottomLines(firstTopLineFlag: false, secondTopLineFlag: false, thirdTopLineFlag: false, firstBottomLineFlag: false, secondBottomLineFlag: false, thirdBottomLineFlag: false)
             case "H1":
-                position = 1.667          //21 *
+                position = 1.750          //21 *
                 arrangeTopAndBottomLines(firstTopLineFlag: false, secondTopLineFlag: false, thirdTopLineFlag: false, firstBottomLineFlag: true, secondBottomLineFlag: true, thirdBottomLineFlag: false)
             case "C2":
-                position = 1.584          //20 *
+                position = 1.667           //20 *
                 arrangeTopAndBottomLines(firstTopLineFlag: false, secondTopLineFlag: false, thirdTopLineFlag: false, firstBottomLineFlag: true, secondBottomLineFlag: true, thirdBottomLineFlag: false)
             case "G1":
                 position = 1.833          //23 *
                 arrangeTopAndBottomLines(firstTopLineFlag: false, secondTopLineFlag: false, thirdTopLineFlag: false, firstBottomLineFlag: true, secondBottomLineFlag: true, thirdBottomLineFlag: true)
             default:
                 position = -10          //24  //F1  4 lines required
+                arrangeTopAndBottomLines(firstTopLineFlag: false, secondTopLineFlag: false, thirdTopLineFlag: false, firstBottomLineFlag: false, secondBottomLineFlag: false, thirdBottomLineFlag: false)
             }
 
+
+        }
+        else{
+
+            newGameVC.lineContainer.hidden = true
+
+            newGameVC.questionPictureImage.image = UIImage(named: questionContent)
 
         }
 
@@ -316,7 +331,7 @@ class TrivNoteView
 
             if view is UIView
             {
-                println("viewTag = \(view.tag)")
+                //println("viewTag = \(view.tag)")
                 if(view.tag != 1 && view.tag != 2){
                     view.removeFromSuperview()
                 }
@@ -329,51 +344,56 @@ class TrivNoteView
 
     func arrangeTopAndBottomLines(#firstTopLineFlag:Bool,secondTopLineFlag:Bool,thirdTopLineFlag:Bool,firstBottomLineFlag:Bool,secondBottomLineFlag:Bool,thirdBottomLineFlag:Bool){
 
-        //for top extra lines
-        if(!firstTopLineFlag){
-            newGameVC.firstTopLine.hidden = true
-        }
-        else{
-            newGameVC.firstTopLine.hidden = false
-        }
+        if(currentNoteIndex == 1){
 
-        if(!secondTopLineFlag){
-            newGameVC.secondTopLine.hidden = true
-        }
-        else{
-            newGameVC.secondTopLine.hidden = false
-        }
 
-        if(!thirdTopLineFlag){
-            newGameVC.thirdTopLine.hidden = true
-        }
-        else{
-            newGameVC.thirdTopLine.hidden = false
-        }
+            //for top extra lines
+            if(!firstTopLineFlag){
+                newGameVC.firstTopLine.hidden = true
+            }
+            else{
+                newGameVC.firstTopLine.hidden = false
+            }
 
-        //for bottom extra lines
+            if(!secondTopLineFlag){
+                newGameVC.secondTopLine.hidden = true
+            }
+            else{
+                newGameVC.secondTopLine.hidden = false
+            }
 
-        if(!firstBottomLineFlag){
-            newGameVC.firstBottomLine.hidden = true
-        }
-        else{
-            newGameVC.firstBottomLine.hidden = true
-        }
+            if(!thirdTopLineFlag){
+                newGameVC.thirdTopLine.hidden = true
+            }
+            else{
+                newGameVC.thirdTopLine.hidden = false
+            }
 
-        if(!secondBottomLineFlag){
-            newGameVC.secondBottomLine.hidden = true
-        }
-        else{
-            newGameVC.secondBottomLine.hidden = false
-        }
+            //for bottom extra lines
 
-        if(!thirdBottomLineFlag){
-            newGameVC.thirdBottomLine.hidden = true
-        }
-        else{
-            newGameVC.thirdBottomLine.hidden = false
-        }
+            if(!firstBottomLineFlag){
+                newGameVC.firstBottomLine.hidden = true
+            }
+            else{
+                newGameVC.firstBottomLine.hidden = false
+            }
 
+            if(!secondBottomLineFlag){
+                newGameVC.secondBottomLine.hidden = true
+            }
+            else{
+                newGameVC.secondBottomLine.hidden = false
+            }
+
+            if(!thirdBottomLineFlag){
+                newGameVC.thirdBottomLine.hidden = true
+            }
+            else{
+                newGameVC.thirdBottomLine.hidden = false
+            }
+            
+        }
+        
     }
 
 

@@ -324,7 +324,17 @@ class TrivQuiz
 
             //println("questionContent = \(questions![currentQuestion].questionContent!)")
 
-            getNoteSoundFromQuestionContent(questions![currentQuestion].questionContent!)
+            // question with picture or not
+            if((questions![currentQuestion].questionContent!.rangeOfString(".")) != nil ){
+                trivNoteView.addNote(questionContent:questions![currentQuestion].questionContent! , clefType:questions![currentQuestion].questionClefType! , sharpFlatValue: currentSharpFlatValue,majorMinorFlag: false,noteIndex:1)
+            }
+            else {
+
+                getNoteSoundFromQuestionContent(questions![currentQuestion].questionContent!)
+
+            }
+
+
 
 
             //getNoteSoundFromQuestionContent("D3|F3|A3")
@@ -478,6 +488,7 @@ class TrivQuiz
                         self.getNoteSoundFromQuestionContent(minorOrMajorNoteContentArray[0])
 
                         self.trivNoteView.addNote(questionContent:minorOrMajorNoteContentArray[0] , clefType:self.questions![currentQuestion].questionClefType! , sharpFlatValue: currentSharpFlatValue,majorMinorFlag: false,noteIndex:1)
+
 
                         NSThread.sleepForTimeInterval(0.5)
                         self.getNoteSoundFromQuestionContent(minorOrMajorNoteContentArray[1])

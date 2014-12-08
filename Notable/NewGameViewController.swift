@@ -13,6 +13,13 @@ import QuartzCore
 
 @objc class NewGameViewController: UIViewController, UITableViewDelegate {
 
+    //for line container
+    @IBOutlet var lineContainer: UIView!
+
+    //for questionPicture
+    @IBOutlet var questionPictureImage: UIImageView!
+    
+
     //for clefs
     @IBOutlet var gclefImage: UIImageView!
     @IBOutlet var fclefImage: UIImageView!
