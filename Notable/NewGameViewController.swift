@@ -260,7 +260,7 @@ import QuartzCore
             if(choiceButton.tag == newGame.questions![currentQuestion].questionAnswerIndex){
 
                 //plays correct sound
-                sound.playSound(sound.correctSound)
+                newGame.sound.playSound(newGame.sound.correctSound)
 
                 //increments the score
                 realScore = realScore+500
@@ -285,7 +285,7 @@ import QuartzCore
                 }
             } else {
                 //wrong answer
-                sound.playSound(sound.incorrectSound)
+                newGame.sound.playSound(newGame.sound.incorrectSound)
 
                 //changes color of right answer button
                 choiceButton.backgroundColor = UIColor(red: 0.94117647, green: 0.40392157, blue: 0.40392157, alpha: 1.0) // gets false red color

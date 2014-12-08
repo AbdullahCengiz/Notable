@@ -22,7 +22,6 @@ var note:UInt32!
 var myPlayer = MHAudioBufferPlayer()
 var audioPlayer = AVAudioPlayer()
 var soundLevelValue : Float!
-var sound : Sound!
 var answerLock : Bool = true
 
 //constant definitions
@@ -76,6 +75,8 @@ var noteArray:[String] = []
 var sharpFlatValueNotFound: Bool = true
 var majorMinorFound: Bool = false
 
+var minorOrMajorNoteContentArray:[NSString]!
+
 
 class TrivQuiz
 {
@@ -83,12 +84,15 @@ class TrivQuiz
     var trivNoteView:TrivNoteView!
     var questions : [Question]!
     var cellCounter:Int = 0
+    var sound : Sound!
 
 
     init(viewController:NewGameViewController){
 
         newGameVC = viewController
         questions = []
+        //creates sound object
+        sound = Sound()
         
     }
 
@@ -150,9 +154,6 @@ class TrivQuiz
 
         //init trivNoteView
         trivNoteView = TrivNoteView(noteView: newGameVC.noteView, viewController: newGameVC)
-
-        //creates sound object
-        sound = Sound()
 
         //initiliaze progress cells
         newGameVC.cellArray = [newGameVC.cell1,newGameVC.cell2,newGameVC.cell3,newGameVC.cell4,newGameVC.cell5,newGameVC.cell6,newGameVC.cell7,newGameVC.cell8,newGameVC.cell9,newGameVC.cell10]
@@ -273,6 +274,9 @@ class TrivQuiz
             }
 
             */
+
+            println("questionArraySize: \(questions.count) currentQuestionIndex= \(currentQuestion)")
+
             resetQuestion(questions![currentQuestion])
 
             //clears colors of buttons
@@ -326,11 +330,12 @@ class TrivQuiz
 
             // question with picture or not
             if((questions![currentQuestion].questionContent!.rangeOfString(".")) != nil ){
-                trivNoteView.addNote(questionContent:questions![currentQuestion].questionContent! , clefType:questions![currentQuestion].questionClefType! , sharpFlatValue: currentSharpFlatValue,majorMinorFlag: false,noteIndex:1)
+                trivNoteView.addNote(questionContent:questions![currentQuestion].questionContent! , clefType:questions![currentQuestion].questionClefType! , sharpFlatValue: currentSharpFlatValue,majorMinorFlag: true,noteIndex:1)
             }
             else {
-
-                getNoteSoundFromQuestionContent(questions![currentQuestion].questionContent!)
+                //getNoteSoundFromQuestionContent("A2")
+               //getNoteSoundFromQuestionContent(questions![currentQuestion].questionContent!)
+                getNoteSoundFromQuestionContent("G2|Hb2|D3")
 
             }
 
@@ -474,11 +479,11 @@ class TrivQuiz
                 ////println("Will find \(questionContent)")
 
 
-                let minorOrMajorNoteContentArray:[NSString] = split(questionContent as String, { $0 == "|" }, maxSplit: 3, allowEmptySlices: true)
+                minorOrMajorNoteContentArray = split(questionContent as String, { $0 == "|" }, maxSplit: 3, allowEmptySlices: true)
 
                 ////println("minorOrMajorNoteContentArray = \(minorOrMajorNoteContentArray)")
 
-
+                /*
                 let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
                 dispatch_async(dispatch_get_global_queue(priority, 0)) {
                     // do some task
@@ -488,18 +493,26 @@ class TrivQuiz
                         self.getNoteSoundFromQuestionContent(minorOrMajorNoteContentArray[0])
 
                         self.trivNoteView.addNote(questionContent:minorOrMajorNoteContentArray[0] , clefType:self.questions![currentQuestion].questionClefType! , sharpFlatValue: currentSharpFlatValue,majorMinorFlag: false,noteIndex:1)
-
-
                         NSThread.sleepForTimeInterval(0.5)
+
                         self.getNoteSoundFromQuestionContent(minorOrMajorNoteContentArray[1])
                         self.trivNoteView.addNote(questionContent:minorOrMajorNoteContentArray[1] , clefType:self.questions![currentQuestion].questionClefType! , sharpFlatValue: currentSharpFlatValue,majorMinorFlag: false,noteIndex:2)
                         NSThread.sleepForTimeInterval(0.5)
+
                         self.getNoteSoundFromQuestionContent(minorOrMajorNoteContentArray[2])
                         self.trivNoteView.addNote(questionContent:minorOrMajorNoteContentArray[2] , clefType:self.questions![currentQuestion].questionClefType! , sharpFlatValue: currentSharpFlatValue,majorMinorFlag: false,noteIndex:3)
                     }
                 }
-                
-                
+                */
+
+
+
+                var timer1 = NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: Selector("majorMinorSelector1"), userInfo: nil, repeats: false)
+
+                var timer2 = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("majorMinorSelector2"), userInfo: nil, repeats: false)
+
+                var timer3 = NSTimer.scheduledTimerWithTimeInterval(1.5, target: self, selector: Selector("majorMinorSelector3"), userInfo: nil, repeats: false)
+
                 
                 
                 majorMinorFound=true
@@ -527,13 +540,40 @@ class TrivQuiz
 
 
             
-            ////println("Will play note \(questionContent) and noteId = \(currentNote)")
+            println("Will play note \(questionContent) and noteId = \(currentNote)")
 
-            playNote(currentNote)
+            //playNote(currentNote)
             //majorMinorFound=false
         }
 
     }
+
+    @objc func majorMinorSelector1(){
+
+        self.getNoteSoundFromQuestionContent(minorOrMajorNoteContentArray[0])
+
+        self.trivNoteView.addNote(questionContent:minorOrMajorNoteContentArray[0] , clefType:self.questions![currentQuestion].questionClefType! , sharpFlatValue: currentSharpFlatValue,majorMinorFlag: false,noteIndex:1)
+
+
+    }
+
+
+    @objc func majorMinorSelector2(){
+
+        self.getNoteSoundFromQuestionContent(minorOrMajorNoteContentArray[1])
+        self.trivNoteView.addNote(questionContent:minorOrMajorNoteContentArray[1] , clefType:self.questions![currentQuestion].questionClefType! , sharpFlatValue: currentSharpFlatValue,majorMinorFlag: false,noteIndex:2)
+
+
+    }
+
+
+    @objc func majorMinorSelector3(){
+
+        self.getNoteSoundFromQuestionContent(minorOrMajorNoteContentArray[2])
+        self.trivNoteView.addNote(questionContent:minorOrMajorNoteContentArray[2] , clefType:self.questions![currentQuestion].questionClefType! , sharpFlatValue: currentSharpFlatValue,majorMinorFlag: false,noteIndex:3)
+
+    }
+
 
 
     func getCurrentNoteValue(#octav:Int,noteValue:Int, sharpFlatValue:Int) -> Int32 {

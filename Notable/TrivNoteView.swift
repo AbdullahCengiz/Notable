@@ -21,11 +21,15 @@ class TrivNoteView
     var noteView:UIView!
     var newGameVC:NewGameViewController!
     var position:CGFloat!
+    var sound:Sound!
+
+    var majorMinorPositionIndex1 = 0,majorMinorPositionIndex2 = 0,majorMinorpositionIndex3 = 0
 
     init(noteView:UIView,viewController:NewGameViewController){
 
         self.noteView = noteView
         self.newGameVC = viewController
+        sound = Sound()
 
     }
 
@@ -34,6 +38,8 @@ class TrivNoteView
 
     func addNote(#questionContent:String,clefType:String,sharpFlatValue:Int,majorMinorFlag:Bool,noteIndex:Int){
 
+
+        //sound = Sound()
         // makes extra lines visible
         //makeExtraLinesVisible()
         currentNoteIndex = noteIndex
@@ -43,6 +49,14 @@ class TrivNoteView
 
         println("clefType: \(clefType)")
         println("sharpFlatValue: \(sharpFlatValue)")
+        println("questionContent= \(questionContent)")
+
+        var soundFileName = getSoundFileNameFromQuestionContent(questionContent:questionContent)
+
+        soundFileName = soundFileName.stringByReplacingOccurrencesOfString("H", withString: "B", options: nil, range: nil)
+
+
+        println("soundFileName=\(soundFileName)")
 
 
         if(majorMinorFlag || noteIndex==1){
@@ -168,61 +182,83 @@ class TrivNoteView
             switch questionContent {
             case "D6":
                 position = 0.249          //3
-                arrangeTopAndBottomLines(firstTopLineFlag: false, secondTopLineFlag: true, thirdTopLineFlag: true, firstBottomLineFlag: false, secondBottomLineFlag: false, thirdBottomLineFlag: false)
+                setPositionIndex(noteIndex:noteIndex,positionIndex:3)
+
             case "C6":
                 position = 0.332          //4
-                arrangeTopAndBottomLines(firstTopLineFlag: false, secondTopLineFlag: true, thirdTopLineFlag: true, firstBottomLineFlag: false, secondBottomLineFlag: false, thirdBottomLineFlag: false)
+                setPositionIndex(noteIndex:noteIndex,positionIndex:4)
+
             case "H5":
                 position = 0.415          //5
-                arrangeTopAndBottomLines(firstTopLineFlag: false, secondTopLineFlag: false, thirdTopLineFlag: true, firstBottomLineFlag: false, secondBottomLineFlag: false, thirdBottomLineFlag: false)
+                setPositionIndex(noteIndex:noteIndex,positionIndex:5)
+
             case "G5":
                 position = 0.588          //7
-                arrangeTopAndBottomLines(firstTopLineFlag: false, secondTopLineFlag: false, thirdTopLineFlag: false, firstBottomLineFlag: false, secondBottomLineFlag: false, thirdBottomLineFlag: false)
+                setPositionIndex(noteIndex:noteIndex,positionIndex:7)
+
             case "F5":
                 position = 0.671          //8
-                arrangeTopAndBottomLines(firstTopLineFlag: false, secondTopLineFlag: false, thirdTopLineFlag: false, firstBottomLineFlag: false, secondBottomLineFlag: false, thirdBottomLineFlag: false)
+                setPositionIndex(noteIndex:noteIndex,positionIndex:8)
+
             case "D5":
                 position = 0.837          //10
-                arrangeTopAndBottomLines(firstTopLineFlag: false, secondTopLineFlag: false, thirdTopLineFlag: false, firstBottomLineFlag: false, secondBottomLineFlag: false, thirdBottomLineFlag: false)
+                setPositionIndex(noteIndex:noteIndex,positionIndex:10)
+
             case "D4":
                 position = 1.418          //17
-                arrangeTopAndBottomLines(firstTopLineFlag: false, secondTopLineFlag: false, thirdTopLineFlag: false, firstBottomLineFlag: false, secondBottomLineFlag: false, thirdBottomLineFlag: false)
+                setPositionIndex(noteIndex:noteIndex,positionIndex:17)
+
             case "C4":
                 position = 1.501          //18
-                arrangeTopAndBottomLines(firstTopLineFlag: false, secondTopLineFlag: false, thirdTopLineFlag: false, firstBottomLineFlag: true, secondBottomLineFlag: false, thirdBottomLineFlag: false)
+                setPositionIndex(noteIndex:noteIndex,positionIndex:18)
+
             case "E5":
                 position = 0.754          //9
-                arrangeTopAndBottomLines(firstTopLineFlag: false, secondTopLineFlag: false, thirdTopLineFlag: false, firstBottomLineFlag: false, secondBottomLineFlag: false, thirdBottomLineFlag: false)
+                setPositionIndex(noteIndex:noteIndex,positionIndex:9)
+
             case "C5":
                 position = 0.920          //11
-                arrangeTopAndBottomLines(firstTopLineFlag: false, secondTopLineFlag: false, thirdTopLineFlag: false, firstBottomLineFlag: false, secondBottomLineFlag: false, thirdBottomLineFlag: false)
+                setPositionIndex(noteIndex:noteIndex,positionIndex:11)
+
             case "H4":
                 position = 1.003          //12
-                arrangeTopAndBottomLines(firstTopLineFlag: false, secondTopLineFlag: false, thirdTopLineFlag: false, firstBottomLineFlag: false, secondBottomLineFlag: false, thirdBottomLineFlag: false)
+                setPositionIndex(noteIndex:noteIndex,positionIndex:12)
+
             case "G4":
                 position = 1.169          //14
-                arrangeTopAndBottomLines(firstTopLineFlag: false, secondTopLineFlag: false, thirdTopLineFlag: false, firstBottomLineFlag: false, secondBottomLineFlag: false, thirdBottomLineFlag: false)
+                setPositionIndex(noteIndex:noteIndex,positionIndex:14)
+
             case "F4":
                 position = 1.252          //15
-                arrangeTopAndBottomLines(firstTopLineFlag: false, secondTopLineFlag: false, thirdTopLineFlag: false, firstBottomLineFlag: false, secondBottomLineFlag: false, thirdBottomLineFlag: false)
+                setPositionIndex(noteIndex:noteIndex,positionIndex:15)
+
             case "E4":
                 position = 1.335          //16
-                arrangeTopAndBottomLines(firstTopLineFlag: false, secondTopLineFlag: false, thirdTopLineFlag: false, firstBottomLineFlag: false, secondBottomLineFlag: false, thirdBottomLineFlag: false)
+                setPositionIndex(noteIndex:noteIndex,positionIndex:16)
+
             case "H3":
                 position = 1.584         //19
-                arrangeTopAndBottomLines(firstTopLineFlag: false, secondTopLineFlag: false, thirdTopLineFlag: false, firstBottomLineFlag: true, secondBottomLineFlag: false, thirdBottomLineFlag: false)
+                setPositionIndex(noteIndex:noteIndex,positionIndex:19)
+
             case "F3":
                 position = 1.833           //22
-                arrangeTopAndBottomLines(firstTopLineFlag: false, secondTopLineFlag: false, thirdTopLineFlag: false, firstBottomLineFlag: true, secondBottomLineFlag: true, thirdBottomLineFlag: true)
+                setPositionIndex(noteIndex:noteIndex,positionIndex:22)
+
             case "A4":
                 position = 1.086          //13
-                arrangeTopAndBottomLines(firstTopLineFlag: false, secondTopLineFlag: false, thirdTopLineFlag: false, firstBottomLineFlag: false, secondBottomLineFlag: false, thirdBottomLineFlag: false)
+                setPositionIndex(noteIndex:noteIndex,positionIndex:13)
+
             case "G3":
                 position = 1.750          //21
-                arrangeTopAndBottomLines(firstTopLineFlag: false, secondTopLineFlag: false, thirdTopLineFlag: false, firstBottomLineFlag: true, secondBottomLineFlag: true, thirdBottomLineFlag: false)
+                setPositionIndex(noteIndex:noteIndex,positionIndex:21)
+
             default:
                 position = -10
             }
+
+            //playSound
+            sound.playSound(SoundFile(soundName: soundFileName, soundType: "aif"))
+            //newGameVC.newGame.sound.playSound(SoundFile(soundName: "correct", soundType: "mp3"))
         }
         else if (clefType == "fclef"){
             //makes line container visible
@@ -234,71 +270,99 @@ class TrivNoteView
             switch questionContent {
             case "D6":
                 position = 0.249          //3
-                arrangeTopAndBottomLines(firstTopLineFlag: false, secondTopLineFlag: true, thirdTopLineFlag: true, firstBottomLineFlag: false, secondBottomLineFlag: false, thirdBottomLineFlag: false)
+                setPositionIndex(noteIndex:noteIndex,positionIndex:3)
+
             case "C6":
                 position = 0.332          //4
-                arrangeTopAndBottomLines(firstTopLineFlag: false, secondTopLineFlag: true, thirdTopLineFlag: true, firstBottomLineFlag: false, secondBottomLineFlag: false, thirdBottomLineFlag: false)
+                setPositionIndex(noteIndex:noteIndex,positionIndex:4)
+
             case "H5":
                 position = 0.415          //5
-                arrangeTopAndBottomLines(firstTopLineFlag: false, secondTopLineFlag: false, thirdTopLineFlag: true, firstBottomLineFlag: false, secondBottomLineFlag: false, thirdBottomLineFlag: false)
+                setPositionIndex(noteIndex:noteIndex,positionIndex:5)
+
             case "C4":
                 position = 0.504          //6 *
-                arrangeTopAndBottomLines(firstTopLineFlag: false, secondTopLineFlag: false, thirdTopLineFlag: true, firstBottomLineFlag: false, secondBottomLineFlag: false, thirdBottomLineFlag: false)
+                setPositionIndex(noteIndex:noteIndex,positionIndex:6)
+
             case "H3":
                 position = 0.588          //7 *
-                arrangeTopAndBottomLines(firstTopLineFlag: false, secondTopLineFlag: false, thirdTopLineFlag: false, firstBottomLineFlag: false, secondBottomLineFlag: false, thirdBottomLineFlag: false)
+                setPositionIndex(noteIndex:noteIndex,positionIndex:7)
+
             case "A3":
                 position = 0.671          //8 *
-                arrangeTopAndBottomLines(firstTopLineFlag: false, secondTopLineFlag: false, thirdTopLineFlag: false, firstBottomLineFlag: false, secondBottomLineFlag: false, thirdBottomLineFlag: false)
+                setPositionIndex(noteIndex:noteIndex,positionIndex:8)
+
             case "F3":
                 position = 0.837          //10
-                arrangeTopAndBottomLines(firstTopLineFlag: false, secondTopLineFlag: false, thirdTopLineFlag: false, firstBottomLineFlag: false, secondBottomLineFlag: false, thirdBottomLineFlag: false)
+                setPositionIndex(noteIndex:noteIndex,positionIndex:10)
+
             case "F2":
                 position = 1.418          //17  *
-                arrangeTopAndBottomLines(firstTopLineFlag: false, secondTopLineFlag: false, thirdTopLineFlag: false, firstBottomLineFlag: false, secondBottomLineFlag: false, thirdBottomLineFlag: false)
+                setPositionIndex(noteIndex:noteIndex,positionIndex:17)
+
             case "E2":
                 position = 1.501          //18
-                arrangeTopAndBottomLines(firstTopLineFlag: false, secondTopLineFlag: false, thirdTopLineFlag: false, firstBottomLineFlag: true, secondBottomLineFlag: false, thirdBottomLineFlag: false)
+                setPositionIndex(noteIndex:noteIndex,positionIndex:18)
+
             case "G3":
                 position = 0.754          //9 *
-                arrangeTopAndBottomLines(firstTopLineFlag: false, secondTopLineFlag: false, thirdTopLineFlag: false, firstBottomLineFlag: false, secondBottomLineFlag: false, thirdBottomLineFlag: false)
+                setPositionIndex(noteIndex:noteIndex,positionIndex:9)
+
             case "E3":
                 position = 0.920          //11 *
-                arrangeTopAndBottomLines(firstTopLineFlag: false, secondTopLineFlag: false, thirdTopLineFlag: false, firstBottomLineFlag: false, secondBottomLineFlag: false, thirdBottomLineFlag: false)
+                setPositionIndex(noteIndex:noteIndex,positionIndex:11)
+
             case "D3":
                 position = 1.003          //12 *
-                arrangeTopAndBottomLines(firstTopLineFlag: false, secondTopLineFlag: false, thirdTopLineFlag: false, firstBottomLineFlag: false, secondBottomLineFlag: false, thirdBottomLineFlag: false)
+                setPositionIndex(noteIndex:noteIndex,positionIndex:12)
+
             case "H2":
                 position = 1.169          //14 *
-                arrangeTopAndBottomLines(firstTopLineFlag: false, secondTopLineFlag: false, thirdTopLineFlag: false, firstBottomLineFlag: false, secondBottomLineFlag: false, thirdBottomLineFlag: false)
+                setPositionIndex(noteIndex:noteIndex,positionIndex:14)
+
             case "A2":
                 position = 1.252          //15 *
-                arrangeTopAndBottomLines(firstTopLineFlag: false, secondTopLineFlag: false, thirdTopLineFlag: false, firstBottomLineFlag: false, secondBottomLineFlag: false, thirdBottomLineFlag: false)
+                setPositionIndex(noteIndex:noteIndex,positionIndex:15)
+
             case "G2":
                 position = 1.335          //16 *
-                arrangeTopAndBottomLines(firstTopLineFlag: false, secondTopLineFlag: false, thirdTopLineFlag: false, firstBottomLineFlag: false, secondBottomLineFlag: false, thirdBottomLineFlag: false)
+                setPositionIndex(noteIndex:noteIndex,positionIndex:16)
+
             case "D2":
                 position = 1.584         //19 *
-                arrangeTopAndBottomLines(firstTopLineFlag: false, secondTopLineFlag: false, thirdTopLineFlag: false, firstBottomLineFlag: true, secondBottomLineFlag: false, thirdBottomLineFlag: false)
+                setPositionIndex(noteIndex:noteIndex,positionIndex:19)
+
             case "A1":
                 position = 1.833           //22 *
-                arrangeTopAndBottomLines(firstTopLineFlag: false, secondTopLineFlag: false, thirdTopLineFlag: false, firstBottomLineFlag: true, secondBottomLineFlag: true, thirdBottomLineFlag: true)
+                setPositionIndex(noteIndex:noteIndex,positionIndex:22)
+
             case "C3":
                 position = 1.086          //13 *
-                arrangeTopAndBottomLines(firstTopLineFlag: false, secondTopLineFlag: false, thirdTopLineFlag: false, firstBottomLineFlag: false, secondBottomLineFlag: false, thirdBottomLineFlag: false)
+                setPositionIndex(noteIndex:noteIndex,positionIndex:13)
+
             case "H1":
                 position = 1.750          //21 *
-                arrangeTopAndBottomLines(firstTopLineFlag: false, secondTopLineFlag: false, thirdTopLineFlag: false, firstBottomLineFlag: true, secondBottomLineFlag: true, thirdBottomLineFlag: false)
+                setPositionIndex(noteIndex:noteIndex,positionIndex:21)
+
             case "C2":
                 position = 1.667           //20 *
-                arrangeTopAndBottomLines(firstTopLineFlag: false, secondTopLineFlag: false, thirdTopLineFlag: false, firstBottomLineFlag: true, secondBottomLineFlag: true, thirdBottomLineFlag: false)
+                setPositionIndex(noteIndex:noteIndex,positionIndex:20)
+
             case "G1":
                 position = 1.833          //23 *
-                arrangeTopAndBottomLines(firstTopLineFlag: false, secondTopLineFlag: false, thirdTopLineFlag: false, firstBottomLineFlag: true, secondBottomLineFlag: true, thirdBottomLineFlag: true)
+                setPositionIndex(noteIndex:noteIndex,positionIndex:23)
+
             default:
                 position = -10          //24  //F1  4 lines required
-                arrangeTopAndBottomLines(firstTopLineFlag: false, secondTopLineFlag: false, thirdTopLineFlag: false, firstBottomLineFlag: false, secondBottomLineFlag: false, thirdBottomLineFlag: false)
+
             }
+
+
+
+            //playSound
+            sound.playSound(SoundFile(soundName: soundFileName, soundType: "aif"))
+            //newGameVC.newGame.sound.playSound(SoundFile(soundName: "correct", soundType: "mp3"))
+
 
 
         }
@@ -316,6 +380,90 @@ class TrivNoteView
         noteView.addConstraint(NSLayoutConstraint(item:note, attribute:NSLayoutAttribute.CenterY,relatedBy:NSLayoutRelation.Equal, toItem: noteView,attribute:NSLayoutAttribute.CenterY, multiplier:position, constant:0))
 
          noteView.addConstraint(NSLayoutConstraint(item:sharpFlat, attribute:NSLayoutAttribute.CenterY,relatedBy:NSLayoutRelation.Equal, toItem: noteView,attribute:NSLayoutAttribute.CenterY, multiplier:position, constant:0))
+
+
+        if(noteIndex == 1 && !majorMinorFlag){
+
+            clearUnwantedLines(majorMinorPositionIndex1)
+
+        }
+        else if(noteIndex == 3){
+
+
+            clearUnwantedLines(majorMinorPositionIndex1)
+            clearUnwantedLines(majorMinorPositionIndex2)
+            clearUnwantedLines(majorMinorpositionIndex3)
+
+            majorMinorPositionIndex1=0
+            majorMinorPositionIndex2=0
+            majorMinorpositionIndex3=0
+
+
+
+        }
+
+
+
+
+    }
+
+
+    func clearUnwantedLines(majorMinorPositionIndex:Int){
+
+
+        println("Clear!!!!!!! \(majorMinorPositionIndex)")
+
+
+        switch majorMinorPositionIndex {
+
+        case 3:
+            arrangeTopAndBottomLines(firstTopLineFlag: false, secondTopLineFlag: true, thirdTopLineFlag: true, firstBottomLineFlag: false, secondBottomLineFlag: false, thirdBottomLineFlag: false,noteIndex:majorMinorPositionIndex)
+        case 4:
+            arrangeTopAndBottomLines(firstTopLineFlag: false, secondTopLineFlag: true, thirdTopLineFlag: true, firstBottomLineFlag: false, secondBottomLineFlag: false, thirdBottomLineFlag: false,noteIndex:majorMinorPositionIndex)
+        case 5:
+            arrangeTopAndBottomLines(firstTopLineFlag: false, secondTopLineFlag: false, thirdTopLineFlag: true, firstBottomLineFlag: false, secondBottomLineFlag: false, thirdBottomLineFlag: false,noteIndex:majorMinorPositionIndex)
+        case 6:
+            arrangeTopAndBottomLines(firstTopLineFlag: false, secondTopLineFlag: false, thirdTopLineFlag: true, firstBottomLineFlag: false, secondBottomLineFlag: false, thirdBottomLineFlag: false,noteIndex:majorMinorPositionIndex)
+        case 7:
+            arrangeTopAndBottomLines(firstTopLineFlag: false, secondTopLineFlag: false, thirdTopLineFlag: false, firstBottomLineFlag: false, secondBottomLineFlag: false, thirdBottomLineFlag: false,noteIndex:majorMinorPositionIndex)
+        case 8:
+            arrangeTopAndBottomLines(firstTopLineFlag: false, secondTopLineFlag: false, thirdTopLineFlag: false, firstBottomLineFlag: false, secondBottomLineFlag: false, thirdBottomLineFlag: false,noteIndex:majorMinorPositionIndex)
+        case 9:
+            arrangeTopAndBottomLines(firstTopLineFlag: false, secondTopLineFlag: false, thirdTopLineFlag: false, firstBottomLineFlag: false, secondBottomLineFlag: false, thirdBottomLineFlag: false,noteIndex:majorMinorPositionIndex)
+        case 10:
+            arrangeTopAndBottomLines(firstTopLineFlag: false, secondTopLineFlag: false, thirdTopLineFlag: false, firstBottomLineFlag: false, secondBottomLineFlag: false, thirdBottomLineFlag: false,noteIndex:majorMinorPositionIndex)
+        case 11:
+            arrangeTopAndBottomLines(firstTopLineFlag: false, secondTopLineFlag: false, thirdTopLineFlag: false, firstBottomLineFlag: false, secondBottomLineFlag: false, thirdBottomLineFlag: false,noteIndex:majorMinorPositionIndex)
+        case 12:
+            arrangeTopAndBottomLines(firstTopLineFlag: false, secondTopLineFlag: false, thirdTopLineFlag: false, firstBottomLineFlag: false, secondBottomLineFlag: false, thirdBottomLineFlag: false,noteIndex:majorMinorPositionIndex)
+        case 13:
+            arrangeTopAndBottomLines(firstTopLineFlag: false, secondTopLineFlag: false, thirdTopLineFlag: false, firstBottomLineFlag: false, secondBottomLineFlag: false, thirdBottomLineFlag: false,noteIndex:majorMinorPositionIndex)
+        case 14:
+            arrangeTopAndBottomLines(firstTopLineFlag: false, secondTopLineFlag: false, thirdTopLineFlag: false, firstBottomLineFlag: false, secondBottomLineFlag: false, thirdBottomLineFlag: false,noteIndex:majorMinorPositionIndex)
+        case 15:
+            arrangeTopAndBottomLines(firstTopLineFlag: false, secondTopLineFlag: false, thirdTopLineFlag: false, firstBottomLineFlag: false, secondBottomLineFlag: false, thirdBottomLineFlag: false,noteIndex:majorMinorPositionIndex)
+        case 16:
+            arrangeTopAndBottomLines(firstTopLineFlag: false, secondTopLineFlag: false, thirdTopLineFlag: false, firstBottomLineFlag: false, secondBottomLineFlag: false, thirdBottomLineFlag: false,noteIndex:majorMinorPositionIndex)
+        case 17:
+            arrangeTopAndBottomLines(firstTopLineFlag: false, secondTopLineFlag: false, thirdTopLineFlag: false, firstBottomLineFlag: false, secondBottomLineFlag: false, thirdBottomLineFlag: false,noteIndex:majorMinorPositionIndex)
+        case 18:
+            arrangeTopAndBottomLines(firstTopLineFlag: false, secondTopLineFlag: false, thirdTopLineFlag: false, firstBottomLineFlag: true, secondBottomLineFlag: false, thirdBottomLineFlag: false,noteIndex:majorMinorPositionIndex)
+        case 19:
+            arrangeTopAndBottomLines(firstTopLineFlag: false, secondTopLineFlag: false, thirdTopLineFlag: false, firstBottomLineFlag: true, secondBottomLineFlag: false, thirdBottomLineFlag: false,noteIndex:majorMinorPositionIndex)
+        case 20:
+            arrangeTopAndBottomLines(firstTopLineFlag: false, secondTopLineFlag: false, thirdTopLineFlag: false, firstBottomLineFlag: true, secondBottomLineFlag: true, thirdBottomLineFlag: false,noteIndex:majorMinorPositionIndex)
+        case 21:
+            arrangeTopAndBottomLines(firstTopLineFlag: false, secondTopLineFlag: false, thirdTopLineFlag: false, firstBottomLineFlag: true, secondBottomLineFlag: true, thirdBottomLineFlag: false,noteIndex:majorMinorPositionIndex)
+        case 22:
+            arrangeTopAndBottomLines(firstTopLineFlag: false, secondTopLineFlag: false, thirdTopLineFlag: false, firstBottomLineFlag: true, secondBottomLineFlag: true, thirdBottomLineFlag: true,noteIndex:majorMinorPositionIndex)
+        case 23:
+            arrangeTopAndBottomLines(firstTopLineFlag: false, secondTopLineFlag: false, thirdTopLineFlag: false, firstBottomLineFlag: true, secondBottomLineFlag: true, thirdBottomLineFlag: true,noteIndex:majorMinorPositionIndex)
+
+        default:
+            println()
+
+        }
+
 
     }
 
@@ -342,9 +490,9 @@ class TrivNoteView
     }
 
 
-    func arrangeTopAndBottomLines(#firstTopLineFlag:Bool,secondTopLineFlag:Bool,thirdTopLineFlag:Bool,firstBottomLineFlag:Bool,secondBottomLineFlag:Bool,thirdBottomLineFlag:Bool){
+    func arrangeTopAndBottomLines(#firstTopLineFlag:Bool,secondTopLineFlag:Bool,thirdTopLineFlag:Bool,firstBottomLineFlag:Bool,secondBottomLineFlag:Bool,thirdBottomLineFlag:Bool,noteIndex:Int){
 
-        if(currentNoteIndex == 1){
+
 
 
             //for top extra lines
@@ -392,8 +540,139 @@ class TrivNoteView
                 newGameVC.thirdBottomLine.hidden = false
             }
             
-        }
         
+        
+    }
+
+
+    func getSoundFileNameFromQuestionContent(#questionContent:String)->String{
+
+        var sharpFloatValueFound:Bool = false
+        var currentNoteValue:String = ""
+        var questionContentLenght:Int = (questionContent).utf16Count
+        if(questionContentLenght==2){
+            //normal note
+
+            //decide sound file name
+            var octavCharacter:String =  String(Array(questionContent)[1])
+            var currentNoteCharacter:String =  String(Array(questionContent)[0])
+
+            if(currentNoteCharacter == "H"){
+                currentNoteCharacter = "B"
+            }
+
+             currentNoteValue =  currentNoteCharacter+octavCharacter
+
+
+        }
+        else{
+
+
+            // we have flat or sharp
+            var octavCharacter:String =  String(Array(questionContent)[2])
+            var currentNoteCharacter:String =  String(Array(questionContent)[0])+String(Array(questionContent)[1])
+            var sharpFlatValue:String = String(Array(questionContent)[1])
+
+            if(currentNoteCharacter == "H"){
+                currentNoteCharacter = "B"
+            }
+
+            //for sharp value
+            if(sharpFlatValue == "#"){
+
+                //search for sharp value
+                for currentNoteCharacterCounter in 0..<noteArray.count {
+
+                    if(noteArray[currentNoteCharacterCounter] == currentNoteCharacter){
+                        ////println("currentNoteCharacter = \(currentNoteCharacter) and currentNoteValue = \(currentNoteCharacterCounter)")
+                        currentNoteValue = noteArray[currentNoteCharacterCounter]+octavCharacter
+                        sharpFloatValueFound=true
+                        break
+                    }
+                }
+
+
+                if(!sharpFloatValueFound){
+
+                    // still search for sharp value
+                    currentNoteCharacter = String(Array(questionContent)[0])
+
+                    for currentNoteCharacterCounter in 0..<noteArray.count {
+
+                        if(noteArray[currentNoteCharacterCounter] == currentNoteCharacter){
+                            ////println("currentNoteCharacter = \(currentNoteCharacter) and currentNoteValue = \(currentNoteCharacterCounter)")
+
+                            if(currentNoteCharacterCounter == noteArray.count-1 ){
+                                currentNoteCharacter = noteArray[0]
+                                octavCharacter = String(octavCharacter.toInt()!+1)
+                            }else{
+
+                                currentNoteCharacter = noteArray[currentNoteCharacterCounter+1]
+
+                            }
+
+                            currentNoteValue = currentNoteCharacter+octavCharacter
+                            
+                            break
+                        }
+                    }
+                }
+                
+            }
+            else{
+                //for flat value
+
+                currentNoteCharacter = String(Array(questionContent)[0])
+
+                for currentNoteCharacterCounter in 0..<noteArray.count {
+
+                    if(noteArray[currentNoteCharacterCounter] == currentNoteCharacter){
+                        ////println("currentNoteCharacter = \(currentNoteCharacter) and currentNoteValue = \(currentNoteCharacterCounter)")
+
+                        if(currentNoteCharacterCounter == 0 ){
+                            currentNoteCharacter = noteArray[noteArray.count-1]
+                            octavCharacter = String(octavCharacter.toInt()!-1)
+                        }else{
+
+                            currentNoteCharacter = noteArray[currentNoteCharacterCounter-1]
+
+                        }
+
+                        currentNoteValue = currentNoteCharacter+octavCharacter
+
+                        break
+                    }
+                }
+
+
+            }
+        
+
+
+        }
+
+        return currentNoteValue
+    }
+
+
+    func setPositionIndex(#noteIndex:Int,positionIndex:Int){
+
+        if(noteIndex == 1){
+
+            majorMinorPositionIndex1 = positionIndex
+
+        }
+        else if(noteIndex == 2){
+
+             majorMinorPositionIndex2 = positionIndex
+
+        }
+        else{
+
+            majorMinorpositionIndex3 = positionIndex
+
+        }
+
     }
 
 
