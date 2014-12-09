@@ -47,16 +47,16 @@ class TrivNoteView
         var questionContent = questionContent
 
 
-        println("clefType: \(clefType)")
-        println("sharpFlatValue: \(sharpFlatValue)")
-        println("questionContent= \(questionContent)")
+        //println("clefType: \(clefType)")
+        //println("sharpFlatValue: \(sharpFlatValue)")
+       // println("questionContent= \(questionContent)")
 
         var soundFileName = getSoundFileNameFromQuestionContent(questionContent:questionContent)
 
         soundFileName = soundFileName.stringByReplacingOccurrencesOfString("H", withString: "B", options: nil, range: nil)
 
 
-        println("soundFileName=\(soundFileName)")
+        //println("soundFileName=\(soundFileName)")
 
 
         if(majorMinorFlag || noteIndex==1){
@@ -86,10 +86,6 @@ class TrivNoteView
         noteView.addSubview(note)
         noteView.addSubview(sharpFlat)
 
-        // dnoteView.alpha  = 0.5
-
-        // println(" (secondNoteLine.X)=\(secondNoteLine.bounds.origin.x)")
-        println(" (secondNoteLine.maxY)=\(newGameVC.secondNoteLine.frame.maxY)")
 
         var noteHeight = height*(46/1136)
 
@@ -402,9 +398,6 @@ class TrivNoteView
 
         }
 
-
-
-
     }
 
 
@@ -495,53 +488,97 @@ class TrivNoteView
 
 
 
-            //for top extra lines
-            if(!firstTopLineFlag){
+        //for top extra lines
+        if(!firstTopLineFlag){
+
+            // check there is a note on this line or not
+            if(majorMinorPositionIndex1 != 2 && majorMinorPositionIndex2 != 2 && majorMinorpositionIndex3 != 3){
+
                 newGameVC.firstTopLine.hidden = true
-            }
-            else{
-                newGameVC.firstTopLine.hidden = false
+
             }
 
-            if(!secondTopLineFlag){
+        }
+        else{
+            newGameVC.firstTopLine.hidden = false
+        }
+
+        if(!secondTopLineFlag){
+
+            // check there is a note on this line or not
+            if(majorMinorPositionIndex1 != 4 && majorMinorPositionIndex2 != 4 && majorMinorpositionIndex3 != 4){
+
                 newGameVC.secondTopLine.hidden = true
-            }
-            else{
-                newGameVC.secondTopLine.hidden = false
+                
             }
 
-            if(!thirdTopLineFlag){
+        }
+        else{
+            newGameVC.secondTopLine.hidden = false
+        }
+
+        if(!thirdTopLineFlag){
+
+
+            // check there is a note on this line or not
+            if(majorMinorPositionIndex1 != 6 && majorMinorPositionIndex2 != 6 && majorMinorpositionIndex3 != 6){
+
                 newGameVC.thirdTopLine.hidden = true
-            }
-            else{
-                newGameVC.thirdTopLine.hidden = false
+
             }
 
-            //for bottom extra lines
+        }
+        else{
+            newGameVC.thirdTopLine.hidden = false
+        }
 
-            if(!firstBottomLineFlag){
+        //for bottom extra lines
+
+        if(!firstBottomLineFlag){
+
+            // check there is a note on this line or not
+            if(majorMinorPositionIndex1 != 18 && majorMinorPositionIndex2 != 18 && majorMinorpositionIndex3 != 18){
+
                 newGameVC.firstBottomLine.hidden = true
-            }
-            else{
-                newGameVC.firstBottomLine.hidden = false
+                
             }
 
-            if(!secondBottomLineFlag){
+
+        }
+        else{
+            newGameVC.firstBottomLine.hidden = false
+        }
+
+        if(!secondBottomLineFlag){
+
+            // check there is a note on this line or not
+            if(majorMinorPositionIndex1 != 20 && majorMinorPositionIndex2 != 20 && majorMinorpositionIndex3 != 20){
+
                 newGameVC.secondBottomLine.hidden = true
-            }
-            else{
-                newGameVC.secondBottomLine.hidden = false
+
             }
 
-            if(!thirdBottomLineFlag){
-                newGameVC.thirdBottomLine.hidden = true
+
+        }
+        else{
+            newGameVC.secondBottomLine.hidden = false
+        }
+
+        if(!thirdBottomLineFlag){
+
+            // check there is a note on this line or not
+            if(majorMinorPositionIndex1 != 22 && majorMinorPositionIndex2 != 22 && majorMinorpositionIndex3 != 22){
+
+                 newGameVC.thirdBottomLine.hidden = true
+                
             }
-            else{
-                newGameVC.thirdBottomLine.hidden = false
-            }
-            
-        
-        
+
+        }
+        else{
+            newGameVC.thirdBottomLine.hidden = false
+        }
+
+
     }
 
 
@@ -644,10 +681,7 @@ class TrivNoteView
                     }
                 }
 
-
             }
-        
-
 
         }
 

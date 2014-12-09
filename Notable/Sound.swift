@@ -51,14 +51,6 @@ class Sound
         
         //println("in playSound!!")
 
-
-        // for catching exception about missin file
-        if(soundFile.soundName == "B1" || soundFile.soundName == "A1"){
-
-            soundFile.soundName = "C4"
-
-        }
-
         println("soundFileName = \(soundFile.soundName) soundType:\(soundFile.soundType)")
         
         var soundURL = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource(soundFile.soundName, ofType: soundFile.soundType)!)

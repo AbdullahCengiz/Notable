@@ -333,10 +333,10 @@ class TrivQuiz
                 trivNoteView.addNote(questionContent:questions![currentQuestion].questionContent! , clefType:questions![currentQuestion].questionClefType! , sharpFlatValue: currentSharpFlatValue,majorMinorFlag: true,noteIndex:1)
             }
             else {
-                //getNoteSoundFromQuestionContent("A2")
-               //getNoteSoundFromQuestionContent(questions![currentQuestion].questionContent!)
-                getNoteSoundFromQuestionContent("G2|Hb2|D3")
+               getNoteSoundFromQuestionContent(questions![currentQuestion].questionContent!)
+               //getNoteSoundFromQuestionContent("G2|Hb2|D3")
 
+                println("QuestionContent!!!!!!!!!!!!!!!!!!!! : \(questions![currentQuestion].questionContent!)")
             }
 
 
@@ -531,8 +531,7 @@ class TrivQuiz
         if(!majorMinorFound){
             currentNote = getCurrentNoteValue(octav:currentOctav, noteValue:currentNoteValue.toInt()!, sharpFlatValue:currentSharpFlatValue )
 
-            println("currentSharpFlatValue= \(currentSharpFlatValue)")
-            println("Will play note \(questionContent) and noteId = \(currentNote)")
+            //println("currentSharpFlatValue= \(currentSharpFlatValue)")
 
             if(countElements(questions![currentQuestion].questionContent!) < 4){
                 trivNoteView.addNote(questionContent:questions![currentQuestion].questionContent! , clefType:questions![currentQuestion].questionClefType! , sharpFlatValue: currentSharpFlatValue,majorMinorFlag: false,noteIndex:1)
@@ -540,7 +539,7 @@ class TrivQuiz
 
 
             
-            println("Will play note \(questionContent) and noteId = \(currentNote)")
+            //println("Will play note \(questionContent) and noteId = \(currentNote)")
 
             //playNote(currentNote)
             //majorMinorFound=false
@@ -664,7 +663,20 @@ class TrivQuiz
             questions!.removeAtIndex(currentQuestion)
 
             //prepares gameview for next question
-            prepareGame(currentQuestion)
+
+            if(currentQuestion+1 < questions!.count-1){
+
+                prepareGame(currentQuestion)
+
+            }
+            else{
+
+                prepareGame(0)
+
+            }
+
+
+
 
         } else {
 
