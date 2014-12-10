@@ -22,6 +22,8 @@ class TrivNoteView
     var newGameVC:NewGameViewController!
     var position:CGFloat!
     var sound:Sound!
+    var soundFileName:String!
+    var soundFileName1 = "",soundFileName2 = "",soundFileName3 = ""
 
     var majorMinorPositionIndex1 = 0,majorMinorPositionIndex2 = 0,majorMinorpositionIndex3 = 0
 
@@ -51,16 +53,35 @@ class TrivNoteView
         //println("sharpFlatValue: \(sharpFlatValue)")
        // println("questionContent= \(questionContent)")
 
-        var soundFileName = getSoundFileNameFromQuestionContent(questionContent:questionContent)
+        soundFileName = getSoundFileNameFromQuestionContent(questionContent:questionContent)
 
         soundFileName = soundFileName.stringByReplacingOccurrencesOfString("H", withString: "B", options: nil, range: nil)
+
+        //set question soundfilenames
+        if(noteIndex == 1){
+
+            soundFileName1 = soundFileName
+
+        }
+        else if (noteIndex == 2){
+
+            soundFileName2 = soundFileName
+
+        }
+        else if(noteIndex == 3){
+
+            soundFileName3 = soundFileName
+
+        }
 
 
         //println("soundFileName=\(soundFileName)")
 
 
-        if(majorMinorFlag || noteIndex==1){
+        if(!majorMinorFlag || noteIndex==1){
             clearAllScrollNotes() //reset noteView
+            resetMajorMinorValues()
+            arrangeTopAndBottomLines(firstTopLineFlag: false, secondTopLineFlag: false, thirdTopLineFlag: false, firstBottomLineFlag: false, secondBottomLineFlag: false, thirdBottomLineFlag: false)
             println("drawing \(questionContent)")
         }
         else{
@@ -91,7 +112,7 @@ class TrivNoteView
 
         noteView.addConstraint(NSLayoutConstraint(item:note, attribute:NSLayoutAttribute.Height,relatedBy:NSLayoutRelation.Equal, toItem: noteView,attribute:NSLayoutAttribute.Height, multiplier:(0.083), constant:0))
 
-        noteView.addConstraint(NSLayoutConstraint(item:sharpFlat, attribute:NSLayoutAttribute.Height,relatedBy:NSLayoutRelation.Equal, toItem: nil,attribute:NSLayoutAttribute.NotAnAttribute, multiplier:(0.012), constant:30))
+        noteView.addConstraint(NSLayoutConstraint(item:sharpFlat, attribute:NSLayoutAttribute.Height,relatedBy:NSLayoutRelation.Equal, toItem: nil,attribute:NSLayoutAttribute.NotAnAttribute, multiplier:(0.008), constant:30))
 
 
         var noteHeightConstraint = NSLayoutConstraint(item: note, attribute: NSLayoutAttribute.Width, relatedBy: NSLayoutRelation.Equal, toItem: note, attribute: NSLayoutAttribute.Height, multiplier: 700/442, constant: 0)
@@ -104,7 +125,7 @@ class TrivNoteView
         noteView.addConstraint(NSLayoutConstraint(
             item:note, attribute:.CenterX,
             relatedBy:.Equal, toItem:noteView,
-            attribute:.CenterX, multiplier:1, constant:0))
+            attribute:.CenterX, multiplier:0.66, constant:0))
 
         noteView.addConstraint(NSLayoutConstraint(
             item:sharpFlat, attribute:NSLayoutAttribute.Trailing,
@@ -368,6 +389,8 @@ class TrivNoteView
 
             newGameVC.questionPictureImage.image = UIImage(named: questionContent)
 
+            newGameVC.newGame.lockButtons(false)
+
         }
 
 
@@ -382,6 +405,9 @@ class TrivNoteView
 
             clearUnwantedLines(majorMinorPositionIndex1)
 
+            //unlock choice buttons
+            newGameVC.newGame.lockButtons(false)
+
         }
         else if(noteIndex == 3){
 
@@ -390,14 +416,23 @@ class TrivNoteView
             clearUnwantedLines(majorMinorPositionIndex2)
             clearUnwantedLines(majorMinorpositionIndex3)
 
-            majorMinorPositionIndex1=0
-            majorMinorPositionIndex2=0
-            majorMinorpositionIndex3=0
 
+
+            //unlock choice buttons
+            newGameVC.newGame.lockButtons(false)
+            resetMajorMinorValues()
 
 
         }
 
+    }
+
+
+    func resetMajorMinorValues(){
+
+        majorMinorPositionIndex1=0
+        majorMinorPositionIndex2=0
+        majorMinorpositionIndex3=0
     }
 
 
@@ -410,47 +445,47 @@ class TrivNoteView
         switch majorMinorPositionIndex {
 
         case 3:
-            arrangeTopAndBottomLines(firstTopLineFlag: false, secondTopLineFlag: true, thirdTopLineFlag: true, firstBottomLineFlag: false, secondBottomLineFlag: false, thirdBottomLineFlag: false,noteIndex:majorMinorPositionIndex)
+            arrangeTopAndBottomLines(firstTopLineFlag: false, secondTopLineFlag: true, thirdTopLineFlag: true, firstBottomLineFlag: false, secondBottomLineFlag: false, thirdBottomLineFlag: false)
         case 4:
-            arrangeTopAndBottomLines(firstTopLineFlag: false, secondTopLineFlag: true, thirdTopLineFlag: true, firstBottomLineFlag: false, secondBottomLineFlag: false, thirdBottomLineFlag: false,noteIndex:majorMinorPositionIndex)
+            arrangeTopAndBottomLines(firstTopLineFlag: false, secondTopLineFlag: true, thirdTopLineFlag: true, firstBottomLineFlag: false, secondBottomLineFlag: false, thirdBottomLineFlag: false)
         case 5:
-            arrangeTopAndBottomLines(firstTopLineFlag: false, secondTopLineFlag: false, thirdTopLineFlag: true, firstBottomLineFlag: false, secondBottomLineFlag: false, thirdBottomLineFlag: false,noteIndex:majorMinorPositionIndex)
+            arrangeTopAndBottomLines(firstTopLineFlag: false, secondTopLineFlag: false, thirdTopLineFlag: true, firstBottomLineFlag: false, secondBottomLineFlag: false, thirdBottomLineFlag: false)
         case 6:
-            arrangeTopAndBottomLines(firstTopLineFlag: false, secondTopLineFlag: false, thirdTopLineFlag: true, firstBottomLineFlag: false, secondBottomLineFlag: false, thirdBottomLineFlag: false,noteIndex:majorMinorPositionIndex)
+            arrangeTopAndBottomLines(firstTopLineFlag: false, secondTopLineFlag: false, thirdTopLineFlag: true, firstBottomLineFlag: false, secondBottomLineFlag: false, thirdBottomLineFlag: false)
         case 7:
-            arrangeTopAndBottomLines(firstTopLineFlag: false, secondTopLineFlag: false, thirdTopLineFlag: false, firstBottomLineFlag: false, secondBottomLineFlag: false, thirdBottomLineFlag: false,noteIndex:majorMinorPositionIndex)
+            arrangeTopAndBottomLines(firstTopLineFlag: false, secondTopLineFlag: false, thirdTopLineFlag: false, firstBottomLineFlag: false, secondBottomLineFlag: false, thirdBottomLineFlag: false)
         case 8:
-            arrangeTopAndBottomLines(firstTopLineFlag: false, secondTopLineFlag: false, thirdTopLineFlag: false, firstBottomLineFlag: false, secondBottomLineFlag: false, thirdBottomLineFlag: false,noteIndex:majorMinorPositionIndex)
+            arrangeTopAndBottomLines(firstTopLineFlag: false, secondTopLineFlag: false, thirdTopLineFlag: false, firstBottomLineFlag: false, secondBottomLineFlag: false, thirdBottomLineFlag: false)
         case 9:
-            arrangeTopAndBottomLines(firstTopLineFlag: false, secondTopLineFlag: false, thirdTopLineFlag: false, firstBottomLineFlag: false, secondBottomLineFlag: false, thirdBottomLineFlag: false,noteIndex:majorMinorPositionIndex)
+            arrangeTopAndBottomLines(firstTopLineFlag: false, secondTopLineFlag: false, thirdTopLineFlag: false, firstBottomLineFlag: false, secondBottomLineFlag: false, thirdBottomLineFlag: false)
         case 10:
-            arrangeTopAndBottomLines(firstTopLineFlag: false, secondTopLineFlag: false, thirdTopLineFlag: false, firstBottomLineFlag: false, secondBottomLineFlag: false, thirdBottomLineFlag: false,noteIndex:majorMinorPositionIndex)
+            arrangeTopAndBottomLines(firstTopLineFlag: false, secondTopLineFlag: false, thirdTopLineFlag: false, firstBottomLineFlag: false, secondBottomLineFlag: false, thirdBottomLineFlag: false)
         case 11:
-            arrangeTopAndBottomLines(firstTopLineFlag: false, secondTopLineFlag: false, thirdTopLineFlag: false, firstBottomLineFlag: false, secondBottomLineFlag: false, thirdBottomLineFlag: false,noteIndex:majorMinorPositionIndex)
+            arrangeTopAndBottomLines(firstTopLineFlag: false, secondTopLineFlag: false, thirdTopLineFlag: false, firstBottomLineFlag: false, secondBottomLineFlag: false, thirdBottomLineFlag: false)
         case 12:
-            arrangeTopAndBottomLines(firstTopLineFlag: false, secondTopLineFlag: false, thirdTopLineFlag: false, firstBottomLineFlag: false, secondBottomLineFlag: false, thirdBottomLineFlag: false,noteIndex:majorMinorPositionIndex)
+            arrangeTopAndBottomLines(firstTopLineFlag: false, secondTopLineFlag: false, thirdTopLineFlag: false, firstBottomLineFlag: false, secondBottomLineFlag: false, thirdBottomLineFlag: false)
         case 13:
-            arrangeTopAndBottomLines(firstTopLineFlag: false, secondTopLineFlag: false, thirdTopLineFlag: false, firstBottomLineFlag: false, secondBottomLineFlag: false, thirdBottomLineFlag: false,noteIndex:majorMinorPositionIndex)
+            arrangeTopAndBottomLines(firstTopLineFlag: false, secondTopLineFlag: false, thirdTopLineFlag: false, firstBottomLineFlag: false, secondBottomLineFlag: false, thirdBottomLineFlag: false)
         case 14:
-            arrangeTopAndBottomLines(firstTopLineFlag: false, secondTopLineFlag: false, thirdTopLineFlag: false, firstBottomLineFlag: false, secondBottomLineFlag: false, thirdBottomLineFlag: false,noteIndex:majorMinorPositionIndex)
+            arrangeTopAndBottomLines(firstTopLineFlag: false, secondTopLineFlag: false, thirdTopLineFlag: false, firstBottomLineFlag: false, secondBottomLineFlag: false, thirdBottomLineFlag: false)
         case 15:
-            arrangeTopAndBottomLines(firstTopLineFlag: false, secondTopLineFlag: false, thirdTopLineFlag: false, firstBottomLineFlag: false, secondBottomLineFlag: false, thirdBottomLineFlag: false,noteIndex:majorMinorPositionIndex)
+            arrangeTopAndBottomLines(firstTopLineFlag: false, secondTopLineFlag: false, thirdTopLineFlag: false, firstBottomLineFlag: false, secondBottomLineFlag: false, thirdBottomLineFlag: false)
         case 16:
-            arrangeTopAndBottomLines(firstTopLineFlag: false, secondTopLineFlag: false, thirdTopLineFlag: false, firstBottomLineFlag: false, secondBottomLineFlag: false, thirdBottomLineFlag: false,noteIndex:majorMinorPositionIndex)
+            arrangeTopAndBottomLines(firstTopLineFlag: false, secondTopLineFlag: false, thirdTopLineFlag: false, firstBottomLineFlag: false, secondBottomLineFlag: false, thirdBottomLineFlag: false)
         case 17:
-            arrangeTopAndBottomLines(firstTopLineFlag: false, secondTopLineFlag: false, thirdTopLineFlag: false, firstBottomLineFlag: false, secondBottomLineFlag: false, thirdBottomLineFlag: false,noteIndex:majorMinorPositionIndex)
+            arrangeTopAndBottomLines(firstTopLineFlag: false, secondTopLineFlag: false, thirdTopLineFlag: false, firstBottomLineFlag: false, secondBottomLineFlag: false, thirdBottomLineFlag: false)
         case 18:
-            arrangeTopAndBottomLines(firstTopLineFlag: false, secondTopLineFlag: false, thirdTopLineFlag: false, firstBottomLineFlag: true, secondBottomLineFlag: false, thirdBottomLineFlag: false,noteIndex:majorMinorPositionIndex)
+            arrangeTopAndBottomLines(firstTopLineFlag: false, secondTopLineFlag: false, thirdTopLineFlag: false, firstBottomLineFlag: true, secondBottomLineFlag: false, thirdBottomLineFlag: false)
         case 19:
-            arrangeTopAndBottomLines(firstTopLineFlag: false, secondTopLineFlag: false, thirdTopLineFlag: false, firstBottomLineFlag: true, secondBottomLineFlag: false, thirdBottomLineFlag: false,noteIndex:majorMinorPositionIndex)
+            arrangeTopAndBottomLines(firstTopLineFlag: false, secondTopLineFlag: false, thirdTopLineFlag: false, firstBottomLineFlag: true, secondBottomLineFlag: false, thirdBottomLineFlag: false)
         case 20:
-            arrangeTopAndBottomLines(firstTopLineFlag: false, secondTopLineFlag: false, thirdTopLineFlag: false, firstBottomLineFlag: true, secondBottomLineFlag: true, thirdBottomLineFlag: false,noteIndex:majorMinorPositionIndex)
+            arrangeTopAndBottomLines(firstTopLineFlag: false, secondTopLineFlag: false, thirdTopLineFlag: false, firstBottomLineFlag: true, secondBottomLineFlag: true, thirdBottomLineFlag: false)
         case 21:
-            arrangeTopAndBottomLines(firstTopLineFlag: false, secondTopLineFlag: false, thirdTopLineFlag: false, firstBottomLineFlag: true, secondBottomLineFlag: true, thirdBottomLineFlag: false,noteIndex:majorMinorPositionIndex)
+            arrangeTopAndBottomLines(firstTopLineFlag: false, secondTopLineFlag: false, thirdTopLineFlag: false, firstBottomLineFlag: true, secondBottomLineFlag: true, thirdBottomLineFlag: false)
         case 22:
-            arrangeTopAndBottomLines(firstTopLineFlag: false, secondTopLineFlag: false, thirdTopLineFlag: false, firstBottomLineFlag: true, secondBottomLineFlag: true, thirdBottomLineFlag: true,noteIndex:majorMinorPositionIndex)
+            arrangeTopAndBottomLines(firstTopLineFlag: false, secondTopLineFlag: false, thirdTopLineFlag: false, firstBottomLineFlag: true, secondBottomLineFlag: true, thirdBottomLineFlag: true)
         case 23:
-            arrangeTopAndBottomLines(firstTopLineFlag: false, secondTopLineFlag: false, thirdTopLineFlag: false, firstBottomLineFlag: true, secondBottomLineFlag: true, thirdBottomLineFlag: true,noteIndex:majorMinorPositionIndex)
+            arrangeTopAndBottomLines(firstTopLineFlag: false, secondTopLineFlag: false, thirdTopLineFlag: false, firstBottomLineFlag: true, secondBottomLineFlag: true, thirdBottomLineFlag: true)
 
         default:
             println()
@@ -483,7 +518,7 @@ class TrivNoteView
     }
 
 
-    func arrangeTopAndBottomLines(#firstTopLineFlag:Bool,secondTopLineFlag:Bool,thirdTopLineFlag:Bool,firstBottomLineFlag:Bool,secondBottomLineFlag:Bool,thirdBottomLineFlag:Bool,noteIndex:Int){
+    func arrangeTopAndBottomLines(#firstTopLineFlag:Bool,secondTopLineFlag:Bool,thirdTopLineFlag:Bool,firstBottomLineFlag:Bool,secondBottomLineFlag:Bool,thirdBottomLineFlag:Bool){
 
 
 

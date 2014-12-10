@@ -38,6 +38,7 @@ class CategoriesViewController: UIViewController,UITableViewDelegate ,UITableVie
         self.automaticallyAdjustsScrollViewInsets = false
         
         categoriesTableView.layer.cornerRadius = 4.0
+        categoriesTableView.separatorColor = UIColor.blackColor()
         
         cdHelper = CoreDataHelper()
         

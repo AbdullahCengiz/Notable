@@ -45,6 +45,9 @@ class Sound
 
         
     }
+
+
+
     
     
     func playSound(soundFile:SoundFile){
@@ -83,6 +86,55 @@ class Sound
 
         
     }
+
+
+    func playSound(soundFile:SoundFile,repeat:Bool){
+
+        //println("in playSound!!")
+
+        println("soundFileName = \(soundFile.soundName) soundType:\(soundFile.soundType)")
+
+        var soundURL = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource(soundFile.soundName, ofType: soundFile.soundType)!)
+
+
+
+
+
+
+
+        dispatch_async(dispatch_get_main_queue()) {
+
+            self.audioPlayer = AVAudioPlayer(contentsOfURL: soundURL, error: nil)
+
+
+            if(repeat){
+                self.audioPlayer.numberOfLoops = 5
+            }
+
+
+            self.audioPlayer.volume = self.soundLevelValue
+            self.audioPlayer.prepareToPlay()
+            println(self.audioPlayer.duration)
+            self.audioPlayer.play()
+
+
+
+            if(self.audioPlayer.playing){
+
+                //println("Playing....")
+
+            } else {
+
+                //println("Not playing!!!!!!!!")
+
+            }
+
+
+        }
+
+        
+    }
+
     
     
 }

@@ -46,14 +46,12 @@ var noteLineLandscapeSpace:CGFloat = 0
 let noteLinePortraitIndentation = (((NSUserDefaults.standardUserDefaults().objectForKey("width") as CGFloat)*32)/640)
 let noteLineLandscapeIndentation = (((NSUserDefaults.standardUserDefaults().objectForKey("width") as CGFloat)*32)/640)*1.35
 
-var pointLabel  = UILabel()
 var timer = NSTimer()
 var counter = 0
 var realScore = 0
 var answerStatus : Bool = false
 
 //for passing the variables from MainPageViewController
-var currentQuestion: Int = 0
 var currentOctav:Int = 0
 var currentOctav1:Int = 0
 var currentOctav2:Int = 0
@@ -73,7 +71,6 @@ var currentNote2:Int32 = 0
 var noteArray:[String] = []
 
 var sharpFlatValueNotFound: Bool = true
-var majorMinorFound: Bool = false
 
 var minorOrMajorNoteContentArray:[NSString]!
 
@@ -85,6 +82,10 @@ class TrivQuiz
     var questions : [Question]!
     var cellCounter:Int = 0
     var sound : Sound!
+    var majorMinorFound: Bool = false
+    var currentQuestion: Int = 0
+    var replayMajorMinorFlag:Bool = true
+    var gameType:String = "newGame"
 
 
     init(viewController:NewGameViewController){
@@ -93,6 +94,8 @@ class TrivQuiz
         questions = []
         //creates sound object
         sound = Sound()
+        counter = 0
+        realScore  = 0
         
     }
 
@@ -108,6 +111,11 @@ class TrivQuiz
     }
 
     func initUI(){
+
+        if(gameType=="practice"){
+            newGameVC.pointLabel.hidden = true
+            newGameVC.progressViewContainer.hidden = true
+        }
 
         var numberCircleWidth = (((((NSUserDefaults.standardUserDefaults().objectForKey("height") as CGFloat)*1008)/1136))*42)/1008
 
@@ -146,7 +154,7 @@ class TrivQuiz
         newGameVC.thirdChoiceButton.layer.cornerRadius = 4.0
         newGameVC.fourthChoiceButton.layer.cornerRadius = 4.0
         
-        pointLabel.text = String(counter)
+        newGameVC.pointLabel.text = String(counter)
     }
 
 
@@ -240,7 +248,15 @@ class TrivQuiz
 
     func prepareGame(currentQuestion:Int){
 
+        //lock choice buttons here
+        newGameVC.newGame.lockButtons(true)
+
         // ********!!!change the number of questions here!!!*********
+
+        //reset cell counter
+        if(gameType=="practice"){
+            cellCounter = 0
+        }
 
         if (cellCounter == 10){
 
@@ -250,33 +266,7 @@ class TrivQuiz
 
         }else{
 
-            //////println("questions.count: \(questions!.count)  currentQuestionIndex = \(currentQuestion)")
-            //resets current question
-
-
-            //get question sound
-            ////println("questionContent = \(questions![currentQuestion].questionContent!)")
-            ////println("questionContent = \(questions![currentQuestion].questionAnswer!)")
-
-
-            //call function with question parameter
-
-            /*
-
-            let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
-            dispatch_async(dispatch_get_global_queue(priority, 0)) {
-            // do some task
-            dispatch_async(dispatch_get_main_queue()) {
-            // update some UI
-            //sleep(2)
-            self.playNote(49)
-            }
-            }
-
-            */
-
             println("questionArraySize: \(questions.count) currentQuestionIndex= \(currentQuestion)")
-
             resetQuestion(questions![currentQuestion])
 
             //clears colors of buttons
@@ -344,7 +334,7 @@ class TrivQuiz
 
             //getNoteSoundFromQuestionContent("D3|F3|A3")
 
-            lockButtons(false)
+            //lockButtons(false)
         }
     }
 
@@ -547,11 +537,33 @@ class TrivQuiz
 
     }
 
+
+    @objc func majorMinorSound1(){
+
+        sound.playSound(SoundFile(soundName: trivNoteView.soundFileName1, soundType: "aif"))
+        
+    }
+
+    @objc func majorMinorSound2(){
+
+        sound.playSound(SoundFile(soundName: trivNoteView.soundFileName2, soundType: "aif"))
+
+    }
+
+    @objc func majorMinorSound3(){
+
+        sound.playSound(SoundFile(soundName: trivNoteView.soundFileName3, soundType: "aif"))
+
+        //unlock replay button lock
+        replayMajorMinorFlag = true
+
+    }
+
     @objc func majorMinorSelector1(){
 
         self.getNoteSoundFromQuestionContent(minorOrMajorNoteContentArray[0])
 
-        self.trivNoteView.addNote(questionContent:minorOrMajorNoteContentArray[0] , clefType:self.questions![currentQuestion].questionClefType! , sharpFlatValue: currentSharpFlatValue,majorMinorFlag: false,noteIndex:1)
+        self.trivNoteView.addNote(questionContent:minorOrMajorNoteContentArray[0] , clefType:self.questions![currentQuestion].questionClefType! , sharpFlatValue: currentSharpFlatValue,majorMinorFlag: true,noteIndex:1)
 
 
     }
@@ -560,7 +572,7 @@ class TrivQuiz
     @objc func majorMinorSelector2(){
 
         self.getNoteSoundFromQuestionContent(minorOrMajorNoteContentArray[1])
-        self.trivNoteView.addNote(questionContent:minorOrMajorNoteContentArray[1] , clefType:self.questions![currentQuestion].questionClefType! , sharpFlatValue: currentSharpFlatValue,majorMinorFlag: false,noteIndex:2)
+        self.trivNoteView.addNote(questionContent:minorOrMajorNoteContentArray[1] , clefType:self.questions![currentQuestion].questionClefType! , sharpFlatValue: currentSharpFlatValue,majorMinorFlag: true,noteIndex:2)
 
 
     }
@@ -569,7 +581,7 @@ class TrivQuiz
     @objc func majorMinorSelector3(){
 
         self.getNoteSoundFromQuestionContent(minorOrMajorNoteContentArray[2])
-        self.trivNoteView.addNote(questionContent:minorOrMajorNoteContentArray[2] , clefType:self.questions![currentQuestion].questionClefType! , sharpFlatValue: currentSharpFlatValue,majorMinorFlag: false,noteIndex:3)
+        self.trivNoteView.addNote(questionContent:minorOrMajorNoteContentArray[2] , clefType:self.questions![currentQuestion].questionClefType! , sharpFlatValue: currentSharpFlatValue,majorMinorFlag: true,noteIndex:3)
 
     }
 
@@ -659,20 +671,46 @@ class TrivQuiz
         if(answerStatus){
             //answer is true
 
+            println("currentQuestion: \(currentQuestion) and questionsCount: \(questions.count)")
             //removes current question from questions array
-            questions!.removeAtIndex(currentQuestion)
 
             //prepares gameview for next question
+            questions!.removeAtIndex(currentQuestion)
 
-            if(currentQuestion+1 < questions!.count-1){
+            if(gameType == "practice"){
+                if(questions!.count==0){
 
-                prepareGame(currentQuestion)
+                    newGameVC.endPractice()
 
+                }
+                else{
+
+                    if(currentQuestion+1 < questions!.count-1){
+
+                        prepareGame(currentQuestion)
+
+                    }
+                    else{
+
+                        prepareGame(0)
+                        
+                    }
+
+
+                }
             }
             else{
 
-                prepareGame(0)
+                if(currentQuestion+1 < questions!.count-1){
 
+                    prepareGame(currentQuestion)
+                    
+                }
+                else{
+                    
+                    prepareGame(0)
+                    
+                }
             }
 
 
@@ -698,11 +736,13 @@ class TrivQuiz
 
     @objc func updateRightAnswer(){
 
-        pointLabel.text = String(counter++)
+        counter=counter+5
+
+        newGameVC.pointLabel.text = String(counter)
 
         if(counter==realScore){
 
-            pointLabel.text = String(realScore)
+            newGameVC.pointLabel.text = String(realScore)
 
             //////println("counter = \(counter) realScore = \(realScore)")
 
@@ -718,11 +758,12 @@ class TrivQuiz
 
     @objc func updateWrongAnswer(){
 
-        pointLabel.text = String(counter--)
+        counter=counter-5
+        newGameVC.pointLabel.text = String(counter)
 
         if(counter==realScore){
 
-            pointLabel.text = String(realScore)
+            newGameVC.pointLabel.text = String(realScore)
             //////println("counter = \(counter) realScore = \(realScore)")
             counter=realScore
             timer.invalidate()
@@ -741,7 +782,7 @@ class TrivQuiz
         animation.duration = 0.2
         animation.repeatCount = 3.0
         animation.autoreverses = true
-        pointLabel.layer.addAnimation(animation, forKey: nil)
+        newGameVC.pointLabel.layer.addAnimation(animation, forKey: nil)
     }
 
 
@@ -760,6 +801,25 @@ class TrivQuiz
         playNote(49)
         }
         */
+    }
+
+
+    func playMajorMinorSound(){
+
+        println("play majorMinorSound!!!!!!!!!!!")
+
+        if(replayMajorMinorFlag){
+
+        replayMajorMinorFlag = false
+        var timer1 = NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: Selector("majorMinorSound1"), userInfo: nil, repeats: false)
+
+        var timer2 = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("majorMinorSound2"), userInfo: nil, repeats: false)
+
+        var timer3 = NSTimer.scheduledTimerWithTimeInterval(1.5, target: self, selector: Selector("majorMinorSound3"), userInfo: nil, repeats: false)
+
+        }
+
+
     }
 
 

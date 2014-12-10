@@ -12,7 +12,7 @@ import SpriteKit
 import AVFoundation
 
 
-class NGScore: UIViewController, UITableViewDelegate {
+class NGScore: UIViewController, UITextFieldDelegate {
     
     var delegate: AnyObject?
     var timer:NSTimer!
@@ -45,6 +45,9 @@ class NGScore: UIViewController, UITableViewDelegate {
         super.viewDidLoad()
         congratsView.layer.cornerRadius = 4.0
         sendButton.layer.cornerRadius = 4.0
+
+        nameTextField.delegate = self
+        nameTextField.autocorrectionType = UITextAutocorrectionType.No
         
         
         println("in NGScoreViewController")
@@ -77,7 +80,7 @@ class NGScore: UIViewController, UITableViewDelegate {
        
         self.scoreNumber.text  = String(pointLabel)
         
-        sound.playSound(sound.drumrollSound)
+        sound.playSound(sound.drumrollSound,repeat:true)
         timer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self,
             selector: Selector("scoreCountDown"), userInfo: nil, repeats: true)
         }
@@ -133,9 +136,6 @@ class NGScore: UIViewController, UITableViewDelegate {
         var highscoreNumberSilver: Int = NSUserDefaults.standardUserDefaults().integerForKey("highscoreNumberSilver") as Int
         var highscoreNumberBronze: Int = NSUserDefaults.standardUserDefaults().integerForKey("highscoreNumberBronze") as Int
         
-        var pointLabel: Int = NSUserDefaults.standardUserDefaults().objectForKey("pointLabel") as Int
-        self.scoreNumber.text  = String(pointLabel)
-        
         var med1: Medal  = Medal(medalNamez: "Gold medal", medalImage: "Gold.png")
         var med2: Medal  = Medal(medalNamez: "Silver medal", medalImage: "Silver.png")
         var med3: Medal  = Medal(medalNamez: "Bronze medal", medalImage: "Bronze.png")
@@ -173,44 +173,14 @@ class NGScore: UIViewController, UITableViewDelegate {
 
     
       @IBAction func sendButton(sender: UIButton) {
-        var nameTextField: UITextField!
-            setUpPoints()
-        
-        if self.nameTextField.text.isEmpty {
-            
-            println("Name not entered!")
-            
-            
-        } else {
-            
-            self.nameTextField.text = "\(self.nameTextField.text)"
-                NSUserDefaults.standardUserDefaults().objectForKey("nameText")
-                NSUserDefaults.standardUserDefaults().synchronize()
- 
-            
-            println("entered name = \(self.nameTextField.text)")
-        }
-        
-        // insert link to rest of code for getting it to the highscore here Frida!
-        
-        
-        func textFieldDidEndEditing(textField: UITextField!){
-            
-            NSUserDefaults.standardUserDefaults().didChangeValueForKey("highscoreName")
-            NSUserDefaults.standardUserDefaults().synchronize()
-            
-            println("Name inserted. Woho!")
-        }
-        
-        //Pop to MainPageControllerView
-        var mNC = delegate!.navigationController as MasterNC
-        mNC.popToViewControllerOfClass(MainPageViewController())
-        self.dismissViewControllerAnimated(true, completion: {})
+
+        scoreMainFunction()
+
     }
     
     func scoreCountDown() {
-        
-        scoreNumber.text = String(counter++)
+        counter = counter + 10
+        scoreNumber.text = String(counter)
         
         println("counter=\(counter) pointLabel = \(pointLabel)")
 
@@ -219,6 +189,7 @@ class NGScore: UIViewController, UITableViewDelegate {
            scoreNumber.text = String(pointLabel)
             
             timer!.invalidate()
+            sound.audioPlayer.stop()
             
             NSUserDefaults.standardUserDefaults().setInteger(realScore, forKey: "pointLabel")
             NSUserDefaults.standardUserDefaults().synchronize()
@@ -236,10 +207,10 @@ class NGScore: UIViewController, UITableViewDelegate {
         var highscoreNameSilver: AnyObject? = NSUserDefaults.standardUserDefaults().objectForKey("highscoreNameSilver")
         var highscoreNameBronze: AnyObject? = NSUserDefaults.standardUserDefaults().objectForKey("highscoreNameBronze")
 
-        var pointLabel: Int = NSUserDefaults.standardUserDefaults().objectForKey("pointLabel") as Int
+        println("pointlabel=!!!!!!! : \(pointLabel)")
         
         
-        if (pointLabel > highscoreNumberGold){
+        if (pointLabel >= highscoreNumberGold){
             highscoreNumberBronze = highscoreNumberSilver
             highscoreNumberSilver = highscoreNumberGold
             highscoreNumberGold = pointLabel
@@ -250,7 +221,7 @@ class NGScore: UIViewController, UITableViewDelegate {
             NSUserDefaults.standardUserDefaults().synchronize()
             
             
-        } else if (pointLabel > highscoreNumberSilver){
+        } else if (pointLabel >= highscoreNumberSilver){
             highscoreNumberBronze = highscoreNumberSilver
             highscoreNumberSilver = pointLabel
             
@@ -258,7 +229,7 @@ class NGScore: UIViewController, UITableViewDelegate {
             NSUserDefaults.standardUserDefaults().setObject(highscoreNameSilver, forKey: "highscoreNameBronze")
             NSUserDefaults.standardUserDefaults().synchronize()
             
-        } else if (pointLabel > highscoreNumberBronze) {
+        } else if (pointLabel >= highscoreNumberBronze) {
             highscoreNumberBronze = pointLabel
             
             NSUserDefaults.standardUserDefaults().setObject(self.nameTextField.text, forKey: "highscoreNameBronze")
@@ -266,10 +237,64 @@ class NGScore: UIViewController, UITableViewDelegate {
         }
         
         NSUserDefaults.standardUserDefaults().setInteger(highscoreNumberGold, forKey: "highscoreNumberGold")
-        NSUserDefaults.standardUserDefaults().synchronize()
         NSUserDefaults.standardUserDefaults().setInteger(highscoreNumberSilver, forKey: "highscoreNumberSilver")
-        NSUserDefaults.standardUserDefaults().synchronize()
         NSUserDefaults.standardUserDefaults().setInteger(highscoreNumberBronze, forKey: "highscoreNumberBronze")
+         NSUserDefaults.standardUserDefaults().setInteger(pointLabel, forKey: "pointLabel")
         NSUserDefaults.standardUserDefaults().synchronize()
         }
+
+
+    func textFieldShouldReturn(textField: UITextField!) -> Bool // called when 'return' key pressed. return NO to ignore.
+    {
+        textField.resignFirstResponder()
+        scoreMainFunction()
+        return true
+    }
+
+
+    func scoreMainFunction(){
+
+
+        setUpPoints()
+
+
+
+        if self.nameTextField.text.isEmpty {
+
+            println("Name not entered!")
+
+            if(self.nameTextField.hidden){
+                //Pop to MainPageControllerView
+                var mNC = delegate!.navigationController as MasterNC
+                mNC.popToViewControllerOfClass(MainPageViewController())
+                self.dismissViewControllerAnimated(true, completion: {})
+            }
+            else{
+
+                 JLToast.makeText("Please enter a name.").show()
+
+            }
+
+        } else {
+
+            self.nameTextField.text = "\(self.nameTextField.text)"
+            NSUserDefaults.standardUserDefaults().objectForKey("nameText")
+            NSUserDefaults.standardUserDefaults().synchronize()
+            println("entered name = \(self.nameTextField.text)")
+
+            println("Name inserted. Woho!")
+
+            //Pop to MainPageControllerView
+            var mNC = delegate!.navigationController as MasterNC
+            mNC.popToViewControllerOfClass(MainPageViewController())
+            self.dismissViewControllerAnimated(true, completion: {})
+
+        }
+
+        // insert link to rest of code for getting it to the highscore here Frida!
+        
+
+
+    }
+
 }

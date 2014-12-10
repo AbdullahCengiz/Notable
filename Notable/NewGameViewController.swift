@@ -13,6 +13,8 @@ import QuartzCore
 
 @objc class NewGameViewController: UIViewController, UITableViewDelegate {
 
+    //for pointLabel
+    var pointLabel = UILabel()
     //for line container
     @IBOutlet var lineContainer: UIView!
 
@@ -176,9 +178,7 @@ import QuartzCore
         // waits for noteViewContainer creation
         prepareNavigationBar()
         styleView()
-
-        var pointLabel: Int = NSUserDefaults.standardUserDefaults().objectForKey("pointLabel") as Int
-    }
+}
     
    func styleView() {
             
@@ -236,7 +236,23 @@ import QuartzCore
         //////println("Button Action From Code")
 
         var pauseScreen:NGPause = self.storyboard!.instantiateViewControllerWithIdentifier("PausedGameViewController") as NGPause
-        self.title="newGame"
+
+        if(newGame.gameType == "practice"){
+            self.title="newPractice"
+        }
+        else{
+            self.title="newGame"
+        }
+
+        pauseScreen.delegate = self
+        self.presentViewController(pauseScreen, animated: true, completion: nil)
+
+    }
+
+    func endPractice () {
+
+        var pauseScreen:NGPause = self.storyboard!.instantiateViewControllerWithIdentifier("PausedGameViewController") as NGPause
+        self.title="newPractice"
         pauseScreen.delegate = self
         self.presentViewController(pauseScreen, animated: true, completion: nil)
 
@@ -257,7 +273,7 @@ import QuartzCore
             //controls the answer correct or not
 
             //correct answer
-            if(choiceButton.tag == newGame.questions![currentQuestion].questionAnswerIndex){
+            if(choiceButton.tag == newGame.questions![newGame.currentQuestion].questionAnswerIndex){
 
                 //plays correct sound
                 newGame.sound.playSound(newGame.sound.correctSound)
@@ -289,7 +305,7 @@ import QuartzCore
 
                 //changes color of right answer button
                 choiceButton.backgroundColor = UIColor(red: 0.94117647, green: 0.40392157, blue: 0.40392157, alpha: 1.0) // gets false red color
-                choiceButtonArray[newGame.questions[currentQuestion].questionAnswerIndex].backgroundColor = UIColor(red: 0.35686275, green: 0.80784314, blue: 0.43137255, alpha: 1.0) // gets true green color
+                choiceButtonArray[newGame.questions[newGame.currentQuestion].questionAnswerIndex].backgroundColor = UIColor(red: 0.35686275, green: 0.80784314, blue: 0.43137255, alpha: 1.0) // gets true green color
 
                 //sets answerlock
                 answerLock=false
@@ -370,23 +386,20 @@ import QuartzCore
     }
 
     @IBAction func TouchDown(sender: AnyObject) {
-       newGame.playNote(currentNote)
-    }
 
+        println("questionContent = \(newGame.questions[newGame.currentQuestion].questionContent!)")
 
-    @IBAction func TouchUp(sender: AnyObject) {
+        if(countElements(newGame.questions[newGame.currentQuestion].questionContent!)<4){
+            newGame.sound.playSound(SoundFile(soundName: newGame.trivNoteView.soundFileName1, soundType: "aif"))
+        }
+        else{
 
-        synthLock.lock()
-        // The tag of each button corresponds to its MIDI note number.
+            newGame.playMajorMinorSound()
 
-        synth.releaseNote(61)
-        //synth.playNote(62)
-        //synth.playNote(63)
-        //synth.playNote(64)
-
-        synthLock.unlock()
+        }
 
     }
+
 
 
 
