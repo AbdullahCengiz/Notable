@@ -569,7 +569,7 @@ class CoreDataHelper
         }
 
 
-        /*
+
           // shuffle questions were commented
 
         //for shuffle array
@@ -587,7 +587,7 @@ class CoreDataHelper
             println(data![counter].questionContent!)
             
         }
-        */
+        
 
         return data!
 

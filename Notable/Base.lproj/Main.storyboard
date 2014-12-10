@@ -1701,6 +1701,7 @@
                         <outlet property="navItem" destination="4QA-GL-2y1" id="dWV-Ic-VOs"/>
                         <outlet property="noteView" destination="1Kc-Dg-xBs" id="kfz-Kt-Pax"/>
                         <outlet property="noteViewContainer" destination="F1c-3m-dLs" id="gs4-4E-KDh"/>
+                        <outlet property="playButton" destination="WB6-gu-3gu" id="Oou-ET-LjW"/>
                         <outlet property="progressViewContainer" destination="2ae-x8-qtC" id="PKI-8n-OVd"/>
                         <outlet property="questionPictureImage" destination="NkX-Md-c7k" id="6wp-iZ-vlk"/>
                         <outlet property="secondBottomLine" destination="YgK-u1-596" id="u2J-Hz-pyA"/>
@@ -1739,7 +1740,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QWO-Sw-DDg">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QWO-Sw-DDg">
                                 <rect key="frame" x="246" y="268.5" width="109" height="35.5"/>
                                 <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="30"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>

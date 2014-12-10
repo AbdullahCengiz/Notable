@@ -104,7 +104,8 @@ class TrivQuiz
 
         initUI()
         initVariables()
-        initPlayer()
+        setSoundValue()
+        //initPlayer()
         //trivNoteView.addNote(questionContent:"H4",clefType:"gClef",sharpFlatValue: -1)
         prepareGame(currentQuestion)
         
@@ -171,12 +172,19 @@ class TrivQuiz
 
         //initiliaze noteArray
         noteArray = ["C","C#","D","D#","E","F","F#","G","G#","A","A#","H"]
+        setSoundValue()
+
+    }
+
+    func setSoundValue(){
+
+        println("in set sound value !!!!!!!")
 
         // gets initial sound level
         var soundLevel: AnyObject? = NSUserDefaults.standardUserDefaults().objectForKey("sound")
         // control initial sound value
         if(soundLevel==nil){
-
+            println("in sound value is nil !!!!!!!")
             //////////println("No sound value !!!!!")
             NSUserDefaults.standardUserDefaults().setObject(0.5, forKey: "sound")
             NSUserDefaults.standardUserDefaults().synchronize()
@@ -186,22 +194,10 @@ class TrivQuiz
             //initial sound value found
             soundLevelValue = soundLevel! as Float
         }
-    }
+
+        sound.setSoundVolume(soundLevelValue)
 
 
-    func initPlayer(){
-
-        var initArray : [AnyObject] = []
-        initArray.append(16000) // for sample rate
-        initArray.append(1) // for channels
-        initArray.append(16) // for bitsPerChannel
-        initArray.append(1024) // for buffer
-        initArray.append(newGameVC) // for newGameViewController instance
-        initArray.append(myPlayer) // for sending players' itself
-        initArray.append(soundLevelValue) // for soundLevelValue
-        myPlayer = myPlayer.prepare(initArray)
-        myPlayer = myPlayer.runBlock(initArray)
-        
     }
 
 
@@ -326,7 +322,7 @@ class TrivQuiz
                getNoteSoundFromQuestionContent(questions![currentQuestion].questionContent!)
                //getNoteSoundFromQuestionContent("G2|Hb2|D3")
 
-                println("QuestionContent!!!!!!!!!!!!!!!!!!!! : \(questions![currentQuestion].questionContent!)")
+                println("QuestionContent!!!!!!!!!!!!!!!!!!!! : \(questions![currentQuestion].questionAnswer!)")
             }
 
 
@@ -657,6 +653,15 @@ class TrivQuiz
                 choiceButton.enabled = true
             }
         }
+
+
+        if(status){
+            newGameVC.playButton.enabled = false
+        } else {
+
+            newGameVC.playButton.enabled = true
+        }
+
     }
 
 
@@ -811,11 +816,11 @@ class TrivQuiz
         if(replayMajorMinorFlag){
 
         replayMajorMinorFlag = false
-        var timer1 = NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: Selector("majorMinorSound1"), userInfo: nil, repeats: false)
+        var timer1 = NSTimer.scheduledTimerWithTimeInterval(0, target: self, selector: Selector("majorMinorSound1"), userInfo: nil, repeats: false)
 
-        var timer2 = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("majorMinorSound2"), userInfo: nil, repeats: false)
+        var timer2 = NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: Selector("majorMinorSound2"), userInfo: nil, repeats: false)
 
-        var timer3 = NSTimer.scheduledTimerWithTimeInterval(1.5, target: self, selector: Selector("majorMinorSound3"), userInfo: nil, repeats: false)
+        var timer3 = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("majorMinorSound3"), userInfo: nil, repeats: false)
 
         }
 

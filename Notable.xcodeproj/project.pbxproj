@@ -25,6 +25,8 @@
 		ED0B96B81A23432800A1A508 /* JLToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0B96B51A23432800A1A508 /* JLToast.swift */; };
 		ED0B96B91A23432800A1A508 /* JLToastCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0B96B61A23432800A1A508 /* JLToastCenter.swift */; };
 		ED0B96BA1A23432800A1A508 /* JLToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0B96B71A23432800A1A508 /* JLToastView.swift */; };
+		ED168F0E1A386F2A004DA067 /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0DA7946E1A11122B00D2F131 /* Roboto-Light.ttf */; };
+		ED168F0F1A386F2A004DA067 /* Roboto-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0DA7946F1A11122B00D2F131 /* Roboto-Thin.ttf */; };
 		ED19B34719FA93C700041AF0 /* NewGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED19B34619FA93C700041AF0 /* NewGameViewController.swift */; };
 		ED19B34A19FA9B9800041AF0 /* PracticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED19B34919FA9B9800041AF0 /* PracticeViewController.swift */; };
 		ED19B34D19FA9F9400041AF0 /* LessonsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED19B34C19FA9F9400041AF0 /* LessonsViewController.swift */; };
@@ -747,6 +749,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED168F0E1A386F2A004DA067 /* Roboto-Light.ttf in Resources */,
+				ED168F0F1A386F2A004DA067 /* Roboto-Thin.ttf in Resources */,
 				ED84C1EE1A36EE400084DA0A /* C1.aif in Resources */,
 				ED84C1EF1A36EE400084DA0A /* C#1.aif in Resources */,
 				ED84C1F01A36EE400084DA0A /* D1.aif in Resources */,

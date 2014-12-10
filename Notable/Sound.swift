@@ -47,6 +47,13 @@ class Sound
     }
 
 
+    func setSoundVolume(volume:Float){
+
+        self.soundLevelValue = volume
+
+    }
+
+
 
     
     
@@ -54,7 +61,7 @@ class Sound
         
         //println("in playSound!!")
 
-        println("soundFileName = \(soundFile.soundName) soundType:\(soundFile.soundType)")
+        //println("soundFileName = \(soundFile.soundName) soundType:\(soundFile.soundType)")
         
         var soundURL = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource(soundFile.soundName, ofType: soundFile.soundType)!)
         
@@ -68,7 +75,6 @@ class Sound
             self.audioPlayer.prepareToPlay()
             println(self.audioPlayer.duration)
             self.audioPlayer.play()
-            
             
             
             if(self.audioPlayer.playing){
@@ -92,7 +98,7 @@ class Sound
 
         //println("in playSound!!")
 
-        println("soundFileName = \(soundFile.soundName) soundType:\(soundFile.soundType)")
+        //println("soundFileName = \(soundFile.soundName) soundType:\(soundFile.soundType)")
 
         var soundURL = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource(soundFile.soundName, ofType: soundFile.soundType)!)
 

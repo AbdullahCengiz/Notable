@@ -41,9 +41,7 @@ class TrivNoteView
     func addNote(#questionContent:String,clefType:String,sharpFlatValue:Int,majorMinorFlag:Bool,noteIndex:Int){
 
 
-        //sound = Sound()
-        // makes extra lines visible
-        //makeExtraLinesVisible()
+        // gets current note index
         currentNoteIndex = noteIndex
 
         var questionContent = questionContent
@@ -82,11 +80,11 @@ class TrivNoteView
             clearAllScrollNotes() //reset noteView
             resetMajorMinorValues()
             arrangeTopAndBottomLines(firstTopLineFlag: false, secondTopLineFlag: false, thirdTopLineFlag: false, firstBottomLineFlag: false, secondBottomLineFlag: false, thirdBottomLineFlag: false)
-            println("drawing \(questionContent)")
+            //println("drawing \(questionContent)")
         }
         else{
 
-            println("drawing \(questionContent)")
+            //println("drawing \(questionContent)")
 
         }
 
@@ -404,10 +402,13 @@ class TrivNoteView
         if(noteIndex == 1 && !majorMinorFlag){
 
             clearUnwantedLines(majorMinorPositionIndex1)
-
             //unlock choice buttons
             newGameVC.newGame.lockButtons(false)
 
+        }
+        //we have major or minor
+        else if(noteIndex == 1){
+            clearUnwantedLines(majorMinorPositionIndex1)
         }
         else if(noteIndex == 3){
 
@@ -439,7 +440,7 @@ class TrivNoteView
     func clearUnwantedLines(majorMinorPositionIndex:Int){
 
 
-        println("Clear!!!!!!! \(majorMinorPositionIndex)")
+        //println("Clear!!!!!!! \(majorMinorPositionIndex)")
 
 
         switch majorMinorPositionIndex {
@@ -499,7 +500,6 @@ class TrivNoteView
     func clearAllScrollNotes ()
     {
 
-        println("Clear NoteView!!!!!")
         let theSubviews = noteView.subviews
 
         for (var view) in theSubviews

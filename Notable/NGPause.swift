@@ -12,7 +12,7 @@ import UIKit
 
 class NGPause: UIViewController{
 
-    var delegate:AnyObject?
+    var delegate:UIViewController?
     
     @IBOutlet weak var pauseMessages: UILabel!
     @IBOutlet weak var resumeMessages: UILabel!
@@ -31,39 +31,49 @@ class NGPause: UIViewController{
         println("in NGPauseViewController")
         
         //for Your "NAME" is Paused
-        if (delegate!.title!! == "newPractice") {
+        if (delegate!.title! == "newPractice") {
             pauseMessages.text = "Your Practice is Paused"
-        } else if
-            (delegate!.title!! == "newGame") {
+        }
+        else if
+            (delegate!.title! == "endPractice") {
+                self.pauseMessages.text = "Your Practice is Completed"
+        }
+        else if
+            (delegate!.title! == "newGame") {
             self.pauseMessages.text = "Your Game is Paused"
         } else if
-            (delegate!.title!! == "newLesson") {
+            (delegate!.title! == "newLesson") {
                 self.pauseMessages.text = "Your Lesson is Paused"
         } else {
             self.pauseMessages.text = "thisOneGoesToNothing!"
         }
         
         //for TAP HERE TO RESUME "NAME"
-        if (delegate!.title!! == "newPractice") {
+        if (delegate!.title! == "newPractice") {
             resumeMessages.text = "TAP HERE TO RESUME PRACTICE"
-        } else if
-            (delegate!.title!! == "newGame") {
+        }
+        else if
+            (delegate!.title! == "endPractice") {
+                resumeMessages.text = "TAP HERE TO RETURN CATEGORY SELECTION"
+        }
+        else if
+            (delegate!.title! == "newGame") {
             self.resumeMessages.text = "TAP HERE TO RESUME GAME"
         } else if
-            (delegate!.title!! == "newLesson") {
+            (delegate!.title! == "newLesson") {
             self.resumeMessages.text = "TAP HERE TO RESUME LESSON"
         } else {
             self.resumeMessages.text = "thisOneGoesToNothing!"
         }
         
         //for End "NAME"
-        if (delegate!.title!! == "newPractice") {
+        if (delegate!.title! == "newPractice") {
             endMessages.text = "End Practice"
         } else if
-            (delegate!.title!! == "newGame") {
+            (delegate!.title! == "newGame") {
                 self.endMessages.text = "End Game"
         } else if
-            (delegate!.title!! == "newLesson") {
+            (delegate!.title! == "newLesson") {
                 self.endMessages.text = "End Lesson"
         } else {
             self.endMessages.text = "thisOneGoesToNothing!"
@@ -103,32 +113,59 @@ class NGPause: UIViewController{
             mNC.popToViewControllerOfClass(MainPageViewController())
             self.dismissViewControllerAnimated(true, completion: {})
             
-            
+            /*
             mNC.popToViewControllerOfClass(PracticeViewController())
             self.dismissViewControllerAnimated(true, completion: {})
             
             mNC.popToViewControllerOfClass(LessonsViewController())
             self.dismissViewControllerAnimated(true, completion: {})
+            */
 
         }
      }
     
     @IBAction func resumePage(sender: UIButton) {
- if(delegate != nil) {
-    var mNC = delegate!.navigationController as MasterNC
-    self.dismissViewControllerAnimated(true, completion: {})
-    
+        if(delegate != nil) {
+
+            if
+                (delegate!.title! == "endPractice") {
+                    var mNC = delegate!.navigationController as MasterNC
+                    mNC.popToViewControllerOfClass(PracticeViewController())
+                    self.dismissViewControllerAnimated(true, completion: {})
+            }
+            else {
+
+                var mNC = delegate!.navigationController as MasterNC
+                self.dismissViewControllerAnimated(true, completion: {})
+            }
+            
         }
     }
 
     @IBAction func settingsLink(sender: AnyObject) {
         if(delegate != nil) {
 
-            var settingsPage: SettingsViewController = self.storyboard!.instantiateViewControllerWithIdentifier("SettingsViewController") as SettingsViewController
-            
+            println("Will open settings page !!!!!!!!!")
+
+
+            var settingsPage: SettingsViewController = delegate!.storyboard!.instantiateViewControllerWithIdentifier("SettingsViewController") as SettingsViewController
+
             settingsPage.delegate = self
-            
-            self.presentViewController(settingsPage, animated: true, completion: nil)
+
+            println(settingsPage)
+            println(delegate!)
+
+            self.delegate!.navigationController?.pushViewController(settingsPage, animated: true)
+
+
+            self.dismissViewControllerAnimated(true, completion: {
+
+                println("NGPause dismissed !!!!!!!!!")
+
+
+            })
+
+
         }
 
         

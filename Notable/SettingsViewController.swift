@@ -48,9 +48,11 @@ class SettingsViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
+        println("in settingsViewController!!!!!!")
         navBar = self.navigationController?.navigationBar
         
+
         setTags()
         
         initUI()

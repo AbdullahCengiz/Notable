@@ -13,6 +13,9 @@ import QuartzCore
 
 @objc class NewGameViewController: UIViewController, UITableViewDelegate {
 
+    //for playButton
+    @IBOutlet var playButton: UIButton!
+
     //for pointLabel
     var pointLabel = UILabel()
     //for line container
@@ -178,6 +181,8 @@ import QuartzCore
         // waits for noteViewContainer creation
         prepareNavigationBar()
         styleView()
+        newGame.setSoundValue()
+        
 }
     
    func styleView() {
@@ -252,7 +257,7 @@ import QuartzCore
     func endPractice () {
 
         var pauseScreen:NGPause = self.storyboard!.instantiateViewControllerWithIdentifier("PausedGameViewController") as NGPause
-        self.title="newPractice"
+        self.title="endPractice"
         pauseScreen.delegate = self
         self.presentViewController(pauseScreen, animated: true, completion: nil)
 
