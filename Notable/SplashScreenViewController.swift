@@ -364,7 +364,7 @@ class SplashScreenViewController: UIViewController {
             
         }
         
-        
+        /*
         //get Lessons
         var lessonsDictionary:NSDictionary = tableArray[3] as NSDictionary
         var lessonRowArray:NSArray = lessonsDictionary["rows"] as NSArray
@@ -378,6 +378,7 @@ class SplashScreenViewController: UIViewController {
             counter++
             
         }
+*/
         
         
         //
@@ -426,22 +427,49 @@ class SplashScreenViewController: UIViewController {
         //cdHelper!.saveData("lesson", data: lessonsArray)
         //var savedLessons : [Lesson] = cdHelper!.loadData("lesson") as [Lesson]
         //cdHelper!.removeAllData("lesson")
+
+        var lessonsArray : [Lesson]  = []
+        var staticLessonData = LessonData()
+
+
         
         
         //control for lesson if there is not any get them from json
+
         if(cdHelper!.loadData("lesson") == nil){
+
+            lessonsArray = staticLessonData.createLessons()
+
+
+            for lesson in lessonsArray{
+
+                println("lesson name: \(lesson.lessonName!) numbOfQuestions= \(lesson.lessonQuestions!.count)")
+
+            }
+
+
             cdHelper!.saveData("lesson", data: lessonsArray)
+
+            for lesson in lessonsArray {
+
+
+                cdHelper!.saveData("lessonQuestion", data: lesson.lessonQuestions)
+
+
+            }
+
+
         }
         else{
-            println("There are some lessons in CoreData")
+            println("There are some lessons in CoreData !!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+
         }
+
         
         //go to main function
         Timer("goToMainPage", 2) {
             self.performSegueWithIdentifier("goToMainPage", sender: nil)
         }
-
-
         
     }
     

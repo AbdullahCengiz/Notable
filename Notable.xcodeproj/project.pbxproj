@@ -18,7 +18,6 @@
 		ED01DA2D1A247B8200E7BF8E /* incorrect.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = ED01DA2B1A247B8200E7BF8E /* incorrect.mp3 */; };
 		ED0363CC1A038A41004797B5 /* Notable.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = ED0363CA1A038A41004797B5 /* Notable.xcdatamodeld */; };
 		ED089C9C1A110D7D00D3F034 /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED089C9B1A110D7D00D3F034 /* Timer.swift */; };
-		ED089C9E1A110E2B00D3F034 /* howling.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = ED089C9D1A110E2B00D3F034 /* howling.mp3 */; };
 		ED08FB9019F9384400D6BE26 /* PointTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED08FB8F19F9384400D6BE26 /* PointTableCell.swift */; };
 		ED08FB9319F93AB400D6BE26 /* Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED08FB9219F93AB400D6BE26 /* Point.swift */; };
 		ED0B96B21A1F338A00A1A508 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED0B96B11A1F338A00A1A508 /* QuartzCore.framework */; };
@@ -27,6 +26,8 @@
 		ED0B96BA1A23432800A1A508 /* JLToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0B96B71A23432800A1A508 /* JLToastView.swift */; };
 		ED168F0E1A386F2A004DA067 /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0DA7946E1A11122B00D2F131 /* Roboto-Light.ttf */; };
 		ED168F0F1A386F2A004DA067 /* Roboto-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0DA7946F1A11122B00D2F131 /* Roboto-Thin.ttf */; };
+		ED168F111A388824004DA067 /* LessonQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED168F101A388824004DA067 /* LessonQuestion.swift */; };
+		ED168F161A3888F8004DA067 /* LessonData.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED168F151A3888F8004DA067 /* LessonData.swift */; };
 		ED19B34719FA93C700041AF0 /* NewGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED19B34619FA93C700041AF0 /* NewGameViewController.swift */; };
 		ED19B34A19FA9B9800041AF0 /* PracticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED19B34919FA9B9800041AF0 /* PracticeViewController.swift */; };
 		ED19B34D19FA9F9400041AF0 /* LessonsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED19B34C19FA9F9400041AF0 /* LessonsViewController.swift */; };
@@ -157,7 +158,6 @@
 		ED01DA2B1A247B8200E7BF8E /* incorrect.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = incorrect.mp3; sourceTree = "<group>"; };
 		ED0363CB1A038A41004797B5 /* Notable.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Notable.xcdatamodel; sourceTree = "<group>"; };
 		ED089C9B1A110D7D00D3F034 /* Timer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
-		ED089C9D1A110E2B00D3F034 /* howling.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = howling.mp3; sourceTree = "<group>"; };
 		ED08FB8F19F9384400D6BE26 /* PointTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PointTableCell.swift; sourceTree = "<group>"; };
 		ED08FB9219F93AB400D6BE26 /* Point.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Point.swift; sourceTree = "<group>"; };
 		ED0B96B11A1F338A00A1A508 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -165,6 +165,8 @@
 		ED0B96B51A23432800A1A508 /* JLToast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JLToast.swift; sourceTree = "<group>"; };
 		ED0B96B61A23432800A1A508 /* JLToastCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JLToastCenter.swift; sourceTree = "<group>"; };
 		ED0B96B71A23432800A1A508 /* JLToastView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JLToastView.swift; sourceTree = "<group>"; };
+		ED168F101A388824004DA067 /* LessonQuestion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LessonQuestion.swift; sourceTree = "<group>"; };
+		ED168F151A3888F8004DA067 /* LessonData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LessonData.swift; sourceTree = "<group>"; };
 		ED19B34619FA93C700041AF0 /* NewGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewGameViewController.swift; sourceTree = "<group>"; };
 		ED19B34919FA9B9800041AF0 /* PracticeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PracticeViewController.swift; sourceTree = "<group>"; };
 		ED19B34C19FA9F9400041AF0 /* LessonsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LessonsViewController.swift; sourceTree = "<group>"; };
@@ -329,6 +331,7 @@
 				ED234D991A1509CD00DE5087 /* Question.swift */,
 				ED234D9B1A160E8800DE5087 /* Lesson.swift */,
 				0DABD4151A2DA83900023AB9 /* Medal.swift */,
+				ED168F101A388824004DA067 /* LessonQuestion.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -342,6 +345,35 @@
 				ED0B96B71A23432800A1A508 /* JLToastView.swift */,
 			);
 			path = JLToast;
+			sourceTree = "<group>";
+		};
+		ED168F121A388897004DA067 /* soundFiles */ = {
+			isa = PBXGroup;
+			children = (
+				ED01DA2A1A247B8200E7BF8E /* correct.mp3 */,
+				ED01DA2B1A247B8200E7BF8E /* incorrect.mp3 */,
+				ED4051A81A1A036B003CE4F8 /* confirm.mp3 */,
+				0DD3CF5C1A2F438800043DF0 /* drumroll.wav */,
+			);
+			name = soundFiles;
+			sourceTree = "<group>";
+		};
+		ED168F131A3888C2004DA067 /* staticData */ = {
+			isa = PBXGroup;
+			children = (
+				ED234D8C1A14E33100DE5087 /* data.json */,
+				ED168F151A3888F8004DA067 /* LessonData.swift */,
+			);
+			name = staticData;
+			sourceTree = "<group>";
+		};
+		ED168F141A3888CF004DA067 /* fontFiles */ = {
+			isa = PBXGroup;
+			children = (
+				0DA7946E1A11122B00D2F131 /* Roboto-Light.ttf */,
+				0DA7946F1A11122B00D2F131 /* Roboto-Thin.ttf */,
+			);
+			name = fontFiles;
 			sourceTree = "<group>";
 		};
 		ED19B34119FA931100041AF0 /* NewGame */ = {
@@ -647,15 +679,10 @@
 		ED96CE951A0BDFD3007589F9 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				ED168F141A3888CF004DA067 /* fontFiles */,
+				ED168F131A3888C2004DA067 /* staticData */,
+				ED168F121A388897004DA067 /* soundFiles */,
 				ED84C11B1A35E40E0084DA0A /* pianoAudio */,
-				ED01DA2A1A247B8200E7BF8E /* correct.mp3 */,
-				ED01DA2B1A247B8200E7BF8E /* incorrect.mp3 */,
-				ED4051A81A1A036B003CE4F8 /* confirm.mp3 */,
-				ED234D8C1A14E33100DE5087 /* data.json */,
-				ED089C9D1A110E2B00D3F034 /* howling.mp3 */,
-				0DA7946E1A11122B00D2F131 /* Roboto-Light.ttf */,
-				0DA7946F1A11122B00D2F131 /* Roboto-Thin.ttf */,
-				0DD3CF5C1A2F438800043DF0 /* drumroll.wav */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -823,7 +850,6 @@
 				ED84C2331A36EE400084DA0A /* A6.aif in Resources */,
 				ED84C2341A36EE400084DA0A /* A#6.aif in Resources */,
 				ED84C2351A36EE400084DA0A /* B6.aif in Resources */,
-				ED089C9E1A110E2B00D3F034 /* howling.mp3 in Resources */,
 				0DD3CF5D1A2F438800043DF0 /* drumroll.wav in Resources */,
 				ED466E0819F165DA00F14292 /* Main.storyboard in Resources */,
 				ED466E0A19F165DA00F14292 /* Images.xcassets in Resources */,
@@ -860,8 +886,10 @@
 				ED7B218E1A011F5A00A2337D /* AutoLayutViewController.swift in Sources */,
 				ED76AE211A27DD03000CA83C /* Synth.m in Sources */,
 				ED225B7919F205DB00D8784E /* MainPageViewController.swift in Sources */,
+				ED168F111A388824004DA067 /* LessonQuestion.swift in Sources */,
 				ED089C9C1A110D7D00D3F034 /* Timer.swift in Sources */,
 				ED19B34A19FA9B9800041AF0 /* PracticeViewController.swift in Sources */,
+				ED168F161A3888F8004DA067 /* LessonData.swift in Sources */,
 				ED466E0319F165DA00F14292 /* AppDelegate.swift in Sources */,
 				EDAD76211A3094C7004A9C16 /* TrivNoteView.swift in Sources */,
 				ED0B96B81A23432800A1A508 /* JLToast.swift in Sources */,

@@ -66,7 +66,7 @@ class CoreDataHelper
                 //Save questions
                 context.save(nil)
 
-            
+
         case "lesson":
             
             for lesson : Lesson in dataSet as [Lesson]{
@@ -75,17 +75,33 @@ class CoreDataHelper
                 currentLesson = NSEntityDescription.insertNewObjectForEntityForName("Lessons", inManagedObjectContext: context) as NSManagedObject
                 
                 currentLesson.setValue(lesson.lessonId, forKey: "lessonId")
-                currentLesson.setValue(lesson.lessonCategory, forKey: "lessonCategory")
-                currentLesson.setValue(lesson.lessonTitle, forKey: "lessonTitle")
-                currentLesson.setValue(lesson.lessonType, forKey: "lessonType")
-                currentLesson.setValue(lesson.lessonContent, forKey: "lessonContent")
-                currentLesson.setValue(lesson.lessonVoiceTrack, forKey: "lessonVoiceTrack")
-                currentLesson.setValue(lesson.lessonExtra, forKey: "lessonExtra")
-                currentLesson.setValue(lesson.lessonPosition, forKey: "lessonPosition")
-                
+                currentLesson.setValue(lesson.lessonName, forKey: "lessonName")
+                currentLesson.setValue(lesson.lessonHint, forKey: "lessonHint")
             }
             //Save questions
             context.save(nil)
+
+        case "lessonQuestion":
+
+            for lessonQuestion : LessonQuestion in dataSet as [LessonQuestion]{
+
+                var currentLessonQuestion:AnyObject
+                currentLessonQuestion = NSEntityDescription.insertNewObjectForEntityForName("LessonQuestions", inManagedObjectContext: context) as NSManagedObject
+
+                currentLessonQuestion.setValue(lessonQuestion.lessonId, forKey: "lessonId")
+                currentLessonQuestion.setValue(lessonQuestion.clefType, forKey: "clefType")
+                currentLessonQuestion.setValue(lessonQuestion.imageName, forKey: "imageName")
+                currentLessonQuestion.setValue(lessonQuestion.noteText, forKey: "noteText")
+                currentLessonQuestion.setValue(lessonQuestion.questionText, forKey: "questionText")
+                currentLessonQuestion.setValue(lessonQuestion.questionTitle, forKey: "questionTitle")
+                currentLessonQuestion.setValue(lessonQuestion.questionType, forKey: "questionType")
+
+
+            }
+            //Save questions
+            context.save(nil)
+
+
             
         case "category":
             
@@ -222,13 +238,8 @@ class CoreDataHelper
                     
                     currentLessonObject = results[counter] as NSManagedObject
                     currentLesson.lessonId = currentLessonObject.valueForKey("lessonId") as? Int
-                    currentLesson.lessonCategory = currentLessonObject.valueForKey("lessonCategory") as? Int
-                    currentLesson.lessonTitle = currentLessonObject.valueForKey("lessonTitle") as? String
-                    currentLesson.lessonType = currentLessonObject.valueForKey("lessonType") as? String
-                    currentLesson.lessonContent = currentLessonObject.valueForKey("lessonContent") as? String
-                    currentLesson.lessonVoiceTrack = currentLessonObject.valueForKey("lessonVoiceTrack") as? String
-                    currentLesson.lessonExtra = currentLessonObject.valueForKey("lessonExtra") as? String
-                    currentLesson.lessonPosition = currentLessonObject.valueForKey("lessonPosition") as? Int
+                    currentLesson.lessonName = currentLessonObject.valueForKey("lessonName") as? String
+                    currentLesson.lessonHint = currentLessonObject.valueForKey("lessonHint") as? String
                     
                     data?.insert(currentLesson, atIndex: counter)
                     
@@ -242,7 +253,7 @@ class CoreDataHelper
             
             context.save(nil)
 
-            
+
         default:
             println("Undefined Type")
         }
