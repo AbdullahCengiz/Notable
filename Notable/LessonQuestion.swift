@@ -28,7 +28,7 @@ class LessonQuestion
         self.lessonId = lessonId
         self.questionType = questionType
         self.questionText = questionText
-        self.questionType = questionTitle
+        self.questionTitle = questionTitle
         self.noteText = noteText
         self.clefType = clefType
         self.imageName = imageName

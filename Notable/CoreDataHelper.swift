@@ -141,6 +141,8 @@ class CoreDataHelper
             
             request = NSFetchRequest(entityName: "Questions")
             request!.returnsObjectsAsFaults = false
+
+            //request!.predicate = NSPredicate(format: "order by lessonName")
             
             var results:NSArray = context.executeFetchRequest(request!, error: nil)!
             
@@ -429,6 +431,61 @@ class CoreDataHelper
 
         return data!
     }
+
+
+    func getQuestionsOfLesson(#lessonId:Int) -> [AnyObject] {
+
+        var data: [AnyObject]? = []
+
+        var context:NSManagedObjectContext = appDel!.managedObjectContext!
+
+
+        var request = NSFetchRequest(entityName: "LessonQuestions")
+        request.returnsObjectsAsFaults = false
+        println("lessonId: \(lessonId)")
+        request.predicate = NSPredicate(format: "lessonId = %d",lessonId)
+        var results:NSArray = context.executeFetchRequest(request, error: nil)!
+
+
+        println("getLessonQuestions  Count= \(results.count) !!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+
+
+
+        if(results.count > 0){
+
+
+            for counter in 0..<results.count {
+
+
+                var currentLessonQuestionObject:NSManagedObject
+                var currentLessonQuestion:LessonQuestion = LessonQuestion()
+
+                currentLessonQuestionObject = results[counter] as NSManagedObject
+                currentLessonQuestion.lessonId = currentLessonQuestionObject.valueForKey("lessonId") as? Int
+                println("currentLessonQuestion.lessonId \(currentLessonQuestion.lessonId)")
+                currentLessonQuestion.clefType = currentLessonQuestionObject.valueForKey("clefType") as? String
+                println("currentLessonQuestion.clefType \(currentLessonQuestion.clefType)")
+                currentLessonQuestion.imageName = currentLessonQuestionObject.valueForKey("imageName") as? String
+                println("currentLessonQuestion.imageName \(currentLessonQuestion.imageName)")
+                currentLessonQuestion.noteText = currentLessonQuestionObject.valueForKey("noteText") as? String
+                println("currentLessonQuestion.noteText \(currentLessonQuestion.noteText)")
+                currentLessonQuestion.questionText = currentLessonQuestionObject.valueForKey("questionText") as? String
+                println("currentLessonQuestion.questionText \(currentLessonQuestion.questionText)")
+                currentLessonQuestion.questionTitle = currentLessonQuestionObject.valueForKey("questionTitle") as? String
+                println("currentLessonQuestion.questionTitle \(currentLessonQuestion.questionTitle)")
+                currentLessonQuestion.questionType = currentLessonQuestionObject.valueForKey("questionType") as? String
+                println("currentLessonQuestion.questionType \(currentLessonQuestion.questionType)")
+                
+                data?.insert(currentLessonQuestion, atIndex: counter)
+                
+            }
+
+        }
+
+
+        return data!
+    }
+
 
 
     func getQuestionsOfCategories(arrayOfCategories:[Category]) -> [AnyObject] {

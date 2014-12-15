@@ -21,7 +21,7 @@ class LessonData
 
         // create 1st lesson and add its' questions  ************************************************************************************
         var lesson1 = Lesson(lessonId: 0, lessonName: "Basic music theory", lessonHint: "Note names and clefs")
-        lessons!.append(lesson1)
+
 
         var l1q1 = LessonQuestion(lessonId: 0, questionType: "Text", questionText: "We are happy to see that you've decided to learn how to read some sheet music, in this lesson we will go through the most basic parts of it. We will show you the staff and how different placements of the notes on the staff affects the sound. We will also go through the two most common clefs as well as ledger lines!", questionTitle: "Welcome!", noteText: "", clefType: "",imageName:"")
 
@@ -103,7 +103,7 @@ class LessonData
 
         // create 2nd lesson and add its' questions  ************************************************************************************
         var lesson2 = Lesson(lessonId: 1, lessonName: "Advanced music theory", lessonHint: "Accidentals and chords")
-        lessons!.append(lesson2)
+
 
         var l2q1 = LessonQuestion(lessonId: 1, questionType: "Text", questionText: "Nice to see that you're back and ready for more! In this lesson we are going to talk about something called accidentals as well as taking a look at how some basic chords are built up!", questionTitle: "Let's go!", noteText: "", clefType: "",imageName:"")
 
@@ -220,7 +220,7 @@ class LessonData
 
         // create 3rd lesson and add its' questions  ************************************************************************************
         var lesson3 = Lesson(lessonId: 2, lessonName: "Measures and note lengths", lessonHint: "Notes and rests")
-        lessons!.append(lesson3)
+
 
         var l3q1 = LessonQuestion(lessonId: 2, questionType: "Text", questionText: "Welcome back! This time we are going to tell you a little about the difference in note lengths, because when you play or sing all notes are obviously not going to be of the same length", questionTitle: "Lets go!", noteText: "", clefType: "",imageName:"")
 
@@ -332,7 +332,6 @@ class LessonData
 
         // create 4th lesson object for going to store  ************************************************************************************
         var lesson4 = Lesson(lessonId: 3, lessonName: "Basic music symbols", lessonHint: "Different music symbols")
-        lessons!.append(lesson4)
 
         var l4q1 = LessonQuestion(lessonId: 3, questionType: "Text", questionText: "Welcome back! In this lesson we are going to talk about what different symbols you might encounter when reading sheet music as well as what they mean. Let's start off with some very common and easy to understand dynamic indications", questionTitle: "Music symbols", noteText: "", clefType: "",imageName:"")
 
@@ -490,9 +489,20 @@ class LessonData
 
         lesson4.lessonQuestions!.append(l4q39)
 
+        lessons!.append(lesson1)
+        lessons!.append(lesson4)
+        lessons!.append(lesson3)
+        lessons!.append(lesson2)
+
+
+
+
+
+        /*
         // create 5th lesson object for going to store  ************************************************************************************
         var lesson5 = Lesson(lessonId: 4, lessonName: "Click here to get more lessons!", lessonHint: "Check it out")
         lessons!.append(lesson5)
+        */
 
 
 

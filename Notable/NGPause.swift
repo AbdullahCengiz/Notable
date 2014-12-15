@@ -42,7 +42,7 @@ class NGPause: UIViewController{
             (delegate!.title! == "newGame") {
             self.pauseMessages.text = "Your Game is Paused"
         } else if
-            (delegate!.title! == "newLesson") {
+            (delegate!.title! == "Choose Lesson") {
                 self.pauseMessages.text = "Your Lesson is Paused"
         } else {
             self.pauseMessages.text = "thisOneGoesToNothing!"
@@ -60,7 +60,7 @@ class NGPause: UIViewController{
             (delegate!.title! == "newGame") {
             self.resumeMessages.text = "TAP HERE TO RESUME GAME"
         } else if
-            (delegate!.title! == "newLesson") {
+            (delegate!.title! == "Choose Lesson") {
             self.resumeMessages.text = "TAP HERE TO RESUME LESSON"
         } else {
             self.resumeMessages.text = "thisOneGoesToNothing!"
@@ -73,7 +73,7 @@ class NGPause: UIViewController{
             (delegate!.title! == "newGame") {
                 self.endMessages.text = "End Game"
         } else if
-            (delegate!.title! == "newLesson") {
+            (delegate!.title! == "Choose Lesson") {
                 self.endMessages.text = "End Lesson"
         } else {
             self.endMessages.text = "thisOneGoesToNothing!"

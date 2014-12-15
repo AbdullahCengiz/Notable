@@ -8,72 +8,72 @@
 
 import UIKit
 
-class LessonsViewController: UIViewController {
+import UIKit
+
+//frida samuelsson
+
+class LessonsViewController: UIViewController,UITableViewDelegate ,UITableViewDataSource {
+
     @IBOutlet var navItem: UINavigationItem!
-    
-    
+    @IBOutlet var lessonsTableView: UITableView!
+
+
+    var loadedArrayOfLessons: [Lesson] = [Lesson]()
+    var cdHelper : CoreDataHelper!
+    var lessonQuestions:[LessonQuestion]!
+
+
+    var delegate:AnyObject?
     var navBar:UINavigationBar!
-    
-    @IBOutlet var prevButton: UIButton!
-    @IBOutlet var nextButton: UIButton!
-    
-    @IBOutlet var lessonContentContainer: UIView!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         navBar = self.navigationController?.navigationBar
-        
-        initUI()
-        
         // Do any additional setup after loading the view.
+
+        self.lessonsTableView.delegate = self
+        self.lessonsTableView.dataSource = self
+        self.automaticallyAdjustsScrollViewInsets = false
+
+        lessonsTableView.layer.cornerRadius = 4.0
+        lessonsTableView.separatorColor = UIColor.blackColor()
+
+        cdHelper = CoreDataHelper()
+
+        loadCategories()
+
+        initUI()
     }
-    
-    
-    func initUI(){
-        
-    println("width=!!!!\(prevButton.frame.width)")
-    println("height=!!!!\(prevButton.frame.height)")
-    
-    prevButton.layer.cornerRadius = prevButton.frame.height/2
-    nextButton.layer.cornerRadius = nextButton.frame.height/2
-        
-    lessonContentContainer.layer.cornerRadius = 4.0
-    
-    
+
+    func initUI() {
+
     }
-    
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    
+
+
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        
+
         prepareNavigationBar()
         styleView()
     }
-    
+
     func styleView() {
         var bg:UIColor = UIColor.whiteColor()
         var btn:UIColor = UIColor.whiteColor()
         var txt:UIColor = UIColor.blackColor()
         Theme().fetchThemeColors(&bg, buttonColor:&btn, textColor:&txt)
-        
-        self.view.backgroundColor = bg
-        self.prevButton.backgroundColor = btn
-        self.nextButton.backgroundColor = btn
-        self.lessonContentContainer.backgroundColor = btn
-        
-        self.prevButton.setTitleColor(txt, forState: UIControlState.Normal)
-        self.nextButton.setTitleColor(txt, forState: UIControlState.Normal)
 
-        
+        self.view.backgroundColor = bg
+
     }
-    
+
     func prepareNavigationBar(){
-        
+
         //for menubutton
         let menuImage = UIImage(named: "menu_btn") as UIImage?
         let menuButton    = UIButton.buttonWithType(UIButtonType.System) as UIButton
@@ -84,20 +84,92 @@ class LessonsViewController: UIViewController {
         navItem.setLeftBarButtonItem(UIBarButtonItem(customView: menuButton), animated: true)
         navItem.hidesBackButton=true
 
+
+
+    }
+
+
+
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return loadedArrayOfLessons.count
+    }
+
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let lessonCell :LessonTableCell = self.lessonsTableView.dequeueReusableCellWithIdentifier("lessonCell") as LessonTableCell
+
+        let currentLesson = loadedArrayOfLessons[indexPath.row]
+
+        lessonCell.setCell(lessonNameLabel:currentLesson.lessonName!,lessonHint:currentLesson.lessonHint!)
+
+        return lessonCell
+    }
+
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        println("You selected cell #\(indexPath.row)!")
+        let lessonCell :LessonTableCell = lessonsTableView.cellForRowAtIndexPath(indexPath) as LessonTableCell
+
+        if(indexPath.row != loadedArrayOfLessons.count-1){
+
+
+
+            var selectedLesson : Lesson = loadedArrayOfLessons[indexPath.row]
+
+            var selectedLessonName :String = lessonCell.lessonNameLabel.text as String!
+
+            var selectedLessons:[Lesson] = []
+
+            selectedLessons.append(selectedLesson)
+
+            lessonQuestions  = cdHelper.getQuestionsOfLesson(lessonId: selectedLesson.lessonId!) as [LessonQuestion]
+
+            println("number of questions of lesson : \(lessonQuestions.count) !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+
+            self.performSegueWithIdentifier("goToLessonDetail", sender: "lesson")
+            
+            //lessonsTableView.reloadData()
+            
+        }
+        
         
     }
-    
-    
-    @IBAction func backButtonAction(sender:UIButton)
-    {
-        var pauseScreen:NGPause = self.storyboard!.instantiateViewControllerWithIdentifier("PausedGameViewController") as NGPause
+
+    @IBAction func backButtonAction(sender:UIButton) {
+        println("Button Action From Code")
+        var pauseScreen: NGPause = self.storyboard!.instantiateViewControllerWithIdentifier("PausedGameViewController") as NGPause
         pauseScreen.delegate = self
-        self.title = "newLesson"
+        self.title = "Choose Lesson"
         self.presentViewController(pauseScreen, animated: true, completion: nil)
     }
+
+
+    func loadCategories(){
+
+        loadedArrayOfLessons.removeAll(keepCapacity: false)
+
+        if let loadLessonResult  = cdHelper?.loadData("lesson") {
+            loadedArrayOfLessons  = loadLessonResult.data as [Lesson]
+
+            //create lesson variable for store page selection line
+            var lesson5 = Lesson(lessonId: 4, lessonName: "Click here to get more lessons!", lessonHint: "Check it out")
+            loadedArrayOfLessons.append(lesson5)
+
+        }
+    }
+
+
+
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+
+        if(sender? as String == "lesson"){
+            let lessonDetailViewController = (segue.destinationViewController as LessonDetailViewController)
+            var newLesson = lessonDetailViewController.initTrivLesson()
+            newLesson.questions = lessonQuestions
+        }
+    }
+
     
-    func setColor(#backgroundColor:UIColor,buttonColor:UIColor){
     
-    self.view.backgroundColor = backgroundColor
+    
 }
-}
+
+

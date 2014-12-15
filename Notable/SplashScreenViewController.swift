@@ -454,7 +454,7 @@ class SplashScreenViewController: UIViewController {
 
 
                 cdHelper!.saveData("lessonQuestion", data: lesson.lessonQuestions)
-
+                println("\(lesson.lessonName) questions were saved !!!!!!!!!!!!!!!!!!!!!!!!!!!!")
 
             }
 
@@ -462,7 +462,6 @@ class SplashScreenViewController: UIViewController {
         }
         else{
             println("There are some lessons in CoreData !!!!!!!!!!!!!!!!!!!!!!!!!!!!")
-
         }
 
         

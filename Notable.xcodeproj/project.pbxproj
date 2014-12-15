@@ -17,6 +17,9 @@
 		ED01DA2C1A247B8200E7BF8E /* correct.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = ED01DA2A1A247B8200E7BF8E /* correct.mp3 */; };
 		ED01DA2D1A247B8200E7BF8E /* incorrect.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = ED01DA2B1A247B8200E7BF8E /* incorrect.mp3 */; };
 		ED0363CC1A038A41004797B5 /* Notable.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = ED0363CA1A038A41004797B5 /* Notable.xcdatamodeld */; };
+		ED04897A1A39FDED000093C2 /* LessonDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0489791A39FDED000093C2 /* LessonDetailViewController.swift */; };
+		ED04897C1A3E3C53000093C2 /* TrivLesson.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED04897B1A3E3C53000093C2 /* TrivLesson.swift */; };
+		ED04897E1A3E3E92000093C2 /* TrivLessonNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED04897D1A3E3E92000093C2 /* TrivLessonNoteView.swift */; };
 		ED089C9C1A110D7D00D3F034 /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED089C9B1A110D7D00D3F034 /* Timer.swift */; };
 		ED08FB9019F9384400D6BE26 /* PointTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED08FB8F19F9384400D6BE26 /* PointTableCell.swift */; };
 		ED08FB9319F93AB400D6BE26 /* Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED08FB9219F93AB400D6BE26 /* Point.swift */; };
@@ -28,9 +31,9 @@
 		ED168F0F1A386F2A004DA067 /* Roboto-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0DA7946F1A11122B00D2F131 /* Roboto-Thin.ttf */; };
 		ED168F111A388824004DA067 /* LessonQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED168F101A388824004DA067 /* LessonQuestion.swift */; };
 		ED168F161A3888F8004DA067 /* LessonData.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED168F151A3888F8004DA067 /* LessonData.swift */; };
+		ED168F181A39D5F2004DA067 /* LessonTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED168F171A39D5F2004DA067 /* LessonTableCell.swift */; };
 		ED19B34719FA93C700041AF0 /* NewGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED19B34619FA93C700041AF0 /* NewGameViewController.swift */; };
 		ED19B34A19FA9B9800041AF0 /* PracticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED19B34919FA9B9800041AF0 /* PracticeViewController.swift */; };
-		ED19B34D19FA9F9400041AF0 /* LessonsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED19B34C19FA9F9400041AF0 /* LessonsViewController.swift */; };
 		ED19B35019FAA0F200041AF0 /* CategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED19B34F19FAA0F200041AF0 /* CategoriesViewController.swift */; };
 		ED225B7919F205DB00D8784E /* MainPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED225B7819F205DB00D8784E /* MainPageViewController.swift */; };
 		ED225B8119F6629E00D8784E /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED225B8019F6629E00D8784E /* SettingsViewController.swift */; };
@@ -129,6 +132,7 @@
 		ED84C2331A36EE400084DA0A /* A6.aif in Resources */ = {isa = PBXBuildFile; fileRef = ED84C1EB1A36EE2B0084DA0A /* A6.aif */; };
 		ED84C2341A36EE400084DA0A /* A#6.aif in Resources */ = {isa = PBXBuildFile; fileRef = ED84C1EC1A36EE2B0084DA0A /* A#6.aif */; };
 		ED84C2351A36EE400084DA0A /* B6.aif in Resources */ = {isa = PBXBuildFile; fileRef = ED84C1ED1A36EE2B0084DA0A /* B6.aif */; };
+		ED94FA961A39E42400EF1627 /* LessonsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED19B34C19FA9F9400041AF0 /* LessonsViewController.swift */; };
 		EDA9C6E91A090E1C00108A85 /* StoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA9C6E81A090E1C00108A85 /* StoreViewController.swift */; };
 		EDAD76211A3094C7004A9C16 /* TrivNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAD76201A3094C7004A9C16 /* TrivNoteView.swift */; };
 		EDD14B7E1A029A61004F7EA1 /* CategoryTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD14B7D1A029A61004F7EA1 /* CategoryTableCell.swift */; };
@@ -157,6 +161,9 @@
 		ED01DA2A1A247B8200E7BF8E /* correct.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = correct.mp3; sourceTree = "<group>"; };
 		ED01DA2B1A247B8200E7BF8E /* incorrect.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = incorrect.mp3; sourceTree = "<group>"; };
 		ED0363CB1A038A41004797B5 /* Notable.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Notable.xcdatamodel; sourceTree = "<group>"; };
+		ED0489791A39FDED000093C2 /* LessonDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LessonDetailViewController.swift; sourceTree = "<group>"; };
+		ED04897B1A3E3C53000093C2 /* TrivLesson.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrivLesson.swift; sourceTree = "<group>"; };
+		ED04897D1A3E3E92000093C2 /* TrivLessonNoteView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrivLessonNoteView.swift; sourceTree = "<group>"; };
 		ED089C9B1A110D7D00D3F034 /* Timer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
 		ED08FB8F19F9384400D6BE26 /* PointTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PointTableCell.swift; sourceTree = "<group>"; };
 		ED08FB9219F93AB400D6BE26 /* Point.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Point.swift; sourceTree = "<group>"; };
@@ -167,6 +174,7 @@
 		ED0B96B71A23432800A1A508 /* JLToastView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JLToastView.swift; sourceTree = "<group>"; };
 		ED168F101A388824004DA067 /* LessonQuestion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LessonQuestion.swift; sourceTree = "<group>"; };
 		ED168F151A3888F8004DA067 /* LessonData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LessonData.swift; sourceTree = "<group>"; };
+		ED168F171A39D5F2004DA067 /* LessonTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LessonTableCell.swift; sourceTree = "<group>"; };
 		ED19B34619FA93C700041AF0 /* NewGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewGameViewController.swift; sourceTree = "<group>"; };
 		ED19B34919FA9B9800041AF0 /* PracticeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PracticeViewController.swift; sourceTree = "<group>"; };
 		ED19B34C19FA9F9400041AF0 /* LessonsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LessonsViewController.swift; sourceTree = "<group>"; };
@@ -319,6 +327,7 @@
 			children = (
 				ED08FB8F19F9384400D6BE26 /* PointTableCell.swift */,
 				EDD14B7D1A029A61004F7EA1 /* CategoryTableCell.swift */,
+				ED168F171A39D5F2004DA067 /* LessonTableCell.swift */,
 			);
 			name = TableCell;
 			sourceTree = "<group>";
@@ -398,6 +407,7 @@
 			isa = PBXGroup;
 			children = (
 				ED19B34C19FA9F9400041AF0 /* LessonsViewController.swift */,
+				ED0489791A39FDED000093C2 /* LessonDetailViewController.swift */,
 			);
 			name = Lessons;
 			sourceTree = "<group>";
@@ -460,6 +470,8 @@
 			children = (
 				ED234D901A14E35000DE5087 /* TrivQuiz.swift */,
 				EDAD76201A3094C7004A9C16 /* TrivNoteView.swift */,
+				ED04897B1A3E3C53000093C2 /* TrivLesson.swift */,
+				ED04897D1A3E3E92000093C2 /* TrivLessonNoteView.swift */,
 			);
 			name = TrivQuiz;
 			sourceTree = "<group>";
@@ -874,6 +886,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED94FA961A39E42400EF1627 /* LessonsViewController.swift in Sources */,
 				0DA8BD6D1A136816002F6F89 /* MasterNavigationController.swift in Sources */,
 				ED234D951A14E35E00DE5087 /* SoundFile.swift in Sources */,
 				EDA9C6E91A090E1C00108A85 /* StoreViewController.swift in Sources */,
@@ -896,7 +909,6 @@
 				ED08FB9319F93AB400D6BE26 /* Point.swift in Sources */,
 				ED76AE181A276DC4000CA83C /* CheckError.swift in Sources */,
 				ED234D9C1A160E8800DE5087 /* Lesson.swift in Sources */,
-				ED19B34D19FA9F9400041AF0 /* LessonsViewController.swift in Sources */,
 				0DAD97A31A1A1EB80011E4AF /* Theme.swift in Sources */,
 				EDD14B7E1A029A61004F7EA1 /* CategoryTableCell.swift in Sources */,
 				ED234D941A14E35E00DE5087 /* Sound.swift in Sources */,
@@ -907,9 +919,13 @@
 				ED234DA01A16166800DE5087 /* CoreDataHelper.swift in Sources */,
 				ED0B96B91A23432800A1A508 /* JLToastCenter.swift in Sources */,
 				ED0B96BA1A23432800A1A508 /* JLToastView.swift in Sources */,
+				ED04897E1A3E3E92000093C2 /* TrivLessonNoteView.swift in Sources */,
 				0DA8BD701A13AF63002F6F89 /* NGPause.swift in Sources */,
+				ED04897A1A39FDED000093C2 /* LessonDetailViewController.swift in Sources */,
+				ED04897C1A3E3C53000093C2 /* TrivLesson.swift in Sources */,
 				ED19B34719FA93C700041AF0 /* NewGameViewController.swift in Sources */,
 				ED76AE201A27DD03000CA83C /* MHAudioBufferPlayer.m in Sources */,
+				ED168F181A39D5F2004DA067 /* LessonTableCell.swift in Sources */,
 				EDD14B801A029BBE004F7EA1 /* Category.swift in Sources */,
 				ED76AE191A276DC4000CA83C /* SoundGenerator.swift in Sources */,
 			);
