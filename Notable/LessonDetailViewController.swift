@@ -30,6 +30,29 @@ class LessonDetailViewController: UIViewController {
     @IBOutlet var textViewArea: UIView!
     @IBOutlet var noteViewArea: UIView!
 
+    //for clef images
+    @IBOutlet var gClef: UIImageView!
+    @IBOutlet var fClef: UIImageView!
+
+    //for container definitions
+
+    @IBOutlet var pictureContainer: UIView!
+    @IBOutlet var textContainer: UIView!
+    @IBOutlet var lineContainer: UIView!
+    @IBOutlet var clefContainer: UIView!
+
+    //for uilabels
+    @IBOutlet var questionTitleText: UILabel!
+    @IBOutlet var questionText: UILabel!
+
+    //for questionPicture
+    @IBOutlet var questionPicture: UIImageView!
+
+    // for noteView
+    @IBOutlet var noteView: UIView!
+
+
+
     var newLesson:TrivLesson!
 
     var questionIndexLabel:UILabel!

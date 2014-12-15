@@ -312,11 +312,15 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yzQ-Bo-8Fm" userLabel="NoteViewContainer">
                                                 <rect key="frame" x="0.0" y="0.0" width="568" height="215.5"/>
                                                 <subviews>
-                                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Iby-r0-wG4" userLabel="PictureContainer">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xXy-nB-gc0" userLabel="NoteView">
+                                                        <rect key="frame" x="0.0" y="0.0" width="568" height="215.5"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Iby-r0-wG4" userLabel="PictureContainer">
                                                         <rect key="frame" x="0.0" y="0.0" width="568" height="215.5"/>
                                                         <subviews>
                                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vmC-XQ-G09" userLabel="QuestionPicture">
-                                                                <rect key="frame" x="177" y="54.5" width="215.5" height="108"/>
+                                                                <rect key="frame" x="177" y="54" width="215.5" height="108"/>
                                                             </imageView>
                                                         </subviews>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -327,11 +331,29 @@
                                                             <constraint firstItem="vmC-XQ-G09" firstAttribute="height" secondItem="Iby-r0-wG4" secondAttribute="height" multiplier="0.5" id="shh-sn-XMh"/>
                                                         </constraints>
                                                     </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dPd-x5-6dk" userLabel="TextContainer">
+                                                        <rect key="frame" x="0.0" y="0.0" width="568" height="215.5"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x8o-Dv-IvM" userLabel="QuestionText">
+                                                                <rect key="frame" x="0.0" y="0.0" width="568" height="215.5"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <constraints>
+                                                            <constraint firstItem="x8o-Dv-IvM" firstAttribute="top" secondItem="dPd-x5-6dk" secondAttribute="top" id="4nF-Rb-Lh2"/>
+                                                            <constraint firstAttribute="trailing" secondItem="x8o-Dv-IvM" secondAttribute="trailing" id="ZnH-Es-8L9"/>
+                                                            <constraint firstAttribute="bottom" secondItem="x8o-Dv-IvM" secondAttribute="bottom" id="dUZ-Wb-v8C"/>
+                                                            <constraint firstItem="x8o-Dv-IvM" firstAttribute="leading" secondItem="dPd-x5-6dk" secondAttribute="leading" id="xj4-5Z-4QY"/>
+                                                        </constraints>
+                                                    </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ian-Uj-EVL" userLabel="LineContainer">
                                                         <rect key="frame" x="0.0" y="0.0" width="568" height="215.5"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c31-Vb-wjX" userLabel="Lines">
-                                                                <rect key="frame" x="0.0" y="71.5" width="568" height="72.5"/>
+                                                                <rect key="frame" x="0.0" y="71" width="568" height="72.5"/>
                                                                 <subviews>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G2p-qR-sdL" userLabel="LineIndentation">
                                                                         <rect key="frame" x="0.0" y="0.0" width="29" height="72.5"/>
@@ -359,12 +381,12 @@
                                                                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                             </view>
                                                                             <view autoresizesSubviews="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bbG-6f-8WP" userLabel="FourthNoteLine">
-                                                                                <rect key="frame" x="0.0" y="54.5" width="511" height="2"/>
+                                                                                <rect key="frame" x="0.0" y="54" width="511" height="2"/>
                                                                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                             </view>
                                                                             <view autoresizesSubviews="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dlE-JX-hl6" userLabel="FifthNoteLine">
-                                                                                <rect key="frame" x="0.0" y="70.5" width="511" height="2"/>
+                                                                                <rect key="frame" x="0.0" y="70" width="511" height="2"/>
                                                                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                             </view>
@@ -433,18 +455,18 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="568" height="215.5"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uzz-s0-xfG" userLabel="ClefIndentation">
-                                                                <rect key="frame" x="0.0" y="0.5" width="28.5" height="215.5"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="28.5" height="215.5"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="poy-pX-c7n" userLabel="gClefArea">
-                                                                <rect key="frame" x="28.5" y="0.0" width="123.5" height="215.5"/>
+                                                                <rect key="frame" x="28" y="0.0" width="123.5" height="215.5"/>
                                                                 <subviews>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h6f-Ct-WH8" userLabel="gClefTopIndentation">
                                                                         <rect key="frame" x="0.0" y="0.0" width="123.5" height="29.5"/>
                                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                     </view>
                                                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gclef" translatesAutoresizingMaskIntoConstraints="NO" id="Wad-lx-nfu" userLabel="gClefView">
-                                                                        <rect key="frame" x="0.0" y="29.5" width="123.5" height="165"/>
+                                                                        <rect key="frame" x="0.0" y="29" width="123.5" height="165"/>
                                                                     </imageView>
                                                                 </subviews>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -459,15 +481,15 @@
                                                                     <constraint firstItem="h6f-Ct-WH8" firstAttribute="top" secondItem="poy-pX-c7n" secondAttribute="top" id="yJa-5I-SqP"/>
                                                                 </constraints>
                                                             </view>
-                                                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HAH-8d-FXR" userLabel="fClefArea">
-                                                                <rect key="frame" x="28.5" y="0.0" width="116" height="215.5"/>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HAH-8d-FXR" userLabel="fClefArea">
+                                                                <rect key="frame" x="28" y="0.0" width="116" height="215.5"/>
                                                                 <subviews>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nac-qu-ik4" userLabel="fClefTopIndentation">
                                                                         <rect key="frame" x="0.0" y="0.0" width="116" height="34.5"/>
                                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                     </view>
                                                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fclef" translatesAutoresizingMaskIntoConstraints="NO" id="uvn-VJ-RVx" userLabel="fClefView">
-                                                                        <rect key="frame" x="0.0" y="34.5" width="116" height="151"/>
+                                                                        <rect key="frame" x="0.0" y="34" width="116" height="151"/>
                                                                     </imageView>
                                                                 </subviews>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -502,14 +524,22 @@
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
+                                                    <constraint firstAttribute="bottom" secondItem="xXy-nB-gc0" secondAttribute="bottom" id="0bG-Se-YYT"/>
+                                                    <constraint firstItem="dPd-x5-6dk" firstAttribute="leading" secondItem="yzQ-Bo-8Fm" secondAttribute="leading" id="1rc-up-yt0"/>
+                                                    <constraint firstItem="xXy-nB-gc0" firstAttribute="top" secondItem="yzQ-Bo-8Fm" secondAttribute="top" id="22V-Oc-eve"/>
                                                     <constraint firstItem="Iby-r0-wG4" firstAttribute="top" secondItem="yzQ-Bo-8Fm" secondAttribute="top" id="3wd-IS-TAN"/>
+                                                    <constraint firstItem="dPd-x5-6dk" firstAttribute="top" secondItem="yzQ-Bo-8Fm" secondAttribute="top" id="6dB-MO-CFs"/>
                                                     <constraint firstAttribute="bottom" secondItem="Ian-Uj-EVL" secondAttribute="bottom" id="9HB-z2-jY5"/>
                                                     <constraint firstAttribute="bottom" secondItem="qm1-Z1-mxE" secondAttribute="bottom" id="ESX-l2-Dug"/>
+                                                    <constraint firstAttribute="bottom" secondItem="dPd-x5-6dk" secondAttribute="bottom" id="F79-Lh-34g"/>
                                                     <constraint firstAttribute="trailing" secondItem="qm1-Z1-mxE" secondAttribute="trailing" id="Jo1-9S-7KM"/>
                                                     <constraint firstItem="Iby-r0-wG4" firstAttribute="leading" secondItem="yzQ-Bo-8Fm" secondAttribute="leading" id="NXk-cH-mQy"/>
                                                     <constraint firstItem="qm1-Z1-mxE" firstAttribute="leading" secondItem="yzQ-Bo-8Fm" secondAttribute="leading" id="NbR-R9-L9F"/>
                                                     <constraint firstItem="Ian-Uj-EVL" firstAttribute="leading" secondItem="yzQ-Bo-8Fm" secondAttribute="leading" id="VmF-Y4-NdL"/>
                                                     <constraint firstAttribute="bottom" secondItem="Iby-r0-wG4" secondAttribute="bottom" id="XUy-rz-Y1U"/>
+                                                    <constraint firstAttribute="trailing" secondItem="dPd-x5-6dk" secondAttribute="trailing" id="aPE-a0-6aG"/>
+                                                    <constraint firstItem="xXy-nB-gc0" firstAttribute="leading" secondItem="yzQ-Bo-8Fm" secondAttribute="leading" id="bqM-AW-et5"/>
+                                                    <constraint firstAttribute="trailing" secondItem="xXy-nB-gc0" secondAttribute="trailing" id="cMD-89-OxW"/>
                                                     <constraint firstAttribute="trailing" secondItem="Ian-Uj-EVL" secondAttribute="trailing" id="faM-P1-YU9"/>
                                                     <constraint firstAttribute="trailing" secondItem="Iby-r0-wG4" secondAttribute="trailing" id="jeh-vD-WYr"/>
                                                     <constraint firstItem="Ian-Uj-EVL" firstAttribute="top" secondItem="yzQ-Bo-8Fm" secondAttribute="top" id="nmQ-Ui-w3l"/>
@@ -711,12 +741,22 @@
                     </view>
                     <navigationItem key="navigationItem" id="KAH-KM-Gs4"/>
                     <connections>
+                        <outlet property="clefContainer" destination="qm1-Z1-mxE" id="EN7-op-JbL"/>
+                        <outlet property="fClef" destination="uvn-VJ-RVx" id="fba-f6-AwQ"/>
+                        <outlet property="gClef" destination="Wad-lx-nfu" id="qOn-7l-XjQ"/>
+                        <outlet property="lineContainer" destination="Ian-Uj-EVL" id="DDa-gO-TYj"/>
                         <outlet property="navItem" destination="KAH-KM-Gs4" id="uvT-ea-rAU"/>
                         <outlet property="nextButton" destination="kFN-PH-ean" id="dJq-xw-Esw"/>
                         <outlet property="nextButtonHeight" destination="xA5-R6-er9" id="LpG-bG-nVS"/>
+                        <outlet property="noteView" destination="xXy-nB-gc0" id="3zL-MW-yuP"/>
                         <outlet property="noteViewArea" destination="yzQ-Bo-8Fm" id="cBP-OJ-qY9"/>
+                        <outlet property="pictureContainer" destination="Iby-r0-wG4" id="rTh-GP-NG9"/>
                         <outlet property="previousButton" destination="g3T-9P-vP1" id="f0f-7f-DWu"/>
                         <outlet property="previousButtonHeight" destination="sCR-ES-dLu" id="xGT-03-4Jo"/>
+                        <outlet property="questionPicture" destination="vmC-XQ-G09" id="old-G1-OXO"/>
+                        <outlet property="questionText" destination="x8o-Dv-IvM" id="ANO-Rg-lr1"/>
+                        <outlet property="questionTitleText" destination="bKw-4d-xll" id="com-0T-uM9"/>
+                        <outlet property="textContainer" destination="dPd-x5-6dk" id="DNU-Kn-B1Q"/>
                         <outlet property="textViewArea" destination="V3E-IC-0d3" id="aK5-du-7ZQ"/>
                     </connections>
                 </viewController>

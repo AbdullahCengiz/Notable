@@ -29,14 +29,12 @@ import QuartzCore
 class TrivLesson
 {
 
-    var trivNoteView:TrivNoteView!
+    var trivLessonNoteView:TrivLessonNoteView!
     var questions : [LessonQuestion]!
-    var cellCounter:Int = 0
     var sound : Sound!
     var majorMinorFound: Bool = false
     var currentQuestion: Int = 0
     var replayMajorMinorFlag:Bool = true
-    var gameType:String = "newGame"
     var newLessonVC:LessonDetailViewController!
     var currentLessonQuestion : LessonQuestion!
 
@@ -47,8 +45,7 @@ class TrivLesson
         questions = []
         //creates sound object
         sound = Sound()
-        counter = 0
-        realScore  = 0
+        currentQuestion = 0
 
     }
 
@@ -60,6 +57,7 @@ class TrivLesson
         setSoundValue()
         //initPlayer()
         //trivNoteView.addNote(questionContent:"H4",clefType:"gClef",sharpFlatValue: -1)
+
         prepareQuestion(currentQuestion)
 
     }
@@ -69,17 +67,15 @@ class TrivLesson
 
     }
 
+    func inOrder(s1: String, s2: String) -> Bool {
+        return s1 < s2
+    }
+
 
     func initVariables(){
 
         //init trivNoteView
-        trivNoteView = TrivNoteView(noteView: newGameVC.noteView, viewController: newGameVC)
-
-        //initiliaze progress cells
-        newGameVC.cellArray = [newGameVC.cell1,newGameVC.cell2,newGameVC.cell3,newGameVC.cell4,newGameVC.cell5,newGameVC.cell6,newGameVC.cell7,newGameVC.cell8,newGameVC.cell9,newGameVC.cell10]
-
-        //initiliaze game buttons
-        newGameVC.choiceButtonArray = [newGameVC.firstChoiceButton,newGameVC.secondChoiceButton,newGameVC.thirdChoiceButton,newGameVC.fourthChoiceButton]
+        trivLessonNoteView = TrivLessonNoteView(noteView: newLessonVC.noteView, viewController: newLessonVC )
 
         //initiliaze noteArray
         noteArray = ["C","C#","D","D#","E","F","F#","G","G#","A","A#","H"]
@@ -158,16 +154,91 @@ class TrivLesson
 
         currentLessonQuestion  = questions[currentQuestion]
 
-        //
+
+        println("questionId = \(currentLessonQuestion.questionId!)")
+        println("cleftype = \(currentLessonQuestion.clefType!)")
+        //decide cleftype if it is available
+        if(currentLessonQuestion.clefType! == "gclef"){
+
+            newLessonVC.lineContainer.hidden = false
+            newLessonVC.clefContainer.hidden = false
+            newLessonVC.gClef.hidden = false
+            newLessonVC.fClef.hidden = true
+
+        }
+        else if(currentLessonQuestion.clefType! == "fclef"){
+            newLessonVC.lineContainer.hidden = false
+            newLessonVC.clefContainer.hidden = false
+            newLessonVC.gClef.hidden = true
+            newLessonVC.fClef.hidden = false
+
+        }
+        else{
+            newLessonVC.lineContainer.hidden = false
+            newLessonVC.clefContainer.hidden = false
+            newLessonVC.gClef.hidden = true
+            newLessonVC.fClef.hidden = true
+
+        }
+
+
+        //get type of question
         if(currentLessonQuestion.questionType! == "Image"){
             println("ImageType")
+
+            if(currentLessonQuestion.noteText == ""){
+
+                println("set imageview to image !!!!!")
+                println("questionText:  \(currentLessonQuestion.questionText!)!!!!!")
+                println("imageNameToSet: \(currentLessonQuestion.imageName!) !!!!!!!!!!")
+
+
+                newLessonVC.pictureContainer.hidden = false
+                newLessonVC.lineContainer.hidden = true
+                newLessonVC.clefContainer.hidden = true
+                newLessonVC.textContainer.hidden = true
+
+                if(currentLessonQuestion.imageName! != ""){
+                    newLessonVC.questionPicture.hidden = false
+                    newLessonVC.questionPicture.image = UIImage(named: currentLessonQuestion.imageName!)
+                    newLessonVC.questionTitleText.text = currentLessonQuestion.questionText
+                }
+                else{
+                    newLessonVC.lineContainer.hidden = false
+                    newLessonVC.clefContainer.hidden = false
+                    newLessonVC.questionTitleText.text = currentLessonQuestion.questionText
+                }
+
+            }
+            else{
+                //play sound and draw note
+                newLessonVC.questionTitleText.text = currentLessonQuestion.questionText
+
+
+
+            }
+
         }
         else if(currentLessonQuestion.questionType! == "Text"){
             println("TextType")
+
+            newLessonVC.pictureContainer.hidden = true
+            newLessonVC.lineContainer.hidden = true
+            newLessonVC.clefContainer.hidden = true
+            newLessonVC.textContainer.hidden = false
+
+            newLessonVC.questionText.text = currentLessonQuestion.questionText
+            newLessonVC.questionTitleText.text = currentLessonQuestion.questionTitle
+            
+
         }
         else{
 
             println("OtherType: \(currentLessonQuestion.questionType!)")
+            newLessonVC.pictureContainer.hidden = false
+            newLessonVC.lineContainer.hidden = false
+            newLessonVC.clefContainer.hidden = false
+            newLessonVC.textContainer.hidden = false
 
         }
 
@@ -267,7 +338,7 @@ class TrivLesson
     }
 
 
-    /*
+
     func getNoteSoundFromQuestionContent(questionContent:String){
 
         majorMinorFound=false // reset major minor status
@@ -401,27 +472,31 @@ class TrivLesson
 
                 ////println("minorOrMajorNoteContentArray = \(minorOrMajorNoteContentArray)")
 
-                /*
+
                 let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
                 dispatch_async(dispatch_get_global_queue(priority, 0)) {
                 // do some task
                 dispatch_async(dispatch_get_main_queue()) {
                 // update some UI
                 //sleep(2)
+
+
+                //depends on number of notes to play
+
                 self.getNoteSoundFromQuestionContent(minorOrMajorNoteContentArray[0])
 
-                self.trivNoteView.addNote(questionContent:minorOrMajorNoteContentArray[0] , clefType:self.questions![currentQuestion].questionClefType! , sharpFlatValue: currentSharpFlatValue,majorMinorFlag: false,noteIndex:1)
+                self.trivLessonNoteView.addNote(questionContent:minorOrMajorNoteContentArray[0] , clefType:self.questions![self.currentQuestion].clefType! , sharpFlatValue: currentSharpFlatValue,majorMinorFlag: false,noteIndex:1)
                 NSThread.sleepForTimeInterval(0.5)
 
                 self.getNoteSoundFromQuestionContent(minorOrMajorNoteContentArray[1])
-                self.trivNoteView.addNote(questionContent:minorOrMajorNoteContentArray[1] , clefType:self.questions![currentQuestion].questionClefType! , sharpFlatValue: currentSharpFlatValue,majorMinorFlag: false,noteIndex:2)
+                self.trivLessonNoteView.addNote(questionContent:minorOrMajorNoteContentArray[1] , clefType:self.questions![self.currentQuestion].clefType! , sharpFlatValue: currentSharpFlatValue,majorMinorFlag: false,noteIndex:2)
                 NSThread.sleepForTimeInterval(0.5)
 
                 self.getNoteSoundFromQuestionContent(minorOrMajorNoteContentArray[2])
-                self.trivNoteView.addNote(questionContent:minorOrMajorNoteContentArray[2] , clefType:self.questions![currentQuestion].questionClefType! , sharpFlatValue: currentSharpFlatValue,majorMinorFlag: false,noteIndex:3)
+                self.trivLessonNoteView.addNote(questionContent:minorOrMajorNoteContentArray[2] , clefType:self.questions![self.currentQuestion].clefType! , sharpFlatValue: currentSharpFlatValue,majorMinorFlag: false,noteIndex:3)
                 }
                 }
-                */
+
 
 
 
@@ -447,15 +522,16 @@ class TrivLesson
 
 
         if(!majorMinorFound){
-            /*
+
             currentNote = getCurrentNoteValue(octav:currentOctav, noteValue:currentNoteValue.toInt()!, sharpFlatValue:currentSharpFlatValue )
 
             //println("currentSharpFlatValue= \(currentSharpFlatValue)")
 
 
-            if(countElements(questions![currentQuestion].questionContent!) < 4){
-                trivNoteView.addNote(questionContent:questions![currentQuestion].questionContent! , clefType:questions![currentQuestion].questionClefType! , sharpFlatValue: currentSharpFlatValue,majorMinorFlag: false,noteIndex:1)
+            if(countElements(questions![currentQuestion].noteText!) < 4){
+                trivLessonNoteView.addNote(questionContent:questions![currentQuestion].noteText! , clefType:questions![currentQuestion].clefType! , sharpFlatValue: currentSharpFlatValue,majorMinorFlag: false,noteIndex:1)
             }
+
 
 
 
@@ -463,28 +539,28 @@ class TrivLesson
 
             //playNote(currentNote)
             //majorMinorFound=false
-    */
+
         }
 
 
     }
 
-    /*
+
     @objc func majorMinorSound1(){
 
-        sound.playSound(SoundFile(soundName: trivNoteView.soundFileName1, soundType: "aif"))
+        //sound.playSound(SoundFile(soundName: trivNoteView.soundFileName1, soundType: "aif"))
 
     }
 
     @objc func majorMinorSound2(){
 
-        sound.playSound(SoundFile(soundName: trivNoteView.soundFileName2, soundType: "aif"))
+        //sound.playSound(SoundFile(soundName: trivNoteView.soundFileName2, soundType: "aif"))
 
     }
 
     @objc func majorMinorSound3(){
 
-        sound.playSound(SoundFile(soundName: trivNoteView.soundFileName3, soundType: "aif"))
+        //sound.playSound(SoundFile(soundName: trivNoteView.soundFileName3, soundType: "aif"))
 
         //unlock replay button lock
         replayMajorMinorFlag = true
@@ -495,7 +571,7 @@ class TrivLesson
 
         self.getNoteSoundFromQuestionContent(minorOrMajorNoteContentArray[0])
 
-        self.trivNoteView.addNote(questionContent:minorOrMajorNoteContentArray[0] , clefType:self.questions![currentQuestion].questionClefType! , sharpFlatValue: currentSharpFlatValue,majorMinorFlag: true,noteIndex:1)
+        self.trivLessonNoteView.addNote(questionContent:minorOrMajorNoteContentArray[0] , clefType:self.questions![currentQuestion].clefType! , sharpFlatValue: currentSharpFlatValue,majorMinorFlag: true,noteIndex:1)
 
 
     }
@@ -505,7 +581,7 @@ class TrivLesson
     @objc func majorMinorSelector2(){
 
         self.getNoteSoundFromQuestionContent(minorOrMajorNoteContentArray[1])
-        self.trivNoteView.addNote(questionContent:minorOrMajorNoteContentArray[1] , clefType:self.questions![currentQuestion].questionClefType! , sharpFlatValue: currentSharpFlatValue,majorMinorFlag: true,noteIndex:2)
+        self.trivLessonNoteView.addNote(questionContent:minorOrMajorNoteContentArray[1] , clefType:self.questions![currentQuestion].clefType! , sharpFlatValue: currentSharpFlatValue,majorMinorFlag: true,noteIndex:2)
 
 
     }
@@ -514,10 +590,10 @@ class TrivLesson
     @objc func majorMinorSelector3(){
 
         self.getNoteSoundFromQuestionContent(minorOrMajorNoteContentArray[2])
-        self.trivNoteView.addNote(questionContent:minorOrMajorNoteContentArray[2] , clefType:self.questions![currentQuestion].questionClefType! , sharpFlatValue: currentSharpFlatValue,majorMinorFlag: true,noteIndex:3)
+        self.trivLessonNoteView.addNote(questionContent:minorOrMajorNoteContentArray[2] , clefType:self.questions![currentQuestion].clefType! , sharpFlatValue: currentSharpFlatValue,majorMinorFlag: true,noteIndex:3)
 
     }
-*/
+
 
 
     func getCurrentNoteValue(#octav:Int,noteValue:Int, sharpFlatValue:Int) -> Int32 {
@@ -621,14 +697,8 @@ class TrivLesson
             var timer3 = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("majorMinorSound3"), userInfo: nil, repeats: false)
             
         }
-        
-        
+
     }
     
-    
-    
-    */
-    
-    
-    
+
 }

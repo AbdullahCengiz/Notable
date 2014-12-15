@@ -95,6 +95,7 @@ class CoreDataHelper
                 currentLessonQuestion.setValue(lessonQuestion.questionText, forKey: "questionText")
                 currentLessonQuestion.setValue(lessonQuestion.questionTitle, forKey: "questionTitle")
                 currentLessonQuestion.setValue(lessonQuestion.questionType, forKey: "questionType")
+                currentLessonQuestion.setValue(lessonQuestion.questionId, forKey: "questionId")
 
 
             }
@@ -475,6 +476,7 @@ class CoreDataHelper
                 println("currentLessonQuestion.questionTitle \(currentLessonQuestion.questionTitle)")
                 currentLessonQuestion.questionType = currentLessonQuestionObject.valueForKey("questionType") as? String
                 println("currentLessonQuestion.questionType \(currentLessonQuestion.questionType)")
+                currentLessonQuestion.questionId = currentLessonQuestionObject.valueForKey("questionId") as? Int
                 
                 data?.insert(currentLessonQuestion, atIndex: counter)
                 

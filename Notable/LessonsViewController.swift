@@ -163,7 +163,18 @@ class LessonsViewController: UIViewController,UITableViewDelegate ,UITableViewDa
         if(sender? as String == "lesson"){
             let lessonDetailViewController = (segue.destinationViewController as LessonDetailViewController)
             var newLesson = lessonDetailViewController.initTrivLesson()
-            newLesson.questions = lessonQuestions
+
+            var sortedDict = sorted(lessonQuestions){a,b in return a.questionId! < b.questionId!}
+
+            for count in sortedDict {
+
+                println(count.questionId!)
+                
+            }
+
+
+
+            newLesson.questions = sortedDict
         }
     }
 
