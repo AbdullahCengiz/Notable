@@ -38,6 +38,7 @@ class TrivLesson
     var replayMajorMinorFlag:Bool = true
     var gameType:String = "newGame"
     var newLessonVC:LessonDetailViewController!
+    var currentLessonQuestion : LessonQuestion!
 
 
     init(viewController:LessonDetailViewController){
@@ -52,62 +53,20 @@ class TrivLesson
     }
 
 
-    func initGame(){
+    func initLesson(){
 
         initUI()
         initVariables()
         setSoundValue()
         //initPlayer()
         //trivNoteView.addNote(questionContent:"H4",clefType:"gClef",sharpFlatValue: -1)
-        prepareGame(currentQuestion)
+        prepareQuestion(currentQuestion)
 
     }
 
     func initUI(){
 
-        if(gameType=="practice"){
-            newGameVC.pointLabel.hidden = true
-            newGameVC.progressViewContainer.hidden = true
-        }
 
-        var numberCircleWidth = (((((NSUserDefaults.standardUserDefaults().objectForKey("height") as CGFloat)*1008)/1136))*42)/1008
-
-        newGameVC.firstChoiceNumberHeight.constant = numberCircleWidth
-        newGameVC.firstChoiceNumberWidth.constant = numberCircleWidth
-
-        newGameVC.secondChoiceNumberHeight.constant = numberCircleWidth
-        newGameVC.secondChoiceNumberWidth.constant = numberCircleWidth
-
-        newGameVC.thirdChoiceNumberHeight.constant = numberCircleWidth
-        newGameVC.thirdChoiceNumberWidth.constant = numberCircleWidth
-
-        newGameVC.fourthChoiceNumberHeight.constant = numberCircleWidth
-        newGameVC.fourthChoiceNumberWidth.constant = numberCircleWidth
-
-        ////////println("firstChoiceContainer.height=!!!!!= \(firstChoiceContainer.frame.size.height)")
-        ////////println("numberCircleWidth=!!!!!= \(numberCircleWidth)")
-
-        newGameVC.firstChoiceNumberContainer.frame = CGRectMake(newGameVC.firstChoiceNumberContainer.frame.minX, newGameVC.firstChoiceNumberContainer.frame.minY, numberCircleWidth, numberCircleWidth)
-        newGameVC.secondChoiceNumberContainer.frame = CGRectMake(newGameVC.secondChoiceNumberContainer.frame.minX, newGameVC.secondChoiceNumberContainer.frame.minY, numberCircleWidth, numberCircleWidth)
-        newGameVC.thirdChoiceNumberContainer.frame = CGRectMake(newGameVC.thirdChoiceNumberContainer.frame.minX, newGameVC.thirdChoiceNumberContainer.frame.minY, numberCircleWidth, numberCircleWidth)
-        newGameVC.fourthChoiceNumberContainer.frame = CGRectMake(newGameVC.fourthChoiceNumberContainer.frame.minX, newGameVC.fourthChoiceNumberContainer.frame.minY, numberCircleWidth, numberCircleWidth)
-
-        newGameVC.noteViewContainer.layer.cornerRadius = 4.0
-        newGameVC.firstChoiceNumberContainer.layer.cornerRadius = newGameVC.firstChoiceNumberContainer.frame.width/2
-        newGameVC.firstChoiceContainer.layer.cornerRadius = 4.0
-        newGameVC.secondChoiceNumberContainer.layer.cornerRadius = newGameVC.secondChoiceNumberContainer.frame.width/2
-        newGameVC.secondChoiceContainer.layer.cornerRadius = 4.0
-        newGameVC.thirdChoiceNumberContainer.layer.cornerRadius = newGameVC.thirdChoiceNumberContainer.frame.width/2
-        newGameVC.thirdChoiceContainer.layer.cornerRadius = 4.0
-        newGameVC.fourthChoiceNumberContainer.layer.cornerRadius = newGameVC.fourthChoiceNumberContainer.frame.width/2
-        newGameVC.fourthChoiceContainer.layer.cornerRadius = 4.0
-
-        newGameVC.firstChoiceButton.layer.cornerRadius = 4.0
-        newGameVC.secondChoiceButton.layer.cornerRadius = 4.0
-        newGameVC.thirdChoiceButton.layer.cornerRadius = 4.0
-        newGameVC.fourthChoiceButton.layer.cornerRadius = 4.0
-
-        newGameVC.pointLabel.text = String(counter)
     }
 
 
@@ -194,7 +153,25 @@ class TrivLesson
     }
 
 
-    func prepareGame(currentQuestion:Int){
+    func prepareQuestion(currentQuestion:Int){
+
+
+        currentLessonQuestion  = questions[currentQuestion]
+
+        //
+        if(currentLessonQuestion.questionType! == "Image"){
+            println("ImageType")
+        }
+        else if(currentLessonQuestion.questionType! == "Text"){
+            println("TextType")
+        }
+        else{
+
+            println("OtherType: \(currentLessonQuestion.questionType!)")
+
+        }
+
+
 
         /*
         //lock choice buttons here
@@ -290,7 +267,7 @@ class TrivLesson
     }
 
 
-
+    /*
     func getNoteSoundFromQuestionContent(questionContent:String){
 
         majorMinorFound=false // reset major minor status
@@ -626,148 +603,9 @@ class TrivLesson
 
 
 
-    func getNextQuestion(#isAnswerTrue:Bool){
-        var arr = [isAnswerTrue]
-        var timer = NSTimer.scheduledTimerWithTimeInterval(0.75, target: self, selector: Selector("nextQuestion"), userInfo: arr, repeats: false)
-    }
 
-    @objc func nextQuestion() {
-
-        if(answerStatus){
-            //answer is true
-
-            println("currentQuestion: \(currentQuestion) and questionsCount: \(questions.count)")
-            //removes current question from questions array
-
-            //prepares gameview for next question
-            questions!.removeAtIndex(currentQuestion)
-
-            if(gameType == "practice"){
-                if(questions!.count==0){
-
-                    newGameVC.endPractice()
-
-                }
-                else{
-
-                    if(currentQuestion+1 < questions!.count-1){
-
-                        prepareGame(currentQuestion)
-
-                    }
-                    else{
-
-                        prepareGame(0)
-
-                    }
-
-
-                }
-            }
-            else{
-
-                if(currentQuestion+1 < questions!.count-1){
-
-                    prepareGame(currentQuestion)
-
-                }
-                else{
-
-                    prepareGame(0)
-
-                }
-            }
-
-
-
-
-        } else {
-
-            //answer is false
-            if(currentQuestion+1 < questions!.count-1){
-                currentQuestion++
-                //prepares gameview for next question
-                prepareGame(currentQuestion)
-                
-            } else {
-                
-                //prepares gameview for next question
-                currentQuestion = 0
-                prepareGame(currentQuestion)
-            }
-        }
-    }
     
-    
-    @objc func updateRightAnswer(){
-        
-        counter=counter+5
-        
-        newGameVC.pointLabel.text = String(counter)
-        
-        if(counter==realScore){
-            
-            newGameVC.pointLabel.text = String(realScore)
-            
-            //////println("counter = \(counter) realScore = \(realScore)")
-            
-            timer.invalidate()
-            bloat()
-            
-            answerLock = true
-            getNextQuestion(isAnswerTrue:true)
-            NSUserDefaults.standardUserDefaults().setInteger(realScore, forKey: "pointLabel")
-            NSUserDefaults.standardUserDefaults().synchronize()
-        }
-    }
-    
-    @objc func updateWrongAnswer(){
-        
-        counter=counter-5
-        newGameVC.pointLabel.text = String(counter)
-        
-        if(counter==realScore){
-            
-            newGameVC.pointLabel.text = String(realScore)
-            //////println("counter = \(counter) realScore = \(realScore)")
-            counter=realScore
-            timer.invalidate()
-            bloat()
-            answerLock = true
-            getNextQuestion(isAnswerTrue:false)
-            NSUserDefaults.standardUserDefaults().setInteger(realScore, forKey: "pointLabel")
-            NSUserDefaults.standardUserDefaults().synchronize()
-        }
-    }
-    
-    
-    @objc func bloat() {
-        var animation = CABasicAnimation(keyPath: "transform.scale")
-        animation.toValue = NSNumber(float: 0.9)
-        animation.duration = 0.2
-        animation.repeatCount = 3.0
-        animation.autoreverses = true
-        newGameVC.pointLabel.layer.addAnimation(animation, forKey: nil)
-    }
-    
-    
-    
-    func playNote(noteId:Int32){
-        
-        ////println("in play note")
-        
-        newGameVC.synthLock.lock()
-        newGameVC.synth.playNote(noteId)
-        newGameVC.synthLock.unlock()
-        
-        /*
-        if(noteId<90){
-        sleep(1)
-        playNote(49)
-        }
-        */
-    }
-    
+
     
     func playMajorMinorSound(){
         
@@ -789,7 +627,7 @@ class TrivLesson
     
     
     
-    
+    */
     
     
     

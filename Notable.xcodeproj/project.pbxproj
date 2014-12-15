@@ -465,7 +465,7 @@
 			name = Settings;
 			sourceTree = "<group>";
 		};
-		ED234D8E1A14E33C00DE5087 /* TrivQuiz */ = {
+		ED234D8E1A14E33C00DE5087 /* Triv */ = {
 			isa = PBXGroup;
 			children = (
 				ED234D901A14E35000DE5087 /* TrivQuiz.swift */,
@@ -473,7 +473,7 @@
 				ED04897B1A3E3C53000093C2 /* TrivLesson.swift */,
 				ED04897D1A3E3E92000093C2 /* TrivLessonNoteView.swift */,
 			);
-			name = TrivQuiz;
+			name = Triv;
 			sourceTree = "<group>";
 		};
 		ED234D8F1A14E34500DE5087 /* Sound */ = {
@@ -540,7 +540,7 @@
 		ED466DFF19F165DA00F14292 /* Notable */ = {
 			isa = PBXGroup;
 			children = (
-				ED234D8E1A14E33C00DE5087 /* TrivQuiz */,
+				ED234D8E1A14E33C00DE5087 /* Triv */,
 				ED96CE951A0BDFD3007589F9 /* Resources */,
 				ED38AD771A13716D0028366D /* Navigation */,
 				EDA9C6E51A090DC000108A85 /* Store */,

@@ -25,6 +25,11 @@ class LessonDetailViewController: UIViewController {
     @IBOutlet var nextButtonHeight: NSLayoutConstraint!
     @IBOutlet var previousButtonHeight: NSLayoutConstraint!
 
+    //for noteview and textview
+
+    @IBOutlet var textViewArea: UIView!
+    @IBOutlet var noteViewArea: UIView!
+
     var newLesson:TrivLesson!
 
     var questionIndexLabel:UILabel!
@@ -47,6 +52,8 @@ class LessonDetailViewController: UIViewController {
         super.viewDidLoad()
 
         println("number of questions in lesson is \(newLesson.questions!.count)")
+
+        newLesson.prepareQuestion(newLesson.currentQuestion)
 
 
     }
@@ -85,12 +92,8 @@ class LessonDetailViewController: UIViewController {
         previousButton.sizeToFit()
         nextButton.sizeToFit()
 
-
-
-        /*
-        previousButton.layer.cornerRadius  = previousButton.frame.size.height/4
-        nextButton.layer.cornerRadius  = nextButton.frame.size.height/4
-        */
+        textViewArea.layer.cornerRadius = 4
+        noteViewArea.layer.cornerRadius = 4 
 
     }
 
@@ -140,6 +143,9 @@ class LessonDetailViewController: UIViewController {
 
         questionIndexLabel.text = "\(newLesson.currentQuestion+1) of \(newLesson.questions.count)"
 
+
+        newLesson.prepareQuestion(newLesson.currentQuestion)
+
     }
 
 
@@ -153,6 +159,15 @@ class LessonDetailViewController: UIViewController {
 
         questionIndexLabel.text = "\(newLesson.currentQuestion+1) of \(newLesson.questions.count)"
 
+        newLesson.prepareQuestion(newLesson.currentQuestion)
+
+    }
+
+    func roundCorners(#view:UIView, corners:UIRectCorner, radius: CGFloat) {
+        let path = UIBezierPath(roundedRect: view.bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
+        let mask = CAShapeLayer()
+        mask.path = path.CGPath
+        view.layer.mask = mask
     }
 
 

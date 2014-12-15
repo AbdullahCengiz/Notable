@@ -420,7 +420,7 @@
                                                                 </constraints>
                                                             </view>
                                                         </subviews>
-                                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <constraints>
                                                             <constraint firstItem="VmO-VL-3I1" firstAttribute="width" secondItem="Ian-Uj-EVL" secondAttribute="width" multiplier="0.9" id="A77-dj-Ptb"/>
                                                             <constraint firstItem="c31-Vb-wjX" firstAttribute="height" secondItem="Ian-Uj-EVL" secondAttribute="height" multiplier="0.333333" id="ANm-XS-j3p"/>
@@ -429,27 +429,73 @@
                                                             <constraint firstAttribute="centerY" secondItem="c31-Vb-wjX" secondAttribute="centerY" id="k77-Ud-Cyx"/>
                                                         </constraints>
                                                     </view>
-                                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qm1-Z1-mxE" userLabel="CleffContainer">
+                                                    <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="qm1-Z1-mxE" userLabel="ClefContainer">
                                                         <rect key="frame" x="0.0" y="0.0" width="568" height="215.5"/>
                                                         <subviews>
-                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uzz-s0-xfG" userLabel="CleffIndentation">
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uzz-s0-xfG" userLabel="ClefIndentation">
                                                                 <rect key="frame" x="0.0" y="0.5" width="28.5" height="215.5"/>
-                                                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                             </view>
-                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="poy-pX-c7n" userLabel="gCleffArea">
-                                                                <rect key="frame" x="28.5" y="0.0" width="568" height="215.5"/>
-                                                                <color key="backgroundColor" red="0.1960784495" green="0.78823536630000002" blue="0.98823535439999999" alpha="1" colorSpace="deviceRGB"/>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="poy-pX-c7n" userLabel="gClefArea">
+                                                                <rect key="frame" x="28.5" y="0.0" width="123.5" height="215.5"/>
+                                                                <subviews>
+                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h6f-Ct-WH8" userLabel="gClefTopIndentation">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="123.5" height="29.5"/>
+                                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                                    </view>
+                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gclef" translatesAutoresizingMaskIntoConstraints="NO" id="Wad-lx-nfu" userLabel="gClefView">
+                                                                        <rect key="frame" x="0.0" y="29.5" width="123.5" height="165"/>
+                                                                    </imageView>
+                                                                </subviews>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                                <constraints>
+                                                                    <constraint firstItem="Wad-lx-nfu" firstAttribute="leading" secondItem="poy-pX-c7n" secondAttribute="leading" id="0de-bs-KQk"/>
+                                                                    <constraint firstItem="Wad-lx-nfu" firstAttribute="top" secondItem="h6f-Ct-WH8" secondAttribute="bottom" id="43Z-tH-W2N"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="Wad-lx-nfu" secondAttribute="trailing" id="Ddp-Bc-SAY"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="h6f-Ct-WH8" secondAttribute="trailing" id="J8a-2V-wty"/>
+                                                                    <constraint firstItem="Wad-lx-nfu" firstAttribute="height" secondItem="poy-pX-c7n" secondAttribute="height" multiplier="0.7647" id="amn-Lq-XVm"/>
+                                                                    <constraint firstItem="h6f-Ct-WH8" firstAttribute="leading" secondItem="poy-pX-c7n" secondAttribute="leading" id="krZ-lx-Y0m"/>
+                                                                    <constraint firstItem="h6f-Ct-WH8" firstAttribute="height" secondItem="poy-pX-c7n" secondAttribute="height" multiplier="0.137255" id="pFl-dU-VAM"/>
+                                                                    <constraint firstItem="h6f-Ct-WH8" firstAttribute="top" secondItem="poy-pX-c7n" secondAttribute="top" id="yJa-5I-SqP"/>
+                                                                </constraints>
+                                                            </view>
+                                                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HAH-8d-FXR" userLabel="fClefArea">
+                                                                <rect key="frame" x="28.5" y="0.0" width="116" height="215.5"/>
+                                                                <subviews>
+                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nac-qu-ik4" userLabel="fClefTopIndentation">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="116" height="34.5"/>
+                                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                                    </view>
+                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fclef" translatesAutoresizingMaskIntoConstraints="NO" id="uvn-VJ-RVx" userLabel="fClefView">
+                                                                        <rect key="frame" x="0.0" y="34.5" width="116" height="151"/>
+                                                                    </imageView>
+                                                                </subviews>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                                <constraints>
+                                                                    <constraint firstItem="uvn-VJ-RVx" firstAttribute="height" secondItem="HAH-8d-FXR" secondAttribute="height" multiplier="0.7" id="E2E-9I-cmu"/>
+                                                                    <constraint firstItem="uvn-VJ-RVx" firstAttribute="top" secondItem="nac-qu-ik4" secondAttribute="bottom" id="aEq-if-EEf"/>
+                                                                    <constraint firstItem="nac-qu-ik4" firstAttribute="leading" secondItem="HAH-8d-FXR" secondAttribute="leading" id="d5o-Pa-oP8"/>
+                                                                    <constraint firstItem="nac-qu-ik4" firstAttribute="top" secondItem="HAH-8d-FXR" secondAttribute="top" id="iiU-7d-JeH"/>
+                                                                    <constraint firstItem="nac-qu-ik4" firstAttribute="height" secondItem="HAH-8d-FXR" secondAttribute="height" multiplier="0.16" id="tOv-ci-baZ"/>
+                                                                    <constraint firstItem="uvn-VJ-RVx" firstAttribute="leading" secondItem="HAH-8d-FXR" secondAttribute="leading" id="vk8-TV-ql2"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="uvn-VJ-RVx" secondAttribute="trailing" id="wAy-sF-Fpt"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="nac-qu-ik4" secondAttribute="trailing" id="ylZ-DQ-fwR"/>
+                                                                </constraints>
                                                             </view>
                                                         </subviews>
-                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <constraints>
                                                             <constraint firstItem="uzz-s0-xfG" firstAttribute="leading" secondItem="qm1-Z1-mxE" secondAttribute="leading" id="AZn-8n-Ruw"/>
+                                                            <constraint firstAttribute="bottom" secondItem="HAH-8d-FXR" secondAttribute="bottom" id="CdU-mg-1Ap"/>
                                                             <constraint firstAttribute="bottom" secondItem="poy-pX-c7n" secondAttribute="bottom" id="GAU-WT-4ga"/>
                                                             <constraint firstAttribute="width" secondItem="uzz-s0-xfG" secondAttribute="width" multiplier="20" id="GeR-rF-Jzq"/>
-                                                            <constraint firstAttribute="width" secondItem="poy-pX-c7n" secondAttribute="width" id="dc5-Aq-S3k"/>
+                                                            <constraint firstAttribute="width" secondItem="poy-pX-c7n" secondAttribute="width" multiplier="4.595" id="dc5-Aq-S3k"/>
                                                             <constraint firstAttribute="bottom" secondItem="uzz-s0-xfG" secondAttribute="bottom" id="o8Y-G3-a8X"/>
                                                             <constraint firstItem="uzz-s0-xfG" firstAttribute="top" secondItem="qm1-Z1-mxE" secondAttribute="top" id="pjy-qW-7w7"/>
+                                                            <constraint firstItem="HAH-8d-FXR" firstAttribute="leading" secondItem="uzz-s0-xfG" secondAttribute="trailing" id="s4Z-XP-fmY"/>
+                                                            <constraint firstAttribute="width" secondItem="HAH-8d-FXR" secondAttribute="width" multiplier="4.9" id="uex-ds-sCk"/>
                                                             <constraint firstItem="poy-pX-c7n" firstAttribute="leading" secondItem="uzz-s0-xfG" secondAttribute="trailing" id="xyW-Ze-RSY"/>
+                                                            <constraint firstItem="HAH-8d-FXR" firstAttribute="top" secondItem="qm1-Z1-mxE" secondAttribute="top" id="yLb-Wd-qh6"/>
                                                             <constraint firstItem="poy-pX-c7n" firstAttribute="top" secondItem="qm1-Z1-mxE" secondAttribute="top" id="zJM-rB-KyA"/>
                                                         </constraints>
                                                     </view>
@@ -471,7 +517,7 @@
                                                 </constraints>
                                             </view>
                                         </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="bottom" secondItem="yzQ-Bo-8Fm" secondAttribute="bottom" id="36c-mr-9kL"/>
                                             <constraint firstItem="yzQ-Bo-8Fm" firstAttribute="leading" secondItem="Xnh-MJ-ivL" secondAttribute="leading" id="Eb4-EK-G29"/>
@@ -484,7 +530,7 @@
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rys-2o-o4n" userLabel="TextLeftIndentation">
                                                 <rect key="frame" x="0.0" y="0.0" width="57" height="135"/>
-                                                <color key="backgroundColor" red="0.37254901959999998" green="0.82352941180000006" blue="0.43137254899999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IW5-8K-eAh" userLabel="TextViewContainer">
                                                 <rect key="frame" x="57" y="0.0" width="454.5" height="135"/>
@@ -496,7 +542,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
-                                                <color key="backgroundColor" red="0.69019607839999997" green="0.20000000000000001" blue="0.21960784310000001" alpha="1" colorSpace="deviceRGB"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="bKw-4d-xll" secondAttribute="width" id="49U-tS-E9g"/>
                                                     <constraint firstAttribute="height" secondItem="bKw-4d-xll" secondAttribute="height" id="8ID-E5-H3o"/>
@@ -668,8 +714,10 @@
                         <outlet property="navItem" destination="KAH-KM-Gs4" id="uvT-ea-rAU"/>
                         <outlet property="nextButton" destination="kFN-PH-ean" id="dJq-xw-Esw"/>
                         <outlet property="nextButtonHeight" destination="xA5-R6-er9" id="LpG-bG-nVS"/>
+                        <outlet property="noteViewArea" destination="yzQ-Bo-8Fm" id="cBP-OJ-qY9"/>
                         <outlet property="previousButton" destination="g3T-9P-vP1" id="f0f-7f-DWu"/>
                         <outlet property="previousButtonHeight" destination="sCR-ES-dLu" id="xGT-03-4Jo"/>
+                        <outlet property="textViewArea" destination="V3E-IC-0d3" id="aK5-du-7ZQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uqa-Js-mfN" userLabel="First Responder" sceneMemberID="firstResponder"/>
