@@ -72,7 +72,7 @@ class TrivLessonNoteView
         if(!majorMinorFlag || noteIndex==1){
             clearAllScrollNotes() //reset noteView
             resetMajorMinorValues()
-            arrangeTopAndBottomLines(firstTopLineFlag: false, secondTopLineFlag: false, thirdTopLineFlag: false, firstBottomLineFlag: false, secondBottomLineFlag: false, thirdBottomLineFlag: false)
+            //arrangeTopAndBottomLines(firstTopLineFlag: false, secondTopLineFlag: false, thirdTopLineFlag: false, firstBottomLineFlag: false, secondBottomLineFlag: false, thirdBottomLineFlag: false)
             //println("drawing \(questionContent)")
         }
         else{
@@ -113,10 +113,24 @@ class TrivLessonNoteView
         noteView.addConstraint(noteHeightConstraint)
         noteView.addConstraint(sharpFlatHeightConstraint)
 
+        //for shifting notes
+        var shiftIndex:CGFloat!
+
+        if(sharpFlatValue==0){
+
+            shiftIndex = 0.66+(CGFloat(noteIndex-1)*0.15)
+            
+        }
+        else{
+
+            shiftIndex = 0.66+(CGFloat(noteIndex-1)*0.16)
+
+        }
+
         noteView.addConstraint(NSLayoutConstraint(
-            item:note, attribute:.CenterX,
-            relatedBy:.Equal, toItem:noteView,
-            attribute:.CenterX, multiplier:0.66, constant:0))
+            item:note, attribute:NSLayoutAttribute.CenterX,
+            relatedBy:NSLayoutRelation.Equal, toItem:noteView,
+            attribute:NSLayoutAttribute.CenterX, multiplier:shiftIndex, constant:0))
 
         noteView.addConstraint(NSLayoutConstraint(
             item:sharpFlat, attribute:NSLayoutAttribute.Trailing,
@@ -181,13 +195,18 @@ class TrivLessonNoteView
 
         if(clefType == "gclef"){
             //makes line container visible
-            newGameVC.lineContainer.hidden = false
+           // newGameVC.lineContainer.hidden = false
 
-            newGameVC.fclefImage.hidden=true
-            newGameVC.gclefImage.hidden=false
+            //newGameVC.fclefImage.hidden=true
+            //newGameVC.gclefImage.hidden=false
 
 
             switch questionContent {
+
+            case "E6":
+                position = 0.166          //2
+                setPositionIndex(noteIndex:noteIndex,positionIndex:2)
+
             case "D6":
                 position = 0.249          //3
                 setPositionIndex(noteIndex:noteIndex,positionIndex:3)
@@ -199,6 +218,10 @@ class TrivLessonNoteView
             case "H5":
                 position = 0.415          //5
                 setPositionIndex(noteIndex:noteIndex,positionIndex:5)
+
+            case "A5":
+                position = 0.504          //6
+                setPositionIndex(noteIndex:noteIndex,positionIndex:6)
 
             case "G5":
                 position = 0.588          //7
@@ -270,10 +293,10 @@ class TrivLessonNoteView
         }
         else if (clefType == "fclef"){
             //makes line container visible
-            newGameVC.lineContainer.hidden = false
+            //newGameVC.lineContainer.hidden = false
 
-            newGameVC.fclefImage.hidden=false
-            newGameVC.gclefImage.hidden=true
+            //newGameVC.fclefImage.hidden=false
+            //newGameVC.gclefImage.hidden=true
 
             switch questionContent {
             case "D6":
@@ -376,9 +399,9 @@ class TrivLessonNoteView
         }
         else{
 
-            newGameVC.lineContainer.hidden = true
+            //newGameVC.lineContainer.hidden = true
 
-            newGameVC.questionPictureImage.image = UIImage(named: questionContent)
+            //newGameVC.questionPictureImage.image = UIImage(named: questionContent)
 
             //newGameVC.newGame.lockButtons(false)
 
@@ -394,21 +417,21 @@ class TrivLessonNoteView
 
         if(noteIndex == 1 && !majorMinorFlag){
 
-            clearUnwantedLines(majorMinorPositionIndex1)
+            //clearUnwantedLines(majorMinorPositionIndex1)
             //unlock choice buttons
             //newGameVC.newGame.lockButtons(false)
 
         }
             //we have major or minor
         else if(noteIndex == 1){
-            clearUnwantedLines(majorMinorPositionIndex1)
+            //clearUnwantedLines(majorMinorPositionIndex1)
         }
         else if(noteIndex == 3){
 
 
-            clearUnwantedLines(majorMinorPositionIndex1)
-            clearUnwantedLines(majorMinorPositionIndex2)
-            clearUnwantedLines(majorMinorpositionIndex3)
+            //clearUnwantedLines(majorMinorPositionIndex1)
+            //clearUnwantedLines(majorMinorPositionIndex2)
+            //clearUnwantedLines(majorMinorpositionIndex3)
 
 
 
@@ -500,11 +523,7 @@ class TrivLessonNoteView
 
             if view is UIView
             {
-                //println("viewTag = \(view.tag)")
-                if(view.tag != 1 && view.tag != 2){
                     view.removeFromSuperview()
-                }
-
             }
 
         }
@@ -522,13 +541,13 @@ class TrivLessonNoteView
             // check there is a note on this line or not
             if(majorMinorPositionIndex1 != 2 && majorMinorPositionIndex2 != 2 && majorMinorpositionIndex3 != 3){
 
-                newGameVC.firstTopLine.hidden = true
+                //newGameVC.firstTopLine.hidden = true
 
             }
 
         }
         else{
-            newGameVC.firstTopLine.hidden = false
+            //newGameVC.firstTopLine.hidden = false
         }
 
         if(!secondTopLineFlag){
@@ -536,13 +555,13 @@ class TrivLessonNoteView
             // check there is a note on this line or not
             if(majorMinorPositionIndex1 != 4 && majorMinorPositionIndex2 != 4 && majorMinorpositionIndex3 != 4){
 
-                newGameVC.secondTopLine.hidden = true
+                //newGameVC.secondTopLine.hidden = true
 
             }
 
         }
         else{
-            newGameVC.secondTopLine.hidden = false
+            //newGameVC.secondTopLine.hidden = false
         }
 
         if(!thirdTopLineFlag){
@@ -551,13 +570,13 @@ class TrivLessonNoteView
             // check there is a note on this line or not
             if(majorMinorPositionIndex1 != 6 && majorMinorPositionIndex2 != 6 && majorMinorpositionIndex3 != 6){
 
-                newGameVC.thirdTopLine.hidden = true
+                //newGameVC.thirdTopLine.hidden = true
 
             }
 
         }
         else{
-            newGameVC.thirdTopLine.hidden = false
+            //newGameVC.thirdTopLine.hidden = false
         }
 
         //for bottom extra lines
@@ -567,14 +586,14 @@ class TrivLessonNoteView
             // check there is a note on this line or not
             if(majorMinorPositionIndex1 != 18 && majorMinorPositionIndex2 != 18 && majorMinorpositionIndex3 != 18){
 
-                newGameVC.firstBottomLine.hidden = true
+                //newGameVC.firstBottomLine.hidden = true
 
             }
 
 
         }
         else{
-            newGameVC.firstBottomLine.hidden = false
+            //newGameVC.firstBottomLine.hidden = false
         }
 
         if(!secondBottomLineFlag){
@@ -582,14 +601,14 @@ class TrivLessonNoteView
             // check there is a note on this line or not
             if(majorMinorPositionIndex1 != 20 && majorMinorPositionIndex2 != 20 && majorMinorpositionIndex3 != 20){
 
-                newGameVC.secondBottomLine.hidden = true
+                //newGameVC.secondBottomLine.hidden = true
 
             }
 
 
         }
         else{
-            newGameVC.secondBottomLine.hidden = false
+            //newGameVC.secondBottomLine.hidden = false
         }
 
         if(!thirdBottomLineFlag){
@@ -597,13 +616,13 @@ class TrivLessonNoteView
             // check there is a note on this line or not
             if(majorMinorPositionIndex1 != 22 && majorMinorPositionIndex2 != 22 && majorMinorpositionIndex3 != 22){
 
-                newGameVC.thirdBottomLine.hidden = true
+                //newGameVC.thirdBottomLine.hidden = true
 
             }
 
         }
         else{
-            newGameVC.thirdBottomLine.hidden = false
+            //newGameVC.thirdBottomLine.hidden = false
         }
 
 

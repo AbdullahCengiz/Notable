@@ -161,8 +161,8 @@ class LessonsViewController: UIViewController,UITableViewDelegate ,UITableViewDa
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
 
         if(sender? as String == "lesson"){
-            let lessonDetailViewController = (segue.destinationViewController as LessonDetailViewController)
-            var newLesson = lessonDetailViewController.initTrivLesson()
+            var lessonDetailViewController = (segue.destinationViewController as LessonDetailViewController)
+            var newLesson = lessonDetailViewController.initTrivLesson(lessonDetailViewController)
 
             var sortedDict = sorted(lessonQuestions){a,b in return a.questionId! < b.questionId!}
 

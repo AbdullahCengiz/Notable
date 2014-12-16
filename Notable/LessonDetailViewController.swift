@@ -57,11 +57,9 @@ class LessonDetailViewController: UIViewController {
 
     var questionIndexLabel:UILabel!
 
-    func initTrivLesson() -> TrivLesson{
+    func initTrivLesson(viewController:LessonDetailViewController) -> TrivLesson{
 
-
-        newLesson = TrivLesson(viewController:self)
-
+        newLesson = TrivLesson(viewController: viewController)
         return newLesson
         
     }
@@ -76,6 +74,7 @@ class LessonDetailViewController: UIViewController {
 
         println("number of questions in lesson is \(newLesson.questions!.count)")
 
+        newLesson.initLesson()
         newLesson.prepareQuestion(newLesson.currentQuestion)
 
 
@@ -166,7 +165,7 @@ class LessonDetailViewController: UIViewController {
 
         questionIndexLabel.text = "\(newLesson.currentQuestion+1) of \(newLesson.questions.count)"
 
-
+        newLesson.trivLessonNoteView.clearAllScrollNotes()
         newLesson.prepareQuestion(newLesson.currentQuestion)
 
     }
@@ -182,6 +181,7 @@ class LessonDetailViewController: UIViewController {
 
         questionIndexLabel.text = "\(newLesson.currentQuestion+1) of \(newLesson.questions.count)"
 
+        newLesson.trivLessonNoteView.clearAllScrollNotes()
         newLesson.prepareQuestion(newLesson.currentQuestion)
 
     }

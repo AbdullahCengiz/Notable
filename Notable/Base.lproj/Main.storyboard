@@ -334,8 +334,13 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dPd-x5-6dk" userLabel="TextContainer">
                                                         <rect key="frame" x="0.0" y="0.0" width="568" height="215.5"/>
                                                         <subviews>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AGG-dP-f0J" userLabel="QuestionTextLeftIndentation">
+                                                                <rect key="frame" x="0.0" y="0.0" width="28.5" height="215.5"/>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                            </view>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x8o-Dv-IvM" userLabel="QuestionText">
-                                                                <rect key="frame" x="0.0" y="0.0" width="568" height="215.5"/>
+                                                                <rect key="frame" x="28.5" y="0.0" width="511.5" height="215.5"/>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                                 <nil key="highlightedColor"/>
@@ -343,11 +348,23 @@
                                                         </subviews>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <constraints>
+                                                            <constraint firstItem="AGG-dP-f0J" firstAttribute="leading" secondItem="dPd-x5-6dk" secondAttribute="leading" id="0TT-3i-RKF"/>
                                                             <constraint firstItem="x8o-Dv-IvM" firstAttribute="top" secondItem="dPd-x5-6dk" secondAttribute="top" id="4nF-Rb-Lh2"/>
+                                                            <constraint firstItem="AGG-dP-f0J" firstAttribute="top" secondItem="dPd-x5-6dk" secondAttribute="top" id="C1j-4g-24o"/>
+                                                            <constraint firstAttribute="bottom" secondItem="AGG-dP-f0J" secondAttribute="bottom" id="N8v-Fv-J7Q"/>
                                                             <constraint firstAttribute="trailing" secondItem="x8o-Dv-IvM" secondAttribute="trailing" id="ZnH-Es-8L9"/>
+                                                            <constraint firstItem="x8o-Dv-IvM" firstAttribute="leading" secondItem="AGG-dP-f0J" secondAttribute="trailing" id="aUP-Us-rks"/>
                                                             <constraint firstAttribute="bottom" secondItem="x8o-Dv-IvM" secondAttribute="bottom" id="dUZ-Wb-v8C"/>
+                                                            <constraint firstItem="AGG-dP-f0J" firstAttribute="width" secondItem="dPd-x5-6dk" secondAttribute="width" multiplier="0.05" id="tKu-qu-Rlt"/>
+                                                            <constraint firstAttribute="width" secondItem="x8o-Dv-IvM" secondAttribute="width" multiplier="1.11" id="v7v-h9-cP9"/>
                                                             <constraint firstItem="x8o-Dv-IvM" firstAttribute="leading" secondItem="dPd-x5-6dk" secondAttribute="leading" id="xj4-5Z-4QY"/>
                                                         </constraints>
+                                                        <variation key="default">
+                                                            <mask key="constraints">
+                                                                <exclude reference="ZnH-Es-8L9"/>
+                                                                <exclude reference="xj4-5Z-4QY"/>
+                                                            </mask>
+                                                        </variation>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ian-Uj-EVL" userLabel="LineContainer">
                                                         <rect key="frame" x="0.0" y="0.0" width="568" height="215.5"/>
