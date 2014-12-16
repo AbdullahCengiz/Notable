@@ -37,6 +37,11 @@ class TrivLessonNoteView
         // gets current note index
         currentNoteIndex = noteIndex
 
+        //for deciding there is a line or not
+        var positionIndex=0
+
+        var realNoteName = questionContent
+
         var questionContent = questionContent
 
 
@@ -82,36 +87,55 @@ class TrivLessonNoteView
         }
 
 
-
-
-
         var note:UIImageView = UIImageView()
         var sharpFlat :UIImageView = UIImageView()
-
-
-
+        var noteName:UILabel = UILabel()
+        var line:UIView = UIView()
 
         noteView.setTranslatesAutoresizingMaskIntoConstraints(false)
         note.setTranslatesAutoresizingMaskIntoConstraints(false)
+        noteName.setTranslatesAutoresizingMaskIntoConstraints(false)
+        line.setTranslatesAutoresizingMaskIntoConstraints(false)
         sharpFlat.setTranslatesAutoresizingMaskIntoConstraints(false)
 
+        line.backgroundColor = UIColor.blackColor()
+
+        noteView.addSubview(line)
         noteView.addSubview(note)
         noteView.addSubview(sharpFlat)
+        noteView.addSubview(noteName)
 
 
         var noteHeight = height*(46/1136)
 
+        //for note height
         noteView.addConstraint(NSLayoutConstraint(item:note, attribute:NSLayoutAttribute.Height,relatedBy:NSLayoutRelation.Equal, toItem: noteView,attribute:NSLayoutAttribute.Height, multiplier:(0.083), constant:0))
 
+        //for line height
+        noteView.addConstraint(NSLayoutConstraint(item:line, attribute:NSLayoutAttribute.Height,relatedBy:NSLayoutRelation.Equal, toItem: noteView,attribute:NSLayoutAttribute.Height, multiplier:(0.0065), constant:0))
+
+        //for noteName height
+        noteView.addConstraint(NSLayoutConstraint(item:noteName, attribute:NSLayoutAttribute.Height,relatedBy:NSLayoutRelation.Equal, toItem: noteView,attribute:NSLayoutAttribute.Height, multiplier:(0.083), constant:0))
+
+        //for sharpFlat
         noteView.addConstraint(NSLayoutConstraint(item:sharpFlat, attribute:NSLayoutAttribute.Height,relatedBy:NSLayoutRelation.Equal, toItem: nil,attribute:NSLayoutAttribute.NotAnAttribute, multiplier:(0.008), constant:30))
 
-
+        //for note width
         var noteHeightConstraint = NSLayoutConstraint(item: note, attribute: NSLayoutAttribute.Width, relatedBy: NSLayoutRelation.Equal, toItem: note, attribute: NSLayoutAttribute.Height, multiplier: 700/442, constant: 0)
 
+        //for line width
+        var lineHeightConstraint = NSLayoutConstraint(item: line, attribute: NSLayoutAttribute.Width, relatedBy: NSLayoutRelation.Equal, toItem: note, attribute: NSLayoutAttribute.Height, multiplier: 3/1, constant: 0)
+
+        //for noteName width
+        var noteNameHeightConstraint = NSLayoutConstraint(item: noteName, attribute: NSLayoutAttribute.Width, relatedBy: NSLayoutRelation.Equal, toItem: note, attribute: NSLayoutAttribute.Height, multiplier: 700/442, constant: 0)
+
+        //for sharpFlat width
         var sharpFlatHeightConstraint = NSLayoutConstraint(item: sharpFlat, attribute: NSLayoutAttribute.Width, relatedBy: NSLayoutRelation.Equal, toItem: sharpFlat, attribute: NSLayoutAttribute.Height, multiplier: 30/40, constant: 0)
 
         noteView.addConstraint(noteHeightConstraint)
+        noteView.addConstraint(noteNameHeightConstraint)
         noteView.addConstraint(sharpFlatHeightConstraint)
+        noteView.addConstraint(lineHeightConstraint)
 
         //for shifting notes
         var shiftIndex:CGFloat!
@@ -123,15 +147,30 @@ class TrivLessonNoteView
         }
         else{
 
-            shiftIndex = 0.66+(CGFloat(noteIndex-1)*0.16)
+            shiftIndex = 0.66+(CGFloat(noteIndex-1)*0.17)
 
         }
 
+        //for note x position
         noteView.addConstraint(NSLayoutConstraint(
             item:note, attribute:NSLayoutAttribute.CenterX,
             relatedBy:NSLayoutRelation.Equal, toItem:noteView,
             attribute:NSLayoutAttribute.CenterX, multiplier:shiftIndex, constant:0))
 
+        //for line x position
+        noteView.addConstraint(NSLayoutConstraint(
+            item:line, attribute:NSLayoutAttribute.CenterX,
+            relatedBy:NSLayoutRelation.Equal, toItem:noteView,
+            attribute:NSLayoutAttribute.CenterX, multiplier:shiftIndex, constant:0))
+
+        var shiftIndexForNoteName = shiftIndex+0.04
+        //for noteName x position
+        noteView.addConstraint(NSLayoutConstraint(
+            item:noteName, attribute:NSLayoutAttribute.CenterX,
+            relatedBy:NSLayoutRelation.Equal, toItem:noteView,
+            attribute:NSLayoutAttribute.CenterX, multiplier:shiftIndexForNoteName, constant:0))
+
+        //for sharpFlat x position
         noteView.addConstraint(NSLayoutConstraint(
             item:sharpFlat, attribute:NSLayoutAttribute.Trailing,
             relatedBy:.Equal, toItem:note,
@@ -205,82 +244,102 @@ class TrivLessonNoteView
 
             case "E6":
                 position = 0.166          //2
+                positionIndex=2
                 setPositionIndex(noteIndex:noteIndex,positionIndex:2)
 
             case "D6":
                 position = 0.249          //3
+                positionIndex=3
                 setPositionIndex(noteIndex:noteIndex,positionIndex:3)
 
             case "C6":
                 position = 0.332          //4
+                positionIndex=4
                 setPositionIndex(noteIndex:noteIndex,positionIndex:4)
 
             case "H5":
                 position = 0.415          //5
+                positionIndex=5
                 setPositionIndex(noteIndex:noteIndex,positionIndex:5)
 
             case "A5":
                 position = 0.504          //6
+                positionIndex=6
                 setPositionIndex(noteIndex:noteIndex,positionIndex:6)
 
             case "G5":
                 position = 0.588          //7
+                positionIndex=7
                 setPositionIndex(noteIndex:noteIndex,positionIndex:7)
 
             case "F5":
                 position = 0.671          //8
+                positionIndex=8
                 setPositionIndex(noteIndex:noteIndex,positionIndex:8)
 
             case "D5":
                 position = 0.837          //10
+                positionIndex=10
                 setPositionIndex(noteIndex:noteIndex,positionIndex:10)
 
             case "D4":
                 position = 1.418          //17
+                positionIndex=17
                 setPositionIndex(noteIndex:noteIndex,positionIndex:17)
 
             case "C4":
                 position = 1.501          //18
+                positionIndex=18
                 setPositionIndex(noteIndex:noteIndex,positionIndex:18)
 
             case "E5":
                 position = 0.754          //9
+                positionIndex=9
                 setPositionIndex(noteIndex:noteIndex,positionIndex:9)
 
             case "C5":
                 position = 0.920          //11
+                positionIndex=11
                 setPositionIndex(noteIndex:noteIndex,positionIndex:11)
 
             case "H4":
                 position = 1.003          //12
+                positionIndex=12
                 setPositionIndex(noteIndex:noteIndex,positionIndex:12)
 
             case "G4":
                 position = 1.169          //14
+                positionIndex=14
                 setPositionIndex(noteIndex:noteIndex,positionIndex:14)
 
             case "F4":
                 position = 1.252          //15
+                positionIndex=15
                 setPositionIndex(noteIndex:noteIndex,positionIndex:15)
 
             case "E4":
                 position = 1.335          //16
+                positionIndex=16
                 setPositionIndex(noteIndex:noteIndex,positionIndex:16)
 
             case "H3":
                 position = 1.584         //19
+                positionIndex=19
                 setPositionIndex(noteIndex:noteIndex,positionIndex:19)
 
             case "F3":
                 position = 1.833           //22
+                positionIndex=22
                 setPositionIndex(noteIndex:noteIndex,positionIndex:22)
 
             case "A4":
                 position = 1.086          //13
+                positionIndex=13
                 setPositionIndex(noteIndex:noteIndex,positionIndex:13)
 
             case "G3":
                 position = 1.750          //21
+                positionIndex=21
                 setPositionIndex(noteIndex:noteIndex,positionIndex:21)
 
             default:
@@ -301,86 +360,107 @@ class TrivLessonNoteView
             switch questionContent {
             case "D6":
                 position = 0.249          //3
+                positionIndex=3
                 setPositionIndex(noteIndex:noteIndex,positionIndex:3)
 
             case "C6":
                 position = 0.332          //4
+                positionIndex=4
                 setPositionIndex(noteIndex:noteIndex,positionIndex:4)
 
             case "H5":
                 position = 0.415          //5
+                positionIndex=5
                 setPositionIndex(noteIndex:noteIndex,positionIndex:5)
 
             case "C4":
                 position = 0.504          //6 *
+                positionIndex=6
                 setPositionIndex(noteIndex:noteIndex,positionIndex:6)
 
             case "H3":
                 position = 0.588          //7 *
+                positionIndex=7
                 setPositionIndex(noteIndex:noteIndex,positionIndex:7)
 
             case "A3":
                 position = 0.671          //8 *
+                positionIndex=8
                 setPositionIndex(noteIndex:noteIndex,positionIndex:8)
 
             case "F3":
                 position = 0.837          //10
+                positionIndex=10
                 setPositionIndex(noteIndex:noteIndex,positionIndex:10)
 
             case "F2":
                 position = 1.418          //17  *
+                positionIndex=17
                 setPositionIndex(noteIndex:noteIndex,positionIndex:17)
 
             case "E2":
                 position = 1.501          //18
+                positionIndex=18
                 setPositionIndex(noteIndex:noteIndex,positionIndex:18)
 
             case "G3":
                 position = 0.754          //9 *
+                positionIndex=9
                 setPositionIndex(noteIndex:noteIndex,positionIndex:9)
 
             case "E3":
                 position = 0.920          //11 *
+                positionIndex=11
                 setPositionIndex(noteIndex:noteIndex,positionIndex:11)
 
             case "D3":
                 position = 1.003          //12 *
+                positionIndex=12
                 setPositionIndex(noteIndex:noteIndex,positionIndex:12)
 
             case "H2":
                 position = 1.169          //14 *
+                positionIndex=14
                 setPositionIndex(noteIndex:noteIndex,positionIndex:14)
 
             case "A2":
                 position = 1.252          //15 *
+                positionIndex=15
                 setPositionIndex(noteIndex:noteIndex,positionIndex:15)
 
             case "G2":
                 position = 1.335          //16 *
+                positionIndex=16
                 setPositionIndex(noteIndex:noteIndex,positionIndex:16)
 
             case "D2":
                 position = 1.584         //19 *
+                positionIndex=19
                 setPositionIndex(noteIndex:noteIndex,positionIndex:19)
 
             case "A1":
                 position = 1.833           //22 *
+                positionIndex=22
                 setPositionIndex(noteIndex:noteIndex,positionIndex:22)
 
             case "C3":
                 position = 1.086          //13 *
+                positionIndex=13
                 setPositionIndex(noteIndex:noteIndex,positionIndex:13)
 
             case "H1":
                 position = 1.750          //21 *
+                positionIndex=21
                 setPositionIndex(noteIndex:noteIndex,positionIndex:21)
 
             case "C2":
                 position = 1.667           //20 *
+                positionIndex=20
                 setPositionIndex(noteIndex:noteIndex,positionIndex:20)
 
             case "G1":
                 position = 1.833          //23 *
+                positionIndex=23
                 setPositionIndex(noteIndex:noteIndex,positionIndex:23)
 
             default:
@@ -409,10 +489,28 @@ class TrivLessonNoteView
 
 
 
-
+        //for note y coordinate
         noteView.addConstraint(NSLayoutConstraint(item:note, attribute:NSLayoutAttribute.CenterY,relatedBy:NSLayoutRelation.Equal, toItem: noteView,attribute:NSLayoutAttribute.CenterY, multiplier:position, constant:0))
 
+        //for note y coordinate
+        noteView.addConstraint(NSLayoutConstraint(item:line, attribute:NSLayoutAttribute.CenterY,relatedBy:NSLayoutRelation.Equal, toItem: noteView,attribute:NSLayoutAttribute.CenterY, multiplier:position, constant:0))
+
+        //for note y coordinate
+        noteView.addConstraint(NSLayoutConstraint(item:noteName, attribute:NSLayoutAttribute.CenterY,relatedBy:NSLayoutRelation.Equal, toItem: noteView,attribute:NSLayoutAttribute.CenterY, multiplier:1.750, constant:0))
+
+        //for sharpFlat y coordinate
         noteView.addConstraint(NSLayoutConstraint(item:sharpFlat, attribute:NSLayoutAttribute.CenterY,relatedBy:NSLayoutRelation.Equal, toItem: noteView,attribute:NSLayoutAttribute.CenterY, multiplier:position, constant:0))
+
+        //set value to noteName
+        noteName.text = realNoteName
+
+        //decide line is visible or not
+        if(positionIndex != 2 && positionIndex != 4 && positionIndex != 6 && positionIndex != 18 && positionIndex != 20 && positionIndex != 22 ){
+            line.hidden = true
+        }
+        else{
+            line.hidden=false
+        }
 
 
         if(noteIndex == 1 && !majorMinorFlag){
