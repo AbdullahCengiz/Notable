@@ -14,6 +14,8 @@ class PointTableCell: UITableViewCell {
     @IBOutlet var pointLabel: UILabel!
     @IBOutlet var medalsImage: UIImageView!
     @IBOutlet var cellBackground: UIView!
+
+    
   
     
     override func awakeFromNib() {

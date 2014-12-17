@@ -14,27 +14,38 @@ class TrivLessonNoteView
     var noteView:UIView!
     var lessonVC:LessonDetailViewController!
     var position:CGFloat!
+    var position2:CGFloat!
     var sound:Sound!
     var soundFileName:String!
     var soundFileName1 = "",soundFileName2 = "",soundFileName3 = ""
     var previousShiftIndex=0
     var majorMinorValueArray:[Int]!
+    var newLesson:TrivLesson!
 
     var majorMinorPositionIndex1 = 0,majorMinorPositionIndex2 = 0,majorMinorpositionIndex3 = 0
 
-    init(noteView:UIView,viewController:LessonDetailViewController){
+    init(noteView:UIView,viewController:LessonDetailViewController,newLesson:TrivLesson){
 
         self.noteView = noteView
         self.lessonVC = viewController
+        self.newLesson = newLesson
         sound = Sound()
         majorMinorValueArray = []
 
     }
 
 
+    func addNote(#questionContent:String,clefType:String,sharpFlatValue:Int,majorMinorFlag:Bool,noteIndex:Int,bufferSize:Int){
 
 
-    func addNote(#questionContent:String,clefType:String,sharpFlatValue:Int,majorMinorFlag:Bool,noteIndex:Int){
+        // for locking buttons
+        if(noteIndex == 1){
+            newLesson.lockButtons(true)
+        }
+
+
+
+
 
         if(noteIndex == 1){
             majorMinorValueArray.removeAll(keepCapacity: false)
@@ -79,19 +90,11 @@ class TrivLessonNoteView
         }
 
 
-        //println("soundFileName=\(soundFileName)")
-
-
         if(!majorMinorFlag || noteIndex==1){
             clearAllScrollNotes() //reset noteView
-            resetMajorMinorValues()
-            //arrangeTopAndBottomLines(firstTopLineFlag: false, secondTopLineFlag: false, thirdTopLineFlag: false, firstBottomLineFlag: false, secondBottomLineFlag: false, thirdBottomLineFlag: false)
-            //println("drawing \(questionContent)")
         }
         else{
-
             //println("drawing \(questionContent)")
-
         }
 
 
@@ -148,54 +151,8 @@ class TrivLessonNoteView
         //for shifting notes
         var shiftIndex:CGFloat!
 
-
         println("sharpFlatValue= \(sharpFlatValue)  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
 
-
-        /*
-        if(noteIndex>1){
-
-            if(majorMinorValueArray[noteIndex-2]==0){
-
-                if(sharpFlatValue==0){
-
-                    shiftIndex = 0.66+(CGFloat(noteIndex-1)*0.20)
-
-                }
-                else{
-                    shiftIndex = (CGFloat(noteIndex)*0.3375)
-                    println("shiftIndex= \(shiftIndex)")
-                    //shiftIndex = 100
-                    
-                    
-                }
-
-
-            }
-            else{
-
-                shiftIndex = 0.66+(CGFloat(noteIndex-1)*0.30)
-                
-            }
-
-
-
-        }
-        else if(noteIndex==1){
-
-
-            if(sharpFlatValue==0){
-
-                shiftIndex = 0.66+(CGFloat(noteIndex-1)*0.20)
-
-            }
-            else{
-                    shiftIndex = 0.86+(CGFloat(noteIndex-1)*0.30)
-
-            }
-        }
-
-        */
 
 
         shiftIndex = 0
@@ -206,11 +163,11 @@ class TrivLessonNoteView
 
                     if(majorMinorValueArray[counter]==0){
 
-                        shiftIndex = 0.66
+                        shiftIndex = 0.65
 
                     }
                     else{
-                        shiftIndex = 0.71
+                        shiftIndex = 0.65
                     }
 
                 }
@@ -222,7 +179,7 @@ class TrivLessonNoteView
 
                     }
                     else{
-                        shiftIndex = shiftIndex + 0.1 + 0.12
+                        shiftIndex = shiftIndex +  0.30
                     }
                     
                     
@@ -251,7 +208,18 @@ class TrivLessonNoteView
             relatedBy:NSLayoutRelation.Equal, toItem:noteView,
             attribute:NSLayoutAttribute.CenterX, multiplier:shiftIndex, constant:0))
 
-        var shiftIndexForNoteName = shiftIndex+0.1
+        var shiftIndexForNoteName:CGFloat!
+
+
+
+        if(sharpFlatValue==0){
+            shiftIndexForNoteName = shiftIndex+0.1
+        }
+        else {
+            shiftIndexForNoteName = shiftIndex
+        }
+
+
         //for noteName x position
         noteView.addConstraint(NSLayoutConstraint(
             item:noteName, attribute:NSLayoutAttribute.CenterX,
@@ -333,102 +301,82 @@ class TrivLessonNoteView
             case "E6":
                 position = 0.166          //2
                 positionIndex=2
-                setPositionIndex(noteIndex:noteIndex,positionIndex:2)
 
             case "D6":
                 position = 0.249          //3
                 positionIndex=3
-                setPositionIndex(noteIndex:noteIndex,positionIndex:3)
 
             case "C6":
                 position = 0.332          //4
                 positionIndex=4
-                setPositionIndex(noteIndex:noteIndex,positionIndex:4)
 
             case "H5":
                 position = 0.415          //5
                 positionIndex=5
-                setPositionIndex(noteIndex:noteIndex,positionIndex:5)
 
             case "A5":
                 position = 0.504          //6
                 positionIndex=6
-                setPositionIndex(noteIndex:noteIndex,positionIndex:6)
 
             case "G5":
                 position = 0.588          //7
                 positionIndex=7
-                setPositionIndex(noteIndex:noteIndex,positionIndex:7)
 
             case "F5":
                 position = 0.671          //8
                 positionIndex=8
-                setPositionIndex(noteIndex:noteIndex,positionIndex:8)
 
             case "D5":
                 position = 0.837          //10
                 positionIndex=10
-                setPositionIndex(noteIndex:noteIndex,positionIndex:10)
 
             case "D4":
                 position = 1.418          //17
                 positionIndex=17
-                setPositionIndex(noteIndex:noteIndex,positionIndex:17)
 
             case "C4":
                 position = 1.501          //18
                 positionIndex=18
-                setPositionIndex(noteIndex:noteIndex,positionIndex:18)
 
             case "E5":
                 position = 0.754          //9
                 positionIndex=9
-                setPositionIndex(noteIndex:noteIndex,positionIndex:9)
 
             case "C5":
                 position = 0.920          //11
                 positionIndex=11
-                setPositionIndex(noteIndex:noteIndex,positionIndex:11)
 
             case "H4":
                 position = 1.003          //12
                 positionIndex=12
-                setPositionIndex(noteIndex:noteIndex,positionIndex:12)
 
             case "G4":
                 position = 1.169          //14
                 positionIndex=14
-                setPositionIndex(noteIndex:noteIndex,positionIndex:14)
 
             case "F4":
                 position = 1.252          //15
                 positionIndex=15
-                setPositionIndex(noteIndex:noteIndex,positionIndex:15)
 
             case "E4":
                 position = 1.335          //16
                 positionIndex=16
-                setPositionIndex(noteIndex:noteIndex,positionIndex:16)
 
             case "H3":
                 position = 1.584         //19
                 positionIndex=19
-                setPositionIndex(noteIndex:noteIndex,positionIndex:19)
 
             case "F3":
                 position = 1.833           //22
                 positionIndex=22
-                setPositionIndex(noteIndex:noteIndex,positionIndex:22)
 
             case "A4":
                 position = 1.086          //13
                 positionIndex=13
-                setPositionIndex(noteIndex:noteIndex,positionIndex:13)
 
             case "G3":
                 position = 1.750          //21
                 positionIndex=21
-                setPositionIndex(noteIndex:noteIndex,positionIndex:21)
 
             default:
                 position = -10
@@ -436,6 +384,7 @@ class TrivLessonNoteView
 
             //playSound
             sound.playSound(SoundFile(soundName: soundFileName, soundType: "aif"))
+
             //newGameVC.newGame.sound.playSound(SoundFile(soundName: "correct", soundType: "mp3"))
         }
         else if (clefType == "fclef"){
@@ -449,107 +398,86 @@ class TrivLessonNoteView
             case "D6":
                 position = 0.249          //3
                 positionIndex=3
-                setPositionIndex(noteIndex:noteIndex,positionIndex:3)
 
             case "C6":
                 position = 0.332          //4
                 positionIndex=4
-                setPositionIndex(noteIndex:noteIndex,positionIndex:4)
 
             case "H5":
                 position = 0.415          //5
                 positionIndex=5
-                setPositionIndex(noteIndex:noteIndex,positionIndex:5)
 
             case "C4":
                 position = 0.504          //6 *
                 positionIndex=6
-                setPositionIndex(noteIndex:noteIndex,positionIndex:6)
 
             case "H3":
                 position = 0.588          //7 *
                 positionIndex=7
-                setPositionIndex(noteIndex:noteIndex,positionIndex:7)
 
             case "A3":
                 position = 0.671          //8 *
                 positionIndex=8
-                setPositionIndex(noteIndex:noteIndex,positionIndex:8)
 
             case "F3":
                 position = 0.837          //10
                 positionIndex=10
-                setPositionIndex(noteIndex:noteIndex,positionIndex:10)
 
             case "F2":
                 position = 1.418          //17  *
                 positionIndex=17
-                setPositionIndex(noteIndex:noteIndex,positionIndex:17)
 
             case "E2":
                 position = 1.501          //18
                 positionIndex=18
-                setPositionIndex(noteIndex:noteIndex,positionIndex:18)
 
             case "G3":
                 position = 0.754          //9 *
                 positionIndex=9
-                setPositionIndex(noteIndex:noteIndex,positionIndex:9)
 
             case "E3":
                 position = 0.920          //11 *
                 positionIndex=11
-                setPositionIndex(noteIndex:noteIndex,positionIndex:11)
 
             case "D3":
                 position = 1.003          //12 *
                 positionIndex=12
-                setPositionIndex(noteIndex:noteIndex,positionIndex:12)
 
             case "H2":
                 position = 1.169          //14 *
                 positionIndex=14
-                setPositionIndex(noteIndex:noteIndex,positionIndex:14)
 
             case "A2":
                 position = 1.252          //15 *
                 positionIndex=15
-                setPositionIndex(noteIndex:noteIndex,positionIndex:15)
 
             case "G2":
                 position = 1.335          //16 *
                 positionIndex=16
-                setPositionIndex(noteIndex:noteIndex,positionIndex:16)
 
             case "D2":
                 position = 1.584         //19 *
                 positionIndex=19
-                setPositionIndex(noteIndex:noteIndex,positionIndex:19)
 
             case "A1":
                 position = 1.833           //22 *
                 positionIndex=22
-                setPositionIndex(noteIndex:noteIndex,positionIndex:22)
 
             case "C3":
                 position = 1.086          //13 *
                 positionIndex=13
-                setPositionIndex(noteIndex:noteIndex,positionIndex:13)
 
             case "H1":
                 position = 1.750          //21 *
                 positionIndex=21
-                setPositionIndex(noteIndex:noteIndex,positionIndex:21)
 
             case "C2":
                 position = 1.667           //20 *
                 positionIndex=20
-                setPositionIndex(noteIndex:noteIndex,positionIndex:20)
 
             case "G1":
                 position = 1.833          //23 *
                 positionIndex=23
-                setPositionIndex(noteIndex:noteIndex,positionIndex:23)
 
             default:
                 position = -10          //24  //F1  4 lines required
@@ -563,15 +491,6 @@ class TrivLessonNoteView
             //newGameVC.newGame.sound.playSound(SoundFile(soundName: "correct", soundType: "mp3"))
 
 
-
-        }
-        else{
-
-            //newGameVC.lineContainer.hidden = true
-
-            //newGameVC.questionPictureImage.image = UIImage(named: questionContent)
-
-            //newGameVC.newGame.lockButtons(false)
 
         }
 
@@ -601,100 +520,74 @@ class TrivLessonNoteView
         }
 
 
-        if(noteIndex == 1 && !majorMinorFlag){
+        // unlock buttons
+        if(noteIndex == bufferSize){
 
-            //clearUnwantedLines(majorMinorPositionIndex1)
-            //unlock choice buttons
-            //newGameVC.newGame.lockButtons(false)
-
-        }
-            //we have major or minor
-        else if(noteIndex == 1){
-            //clearUnwantedLines(majorMinorPositionIndex1)
-        }
-        else if(noteIndex == 3){
-
-
-            //clearUnwantedLines(majorMinorPositionIndex1)
-            //clearUnwantedLines(majorMinorPositionIndex2)
-            //clearUnwantedLines(majorMinorpositionIndex3)
-
-
-
-            //unlock choice buttons
-            //newGameVC.newGame.lockButtons(false)
-            resetMajorMinorValues()
-
+            newLesson.lockButtons(false)
 
         }
 
     }
 
 
-    func resetMajorMinorValues(){
+    func drawOtherQuetionTypes(){
 
-        majorMinorPositionIndex1=0
-        majorMinorPositionIndex2=0
-        majorMinorpositionIndex3=0
-    }
+        var fourImageTop:UIImageView = UIImageView()
+        var fourImageBottom:UIImageView = UIImageView()
+
+        noteView.setTranslatesAutoresizingMaskIntoConstraints(false)
+        fourImageTop.setTranslatesAutoresizingMaskIntoConstraints(false)
+        fourImageBottom.setTranslatesAutoresizingMaskIntoConstraints(false)
+
+        var fourImage = UIImage(named: "four_image.png")
+        fourImageTop.image = fourImage
+        fourImageBottom.image = fourImage
+
+        noteView.addSubview(fourImageTop)
+        noteView.addSubview(fourImageBottom)
 
 
-    func clearUnwantedLines(majorMinorPositionIndex:Int){
+        var noteHeight = 2*height*(46/1136)
+
+        //for fourImageTop height
+        noteView.addConstraint(NSLayoutConstraint(item:fourImageTop, attribute:NSLayoutAttribute.Height,relatedBy:NSLayoutRelation.Equal, toItem: noteView,attribute:NSLayoutAttribute.Height, multiplier:(0.163), constant:0))
+
+        //for fourImageBottom height
+        noteView.addConstraint(NSLayoutConstraint(item:fourImageBottom, attribute:NSLayoutAttribute.Height,relatedBy:NSLayoutRelation.Equal, toItem: noteView,attribute:NSLayoutAttribute.Height, multiplier:(0.163), constant:0))
+
+        //for fourImageTop width
+        var fourImageTopWidthConstraint = NSLayoutConstraint(item: fourImageTop, attribute: NSLayoutAttribute.Width, relatedBy: NSLayoutRelation.Equal, toItem: fourImageTop, attribute: NSLayoutAttribute.Height, multiplier: 30/48, constant: 0)
+
+        //for fourImageBottom width
+        var fourImageBottomWidthConstraint = NSLayoutConstraint(item: fourImageBottom, attribute: NSLayoutAttribute.Width, relatedBy: NSLayoutRelation.Equal, toItem: fourImageTop, attribute: NSLayoutAttribute.Height, multiplier: 30/48, constant: 0)
+
+        noteView.addConstraint(fourImageTopWidthConstraint)
+        noteView.addConstraint(fourImageBottomWidthConstraint)
+
+        //for shifting notes
+        var shiftIndex:CGFloat! = 0.66
 
 
-        //println("Clear!!!!!!! \(majorMinorPositionIndex)")
+        //for fourImageTop x position
+        noteView.addConstraint(NSLayoutConstraint(
+            item:fourImageTop, attribute:NSLayoutAttribute.CenterX,
+            relatedBy:NSLayoutRelation.Equal, toItem:noteView,
+            attribute:NSLayoutAttribute.CenterX, multiplier:shiftIndex, constant:0))
 
+        //for fourImageBottom x position
+        noteView.addConstraint(NSLayoutConstraint(
+            item:fourImageBottom, attribute:NSLayoutAttribute.CenterX,
+            relatedBy:NSLayoutRelation.Equal, toItem:noteView,
+            attribute:NSLayoutAttribute.CenterX, multiplier:shiftIndex, constant:0))
 
-        switch majorMinorPositionIndex {
+        position = 0.837          //10
+        position2 = 1.169          //14
 
-        case 3:
-            arrangeTopAndBottomLines(firstTopLineFlag: false, secondTopLineFlag: true, thirdTopLineFlag: true, firstBottomLineFlag: false, secondBottomLineFlag: false, thirdBottomLineFlag: false)
-        case 4:
-            arrangeTopAndBottomLines(firstTopLineFlag: false, secondTopLineFlag: true, thirdTopLineFlag: true, firstBottomLineFlag: false, secondBottomLineFlag: false, thirdBottomLineFlag: false)
-        case 5:
-            arrangeTopAndBottomLines(firstTopLineFlag: false, secondTopLineFlag: false, thirdTopLineFlag: true, firstBottomLineFlag: false, secondBottomLineFlag: false, thirdBottomLineFlag: false)
-        case 6:
-            arrangeTopAndBottomLines(firstTopLineFlag: false, secondTopLineFlag: false, thirdTopLineFlag: true, firstBottomLineFlag: false, secondBottomLineFlag: false, thirdBottomLineFlag: false)
-        case 7:
-            arrangeTopAndBottomLines(firstTopLineFlag: false, secondTopLineFlag: false, thirdTopLineFlag: false, firstBottomLineFlag: false, secondBottomLineFlag: false, thirdBottomLineFlag: false)
-        case 8:
-            arrangeTopAndBottomLines(firstTopLineFlag: false, secondTopLineFlag: false, thirdTopLineFlag: false, firstBottomLineFlag: false, secondBottomLineFlag: false, thirdBottomLineFlag: false)
-        case 9:
-            arrangeTopAndBottomLines(firstTopLineFlag: false, secondTopLineFlag: false, thirdTopLineFlag: false, firstBottomLineFlag: false, secondBottomLineFlag: false, thirdBottomLineFlag: false)
-        case 10:
-            arrangeTopAndBottomLines(firstTopLineFlag: false, secondTopLineFlag: false, thirdTopLineFlag: false, firstBottomLineFlag: false, secondBottomLineFlag: false, thirdBottomLineFlag: false)
-        case 11:
-            arrangeTopAndBottomLines(firstTopLineFlag: false, secondTopLineFlag: false, thirdTopLineFlag: false, firstBottomLineFlag: false, secondBottomLineFlag: false, thirdBottomLineFlag: false)
-        case 12:
-            arrangeTopAndBottomLines(firstTopLineFlag: false, secondTopLineFlag: false, thirdTopLineFlag: false, firstBottomLineFlag: false, secondBottomLineFlag: false, thirdBottomLineFlag: false)
-        case 13:
-            arrangeTopAndBottomLines(firstTopLineFlag: false, secondTopLineFlag: false, thirdTopLineFlag: false, firstBottomLineFlag: false, secondBottomLineFlag: false, thirdBottomLineFlag: false)
-        case 14:
-            arrangeTopAndBottomLines(firstTopLineFlag: false, secondTopLineFlag: false, thirdTopLineFlag: false, firstBottomLineFlag: false, secondBottomLineFlag: false, thirdBottomLineFlag: false)
-        case 15:
-            arrangeTopAndBottomLines(firstTopLineFlag: false, secondTopLineFlag: false, thirdTopLineFlag: false, firstBottomLineFlag: false, secondBottomLineFlag: false, thirdBottomLineFlag: false)
-        case 16:
-            arrangeTopAndBottomLines(firstTopLineFlag: false, secondTopLineFlag: false, thirdTopLineFlag: false, firstBottomLineFlag: false, secondBottomLineFlag: false, thirdBottomLineFlag: false)
-        case 17:
-            arrangeTopAndBottomLines(firstTopLineFlag: false, secondTopLineFlag: false, thirdTopLineFlag: false, firstBottomLineFlag: false, secondBottomLineFlag: false, thirdBottomLineFlag: false)
-        case 18:
-            arrangeTopAndBottomLines(firstTopLineFlag: false, secondTopLineFlag: false, thirdTopLineFlag: false, firstBottomLineFlag: true, secondBottomLineFlag: false, thirdBottomLineFlag: false)
-        case 19:
-            arrangeTopAndBottomLines(firstTopLineFlag: false, secondTopLineFlag: false, thirdTopLineFlag: false, firstBottomLineFlag: true, secondBottomLineFlag: false, thirdBottomLineFlag: false)
-        case 20:
-            arrangeTopAndBottomLines(firstTopLineFlag: false, secondTopLineFlag: false, thirdTopLineFlag: false, firstBottomLineFlag: true, secondBottomLineFlag: true, thirdBottomLineFlag: false)
-        case 21:
-            arrangeTopAndBottomLines(firstTopLineFlag: false, secondTopLineFlag: false, thirdTopLineFlag: false, firstBottomLineFlag: true, secondBottomLineFlag: true, thirdBottomLineFlag: false)
-        case 22:
-            arrangeTopAndBottomLines(firstTopLineFlag: false, secondTopLineFlag: false, thirdTopLineFlag: false, firstBottomLineFlag: true, secondBottomLineFlag: true, thirdBottomLineFlag: true)
-        case 23:
-            arrangeTopAndBottomLines(firstTopLineFlag: false, secondTopLineFlag: false, thirdTopLineFlag: false, firstBottomLineFlag: true, secondBottomLineFlag: true, thirdBottomLineFlag: true)
+        //for fourImageTop y coordinate
+        noteView.addConstraint(NSLayoutConstraint(item:fourImageTop, attribute:NSLayoutAttribute.CenterY,relatedBy:NSLayoutRelation.Equal, toItem: noteView,attribute:NSLayoutAttribute.CenterY, multiplier:position, constant:0))
 
-        default:
-            println()
-
-        }
-
+        //for fourImageBottom y coordinate
+        noteView.addConstraint(NSLayoutConstraint(item:fourImageBottom, attribute:NSLayoutAttribute.CenterY,relatedBy:NSLayoutRelation.Equal, toItem: noteView,attribute:NSLayoutAttribute.CenterY, multiplier:position2, constant:0))
 
     }
 
@@ -716,103 +609,6 @@ class TrivLessonNoteView
     }
 
 
-    func arrangeTopAndBottomLines(#firstTopLineFlag:Bool,secondTopLineFlag:Bool,thirdTopLineFlag:Bool,firstBottomLineFlag:Bool,secondBottomLineFlag:Bool,thirdBottomLineFlag:Bool){
-
-
-
-
-        //for top extra lines
-        if(!firstTopLineFlag){
-
-            // check there is a note on this line or not
-            if(majorMinorPositionIndex1 != 2 && majorMinorPositionIndex2 != 2 && majorMinorpositionIndex3 != 3){
-
-                //newGameVC.firstTopLine.hidden = true
-
-            }
-
-        }
-        else{
-            //newGameVC.firstTopLine.hidden = false
-        }
-
-        if(!secondTopLineFlag){
-
-            // check there is a note on this line or not
-            if(majorMinorPositionIndex1 != 4 && majorMinorPositionIndex2 != 4 && majorMinorpositionIndex3 != 4){
-
-                //newGameVC.secondTopLine.hidden = true
-
-            }
-
-        }
-        else{
-            //newGameVC.secondTopLine.hidden = false
-        }
-
-        if(!thirdTopLineFlag){
-
-
-            // check there is a note on this line or not
-            if(majorMinorPositionIndex1 != 6 && majorMinorPositionIndex2 != 6 && majorMinorpositionIndex3 != 6){
-
-                //newGameVC.thirdTopLine.hidden = true
-
-            }
-
-        }
-        else{
-            //newGameVC.thirdTopLine.hidden = false
-        }
-
-        //for bottom extra lines
-
-        if(!firstBottomLineFlag){
-
-            // check there is a note on this line or not
-            if(majorMinorPositionIndex1 != 18 && majorMinorPositionIndex2 != 18 && majorMinorpositionIndex3 != 18){
-
-                //newGameVC.firstBottomLine.hidden = true
-
-            }
-
-
-        }
-        else{
-            //newGameVC.firstBottomLine.hidden = false
-        }
-
-        if(!secondBottomLineFlag){
-
-            // check there is a note on this line or not
-            if(majorMinorPositionIndex1 != 20 && majorMinorPositionIndex2 != 20 && majorMinorpositionIndex3 != 20){
-
-                //newGameVC.secondBottomLine.hidden = true
-
-            }
-
-
-        }
-        else{
-            //newGameVC.secondBottomLine.hidden = false
-        }
-
-        if(!thirdBottomLineFlag){
-
-            // check there is a note on this line or not
-            if(majorMinorPositionIndex1 != 22 && majorMinorPositionIndex2 != 22 && majorMinorpositionIndex3 != 22){
-
-                //newGameVC.thirdBottomLine.hidden = true
-
-            }
-
-        }
-        else{
-            //newGameVC.thirdBottomLine.hidden = false
-        }
-
-
-    }
 
 
     func getSoundFileNameFromQuestionContent(#questionContent:String)->String{
@@ -833,10 +629,8 @@ class TrivLessonNoteView
 
             currentNoteValue =  currentNoteCharacter+octavCharacter
 
-
         }
         else{
-
 
             // we have flat or sharp
             var octavCharacter:String =  String(Array(questionContent)[2])
@@ -921,26 +715,6 @@ class TrivLessonNoteView
         return currentNoteValue
     }
     
-    
-    func setPositionIndex(#noteIndex:Int,positionIndex:Int){
-        
-        if(noteIndex == 1){
-            
-            majorMinorPositionIndex1 = positionIndex
-            
-        }
-        else if(noteIndex == 2){
-            
-            majorMinorPositionIndex2 = positionIndex
-            
-        }
-        else{
-            
-            majorMinorpositionIndex3 = positionIndex
-            
-        }
-        
-    }
-    
+
     
 }

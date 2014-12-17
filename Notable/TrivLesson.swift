@@ -78,7 +78,7 @@ class TrivLesson
         println(newLessonVC)
         println(newLessonVC.noteView)
 
-        trivLessonNoteView = TrivLessonNoteView(noteView: newLessonVC.noteView, viewController: newLessonVC)
+        trivLessonNoteView = TrivLessonNoteView(noteView: newLessonVC.noteView, viewController: newLessonVC,newLesson:self)
 
         //initiliaze noteArray
         noteArray = ["C","C#","D","D#","E","F","F#","G","G#","A","A#","H"]
@@ -154,6 +154,8 @@ class TrivLesson
 
     func prepareQuestion(currentQuestion:Int){
 
+        // for locking buttons
+        lockButtons(true)
 
         currentLessonQuestion  = questions[currentQuestion]
 
@@ -185,6 +187,19 @@ class TrivLesson
         }
 
 
+        // set playButton status
+        if(currentLessonQuestion.noteText! != ""){
+
+            newLessonVC.playButton.hidden = false
+
+        }
+        else{
+
+            newLessonVC.playButton.hidden = true
+
+        }
+
+
         //get type of question
         if(currentLessonQuestion.questionType! == "Image" && currentLessonQuestion.questionType! != "Label"){
             println("ImageType")
@@ -212,11 +227,13 @@ class TrivLesson
                     newLessonVC.questionPicture.hidden = false
                     newLessonVC.questionPicture.image = UIImage(named: currentLessonQuestion.imageName!)
                     newLessonVC.questionTitleText.text = currentLessonQuestion.questionText
+                    lockButtons(false)
                 }
                 else{
                     newLessonVC.lineContainer.hidden = false
                     newLessonVC.clefContainer.hidden = false
                     newLessonVC.questionTitleText.text = currentLessonQuestion.questionText
+                    lockButtons(false)
                 }
 
             }
@@ -251,16 +268,22 @@ class TrivLesson
 
             newLessonVC.questionText.text = currentLessonQuestion.questionText
             newLessonVC.questionTitleText.text = currentLessonQuestion.questionTitle
+
+            lockButtons(false)
             
 
         }
         else{
 
             println("OtherType: \(currentLessonQuestion.questionType!)")
-            newLessonVC.pictureContainer.hidden = false
+            newLessonVC.pictureContainer.hidden = true
             newLessonVC.lineContainer.hidden = false
             newLessonVC.clefContainer.hidden = false
-            newLessonVC.textContainer.hidden = false
+            newLessonVC.textContainer.hidden = true
+            newLessonVC.playButton.hidden = true
+            trivLessonNoteView.drawOtherQuetionTypes()
+
+            lockButtons(false)
 
         }
 
@@ -418,7 +441,7 @@ class TrivLesson
 
                     for counter in  0..<minorOrMajorNoteContentArray.count {
 
-                        var passingVariables:[AnyObject] = [counter+1,minorOrMajorNoteContentArray[counter]]
+                        var passingVariables:[AnyObject] = [counter+1,minorOrMajorNoteContentArray[counter],minorOrMajorNoteContentArray.count]
 
                         let delay = 0.5
 
@@ -499,7 +522,7 @@ class TrivLesson
                 println(questions![currentQuestion].clefType!)
                 println(currentSharpFlatValue)
 
-                trivLessonNoteView.addNote(questionContent:questions![currentQuestion].noteText! , clefType:questions![currentQuestion].clefType! , sharpFlatValue: currentSharpFlatValue,majorMinorFlag: false,noteIndex:1)
+                trivLessonNoteView.addNote(questionContent:questions![currentQuestion].noteText! , clefType:questions![currentQuestion].clefType! , sharpFlatValue: currentSharpFlatValue,majorMinorFlag: false,noteIndex:1,bufferSize:1)
             }
 
 
@@ -522,10 +545,11 @@ class TrivLesson
 
         println("index = \(passingVariables[0] as Int)")
         println("noteToDraw = \(passingVariables[1] as String)")
+        println("bufferSize = \(passingVariables[2] as Int)")
 
         self.getNoteSoundFromQuestionContent(passingVariables[1] as String)
 
-        self.trivLessonNoteView.addNote(questionContent: passingVariables[1] as String, clefType:self.questions![currentQuestion].clefType! , sharpFlatValue: currentSharpFlatValue,majorMinorFlag: true,noteIndex:passingVariables[0] as Int)
+        self.trivLessonNoteView.addNote(questionContent: passingVariables[1] as String, clefType:self.questions![currentQuestion].clefType! , sharpFlatValue: currentSharpFlatValue,majorMinorFlag: true,noteIndex:passingVariables[0] as Int,bufferSize:passingVariables[2] as Int)
 
     }
 
@@ -590,23 +614,17 @@ class TrivLesson
 
     func lockButtons(status:Bool){
 
-        for choiceButton in newGameVC.choiceButtonArray {
-
-            if(status){
-                choiceButton.enabled = false
-            } else {
-
-                choiceButton.enabled = true
-            }
-        }
-
-
         if(status){
-            newGameVC.playButton.enabled = false
-        } else {
+            newLessonVC.playButton.enabled = false
+            newLessonVC.nextButton.enabled = false
+            newLessonVC.previousButton.enabled = false
 
-            newGameVC.playButton.enabled = true
+        } else {
+            newLessonVC.playButton.enabled = true
+            newLessonVC.nextButton.enabled = true
+            newLessonVC.previousButton.enabled = true
         }
+
 
     }
 

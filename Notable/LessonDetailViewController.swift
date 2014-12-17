@@ -51,6 +51,9 @@ class LessonDetailViewController: UIViewController {
     // for noteView
     @IBOutlet var noteView: UIView!
 
+    // for play button
+    @IBOutlet var playButton: UIButton!
+
 
 
     var newLesson:TrivLesson!
@@ -194,5 +197,14 @@ class LessonDetailViewController: UIViewController {
     }
 
 
+
+
+    @IBAction func playButtonAction(sender: AnyObject) {
+
+        newLesson.trivLessonNoteView.clearAllScrollNotes()
+
+        newLesson.prepareQuestion(newLesson.currentQuestion)
+
+    }
 
 }

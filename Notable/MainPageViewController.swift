@@ -8,14 +8,24 @@
 
 import UIKit
 
-class MainPageViewController: UIViewController,UITableViewDelegate ,UITableViewDataSource {
+class MainPageViewController: UIViewController {
+
+    //for hall of fame
+    @IBOutlet var goldMedalImage: UIImageView!
+    @IBOutlet var silverMedalImage: UIImageView!
+    @IBOutlet var bronzeMedalImage: UIImageView!
+    @IBOutlet var goldMedalName: UILabel!
+    @IBOutlet var goldMedalPoint: UILabel!
+    @IBOutlet var silverMedalName: UILabel!
+    @IBOutlet var silverMedalPoint: UILabel!
+    @IBOutlet var bronzeMedalName: UILabel!
+    @IBOutlet var bronzeMedalPoint: UILabel!
 
 
     @IBOutlet weak var scoreNumber: UILabel!
     @IBOutlet var newGameLabel: UILabel!
     @IBOutlet var separator: UIView!
     @IBOutlet var newGameButton: UIButton!
-    @IBOutlet var pointsTableView: UITableView!
     @IBOutlet var newGameContainer: UIView!
     @IBOutlet var lessonsButton: UIButton!
     @IBOutlet var practiceButton: UIButton!
@@ -40,9 +50,7 @@ class MainPageViewController: UIViewController,UITableViewDelegate ,UITableViewD
     override func viewDidLoad() {
         super.viewDidLoad()
         println("in MainPageViewController")
-        
-        self.pointsTableView.delegate = self
-        self.pointsTableView.dataSource = self
+
         
         width = NSUserDefaults.standardUserDefaults().objectForKey("width") as NSNumber
         height = NSUserDefaults.standardUserDefaults().objectForKey("height") as NSNumber
@@ -61,7 +69,7 @@ class MainPageViewController: UIViewController,UITableViewDelegate ,UITableViewD
         
         
         self.navigationController?.setNavigationBarHidden(false, animated: true)
-        
+
         // Do any additional setup after loading the view.
     
     }
@@ -144,8 +152,6 @@ class MainPageViewController: UIViewController,UITableViewDelegate ,UITableViewD
         self.lessonsButton.backgroundColor = btn
         self.practiceButton.backgroundColor = btn
         self.chooseCategoriesButton.backgroundColor = btn
-        self.pointsTableView.reloadData()
-        self.pointsTableView.separatorColor = btn
         //TextColor
         self.lessonsButton.setTitleColor(txt, forState: UIControlState.Normal)
         self.practiceButton.setTitleColor(txt, forState: UIControlState.Normal)
@@ -153,21 +159,14 @@ class MainPageViewController: UIViewController,UITableViewDelegate ,UITableViewD
         self.newGameLabel.textColor = txt
     }
     
-    func tableView(tableView: UITableView!, canEditRowAtIndexPath indexPath: NSIndexPath!) -> Bool {
-        return true
-    }
-    
-    func tableView(tableView: UITableView!, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath!) {
-        if (editingStyle == UITableViewCellEditingStyle.Delete) {
-            // handle delete (by removing the data from your array and updating the tableview)
-        }
-    }
-    @IBAction func settingsButtonAction(sender:UIButton) {
+        @IBAction func settingsButtonAction(sender:UIButton) {
         println("Button Action From Code")
         self.performSegueWithIdentifier("goToSettings", sender: "settings")
     }
     
     func setUpPoints(){
+
+
         
         arrayOfPoints.removeAll(keepCapacity: false)
         
@@ -195,13 +194,26 @@ class MainPageViewController: UIViewController,UITableViewDelegate ,UITableViewD
         if((highscoreNumberGold as Int) == 0){
             point1 = Point(userName: "No record" as String, point: "", madelsImage: "medal_no.png")
             arrayOfPoints.append(point1)
+
+            goldMedalName.text = "No record"
+            goldMedalPoint.text = "0p"
+            goldMedalImage.image = UIImage(named: "medal_no.png")
+
         } else {
             
             arrayOfPoints.append(point1)
+
+            goldMedalName.text = point1.userName
+            goldMedalPoint.text = point1.point
+            goldMedalImage.image = UIImage(named: point1.madelsImage)
         }
         
         if((highscoreNumberSilver as Int) == 0){
             point2 = Point(userName: "No record" as String, point: "", madelsImage: "medal_no.png")
+
+            silverMedalName.text = "No record"
+            silverMedalPoint.text = "0p"
+            silverMedalImage.image = UIImage(named: "medal_no.png")
             
             
             arrayOfPoints.append(point2)
@@ -209,44 +221,32 @@ class MainPageViewController: UIViewController,UITableViewDelegate ,UITableViewD
         } else {
             
             arrayOfPoints.append(point2)
+
+            silverMedalName.text = point2.userName
+            silverMedalPoint.text = point2.point
+            silverMedalImage.image = UIImage(named: point2.madelsImage)
             
         }
         if((highscoreNumberBronze as Int) == 0){
             point3 = Point(userName: "No record" as String, point: "", madelsImage: "medal_no.png")
+
+            bronzeMedalName.text = "No record"
+            bronzeMedalPoint.text = "0p"
+            bronzeMedalImage.image = UIImage(named: "medal_no.png")
+
             arrayOfPoints.append(point3)
 
         } else {
+
+            bronzeMedalName.text = point3.userName
+            bronzeMedalPoint.text = point3.point
+            bronzeMedalImage.image = UIImage(named: point3.madelsImage)
             
             arrayOfPoints.append(point3)
         }
+
     }
-    
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return arrayOfPoints.count
-    }
-    
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let pointCell: PointTableCell = self.pointsTableView.dequeueReusableCellWithIdentifier("pointCell") as PointTableCell
-        
-        let currentPoint = arrayOfPoints[indexPath.row]
-        pointCell.setCell(currentPoint.userName, pointLabel: currentPoint.point, image: currentPoint.madelsImage)
-        return pointCell
-        
-    }
-    
-    func tableView(tableView: UITableView, willDisplayCell cell: PointTableCell, forRowAtIndexPath indexPath: NSIndexPath) {
-        var bg:UIColor = UIColor.whiteColor()
-        var btn:UIColor = UIColor.whiteColor()
-        var txt: UIColor = UIColor.yellowColor()
-        Theme().fetchThemeColors(&bg, buttonColor:&btn, textColor:&txt)
-        
-        cell.cellBackground.backgroundColor = bg
-       // cell.separatorColor.backgroundColor = btn
-        
-        cell.nameLabel.textColor = txt
-        cell.pointLabel.textColor = txt
-    }
-    
+
     @IBAction func goToCategories(sender: AnyObject) {
         
         println("categories!!!!")
@@ -258,6 +258,7 @@ class MainPageViewController: UIViewController,UITableViewDelegate ,UITableViewD
         
         println("lessons!!!!")
         self.performSegueWithIdentifier("goToLessons", sender: "lessons")
+
     }
     
     
