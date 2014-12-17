@@ -254,7 +254,7 @@ class TrivQuiz
             cellCounter = 0
         }
 
-        if (cellCounter == 10){
+        if (cellCounter == 1){
 
             var scoreScreen: NGScore = newGameVC.storyboard!.instantiateViewControllerWithIdentifier("HighScoreViewController") as NGScore
             scoreScreen.delegate = newGameVC

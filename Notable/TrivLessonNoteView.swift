@@ -17,6 +17,8 @@ class TrivLessonNoteView
     var sound:Sound!
     var soundFileName:String!
     var soundFileName1 = "",soundFileName2 = "",soundFileName3 = ""
+    var previousShiftIndex=0
+    var majorMinorValueArray:[Int]!
 
     var majorMinorPositionIndex1 = 0,majorMinorPositionIndex2 = 0,majorMinorpositionIndex3 = 0
 
@@ -25,6 +27,7 @@ class TrivLessonNoteView
         self.noteView = noteView
         self.lessonVC = viewController
         sound = Sound()
+        majorMinorValueArray = []
 
     }
 
@@ -33,6 +36,11 @@ class TrivLessonNoteView
 
     func addNote(#questionContent:String,clefType:String,sharpFlatValue:Int,majorMinorFlag:Bool,noteIndex:Int){
 
+        if(noteIndex == 1){
+            majorMinorValueArray.removeAll(keepCapacity: false)
+        }
+
+        majorMinorValueArray.append(sharpFlatValue)
 
         // gets current note index
         currentNoteIndex = noteIndex
@@ -127,7 +135,7 @@ class TrivLessonNoteView
         var lineHeightConstraint = NSLayoutConstraint(item: line, attribute: NSLayoutAttribute.Width, relatedBy: NSLayoutRelation.Equal, toItem: note, attribute: NSLayoutAttribute.Height, multiplier: 3/1, constant: 0)
 
         //for noteName width
-        var noteNameHeightConstraint = NSLayoutConstraint(item: noteName, attribute: NSLayoutAttribute.Width, relatedBy: NSLayoutRelation.Equal, toItem: note, attribute: NSLayoutAttribute.Height, multiplier: 700/442, constant: 0)
+        var noteNameHeightConstraint = NSLayoutConstraint(item: noteName, attribute: NSLayoutAttribute.Width, relatedBy: NSLayoutRelation.Equal, toItem: note, attribute: NSLayoutAttribute.Height, multiplier: 3/1, constant: 0)
 
         //for sharpFlat width
         var sharpFlatHeightConstraint = NSLayoutConstraint(item: sharpFlat, attribute: NSLayoutAttribute.Width, relatedBy: NSLayoutRelation.Equal, toItem: sharpFlat, attribute: NSLayoutAttribute.Height, multiplier: 30/40, constant: 0)
@@ -140,16 +148,96 @@ class TrivLessonNoteView
         //for shifting notes
         var shiftIndex:CGFloat!
 
-        if(sharpFlatValue==0){
 
-            shiftIndex = 0.66+(CGFloat(noteIndex-1)*0.15)
-            
+        println("sharpFlatValue= \(sharpFlatValue)  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+
+
+        /*
+        if(noteIndex>1){
+
+            if(majorMinorValueArray[noteIndex-2]==0){
+
+                if(sharpFlatValue==0){
+
+                    shiftIndex = 0.66+(CGFloat(noteIndex-1)*0.20)
+
+                }
+                else{
+                    shiftIndex = (CGFloat(noteIndex)*0.3375)
+                    println("shiftIndex= \(shiftIndex)")
+                    //shiftIndex = 100
+                    
+                    
+                }
+
+
+            }
+            else{
+
+                shiftIndex = 0.66+(CGFloat(noteIndex-1)*0.30)
+                
+            }
+
+
+
         }
-        else{
+        else if(noteIndex==1){
 
-            shiftIndex = 0.66+(CGFloat(noteIndex-1)*0.17)
+
+            if(sharpFlatValue==0){
+
+                shiftIndex = 0.66+(CGFloat(noteIndex-1)*0.20)
+
+            }
+            else{
+                    shiftIndex = 0.86+(CGFloat(noteIndex-1)*0.30)
+
+            }
+        }
+
+        */
+
+
+        shiftIndex = 0
+
+            for counter in 0..<majorMinorValueArray.count {
+
+                if(counter==0){
+
+                    if(majorMinorValueArray[counter]==0){
+
+                        shiftIndex = 0.66
+
+                    }
+                    else{
+                        shiftIndex = 0.71
+                    }
+
+                }
+                else{
+
+                    if(majorMinorValueArray[counter]==0){
+
+                        shiftIndex = shiftIndex + 0.1 + 0.1
+
+                    }
+                    else{
+                        shiftIndex = shiftIndex + 0.1 + 0.12
+                    }
+                    
+                    
+                    
+                }
+
+
 
         }
+
+
+
+        println("shiftIndex")
+
+
 
         //for note x position
         noteView.addConstraint(NSLayoutConstraint(
@@ -163,7 +251,7 @@ class TrivLessonNoteView
             relatedBy:NSLayoutRelation.Equal, toItem:noteView,
             attribute:NSLayoutAttribute.CenterX, multiplier:shiftIndex, constant:0))
 
-        var shiftIndexForNoteName = shiftIndex+0.04
+        var shiftIndexForNoteName = shiftIndex+0.1
         //for noteName x position
         noteView.addConstraint(NSLayoutConstraint(
             item:noteName, attribute:NSLayoutAttribute.CenterX,

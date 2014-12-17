@@ -78,7 +78,7 @@ class TrivLesson
         println(newLessonVC)
         println(newLessonVC.noteView)
 
-        trivLessonNoteView = TrivLessonNoteView(noteView: newLessonVC.noteView, viewController: newLessonVC )
+        trivLessonNoteView = TrivLessonNoteView(noteView: newLessonVC.noteView, viewController: newLessonVC)
 
         //initiliaze noteArray
         noteArray = ["C","C#","D","D#","E","F","F#","G","G#","A","A#","H"]
@@ -186,7 +186,7 @@ class TrivLesson
 
 
         //get type of question
-        if(currentLessonQuestion.questionType! == "Image"){
+        if(currentLessonQuestion.questionType! == "Image" && currentLessonQuestion.questionType! != "Label"){
             println("ImageType")
 
 
@@ -266,98 +266,7 @@ class TrivLesson
 
 
 
-        /*
-        //lock choice buttons here
-        newGameVC.newGame.lockButtons(true)
-
-        // ********!!!change the number of questions here!!!*********
-
-        //reset cell counter
-        if(gameType=="practice"){
-            cellCounter = 0
-        }
-
-        if (cellCounter == 10){
-
-            var scoreScreen: NGScore = newGameVC.storyboard!.instantiateViewControllerWithIdentifier("HighScoreViewController") as NGScore
-            scoreScreen.delegate = newGameVC
-            newGameVC.presentViewController(scoreScreen, animated: true, completion: nil)
-
-        }else{
-
-            println("questionArraySize: \(questions.count) currentQuestionIndex= \(currentQuestion)")
-            resetQuestion(questions![currentQuestion])
-
-            //clears colors of buttons
-            newGameVC.firstChoiceButton.backgroundColor = UIColor.clearColor()
-            newGameVC.secondChoiceButton.backgroundColor = UIColor.clearColor()
-            newGameVC.thirdChoiceButton.backgroundColor = UIColor.clearColor()
-            newGameVC.fourthChoiceButton.backgroundColor = UIColor.clearColor()
-
-            // decide the right answers place
-            let rnd = Int(arc4random_uniform(UInt32(4)))
-            //////println("rightAnswer position is \(rnd)")
-
-            // put answers to choice buttons
-            for buttonCounter in 0..<newGameVC.choiceButtonArray.count {
-
-                // puts the right answer
-                if(buttonCounter == rnd){
-
-                    newGameVC.choiceButtonArray[buttonCounter].setTitle(questions![currentQuestion].questionAnswer, forState: .Normal)
-                    questions![currentQuestion].questionAnswerIndex = rnd
-                    print("\(questions![currentQuestion].questionAnswer) ")
-                } else {
-                    // puts the other answers
-                    if(!(questions![currentQuestion].questionAlternativeAnswer1Added)){
-
-                        newGameVC.choiceButtonArray[buttonCounter].setTitle(questions![currentQuestion].questionAlternativeAnswer1, forState: .Normal)
-                        questions![currentQuestion].questionAlternativeAnswer1Added = true
-
-                        print("\(questions![currentQuestion].questionAlternativeAnswer1) ")
-
-
-                    } else if(!(questions![currentQuestion].questionAlternativeAnswer2Added)){
-
-                        newGameVC.choiceButtonArray[buttonCounter].setTitle(questions![currentQuestion].questionAlternativeAnswer2, forState: .Normal)
-                        questions![currentQuestion].questionAlternativeAnswer2Added = true
-
-                        print("\(questions![currentQuestion].questionAlternativeAnswer2) ")
-
-                    } else if(!(questions![currentQuestion].questionAlternativeAnswer3Added)){
-
-                        newGameVC.choiceButtonArray[buttonCounter].setTitle(questions![currentQuestion].questionAlternativeAnswer3, forState: .Normal)
-                        questions![currentQuestion].questionAlternativeAnswer3Added = true
-
-                        //////println("\(questions![currentQuestion].questionAlternativeAnswer3) ")
-                    }
-                }
             }
-            //unlocks choice buttons
-
-            //println("questionContent = \(questions![currentQuestion].questionContent!)")
-
-            // question with picture or not
-            if((questions![currentQuestion].questionContent!.rangeOfString(".")) != nil ){
-                trivNoteView.addNote(questionContent:questions![currentQuestion].questionContent! , clefType:questions![currentQuestion].questionClefType! , sharpFlatValue: currentSharpFlatValue,majorMinorFlag: true,noteIndex:1)
-            }
-            else {
-                getNoteSoundFromQuestionContent(questions![currentQuestion].questionContent!)
-                //getNoteSoundFromQuestionContent("G2|Hb2|D3")
-
-                println("QuestionContent!!!!!!!!!!!!!!!!!!!! : \(questions![currentQuestion].questionAnswer!)")
-            }
-
-
-
-
-            //getNoteSoundFromQuestionContent("D3|F3|A3")
-
-            //lockButtons(false)
-        }
-
-        */
-    }
 
 
 
