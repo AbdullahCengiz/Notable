@@ -20,6 +20,7 @@
 		ED04897A1A39FDED000093C2 /* LessonDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0489791A39FDED000093C2 /* LessonDetailViewController.swift */; };
 		ED04897C1A3E3C53000093C2 /* TrivLesson.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED04897B1A3E3C53000093C2 /* TrivLesson.swift */; };
 		ED04897E1A3E3E92000093C2 /* TrivLessonNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED04897D1A3E3E92000093C2 /* TrivLessonNoteView.swift */; };
+		ED071E431A42CC3F006BADD4 /* ReklamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED071E421A42CC3F006BADD4 /* ReklamViewController.swift */; };
 		ED089C9C1A110D7D00D3F034 /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED089C9B1A110D7D00D3F034 /* Timer.swift */; };
 		ED08FB9019F9384400D6BE26 /* PointTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED08FB8F19F9384400D6BE26 /* PointTableCell.swift */; };
 		ED08FB9319F93AB400D6BE26 /* Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED08FB9219F93AB400D6BE26 /* Point.swift */; };
@@ -164,6 +165,7 @@
 		ED0489791A39FDED000093C2 /* LessonDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LessonDetailViewController.swift; sourceTree = "<group>"; };
 		ED04897B1A3E3C53000093C2 /* TrivLesson.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrivLesson.swift; sourceTree = "<group>"; };
 		ED04897D1A3E3E92000093C2 /* TrivLessonNoteView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrivLessonNoteView.swift; sourceTree = "<group>"; };
+		ED071E421A42CC3F006BADD4 /* ReklamViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReklamViewController.swift; sourceTree = "<group>"; };
 		ED089C9B1A110D7D00D3F034 /* Timer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
 		ED08FB8F19F9384400D6BE26 /* PointTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PointTableCell.swift; sourceTree = "<group>"; };
 		ED08FB9219F93AB400D6BE26 /* Point.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Point.swift; sourceTree = "<group>"; };
@@ -320,6 +322,14 @@
 				0DAD97A21A1A1EB80011E4AF /* Theme.swift */,
 			);
 			name = Theme;
+			sourceTree = "<group>";
+		};
+		ED071E411A42CC17006BADD4 /* Reklam */ = {
+			isa = PBXGroup;
+			children = (
+				ED071E421A42CC3F006BADD4 /* ReklamViewController.swift */,
+			);
+			name = Reklam;
 			sourceTree = "<group>";
 		};
 		ED08FB8E19F9382500D6BE26 /* TableCell */ = {
@@ -540,6 +550,7 @@
 		ED466DFF19F165DA00F14292 /* Notable */ = {
 			isa = PBXGroup;
 			children = (
+				ED071E411A42CC17006BADD4 /* Reklam */,
 				ED234D8E1A14E33C00DE5087 /* Triv */,
 				ED96CE951A0BDFD3007589F9 /* Resources */,
 				ED38AD771A13716D0028366D /* Navigation */,
@@ -893,6 +904,7 @@
 				ED466E0519F165DA00F14292 /* SplashScreenViewController.swift in Sources */,
 				ED234D981A14EB5F00DE5087 /* StreamReader.swift in Sources */,
 				ED19B35019FAA0F200041AF0 /* CategoriesViewController.swift in Sources */,
+				ED071E431A42CC3F006BADD4 /* ReklamViewController.swift in Sources */,
 				ED08FB9019F9384400D6BE26 /* PointTableCell.swift in Sources */,
 				ED0363CC1A038A41004797B5 /* Notable.xcdatamodeld in Sources */,
 				ED234D911A14E35000DE5087 /* TrivQuiz.swift in Sources */,
