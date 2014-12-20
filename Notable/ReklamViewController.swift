@@ -12,7 +12,9 @@ class ReklamViewController: UIViewController {
     var navBar:UINavigationBar!
 
     @IBOutlet var navItem: UINavigationItem!
-
+    @IBOutlet var bannerView: UIView!
+    @IBOutlet var removeReklamButton: UIButton!
+    @IBOutlet var goToResultPageButton: UIButton!
 
 
     override func viewDidLoad() {
@@ -20,6 +22,10 @@ class ReklamViewController: UIViewController {
 
         navBar = self.navigationController?.navigationBar
         prepareNavigationBar()
+
+        initUI()
+
+        countDown()
 
         /*
         storeViewImageContainer.layer.cornerRadius  = 4.0
@@ -37,6 +43,76 @@ class ReklamViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+
+    func initUI(){
+
+        bannerView.layer.cornerRadius = 4
+        removeReklamButton.layer.cornerRadius = 4
+        goToResultPageButton.layer.cornerRadius = 4
+
+        goToResultPageButton.enabled = false
+
+    }
+
+    func countDown(){
+
+        for counter in  0..<6 {
+
+            var passingVariables:[AnyObject] = [5-counter]
+
+            let delay = 0.5
+
+            var timer:NSTimer!
+
+
+            switch counter {
+            case 0:
+                timer = NSTimer.scheduledTimerWithTimeInterval(0, target: self, selector: Selector("decreaseCount:"), userInfo: passingVariables, repeats: false)
+            case 1:
+                timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("decreaseCount:"), userInfo: passingVariables, repeats: false)
+            case 2:
+                timer = NSTimer.scheduledTimerWithTimeInterval(2, target: self, selector: Selector("decreaseCount:"), userInfo: passingVariables, repeats: false)
+            case 3:
+                timer = NSTimer.scheduledTimerWithTimeInterval(3, target: self, selector: Selector("decreaseCount:"), userInfo: passingVariables, repeats: false)
+            case 4:
+                timer = NSTimer.scheduledTimerWithTimeInterval(4, target: self, selector: Selector("decreaseCount:"), userInfo: passingVariables, repeats: false)
+            case 5:
+                timer = NSTimer.scheduledTimerWithTimeInterval(5, target: self, selector: Selector("decreaseCount:"), userInfo: passingVariables, repeats: false)
+            default:
+                println("in timer default")
+
+
+            }
+
+
+
+
+        }
+
+
+
+    }
+
+
+    @objc func decreaseCount(timer: NSTimer){
+
+        var passingVariables:[AnyObject] = timer.userInfo as [AnyObject]
+
+        println("index = \(passingVariables[0] as Int)")
+
+        let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
+
+        if(passingVariables[0] as Int != 0){
+            removeReklamButton.setTitle("Remove Advertisement \(passingVariables[0] as Int)", forState: UIControlState.allZeros)
+        }
+        else{
+            removeReklamButton.setTitle("Remove Advertisement", forState: UIControlState.allZeros)
+            goToResultPageButton.enabled = true
+        }
+
+
+    }
+
 
     func prepareNavigationBar(){
 

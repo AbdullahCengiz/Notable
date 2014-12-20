@@ -2,5 +2,6 @@
 //  Use this file to import your target's public headers that you would like to expose to Swift.
 //
 
-#import "MHAudioBufferPlayer.h"
-#import "Synth.h"
+#import "GADBannerView.h"
+#import "GADBannerViewDelegate.h"
+#import "GADRequest.h"

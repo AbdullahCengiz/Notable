@@ -8,7 +8,11 @@
 
 import UIKit
 
-class MainPageViewController: UIViewController {
+class MainPageViewController: UIViewController,GADBannerViewDelegate {
+
+    //for reklam container
+    @IBOutlet var reklamContainer: UIView!
+
 
     //for hall of fame
     @IBOutlet var goldMedalImage: UIImageView!
@@ -47,6 +51,8 @@ class MainPageViewController: UIViewController {
     var coreDataHelper: CoreDataHelper!
 
     @IBOutlet var navItem: UINavigationItem!
+
+
     override func viewDidLoad() {
         super.viewDidLoad()
         println("in MainPageViewController")
@@ -70,10 +76,62 @@ class MainPageViewController: UIViewController {
         
         self.navigationController?.setNavigationBarHidden(false, animated: true)
 
+
+        prepareAdvertisement()
+
         // Do any additional setup after loading the view.
     
     }
-    @IBOutlet var reklamContainerMainPage: UIView!
+
+
+    func prepareAdvertisement(){
+
+        var adHeight:CGFloat = CGFloat(height)
+
+        var origin = CGPointMake(0.0,
+            0.0); // place at bottom of view
+
+
+
+        adHeight = (adHeight*100)/1136
+
+        var size = GADAdSizeFullWidthPortraitWithHeight(adHeight) // set size to 50
+        var adB = GADBannerView(adSize: size, origin: origin) // create the banner
+        adB.adUnitID = "ca-app-pub-5033527814399651/5039778123" //"ca-app-pub-XXXXXXXX/XXXXXXX"
+
+        reklamContainer.setTranslatesAutoresizingMaskIntoConstraints(false)
+        adB.setTranslatesAutoresizingMaskIntoConstraints(false)
+
+        adB.delegate = self // ??
+        adB.rootViewController = self // ??
+
+        reklamContainer.addSubview(adB) // ??
+
+
+
+        reklamContainer.addConstraint(NSLayoutConstraint(item:adB, attribute:NSLayoutAttribute.Height,relatedBy:NSLayoutRelation.Equal, toItem: reklamContainer,attribute:NSLayoutAttribute.Height, multiplier:1, constant:0))
+
+        reklamContainer.addConstraint(NSLayoutConstraint(item:adB, attribute:NSLayoutAttribute.Width,relatedBy:NSLayoutRelation.Equal, toItem: reklamContainer,attribute:NSLayoutAttribute.Width, multiplier:1, constant:0))
+
+
+        reklamContainer.addConstraint(NSLayoutConstraint(item:adB, attribute:NSLayoutAttribute.CenterX,relatedBy:NSLayoutRelation.Equal, toItem:reklamContainer,attribute:NSLayoutAttribute.CenterX, multiplier:1, constant:0))
+
+        reklamContainer.addConstraint(NSLayoutConstraint(item:adB, attribute:NSLayoutAttribute.CenterY,relatedBy:NSLayoutRelation.Equal, toItem:reklamContainer,attribute:NSLayoutAttribute.CenterY, multiplier:1, constant:0))
+
+        /*
+        reklamContainer.addConstraint(NSLayoutConstraint(item:adB, attribute:NSLayoutAttribute.BottomMargin,relatedBy:NSLayoutRelation.Equal, toItem:reklamContainer,attribute:NSLayoutAttribute.Bottom, multiplier:0, constant:0))
+
+        reklamContainer.addConstraint(NSLayoutConstraint(item:adB, attribute:NSLayoutAttribute.LeadingMargin,relatedBy:NSLayoutRelation.Equal, toItem:reklamContainer,attribute:NSLayoutAttribute.Leading, multiplier:0, constant:0))
+        */
+
+
+        var request = GADRequest() // create request
+        request.testDevices = [ GAD_SIMULATOR_ID ]; // set it to "test" request
+        adB.loadRequest(request) // actually load it (?)
+
+
+    }
+
   
     
     override func didReceiveMemoryWarning() {
@@ -98,7 +156,7 @@ class MainPageViewController: UIViewController {
 
         if(reklam==0){
             
-            reklamContainerMainPage.hidden = true
+            reklamContainer.hidden = true
         }
    
         //CHANGE THE MAINPAGE TRANSITION HERE**********
@@ -190,7 +248,6 @@ class MainPageViewController: UIViewController {
         var point3 = Point(userName: highscoreNameBronze! as String, point: String(highscoreNumberBronze), madelsImage: "Bronze.png")
         var txt2:UIColor = UIColor.grayColor()
 
-        
         if((highscoreNumberGold as Int) == 0){
             point1 = Point(userName: "No record" as String, point: "", madelsImage: "medal_no.png")
             arrayOfPoints.append(point1)
@@ -214,8 +271,7 @@ class MainPageViewController: UIViewController {
             silverMedalName.text = "No record"
             silverMedalPoint.text = "0p"
             silverMedalImage.image = UIImage(named: "medal_no.png")
-            
-            
+
             arrayOfPoints.append(point2)
             
         } else {
@@ -310,4 +366,5 @@ class MainPageViewController: UIViewController {
             newGame.questions = gameQuestions
         }
     }
-}
+
+    }

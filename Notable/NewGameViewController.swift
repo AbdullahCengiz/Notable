@@ -40,7 +40,6 @@ import QuartzCore
 
     var newGame:TrivQuiz!
     var synthLock = NSLock()
-    var synth: Synth!
     var choiceButtonArray : [UIButton] = []
     var cellArray : [UIView] = []
 
@@ -159,13 +158,6 @@ import QuartzCore
     }
 */
 
-       func playNotesInOrder(timer: NSTimer) {
-        // Something after a delay
-        var arr:AnyObject = timer.userInfo!
-        var counter32:Int = arr[0] as Int
-        println("playNotesInOrder and play \(counter32)")
-        newGame.playNote(Int32(counter))
-    }
 
 
 

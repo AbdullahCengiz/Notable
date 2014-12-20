@@ -19,7 +19,6 @@ var delegate:AnyObject?
 var soundGenerator:SoundGenerator!
 var note:UInt32!
 
-var myPlayer = MHAudioBufferPlayer()
 var audioPlayer = AVAudioPlayer()
 var soundLevelValue : Float!
 var answerLock : Bool = true
@@ -254,11 +253,14 @@ class TrivQuiz
             cellCounter = 0
         }
 
-        if (cellCounter == 10){
+        if (cellCounter == 1){
 
+            /*
             var scoreScreen: NGScore = newGameVC.storyboard!.instantiateViewControllerWithIdentifier("HighScoreViewController") as NGScore
             scoreScreen.delegate = newGameVC
             newGameVC.presentViewController(scoreScreen, animated: true, completion: nil)
+            */
+            newGameVC.performSegueWithIdentifier("goToReklam", sender: nil)
 
         }else{
 
@@ -791,22 +793,6 @@ class TrivQuiz
     }
 
 
-
-    func playNote(noteId:Int32){
-
-        ////println("in play note")
-
-        newGameVC.synthLock.lock()
-        newGameVC.synth.playNote(noteId)
-        newGameVC.synthLock.unlock()
-
-        /*
-        if(noteId<90){
-        sleep(1)
-        playNote(49)
-        }
-        */
-    }
 
 
     func playMajorMinorSound(){
