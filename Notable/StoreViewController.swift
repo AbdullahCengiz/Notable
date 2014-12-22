@@ -46,9 +46,7 @@ class StoreViewController: UIViewController, SKProductsRequestDelegate {
     @IBOutlet var reklamContainer: UIView!
     @IBAction func animateButtonPressed(sender: AnyObject?) {
 
-
             buyConsumable()
-
 
     }
     

@@ -44,9 +44,16 @@ class NGPause: UIViewController{
         } else if
             (delegate!.title! == "Choose Lesson") {
                 self.pauseMessages.text = "Your Lesson is Paused"
-        } else {
+        }
+        else if
+            (delegate!.title! == "In App Purchases") {
+                self.pauseMessages.text = "Your Shopping is Paused"
+        }
+        else {
             self.pauseMessages.text = "thisOneGoesToNothing!"
         }
+
+
         
         //for TAP HERE TO RESUME "NAME"
         if (delegate!.title! == "newPractice") {
@@ -62,7 +69,12 @@ class NGPause: UIViewController{
         } else if
             (delegate!.title! == "Choose Lesson") {
             self.resumeMessages.text = "TAP HERE TO RESUME LESSON"
-        } else {
+        }
+        else if
+            (delegate!.title! == "In App Purchases") {
+                self.pauseMessages.text = "TAP HERE TO RESUME SHOPPING"
+        }
+        else {
             self.resumeMessages.text = "thisOneGoesToNothing!"
         }
         
@@ -75,7 +87,12 @@ class NGPause: UIViewController{
         } else if
             (delegate!.title! == "Choose Lesson") {
                 self.endMessages.text = "End Lesson"
-        } else {
+        }
+        else if
+            (delegate!.title! == "In App Purchases") {
+                self.pauseMessages.text = "End Shopping"
+        }
+        else {
             self.endMessages.text = "thisOneGoesToNothing!"
         }
     }
@@ -165,10 +182,8 @@ class NGPause: UIViewController{
 
             })
 
-
         }
 
-        
     }
 
 
@@ -177,7 +192,7 @@ func setColor(#backgroundColor:UIColor){
     self.view.backgroundColor = backgroundColor
 
 }
-    
+
 }
 
 

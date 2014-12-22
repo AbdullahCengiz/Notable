@@ -168,7 +168,7 @@ class CoreDataHelper
                     currentQuestion.questionExtraInfo = currentQuestionObject.valueForKey("questionExtraInfo") as? String
                      currentQuestion.questionClefType = currentQuestionObject.valueForKey("questionClefType") as? String
                     
-                    data?.insert(currentQuestion, atIndex: counter)
+                    data?.append(currentQuestion)
 
                 }
                 
@@ -210,7 +210,7 @@ class CoreDataHelper
                         isAllOfCategoriesChecked = false
                     }
                     
-                    data?.insert(currentCategory, atIndex: counter)
+                    data?.append(currentCategory)
                     
                 }
                 
@@ -243,8 +243,27 @@ class CoreDataHelper
                     currentLesson.lessonId = currentLessonObject.valueForKey("lessonId") as? Int
                     currentLesson.lessonName = currentLessonObject.valueForKey("lessonName") as? String
                     currentLesson.lessonHint = currentLessonObject.valueForKey("lessonHint") as? String
+
+                    //control lesson4 status
+                    var lesson4: AnyObject? = NSUserDefaults.standardUserDefaults().objectForKey("lesson4")
+
+                    if(lesson4 as Int == 1){
+
+                            data?.append(currentLesson)
+
+                    }
+                    else{
+
+                        if(currentLesson.lessonId != 3){
+
+                            data?.append(currentLesson)
+                            
+                        }
+
+                    }
+
                     
-                    data?.insert(currentLesson, atIndex: counter)
+
                     
                 }
                 

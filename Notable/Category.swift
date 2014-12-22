@@ -24,7 +24,7 @@ class Category
         categoryId = categoriesRowArray[0] as? Int
         categoryName = categoriesRowArray[1] as? String
         categoryPosition = categoriesRowArray[2] as? Int
-        status = false
+        status = true
     }
 
 }

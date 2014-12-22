@@ -29,6 +29,7 @@ class SplashScreenViewController: UIViewController {
         highscoreNumber()
         textFieldName()
         nameTextField()
+        inAppPurchases()
     }
 
         func scoreNumber(){
@@ -50,6 +51,32 @@ class SplashScreenViewController: UIViewController {
             NSUserDefaults.standardUserDefaults().setObject(0, forKey: "highscoreName")
             NSUserDefaults.standardUserDefaults().synchronize()
         }
+    }
+
+
+    func inAppPurchases(){
+
+        var removeAd: AnyObject? = NSUserDefaults.standardUserDefaults().objectForKey("removeAd")
+
+        if(removeAd==nil){
+
+            NSUserDefaults.standardUserDefaults().setObject(0, forKey: "removeAd")
+            NSUserDefaults.standardUserDefaults().synchronize()
+
+        }
+
+
+        var lesson4: AnyObject? = NSUserDefaults.standardUserDefaults().objectForKey("lesson4")
+
+        if(lesson4==nil){
+
+            NSUserDefaults.standardUserDefaults().setObject(0, forKey: "lesson4")
+            NSUserDefaults.standardUserDefaults().synchronize()
+            
+        }
+        
+
+
     }
     
     func highscoreNumber(){

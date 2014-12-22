@@ -122,6 +122,7 @@ import QuartzCore
         super.viewDidLoad()
         navBar = self.navigationController?.navigationBar
         newGame.initGame()
+        styleView()
 
     }
 
@@ -172,41 +173,44 @@ import QuartzCore
         //////println("In viewWillAppear!!!")
         // waits for noteViewContainer creation
         prepareNavigationBar()
-        styleView()
         newGame.setSoundValue()
         
 }
     
-   func styleView() {
-            
+    func styleView() {
+
+
+        println("in newGameViewController styleView!!!!!!!!!!")
+
         var bg:UIColor = UIColor.whiteColor()
         var btn:UIColor = UIColor.whiteColor()
         var txt:UIColor = UIColor.blackColor()
-            
+
         Theme().fetchThemeColors(&bg, buttonColor:&btn, textColor:&txt)
-        
-        self.view.backgroundColor = bg
-    
-        self.firstChoiceNumberContainer.backgroundColor = bg
-        self.secondChoiceNumberContainer.backgroundColor = bg
-        self.thirdChoiceNumberContainer.backgroundColor = bg
-        self.fourthChoiceNumberContainer.backgroundColor = bg
-    
-        self.firstChoiceButton.backgroundColor = btn
-        self.secondChoiceButton.backgroundColor = btn
-        self.thirdChoiceButton.backgroundColor = btn
-        self.fourthChoiceButton.backgroundColor = btn
-    
-        self.L1.textColor = txt
-        self.L2.textColor = txt
-        self.L3.textColor = txt
-        self.L4.textColor = txt
-    
-        self.firstChoiceButton.setTitleColor(txt, forState: UIControlState.Normal)
-        self.secondChoiceButton.setTitleColor(txt, forState: UIControlState.Normal)
-        self.thirdChoiceButton.setTitleColor(txt, forState: UIControlState.Normal)
-        self.fourthChoiceButton.setTitleColor(txt, forState: UIControlState.Normal)
-        }
+
+        view.backgroundColor = bg
+
+        firstChoiceNumberContainer.backgroundColor = bg
+        secondChoiceNumberContainer.backgroundColor = bg
+        thirdChoiceNumberContainer.backgroundColor = bg
+        fourthChoiceNumberContainer.backgroundColor = bg
+
+        firstChoiceButton.backgroundColor = btn
+        secondChoiceButton.backgroundColor = btn
+        thirdChoiceButton.backgroundColor = btn
+        fourthChoiceButton.backgroundColor = btn
+
+        L1.textColor = txt
+        L2.textColor = txt
+        L3.textColor = txt
+        L4.textColor = txt
+
+        firstChoiceButton.setTitleColor(txt, forState: UIControlState.Normal)
+        secondChoiceButton.setTitleColor(txt, forState: UIControlState.Normal)
+        thirdChoiceButton.setTitleColor(txt, forState: UIControlState.Normal)
+        fourthChoiceButton.setTitleColor(txt, forState: UIControlState.Normal)
+
+    }
 
     func prepareNavigationBar(){
 

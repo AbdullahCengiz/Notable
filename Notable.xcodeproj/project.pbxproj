@@ -38,6 +38,8 @@
 		ED071E8D1A4459F5006BADD4 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED071E8C1A4459F5006BADD4 /* Security.framework */; };
 		ED071E8F1A445B6C006BADD4 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = ED071E8E1A445B6C006BADD4 /* libz.dylib */; };
 		ED071E911A445B7B006BADD4 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = ED071E901A445B7B006BADD4 /* libsqlite3.dylib */; };
+		ED071E941A459DFD006BADD4 /* InAppPurchasesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED071E931A459DFD006BADD4 /* InAppPurchasesViewController.swift */; };
+		ED071E961A480CD8006BADD4 /* InAppPurchaseItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED071E951A480CD8006BADD4 /* InAppPurchaseItem.swift */; };
 		ED089C9C1A110D7D00D3F034 /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED089C9B1A110D7D00D3F034 /* Timer.swift */; };
 		ED08FB9019F9384400D6BE26 /* PointTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED08FB8F19F9384400D6BE26 /* PointTableCell.swift */; };
 		ED08FB9319F93AB400D6BE26 /* Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED08FB9219F93AB400D6BE26 /* Point.swift */; };
@@ -151,6 +153,7 @@
 		ED94FA961A39E42400EF1627 /* LessonsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED19B34C19FA9F9400041AF0 /* LessonsViewController.swift */; };
 		EDA9C6E91A090E1C00108A85 /* StoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA9C6E81A090E1C00108A85 /* StoreViewController.swift */; };
 		EDAD76211A3094C7004A9C16 /* TrivNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAD76201A3094C7004A9C16 /* TrivNoteView.swift */; };
+		EDC832231A48145300DC94BF /* InAppPurchaseTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC832221A48145300DC94BF /* InAppPurchaseTableCell.swift */; };
 		EDD14B7E1A029A61004F7EA1 /* CategoryTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD14B7D1A029A61004F7EA1 /* CategoryTableCell.swift */; };
 		EDD14B801A029BBE004F7EA1 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD14B7F1A029BBE004F7EA1 /* Category.swift */; };
 /* End PBXBuildFile section */
@@ -225,6 +228,8 @@
 		ED071E8C1A4459F5006BADD4 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		ED071E8E1A445B6C006BADD4 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		ED071E901A445B7B006BADD4 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		ED071E931A459DFD006BADD4 /* InAppPurchasesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InAppPurchasesViewController.swift; sourceTree = "<group>"; };
+		ED071E951A480CD8006BADD4 /* InAppPurchaseItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InAppPurchaseItem.swift; sourceTree = "<group>"; };
 		ED089C9B1A110D7D00D3F034 /* Timer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
 		ED08FB8F19F9384400D6BE26 /* PointTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PointTableCell.swift; sourceTree = "<group>"; };
 		ED08FB9219F93AB400D6BE26 /* Point.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Point.swift; sourceTree = "<group>"; };
@@ -344,6 +349,7 @@
 		ED84C1ED1A36EE2B0084DA0A /* B6.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = B6.aif; sourceTree = "<group>"; };
 		EDA9C6E81A090E1C00108A85 /* StoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreViewController.swift; sourceTree = "<group>"; };
 		EDAD76201A3094C7004A9C16 /* TrivNoteView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrivNoteView.swift; sourceTree = "<group>"; };
+		EDC832221A48145300DC94BF /* InAppPurchaseTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InAppPurchaseTableCell.swift; sourceTree = "<group>"; };
 		EDD14B7D1A029A61004F7EA1 /* CategoryTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryTableCell.swift; sourceTree = "<group>"; };
 		EDD14B7F1A029BBE004F7EA1 /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -499,12 +505,21 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		ED071E921A459DDD006BADD4 /* InAppPurchases */ = {
+			isa = PBXGroup;
+			children = (
+				ED071E931A459DFD006BADD4 /* InAppPurchasesViewController.swift */,
+			);
+			name = InAppPurchases;
+			sourceTree = "<group>";
+		};
 		ED08FB8E19F9382500D6BE26 /* TableCell */ = {
 			isa = PBXGroup;
 			children = (
 				ED08FB8F19F9384400D6BE26 /* PointTableCell.swift */,
 				EDD14B7D1A029A61004F7EA1 /* CategoryTableCell.swift */,
 				ED168F171A39D5F2004DA067 /* LessonTableCell.swift */,
+				EDC832221A48145300DC94BF /* InAppPurchaseTableCell.swift */,
 			);
 			name = TableCell;
 			sourceTree = "<group>";
@@ -518,6 +533,7 @@
 				ED234D9B1A160E8800DE5087 /* Lesson.swift */,
 				0DABD4151A2DA83900023AB9 /* Medal.swift */,
 				ED168F101A388824004DA067 /* LessonQuestion.swift */,
+				ED071E951A480CD8006BADD4 /* InAppPurchaseItem.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -713,6 +729,7 @@
 		ED466DFF19F165DA00F14292 /* Notable */ = {
 			isa = PBXGroup;
 			children = (
+				ED071E921A459DDD006BADD4 /* InAppPurchases */,
 				ED071E411A42CC17006BADD4 /* Reklam */,
 				ED234D8E1A14E33C00DE5087 /* Triv */,
 				ED96CE951A0BDFD3007589F9 /* Resources */,
@@ -1071,9 +1088,12 @@
 				ED7B218E1A011F5A00A2337D /* AutoLayutViewController.swift in Sources */,
 				ED225B7919F205DB00D8784E /* MainPageViewController.swift in Sources */,
 				ED168F111A388824004DA067 /* LessonQuestion.swift in Sources */,
+				EDC832231A48145300DC94BF /* InAppPurchaseTableCell.swift in Sources */,
 				ED089C9C1A110D7D00D3F034 /* Timer.swift in Sources */,
 				ED19B34A19FA9B9800041AF0 /* PracticeViewController.swift in Sources */,
+				ED071E941A459DFD006BADD4 /* InAppPurchasesViewController.swift in Sources */,
 				ED168F161A3888F8004DA067 /* LessonData.swift in Sources */,
+				ED071E961A480CD8006BADD4 /* InAppPurchaseItem.swift in Sources */,
 				ED466E0319F165DA00F14292 /* AppDelegate.swift in Sources */,
 				EDAD76211A3094C7004A9C16 /* TrivNoteView.swift in Sources */,
 				ED0B96B81A23432800A1A508 /* JLToast.swift in Sources */,

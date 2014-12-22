@@ -253,14 +253,25 @@ class TrivQuiz
             cellCounter = 0
         }
 
-        if (cellCounter == 1){
+        if (cellCounter == 10){
 
-            /*
-            var scoreScreen: NGScore = newGameVC.storyboard!.instantiateViewControllerWithIdentifier("HighScoreViewController") as NGScore
-            scoreScreen.delegate = newGameVC
-            newGameVC.presentViewController(scoreScreen, animated: true, completion: nil)
-            */
-            newGameVC.performSegueWithIdentifier("goToReklam", sender: nil)
+            // check reklam status first
+            var removeAd: AnyObject? = NSUserDefaults.standardUserDefaults().objectForKey("removeAd")
+
+            if(removeAd as Int == 1){
+
+                var scoreScreen: NGScore = newGameVC.storyboard!.instantiateViewControllerWithIdentifier("HighScoreViewController") as NGScore
+                scoreScreen.delegate = newGameVC
+                newGameVC.presentViewController(scoreScreen, animated: true, completion: nil)
+
+            }
+            else{
+
+                 newGameVC.performSegueWithIdentifier("goToReklam", sender: nil)
+
+            }
+
+
 
         }else{
 
@@ -268,10 +279,7 @@ class TrivQuiz
             resetQuestion(questions![currentQuestion])
 
             //clears colors of buttons
-            newGameVC.firstChoiceButton.backgroundColor = UIColor.clearColor()
-            newGameVC.secondChoiceButton.backgroundColor = UIColor.clearColor()
-            newGameVC.thirdChoiceButton.backgroundColor = UIColor.clearColor()
-            newGameVC.fourthChoiceButton.backgroundColor = UIColor.clearColor()
+            newGameVC.styleView()
 
             // decide the right answers place
             let rnd = Int(arc4random_uniform(UInt32(4)))
@@ -813,10 +821,5 @@ class TrivQuiz
 
     }
 
-
-
-
-
-    
     
 }

@@ -129,6 +129,21 @@ class MainPageViewController: UIViewController,GADBannerViewDelegate {
         request.testDevices = [ GAD_SIMULATOR_ID ]; // set it to "test" request
         adB.loadRequest(request) // actually load it (?)
 
+        //control reklam status
+        controlReklamStatus()
+
+
+    }
+
+    func controlReklamStatus(){
+
+        var removeAd: AnyObject? = NSUserDefaults.standardUserDefaults().objectForKey("removeAd")
+
+        if(removeAd as Int == 1){
+
+            reklamContainer.hidden = true
+            
+        }
 
     }
 
@@ -152,13 +167,8 @@ class MainPageViewController: UIViewController,GADBannerViewDelegate {
         
         
         //controlReklamStatus
-        let reklam: Int = NSUserDefaults.standardUserDefaults().objectForKey("reklam") as Int
-
-        if(reklam==0){
-            
-            reklamContainer.hidden = true
-        }
-   
+        controlReklamStatus()
+        
         //CHANGE THE MAINPAGE TRANSITION HERE**********
 
          var zeroHighScore: Int = NSUserDefaults.standardUserDefaults().objectForKey("zeroHighScore") as Int
@@ -215,6 +225,12 @@ class MainPageViewController: UIViewController,GADBannerViewDelegate {
         self.practiceButton.setTitleColor(txt, forState: UIControlState.Normal)
         self.chooseCategoriesButton.setTitleColor(txt, forState: UIControlState.Normal)
         self.newGameLabel.textColor = txt
+        self.goldMedalName.textColor = txt
+        self.goldMedalPoint.textColor = txt
+        self.silverMedalName.textColor = txt
+        self.silverMedalPoint.textColor = txt
+        self.bronzeMedalName.textColor = txt
+        self.bronzeMedalPoint.textColor = txt
     }
     
         @IBAction func settingsButtonAction(sender:UIButton) {

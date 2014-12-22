@@ -40,8 +40,6 @@ class LessonsViewController: UIViewController,UITableViewDelegate ,UITableViewDa
 
         cdHelper = CoreDataHelper()
 
-        loadCategories()
-
         initUI()
     }
 
@@ -60,6 +58,7 @@ class LessonsViewController: UIViewController,UITableViewDelegate ,UITableViewDa
 
         prepareNavigationBar()
         styleView()
+        loadCategories()
     }
 
     func styleView() {
@@ -98,7 +97,7 @@ class LessonsViewController: UIViewController,UITableViewDelegate ,UITableViewDa
         let lessonCell :LessonTableCell = self.lessonsTableView.dequeueReusableCellWithIdentifier("lessonCell") as LessonTableCell
 
         let currentLesson = loadedArrayOfLessons[indexPath.row]
-
+        
         lessonCell.setCell(lessonNameLabel:currentLesson.lessonName!,lessonHint:currentLesson.lessonHint!)
 
         return lessonCell
@@ -128,6 +127,12 @@ class LessonsViewController: UIViewController,UITableViewDelegate ,UITableViewDa
             
             //lessonsTableView.reloadData()
             
+        }
+        else {
+
+             //go to store
+             self.performSegueWithIdentifier("goToInAppPurchase", sender: "store")
+
         }
         
         
@@ -172,10 +177,9 @@ class LessonsViewController: UIViewController,UITableViewDelegate ,UITableViewDa
                 
             }
 
-
-
             newLesson.questions = sortedDict
         }
+
     }
 
     
