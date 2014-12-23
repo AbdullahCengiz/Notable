@@ -147,10 +147,20 @@ class SettingsViewController: UIViewController{
         self.soundSlider.backgroundColor = btn
         self.soundLevelInicatorContainer.backgroundColor = btn
         self.themeSegmentButton.backgroundColor = btn
+
+
+        self.themeSegmentButton.tintColor = txt
         
         self.resetAnswersButton.setTitleColor(txt, forState: UIControlState.Normal)
         self.resetHighScoresButton.setTitleColor(txt, forState: UIControlState.Normal)
         self.storeButton.setTitleColor(txt, forState: UIControlState.Normal)
+
+        //change navigation bar color
+        self.navigationController!.navigationBar.barTintColor = btn
+
+        //change navigation item title color
+        let titleDict: NSDictionary = [NSForegroundColorAttributeName: txt]
+        self.navigationController?.navigationBar.titleTextAttributes = titleDict
 
     }
 

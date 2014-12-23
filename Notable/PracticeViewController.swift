@@ -66,23 +66,27 @@ class PracticeViewController: UIViewController,UITableViewDelegate ,UITableViewD
         Theme().fetchThemeColors(&bg, buttonColor:&btn, textColor:&txt)
         
         self.view.backgroundColor = bg
+
+        //change navigation bar color
+        self.navigationController!.navigationBar.barTintColor = btn
+
+        //change navigation item title color
+        let titleDict: NSDictionary = [NSForegroundColorAttributeName: txt]
+        self.navigationController?.navigationBar.titleTextAttributes = titleDict
         
     }
 
     func prepareNavigationBar(){
         
-        //for menubutton
-        let menuImage = UIImage(named: "menu_btn") as UIImage?
-        let menuButton    = UIButton.buttonWithType(UIButtonType.System) as UIButton
-        menuButton.frame  = CGRectMake(0, 0, 25, 25)
-        menuButton.setBackgroundImage(menuImage, forState: UIControlState.Normal)
-        menuButton.setTitle("", forState: UIControlState.Normal);
-        menuButton.addTarget(self, action:"backButtonAction:", forControlEvents: UIControlEvents.TouchUpInside)
-        navItem.setLeftBarButtonItem(UIBarButtonItem(customView: menuButton), animated: true)
+        let image       = UIImage(named: "backbutton") as UIImage?
+        let uiButton    = UIButton.buttonWithType(UIButtonType.System) as UIButton
+        uiButton.frame  = CGRectMake(0, 0, 25, 25)
+        uiButton.setBackgroundImage(image, forState: UIControlState.Normal)
+        uiButton.setTitle("", forState: UIControlState.Normal);
+        uiButton.addTarget(self, action:"backButtonAction:", forControlEvents: UIControlEvents.TouchUpInside)
+        navItem.setLeftBarButtonItem(UIBarButtonItem(customView: uiButton), animated: true)
         navItem.hidesBackButton=true
 
-
-        
     }
 
 
@@ -124,11 +128,9 @@ class PracticeViewController: UIViewController,UITableViewDelegate ,UITableViewD
     }
 
     @IBAction func backButtonAction(sender:UIButton) {
-        println("Button Action From Code")
-        var pauseScreen: NGPause = self.storyboard!.instantiateViewControllerWithIdentifier("PausedGameViewController") as NGPause
-        pauseScreen.delegate = self
-        self.title = "newPractice"
-        self.presentViewController(pauseScreen, animated: true, completion: nil)
+
+        self.navigationController?.popViewControllerAnimated(true)
+
     }
 
 

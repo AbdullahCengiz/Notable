@@ -89,7 +89,7 @@ class LessonDetailViewController: UIViewController {
         prepareNavigationBar()
 
         initUI()
-        //styleView()
+        styleView()
 
     }
 
@@ -98,6 +98,36 @@ class LessonDetailViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+
+    func styleView() {
+
+
+        println("in newGameViewController styleView!!!!!!!!!!")
+
+        var bg:UIColor = UIColor.whiteColor()
+        var btn:UIColor = UIColor.whiteColor()
+        var txt:UIColor = UIColor.blackColor()
+
+        Theme().fetchThemeColors(&bg, buttonColor:&btn, textColor:&txt)
+
+        view.backgroundColor = bg
+
+        self.nextButton.backgroundColor = btn
+        self.nextButton.setTitleColor(txt, forState: UIControlState.Normal)
+
+        self.previousButton.backgroundColor = btn
+        self.previousButton.setTitleColor(txt, forState: UIControlState.Normal)
+
+        var selectedTheme:AnyObject? = NSUserDefaults.standardUserDefaults().objectForKey("selectedTheme")
+
+        if(selectedTheme as Int == 0){
+
+            self.previousButton.backgroundColor = UIColor(red:204/255.0, green:210/255.0, blue:218/255.0, alpha:1.0)
+
+        }
+
+    }
+
 
 
     func initUI(){
@@ -164,12 +194,32 @@ class LessonDetailViewController: UIViewController {
 
             newLesson.currentQuestion++
 
+            questionIndexLabel.text = "\(newLesson.currentQuestion+1) of \(newLesson.questions.count)"
+
+            newLesson.trivLessonNoteView.clearAllScrollNotes()
+            newLesson.prepareQuestion(newLesson.currentQuestion)
+
+            // end  game or resume
+            if(newLesson.currentQuestion == newLesson.questions.count-1){
+
+                nextButton.setTitle("End", forState: UIControlState.Normal)
+
+            }
+            else{
+
+                nextButton.setTitle("Next", forState: UIControlState.Normal)
+
+            }
+
         }
 
-        questionIndexLabel.text = "\(newLesson.currentQuestion+1) of \(newLesson.questions.count)"
 
-        newLesson.trivLessonNoteView.clearAllScrollNotes()
-        newLesson.prepareQuestion(newLesson.currentQuestion)
+        if(nextButton.titleLabel?.text == "End"){
+
+            self.navigationController?.popViewControllerAnimated(true)
+
+        }
+
 
     }
 
@@ -181,6 +231,8 @@ class LessonDetailViewController: UIViewController {
             newLesson.currentQuestion--
             
         }
+
+        nextButton.setTitle("Next", forState: UIControlState.Normal)
 
         questionIndexLabel.text = "\(newLesson.currentQuestion+1) of \(newLesson.questions.count)"
 

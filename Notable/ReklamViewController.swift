@@ -8,13 +8,17 @@
 
 import UIKit
 
-class ReklamViewController: UIViewController {
+class ReklamViewController: UIViewController,GADBannerViewDelegate {
     var navBar:UINavigationBar!
 
     @IBOutlet var navItem: UINavigationItem!
     @IBOutlet var bannerView: UIView!
     @IBOutlet var removeReklamButton: UIButton!
     @IBOutlet var goToResultPageButton: UIButton!
+
+    //get screenWidth and height from NSUserDefaults
+    let width = NSUserDefaults.standardUserDefaults().objectForKey("width") as CGFloat
+    let height = NSUserDefaults.standardUserDefaults().objectForKey("height") as CGFloat
 
 
     override func viewDidLoad() {
@@ -26,6 +30,8 @@ class ReklamViewController: UIViewController {
         initUI()
 
         countDown()
+
+        prepareAdvertisement()
 
         /*
         storeViewImageContainer.layer.cornerRadius  = 4.0
@@ -94,6 +100,56 @@ class ReklamViewController: UIViewController {
     }
 
 
+    func prepareAdvertisement(){
+
+        var adHeight:CGFloat = CGFloat(height)
+
+        var origin = CGPointMake(0.0,
+            0.0); // place at bottom of view
+
+
+
+        adHeight = (adHeight*300)/1136
+
+        var size = GADAdSizeFullWidthPortraitWithHeight(adHeight) // set size to 50
+        var adB = GADBannerView(adSize: size, origin: origin) // create the banner
+        adB.adUnitID = "ca-app-pub-5033527814399651/5039778123" //"ca-app-pub-XXXXXXXX/XXXXXXX"
+
+        bannerView.setTranslatesAutoresizingMaskIntoConstraints(false)
+        adB.setTranslatesAutoresizingMaskIntoConstraints(false)
+
+        adB.delegate = self // ??
+        adB.rootViewController = self // ??
+
+        bannerView.addSubview(adB) // ??
+
+
+
+        bannerView.addConstraint(NSLayoutConstraint(item:adB, attribute:NSLayoutAttribute.Height,relatedBy:NSLayoutRelation.Equal, toItem: bannerView,attribute:NSLayoutAttribute.Height, multiplier:1, constant:0))
+
+        bannerView.addConstraint(NSLayoutConstraint(item:adB, attribute:NSLayoutAttribute.Width,relatedBy:NSLayoutRelation.Equal, toItem: bannerView,attribute:NSLayoutAttribute.Width, multiplier:1, constant:0))
+
+
+        bannerView.addConstraint(NSLayoutConstraint(item:adB, attribute:NSLayoutAttribute.CenterX,relatedBy:NSLayoutRelation.Equal, toItem:bannerView,attribute:NSLayoutAttribute.CenterX, multiplier:1, constant:0))
+
+        bannerView.addConstraint(NSLayoutConstraint(item:adB, attribute:NSLayoutAttribute.CenterY,relatedBy:NSLayoutRelation.Equal, toItem:bannerView,attribute:NSLayoutAttribute.CenterY, multiplier:1, constant:0))
+
+        /*
+        reklamContainer.addConstraint(NSLayoutConstraint(item:adB, attribute:NSLayoutAttribute.BottomMargin,relatedBy:NSLayoutRelation.Equal, toItem:reklamContainer,attribute:NSLayoutAttribute.Bottom, multiplier:0, constant:0))
+
+        reklamContainer.addConstraint(NSLayoutConstraint(item:adB, attribute:NSLayoutAttribute.LeadingMargin,relatedBy:NSLayoutRelation.Equal, toItem:reklamContainer,attribute:NSLayoutAttribute.Leading, multiplier:0, constant:0))
+        */
+
+
+        var request = GADRequest() // create request
+        request.testDevices = [ GAD_SIMULATOR_ID ]; // set it to "test" request
+        adB.loadRequest(request) // actually load it (?)
+        
+        
+    }
+
+
+
     @objc func decreaseCount(timer: NSTimer){
 
         var passingVariables:[AnyObject] = timer.userInfo as [AnyObject]
@@ -125,6 +181,7 @@ class ReklamViewController: UIViewController {
         uiButton.addTarget(self, action:"backButtonAction:", forControlEvents: UIControlEvents.TouchUpInside)
         navItem.setLeftBarButtonItem(UIBarButtonItem(customView: uiButton), animated: true)
         navItem.hidesBackButton=true
+        uiButton.hidden = true
     }
 
 
@@ -154,12 +211,37 @@ class ReklamViewController: UIViewController {
         Theme().fetchThemeColors(&bg, buttonColor:&btn, textColor:&txt)
 
         self.view.backgroundColor = bg
-        /*
-        self.storeViewImageContainer.backgroundColor = btn
-        self.animateBtn.backgroundColor = btn
-        self.animateBtn.setTitleColor(txt, forState: UIControlState.Normal)
-        */
+
+        self.removeReklamButton.backgroundColor = btn
+        self.removeReklamButton.setTitleColor(txt, forState: UIControlState.Normal)
+
+        self.goToResultPageButton.backgroundColor = btn
+        self.goToResultPageButton.setTitleColor(txt, forState: UIControlState.Normal)
+
+        //change navigation bar color
+        self.navigationController!.navigationBar.barTintColor = btn
+
+        //change navigation item title color
+        let titleDict: NSDictionary = [NSForegroundColorAttributeName: txt]
+        self.navigationController?.navigationBar.titleTextAttributes = titleDict
+    }
+
+
+
+    @IBAction func goToStore(sender: AnyObject) {
+
+        self.performSegueWithIdentifier("goToInAppPurchase", sender: nil)
 
     }
+
+
+    @IBAction func goToResultPage(sender: AnyObject) {
+
+        var scoreScreen: NGScore = newGameVC.storyboard!.instantiateViewControllerWithIdentifier("HighScoreViewController") as NGScore
+        scoreScreen.delegate = newGameVC
+        newGameVC.presentViewController(scoreScreen, animated: true, completion: nil)
+
+    }
+
 
     }

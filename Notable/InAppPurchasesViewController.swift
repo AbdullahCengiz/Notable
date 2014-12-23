@@ -10,10 +10,13 @@ import UIKit
 import SpriteKit
 
 class InAppPurchaseViewController: UIViewController,SKProductsRequestDelegate,UITableViewDelegate,UITableViewDataSource {
+
+    var selectedInAppPurchase:InAppPurchaseItem?
+    var selectedInAppItemIdentifier:String?
+
     @IBOutlet var navItem: UINavigationItem!
     var arrayOfInAppPurchases: [InAppPurchaseItem] = [InAppPurchaseItem]()
 
-    var selectedInAppItemIdentifier = ""
     var selectedInAppPurchaseId = -1
 
     @IBOutlet var inAppPurchaseTableView: UITableView!
@@ -61,6 +64,7 @@ class InAppPurchaseViewController: UIViewController,SKProductsRequestDelegate,UI
         if(removeAd as Int == 0){
 
             arrayOfInAppPurchases.append(inAppPurchaseItem1)
+
         }
 
         if(lesson4 as Int == 0){
@@ -70,6 +74,8 @@ class InAppPurchaseViewController: UIViewController,SKProductsRequestDelegate,UI
         }
 
         inAppPurchaseTableView.reloadData()
+
+        HUDController.sharedController.hideAnimated()
 
     }
 
@@ -93,6 +99,13 @@ class InAppPurchaseViewController: UIViewController,SKProductsRequestDelegate,UI
         Theme().fetchThemeColors(&bg, buttonColor:&btn, textColor:&txt)
 
         self.view.backgroundColor = bg
+
+        //change navigation bar color
+        self.navigationController!.navigationBar.barTintColor = btn
+
+        //change navigation item title color
+        let titleDict: NSDictionary = [NSForegroundColorAttributeName: txt]
+        self.navigationController?.navigationBar.titleTextAttributes = titleDict
 
     }
 
@@ -133,11 +146,28 @@ class InAppPurchaseViewController: UIViewController,SKProductsRequestDelegate,UI
         println("You selected cell #\(indexPath.row)!")
         let inAppPurchaseTableCell :InAppPurchaseTableCell = inAppPurchaseTableView.cellForRowAtIndexPath(indexPath) as InAppPurchaseTableCell
 
-        var selectedInAppPurchase : InAppPurchaseItem = arrayOfInAppPurchases[indexPath.row]
+        selectedInAppPurchase = arrayOfInAppPurchases[indexPath.row]
 
-        buyConsumable(inAppPurchaseItem: selectedInAppPurchase)
-        selectedInAppItemIdentifier = selectedInAppPurchase.inAppPurchaseStoreIdentifier
-        selectedInAppPurchaseId = selectedInAppPurchase.inAppPurchaseItemId
+        //create progress
+        HUDController.sharedController.contentView = HUDContentView.ProgressView()
+        HUDController.sharedController.show()
+
+
+        let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
+        dispatch_async(dispatch_get_global_queue(priority, 0)) {
+            // do some task
+            dispatch_async(dispatch_get_main_queue()) {
+
+                self.buyConsumable(inAppPurchaseItem: self.selectedInAppPurchase!)
+                self.selectedInAppItemIdentifier = self.selectedInAppPurchase!.inAppPurchaseStoreIdentifier
+                self.selectedInAppPurchaseId = self.selectedInAppPurchase!.inAppPurchaseItemId
+
+                }
+            }
+
+
+
+
 
     }
 
@@ -153,6 +183,7 @@ class InAppPurchaseViewController: UIViewController,SKProductsRequestDelegate,UI
             println("Fething Products");
         }else{
             println("can't make purchases");
+            decideShoppingStatus(false)
         }
     }
 
@@ -192,21 +223,6 @@ class InAppPurchaseViewController: UIViewController,SKProductsRequestDelegate,UI
                 println(validProduct.price)
                 buyProduct(validProduct)
 
-                if(selectedInAppPurchaseId == 0){
-
-                    NSUserDefaults.standardUserDefaults().setObject(1, forKey: "removeAd")
-                    NSUserDefaults.standardUserDefaults().synchronize()
-
-                }
-                else{
-
-                    NSUserDefaults.standardUserDefaults().setObject(1, forKey: "lesson4")
-                    NSUserDefaults.standardUserDefaults().synchronize()
-                    
-                }
-
-                prepareInAppPurchases()
-
             } else {
                 println("count>0 else" )
                 println(validProduct.productIdentifier)
@@ -226,49 +242,30 @@ class InAppPurchaseViewController: UIViewController,SKProductsRequestDelegate,UI
 
         for transaction:AnyObject in transactions {
             if let trans:SKPaymentTransaction = transaction as? SKPaymentTransaction{
+
+
+                println("state: \(trans.transactionState) !!!!!!!!!!!!!!")
+
+
                 switch trans.transactionState {
                 case .Purchased:
                     println("Product Purchased");
                     SKPaymentQueue.defaultQueue().finishTransaction(transaction as SKPaymentTransaction)
 
-                    if(selectedInAppPurchaseId == 0){
-
-                        NSUserDefaults.standardUserDefaults().setObject(1, forKey: "removeAd")
-                        NSUserDefaults.standardUserDefaults().synchronize()
-
-                    }
-                    else{
-
-                        NSUserDefaults.standardUserDefaults().setObject(1, forKey: "lesson4")
-                        NSUserDefaults.standardUserDefaults().synchronize()
-
-                    }
-
-                    prepareInAppPurchases()
+                    decideShoppingStatus(true)
                     //removeReklam()
                     break;
                 case .Failed:
                     println("Purchased Failed");
-
-
-                    if(selectedInAppPurchaseId == 0){
-
-                        NSUserDefaults.standardUserDefaults().setObject(0, forKey: "removeAd")
-                        NSUserDefaults.standardUserDefaults().synchronize()
-
-                    }
-                    else{
-
-                        NSUserDefaults.standardUserDefaults().setObject(0, forKey: "lesson4")
-                        NSUserDefaults.standardUserDefaults().synchronize()
-                        
-                    }
-
-
-
+                    decideShoppingStatus(false)
                     SKPaymentQueue.defaultQueue().finishTransaction(transaction as SKPaymentTransaction)
 
-                    prepareInAppPurchases()
+                    break;
+                case .Failed:
+                    println("Purchased Failed");
+                    decideShoppingStatus(false)
+                    SKPaymentQueue.defaultQueue().finishTransaction(transaction as SKPaymentTransaction)
+
                     break;
                     // case .Restored:
                     //[self restoreTransaction:transaction];
@@ -279,6 +276,46 @@ class InAppPurchaseViewController: UIViewController,SKProductsRequestDelegate,UI
             }
         }
         
+    }
+
+
+    func decideShoppingStatus(status:Bool){
+
+        if(!status){
+            if(selectedInAppPurchaseId == 0){
+
+                NSUserDefaults.standardUserDefaults().setObject(0, forKey: "removeAd")
+                NSUserDefaults.standardUserDefaults().synchronize()
+
+            }
+            else{
+
+                NSUserDefaults.standardUserDefaults().setObject(0, forKey: "lesson4")
+                NSUserDefaults.standardUserDefaults().synchronize()
+                
+            }
+
+        }
+        else{
+
+            if(selectedInAppPurchaseId == 0){
+
+                NSUserDefaults.standardUserDefaults().setObject(1, forKey: "removeAd")
+                NSUserDefaults.standardUserDefaults().synchronize()
+
+            }
+            else{
+
+                NSUserDefaults.standardUserDefaults().setObject(1, forKey: "lesson4")
+                NSUserDefaults.standardUserDefaults().synchronize()
+
+            }
+
+        }
+
+        prepareInAppPurchases()
+
+
     }
 
 

@@ -12,8 +12,9 @@ class LessonTableCell: UITableViewCell {
 
 
     @IBOutlet var lessonNameLabel: UILabel!
-
     @IBOutlet var lessonHint: UILabel!
+
+    @IBOutlet var lessonCellRoot: UIView!
 
     func styleView() {
         var bg:UIColor = UIColor.greenColor()
@@ -21,12 +22,18 @@ class LessonTableCell: UITableViewCell {
         var txt:UIColor = UIColor.blueColor()
         Theme().fetchThemeColors(&bg, buttonColor:&btn, textColor:&txt)
 
-        /*
-        self.categoryNameLabel.textColor = txt
-        self.categoryNameLabel.backgroundColor = btn
-        self.categoryTableCell.backgroundColor = btn
+
+        self.lessonNameLabel.textColor = txt
+        self.lessonNameLabel.backgroundColor = btn
+
+        self.lessonHint.textColor = txt
+        self.lessonHint.backgroundColor = btn
+
+        self.lessonCellRoot.backgroundColor = bg
+
+        //self.categoryTableCell.backgroundColor = btn
         self.contentView.backgroundColor = btn
-*/
+
     }
 
 
@@ -50,7 +57,7 @@ class LessonTableCell: UITableViewCell {
         self.lessonNameLabel.text = lessonNameLabel
         self.lessonHint.text = lessonHint
 
-        //styleView()
+        styleView()
         
         
     }

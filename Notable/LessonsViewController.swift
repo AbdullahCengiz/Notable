@@ -73,17 +73,14 @@ class LessonsViewController: UIViewController,UITableViewDelegate ,UITableViewDa
 
     func prepareNavigationBar(){
 
-        //for menubutton
-        let menuImage = UIImage(named: "menu_btn") as UIImage?
-        let menuButton    = UIButton.buttonWithType(UIButtonType.System) as UIButton
-        menuButton.frame  = CGRectMake(0, 0, 25, 25)
-        menuButton.setBackgroundImage(menuImage, forState: UIControlState.Normal)
-        menuButton.setTitle("", forState: UIControlState.Normal);
-        menuButton.addTarget(self, action:"backButtonAction:", forControlEvents: UIControlEvents.TouchUpInside)
-        navItem.setLeftBarButtonItem(UIBarButtonItem(customView: menuButton), animated: true)
+        let image       = UIImage(named: "backbutton") as UIImage?
+        let uiButton    = UIButton.buttonWithType(UIButtonType.System) as UIButton
+        uiButton.frame  = CGRectMake(0, 0, 25, 25)
+        uiButton.setBackgroundImage(image, forState: UIControlState.Normal)
+        uiButton.setTitle("", forState: UIControlState.Normal);
+        uiButton.addTarget(self, action:"backButtonAction:", forControlEvents: UIControlEvents.TouchUpInside)
+        navItem.setLeftBarButtonItem(UIBarButtonItem(customView: uiButton), animated: true)
         navItem.hidesBackButton=true
-
-
 
     }
 
@@ -139,11 +136,9 @@ class LessonsViewController: UIViewController,UITableViewDelegate ,UITableViewDa
     }
 
     @IBAction func backButtonAction(sender:UIButton) {
-        println("Button Action From Code")
-        var pauseScreen: NGPause = self.storyboard!.instantiateViewControllerWithIdentifier("PausedGameViewController") as NGPause
-        pauseScreen.delegate = self
-        self.title = "Choose Lesson"
-        self.presentViewController(pauseScreen, animated: true, completion: nil)
+
+        self.navigationController?.popViewControllerAnimated(true)
+
     }
 
 

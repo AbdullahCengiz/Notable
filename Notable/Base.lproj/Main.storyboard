@@ -178,7 +178,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H8y-Oc-gTb" userLabel="Root">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <subviews>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="78" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="kVk-gq-IhR" userLabel="LessonsTableView">
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="singleLineEtched" rowHeight="78" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="kVk-gq-IhR" userLabel="LessonsTableView">
                                         <rect key="frame" x="16" y="80" width="568" height="504"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -210,7 +210,7 @@
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                             </subviews>
-                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                             <constraints>
                                                                 <constraint firstItem="s9j-t2-I5J" firstAttribute="leading" secondItem="zjH-NI-oEu" secondAttribute="leading" id="6WU-Qz-d8p"/>
                                                                 <constraint firstItem="R2K-gs-THF" firstAttribute="leading" secondItem="s9j-t2-I5J" secondAttribute="trailing" id="9dL-Ei-TSr"/>
@@ -243,6 +243,7 @@
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                 <connections>
+                                                    <outlet property="lessonCellRoot" destination="Owj-aI-JOK" id="u5K-az-WXA"/>
                                                     <outlet property="lessonHint" destination="R2K-gs-THF" id="xWi-E6-o2S"/>
                                                     <outlet property="lessonNameLabel" destination="bpI-UN-mAw" id="3u2-iF-ZfR"/>
                                                 </connections>
@@ -250,7 +251,7 @@
                                         </prototypes>
                                     </tableView>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="kVk-gq-IhR" secondAttribute="bottom" constant="16" id="7tT-pA-CAa"/>
                                     <constraint firstItem="kVk-gq-IhR" firstAttribute="leading" secondItem="H8y-Oc-gTb" secondAttribute="leading" constant="16" id="C23-FC-49f"/>
@@ -855,7 +856,7 @@
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fhc-ob-1EJ" userLabel="LineIndentation">
                                                                 <rect key="frame" x="0.0" y="0.0" width="29" height="71"/>
-                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WFM-gj-gTv" userLabel="AllLines">
                                                                 <rect key="frame" x="29" y="0.0" width="511" height="71"/>
@@ -1267,7 +1268,7 @@
                                                         </variation>
                                                     </view>
                                                 </subviews>
-                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="bottom" secondItem="GYm-gA-Yu1" secondAttribute="bottom" id="AP4-Sk-Zxq"/>
                                                     <constraint firstAttribute="width" secondItem="1Kc-Dg-xBs" secondAttribute="width" multiplier="1.8" id="IeQ-cK-HpD"/>
@@ -2426,14 +2427,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="haV-VZ-40R" userLabel="CategoriesRoot">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="haV-VZ-40R" userLabel="PracticeRoot">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <subviews>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="78" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="04g-mx-IWk" userLabel="CategoriesTableView">
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="singleLineEtched" rowHeight="78" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="04g-mx-IWk" userLabel="PracticeTableView">
                                         <rect key="frame" x="16" y="80" width="568" height="504"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <prototypes>
                                             <tableViewCell contentMode="scaleToFill" restorationIdentifier="categoryCell" selectionStyle="none" indentationWidth="10" reuseIdentifier="categoryCell" rowHeight="78" id="W7n-Ue-0v7" userLabel="CategoryTableCell" customClass="CategoryTableCell" customModule="Notable" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="536" height="44"/>
@@ -2467,7 +2469,7 @@
                                         </connections>
                                     </tableView>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="04g-mx-IWk" secondAttribute="trailing" constant="16" id="0nn-oc-GYx"/>
                                     <constraint firstAttribute="trailingMargin" secondItem="04g-mx-IWk" secondAttribute="trailing" id="8WJ-qL-Ohp"/>
@@ -2576,6 +2578,7 @@
                                             <segment title="Light Theme"/>
                                             <segment title="Dark Theme"/>
                                         </segments>
+                                        <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <action selector="themeChanged:" destination="Kgj-Y2-xbP" eventType="valueChanged" id="8Hm-rp-9F2"/>
                                         </connections>
@@ -3661,6 +3664,9 @@
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="goToStore:" destination="dkJ-3S-CUl" eventType="touchUpInside" id="FwE-Nv-lRc"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P2m-sl-lkJ" userLabel="ResumeToResultPageTopIndentation">
                                 <rect key="frame" x="16" y="515.5" width="568" height="17"/>
@@ -3673,6 +3679,9 @@
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="goToResultPage:" destination="dkJ-3S-CUl" eventType="touchUpInside" id="kAc-hR-S7a"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XSO-vh-gop" userLabel="ReklamBottomIndentation">
                                 <rect key="frame" x="16" y="583" width="568" height="17"/>
@@ -3731,6 +3740,7 @@
                         <outlet property="goToResultPageButton" destination="ZIK-RF-5Z7" id="oXx-6O-9Oo"/>
                         <outlet property="navItem" destination="Cvu-kH-N1i" id="cDm-0N-p3U"/>
                         <outlet property="removeReklamButton" destination="w7w-Ax-X7f" id="s5f-8p-hGU"/>
+                        <segue destination="qWA-EY-y6r" kind="show" identifier="goToInAppPurchase" id="k8a-pr-7b5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OWG-a4-qyE" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -3749,11 +3759,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="78" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="HxQ-D0-vxU" userLabel="InAppPurchaseTableView">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="singleLineEtched" rowHeight="78" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="HxQ-D0-vxU" userLabel="InAppPurchaseTableView">
                                 <rect key="frame" x="16" y="80" width="568" height="504"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <color key="separatorColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" restorationIdentifier="categoryCell" selectionStyle="none" indentationWidth="10" reuseIdentifier="inAppPurchaseCell" rowHeight="78" id="4QO-LA-xl1" userLabel="InAppPurchaseTableCell" customClass="InAppPurchaseTableCell" customModule="Notable" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="536" height="44"/>
@@ -3844,7 +3854,7 @@
         <image name="resume_button" width="62" height="62"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="xsw-Gl-IfI"/>
-        <segue reference="oEj-xJ-zw3"/>
+        <segue reference="odw-gr-MFQ"/>
+        <segue reference="k8a-pr-7b5"/>
     </inferredMetricsTieBreakers>
 </document>

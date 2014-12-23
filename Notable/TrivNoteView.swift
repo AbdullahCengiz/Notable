@@ -110,7 +110,7 @@ class TrivNoteView
 
         noteView.addConstraint(NSLayoutConstraint(item:note, attribute:NSLayoutAttribute.Height,relatedBy:NSLayoutRelation.Equal, toItem: noteView,attribute:NSLayoutAttribute.Height, multiplier:(0.083), constant:0))
 
-        noteView.addConstraint(NSLayoutConstraint(item:sharpFlat, attribute:NSLayoutAttribute.Height,relatedBy:NSLayoutRelation.Equal, toItem: nil,attribute:NSLayoutAttribute.NotAnAttribute, multiplier:(0.008), constant:15))
+        noteView.addConstraint(NSLayoutConstraint(item:sharpFlat, attribute:NSLayoutAttribute.Height,relatedBy:NSLayoutRelation.Equal, toItem: note,attribute:NSLayoutAttribute.Height, multiplier:(1), constant:0))
 
 
         var noteHeightConstraint = NSLayoutConstraint(item: note, attribute: NSLayoutAttribute.Width, relatedBy: NSLayoutRelation.Equal, toItem: note, attribute: NSLayoutAttribute.Height, multiplier: 700/442, constant: 0)

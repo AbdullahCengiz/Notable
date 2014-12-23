@@ -72,7 +72,7 @@ class NGPause: UIViewController{
         }
         else if
             (delegate!.title! == "In App Purchases") {
-                self.pauseMessages.text = "TAP HERE TO RESUME SHOPPING"
+                self.resumeMessages.text = "TAP HERE TO RESUME SHOPPING"
         }
         else {
             self.resumeMessages.text = "thisOneGoesToNothing!"
@@ -90,7 +90,7 @@ class NGPause: UIViewController{
         }
         else if
             (delegate!.title! == "In App Purchases") {
-                self.pauseMessages.text = "End Shopping"
+                self.endMessages.text = "End Shopping"
         }
         else {
             self.endMessages.text = "thisOneGoesToNothing!"

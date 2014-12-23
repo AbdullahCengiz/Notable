@@ -95,7 +95,7 @@ class TrivQuiz
         sound = Sound()
         counter = 0
         realScore  = 0
-        
+
     }
 
 
@@ -107,7 +107,7 @@ class TrivQuiz
         //initPlayer()
         //trivNoteView.addNote(questionContent:"H4",clefType:"gClef",sharpFlatValue: -1)
         prepareGame(currentQuestion)
-        
+
     }
 
     func initUI(){
@@ -153,7 +153,7 @@ class TrivQuiz
         newGameVC.secondChoiceButton.layer.cornerRadius = 4.0
         newGameVC.thirdChoiceButton.layer.cornerRadius = 4.0
         newGameVC.fourthChoiceButton.layer.cornerRadius = 4.0
-        
+
         newGameVC.pointLabel.text = String(counter)
     }
 
@@ -253,7 +253,7 @@ class TrivQuiz
             cellCounter = 0
         }
 
-        if (cellCounter == 10){
+        if (cellCounter == 1){
 
             // check reklam status first
             var removeAd: AnyObject? = NSUserDefaults.standardUserDefaults().objectForKey("removeAd")
@@ -267,7 +267,7 @@ class TrivQuiz
             }
             else{
 
-                 newGameVC.performSegueWithIdentifier("goToReklam", sender: nil)
+                newGameVC.performSegueWithIdentifier("goToReklam", sender: nil)
 
             }
 
@@ -315,7 +315,7 @@ class TrivQuiz
 
                         newGameVC.choiceButtonArray[buttonCounter].setTitle(questions![currentQuestion].questionAlternativeAnswer3, forState: .Normal)
                         questions![currentQuestion].questionAlternativeAnswer3Added = true
-                        
+
                         //////println("\(questions![currentQuestion].questionAlternativeAnswer3) ")
                     }
                 }
@@ -329,8 +329,32 @@ class TrivQuiz
                 trivNoteView.addNote(questionContent:questions![currentQuestion].questionContent! , clefType:questions![currentQuestion].questionClefType! , sharpFlatValue: currentSharpFlatValue,majorMinorFlag: true,noteIndex:1)
             }
             else {
-               getNoteSoundFromQuestionContent(questions![currentQuestion].questionContent!)
-               //getNoteSoundFromQuestionContent("G2|Hb2|D3")
+
+
+                if(currentQuestion==0){
+
+                    let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
+                    dispatch_async(dispatch_get_global_queue(priority, 0)) {
+                        // do some task
+                        dispatch_async(dispatch_get_main_queue()) {
+
+                            var timer1 = NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: Selector("drawNote"), userInfo: nil, repeats: false)
+
+                        }
+                    }
+
+
+                }
+                else{
+
+                    drawNote()
+
+                }
+
+
+
+
+                //getNoteSoundFromQuestionContent("G2|Hb2|D3")
 
                 println("QuestionContent!!!!!!!!!!!!!!!!!!!! : \(questions![currentQuestion].questionAnswer!)")
             }
@@ -344,6 +368,12 @@ class TrivQuiz
         }
     }
 
+
+    @objc func drawNote(){
+
+        getNoteSoundFromQuestionContent(questions![currentQuestion].questionContent!)
+
+    }
 
 
     func getNoteSoundFromQuestionContent(questionContent:String){
@@ -477,53 +507,35 @@ class TrivQuiz
 
                 minorOrMajorNoteContentArray = split(questionContent as String, { $0 == "|" }, maxSplit: 3, allowEmptySlices: true)
 
-                ////println("minorOrMajorNoteContentArray = \(minorOrMajorNoteContentArray)")
+                //delay for first questions
+                if(currentQuestion==0){
 
-                /*
-                let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
-                dispatch_async(dispatch_get_global_queue(priority, 0)) {
-                    // do some task
-                    dispatch_async(dispatch_get_main_queue()) {
-                        // update some UI
-                        //sleep(2)
-                        self.getNoteSoundFromQuestionContent(minorOrMajorNoteContentArray[0])
+                    var timer1 = NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: Selector("drawMajorMinor"), userInfo: nil, repeats: false)
 
-                        self.trivNoteView.addNote(questionContent:minorOrMajorNoteContentArray[0] , clefType:self.questions![currentQuestion].questionClefType! , sharpFlatValue: currentSharpFlatValue,majorMinorFlag: false,noteIndex:1)
-                        NSThread.sleepForTimeInterval(0.5)
-
-                        self.getNoteSoundFromQuestionContent(minorOrMajorNoteContentArray[1])
-                        self.trivNoteView.addNote(questionContent:minorOrMajorNoteContentArray[1] , clefType:self.questions![currentQuestion].questionClefType! , sharpFlatValue: currentSharpFlatValue,majorMinorFlag: false,noteIndex:2)
-                        NSThread.sleepForTimeInterval(0.5)
-
-                        self.getNoteSoundFromQuestionContent(minorOrMajorNoteContentArray[2])
-                        self.trivNoteView.addNote(questionContent:minorOrMajorNoteContentArray[2] , clefType:self.questions![currentQuestion].questionClefType! , sharpFlatValue: currentSharpFlatValue,majorMinorFlag: false,noteIndex:3)
-                    }
                 }
-                */
+                else{
+
+                    drawMajorMinor()
+
+                }
 
 
 
-                var timer1 = NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: Selector("majorMinorSelector1"), userInfo: nil, repeats: false)
 
-                var timer2 = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("majorMinorSelector2"), userInfo: nil, repeats: false)
 
-                var timer3 = NSTimer.scheduledTimerWithTimeInterval(1.5, target: self, selector: Selector("majorMinorSelector3"), userInfo: nil, repeats: false)
-
-                
-                
                 majorMinorFound=true
                 break
                 //currentNote  = 110
-                
+
             }
-            
+
             //////println(Array((questions![currentQuestion].questionContent!))[characterCounter])
-            
-            
-            
+
+
+
         }
-        
-        
+
+
         if(!majorMinorFound){
             currentNote = getCurrentNoteValue(octav:currentOctav, noteValue:currentNoteValue.toInt()!, sharpFlatValue:currentSharpFlatValue )
 
@@ -534,7 +546,7 @@ class TrivQuiz
             }
 
 
-            
+
             //println("Will play note \(questionContent) and noteId = \(currentNote)")
 
             //playNote(currentNote)
@@ -544,10 +556,21 @@ class TrivQuiz
     }
 
 
+    @objc func drawMajorMinor(){
+
+        var timer1 = NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: Selector("majorMinorSelector1"), userInfo: nil, repeats: false)
+
+        var timer2 = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("majorMinorSelector2"), userInfo: nil, repeats: false)
+
+        var timer3 = NSTimer.scheduledTimerWithTimeInterval(1.5, target: self, selector: Selector("majorMinorSelector3"), userInfo: nil, repeats: false)
+
+    }
+
+
     @objc func majorMinorSound1(){
 
         sound.playSound(SoundFile(soundName: trivNoteView.soundFileName1, soundType: "aif"))
-        
+
     }
 
     @objc func majorMinorSound2(){
@@ -629,16 +652,16 @@ class TrivQuiz
 
             }
             else if(sharpFlatValue == -1 && noteValue == 0) {
-                
+
                 value = 12+((octav-1)*12)+noteValue+sharpFlatValue
-                
+
             }
         }
-        
+
         ////println("noteValue = \(value)")
-        
+
         return value
-        
+
     }
 
 
@@ -675,7 +698,7 @@ class TrivQuiz
     }
 
 
-    
+
     func getNextQuestion(#isAnswerTrue:Bool){
         var arr = [isAnswerTrue]
         var timer = NSTimer.scheduledTimerWithTimeInterval(0.75, target: self, selector: Selector("nextQuestion"), userInfo: arr, repeats: false)
@@ -703,21 +726,21 @@ class TrivQuiz
                     if(currentQuestion+1 < questions!.count-1){
 
                         prepareGame(currentQuestion)
-
+                        
                     }
                     else{
-
+                        
                         prepareGame(0)
                         
                     }
-
-
+                    
+                    
                 }
             }
             else{
-
+                
                 if(currentQuestion+1 < questions!.count-1){
-
+                    
                     prepareGame(currentQuestion)
                     
                 }
@@ -727,57 +750,57 @@ class TrivQuiz
                     
                 }
             }
-
-
-
-
+            
+            
+            
+            
         } else {
-
+            
             //answer is false
             if(currentQuestion+1 < questions!.count-1){
                 currentQuestion++
                 //prepares gameview for next question
                 prepareGame(currentQuestion)
-
+                
             } else {
-
+                
                 //prepares gameview for next question
                 currentQuestion = 0
                 prepareGame(currentQuestion)
             }
         }
     }
-
-
+    
+    
     @objc func updateRightAnswer(){
-
+        
         counter=counter+5
-
+        
         newGameVC.pointLabel.text = String(counter)
-
+        
         if(counter==realScore){
-
+            
             newGameVC.pointLabel.text = String(realScore)
-
+            
             //////println("counter = \(counter) realScore = \(realScore)")
-
+            
             timer.invalidate()
             bloat()
-
+            
             answerLock = true
             getNextQuestion(isAnswerTrue:true)
             NSUserDefaults.standardUserDefaults().setInteger(realScore, forKey: "pointLabel")
             NSUserDefaults.standardUserDefaults().synchronize()
         }
     }
-
+    
     @objc func updateWrongAnswer(){
-
+        
         counter=counter-5
         newGameVC.pointLabel.text = String(counter)
-
+        
         if(counter==realScore){
-
+            
             newGameVC.pointLabel.text = String(realScore)
             //////println("counter = \(counter) realScore = \(realScore)")
             counter=realScore
@@ -789,8 +812,8 @@ class TrivQuiz
             NSUserDefaults.standardUserDefaults().synchronize()
         }
     }
-
-
+    
+    
     @objc func bloat() {
         var animation = CABasicAnimation(keyPath: "transform.scale")
         animation.toValue = NSNumber(float: 0.9)
@@ -799,27 +822,27 @@ class TrivQuiz
         animation.autoreverses = true
         newGameVC.pointLabel.layer.addAnimation(animation, forKey: nil)
     }
-
-
-
-
+    
+    
+    
+    
     func playMajorMinorSound(){
-
+        
         println("play majorMinorSound!!!!!!!!!!!")
-
+        
         if(replayMajorMinorFlag){
-
-        replayMajorMinorFlag = false
-        var timer1 = NSTimer.scheduledTimerWithTimeInterval(0, target: self, selector: Selector("majorMinorSound1"), userInfo: nil, repeats: false)
-
-        var timer2 = NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: Selector("majorMinorSound2"), userInfo: nil, repeats: false)
-
-        var timer3 = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("majorMinorSound3"), userInfo: nil, repeats: false)
-
+            
+            replayMajorMinorFlag = false
+            var timer1 = NSTimer.scheduledTimerWithTimeInterval(0, target: self, selector: Selector("majorMinorSound1"), userInfo: nil, repeats: false)
+            
+            var timer2 = NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: Selector("majorMinorSound2"), userInfo: nil, repeats: false)
+            
+            var timer3 = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("majorMinorSound3"), userInfo: nil, repeats: false)
+            
         }
-
-
+        
+        
     }
-
+    
     
 }

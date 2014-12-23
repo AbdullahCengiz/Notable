@@ -154,6 +154,14 @@
 		EDA9C6E91A090E1C00108A85 /* StoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA9C6E81A090E1C00108A85 /* StoreViewController.swift */; };
 		EDAD76211A3094C7004A9C16 /* TrivNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAD76201A3094C7004A9C16 /* TrivNoteView.swift */; };
 		EDC832231A48145300DC94BF /* InAppPurchaseTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC832221A48145300DC94BF /* InAppPurchaseTableCell.swift */; };
+		EDC832301A499DF900DC94BF /* FrameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC832271A499DF900DC94BF /* FrameView.swift */; };
+		EDC832311A499DF900DC94BF /* HUDAssets.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC832281A499DF900DC94BF /* HUDAssets.swift */; };
+		EDC832321A499DF900DC94BF /* HUDContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC832291A499DF900DC94BF /* HUDContentView.swift */; };
+		EDC832331A499DF900DC94BF /* HUDController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC8322A1A499DF900DC94BF /* HUDController.swift */; };
+		EDC832341A499DF900DC94BF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EDC8322B1A499DF900DC94BF /* Images.xcassets */; };
+		EDC832351A499DF900DC94BF /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EDC8322C1A499DF900DC94BF /* Info.plist */; };
+		EDC832361A499DF900DC94BF /* Window.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC8322E1A499DF900DC94BF /* Window.swift */; };
+		EDC832371A499DF900DC94BF /* WindowRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC8322F1A499DF900DC94BF /* WindowRootViewController.swift */; };
 		EDD14B7E1A029A61004F7EA1 /* CategoryTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD14B7D1A029A61004F7EA1 /* CategoryTableCell.swift */; };
 		EDD14B801A029BBE004F7EA1 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD14B7F1A029BBE004F7EA1 /* Category.swift */; };
 /* End PBXBuildFile section */
@@ -350,6 +358,15 @@
 		EDA9C6E81A090E1C00108A85 /* StoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreViewController.swift; sourceTree = "<group>"; };
 		EDAD76201A3094C7004A9C16 /* TrivNoteView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrivNoteView.swift; sourceTree = "<group>"; };
 		EDC832221A48145300DC94BF /* InAppPurchaseTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InAppPurchaseTableCell.swift; sourceTree = "<group>"; };
+		EDC832271A499DF900DC94BF /* FrameView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FrameView.swift; sourceTree = "<group>"; };
+		EDC832281A499DF900DC94BF /* HUDAssets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HUDAssets.swift; sourceTree = "<group>"; };
+		EDC832291A499DF900DC94BF /* HUDContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HUDContentView.swift; sourceTree = "<group>"; };
+		EDC8322A1A499DF900DC94BF /* HUDController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HUDController.swift; sourceTree = "<group>"; };
+		EDC8322B1A499DF900DC94BF /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		EDC8322C1A499DF900DC94BF /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EDC8322D1A499DF900DC94BF /* PKHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKHUD.h; sourceTree = "<group>"; };
+		EDC8322E1A499DF900DC94BF /* Window.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Window.swift; sourceTree = "<group>"; };
+		EDC8322F1A499DF900DC94BF /* WindowRootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WindowRootViewController.swift; sourceTree = "<group>"; };
 		EDD14B7D1A029A61004F7EA1 /* CategoryTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryTableCell.swift; sourceTree = "<group>"; };
 		EDD14B7F1A029BBE004F7EA1 /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -546,7 +563,8 @@
 				ED0B96B61A23432800A1A508 /* JLToastCenter.swift */,
 				ED0B96B71A23432800A1A508 /* JLToastView.swift */,
 			);
-			path = JLToast;
+			name = JLToast;
+			path = ../JLToast;
 			sourceTree = "<group>";
 		};
 		ED168F121A388897004DA067 /* soundFiles */ = {
@@ -632,6 +650,8 @@
 		ED225B7B19F5341900D8784E /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				EDC832251A499DE400DC94BF /* Progress */,
+				EDC832241A499DD400DC94BF /* Toast */,
 				ED76AE1A1A27DCDB000CA83C /* Bridging-Header */,
 				0DAD97A11A1A1E9E0011E4AF /* Theme */,
 				ED234D9E1A16163E00DE5087 /* CoreDataHelper */,
@@ -708,7 +728,6 @@
 			isa = PBXGroup;
 			children = (
 				ED071E441A439847006BADD4 /* GoogleMobileAdsSdkiOS-6.12.2 */,
-				ED0B96B31A23432800A1A508 /* JLToast */,
 				ED0363CA1A038A41004797B5 /* Notable.xcdatamodeld */,
 				ED466DFF19F165DA00F14292 /* Notable */,
 				ED466E1519F165DA00F14292 /* NotableTests */,
@@ -894,6 +913,39 @@
 			name = Store;
 			sourceTree = "<group>";
 		};
+		EDC832241A499DD400DC94BF /* Toast */ = {
+			isa = PBXGroup;
+			children = (
+				ED0B96B31A23432800A1A508 /* JLToast */,
+			);
+			name = Toast;
+			sourceTree = "<group>";
+		};
+		EDC832251A499DE400DC94BF /* Progress */ = {
+			isa = PBXGroup;
+			children = (
+				EDC832261A499DF900DC94BF /* PKHUD */,
+			);
+			name = Progress;
+			sourceTree = "<group>";
+		};
+		EDC832261A499DF900DC94BF /* PKHUD */ = {
+			isa = PBXGroup;
+			children = (
+				EDC832271A499DF900DC94BF /* FrameView.swift */,
+				EDC832281A499DF900DC94BF /* HUDAssets.swift */,
+				EDC832291A499DF900DC94BF /* HUDContentView.swift */,
+				EDC8322A1A499DF900DC94BF /* HUDController.swift */,
+				EDC8322B1A499DF900DC94BF /* Images.xcassets */,
+				EDC8322C1A499DF900DC94BF /* Info.plist */,
+				EDC8322D1A499DF900DC94BF /* PKHUD.h */,
+				EDC8322E1A499DF900DC94BF /* Window.swift */,
+				EDC8322F1A499DF900DC94BF /* WindowRootViewController.swift */,
+			);
+			name = PKHUD;
+			path = "../../../Downloads/PKHUD-master/PKHUD";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -992,8 +1044,10 @@
 				ED84C1FA1A36EE400084DA0A /* C2.aif in Resources */,
 				ED84C1FB1A36EE400084DA0A /* C#2.aif in Resources */,
 				ED071E671A439847006BADD4 /* README.txt in Resources */,
+				EDC832341A499DF900DC94BF /* Images.xcassets in Resources */,
 				ED84C1FC1A36EE400084DA0A /* D2.aif in Resources */,
 				ED84C1FD1A36EE400084DA0A /* D#2.aif in Resources */,
+				EDC832351A499DF900DC94BF /* Info.plist in Resources */,
 				ED84C1FE1A36EE400084DA0A /* E2.aif in Resources */,
 				ED84C1FF1A36EE400084DA0A /* F2.aif in Resources */,
 				ED84C2001A36EE400084DA0A /* F#2.aif in Resources */,
@@ -1076,20 +1130,26 @@
 			files = (
 				ED94FA961A39E42400EF1627 /* LessonsViewController.swift in Sources */,
 				0DA8BD6D1A136816002F6F89 /* MasterNavigationController.swift in Sources */,
+				EDC832361A499DF900DC94BF /* Window.swift in Sources */,
 				ED234D951A14E35E00DE5087 /* SoundFile.swift in Sources */,
+				EDC832301A499DF900DC94BF /* FrameView.swift in Sources */,
 				EDA9C6E91A090E1C00108A85 /* StoreViewController.swift in Sources */,
 				ED466E0519F165DA00F14292 /* SplashScreenViewController.swift in Sources */,
 				ED234D981A14EB5F00DE5087 /* StreamReader.swift in Sources */,
 				ED19B35019FAA0F200041AF0 /* CategoriesViewController.swift in Sources */,
+				EDC832311A499DF900DC94BF /* HUDAssets.swift in Sources */,
 				ED071E431A42CC3F006BADD4 /* ReklamViewController.swift in Sources */,
 				ED08FB9019F9384400D6BE26 /* PointTableCell.swift in Sources */,
 				ED0363CC1A038A41004797B5 /* Notable.xcdatamodeld in Sources */,
 				ED234D911A14E35000DE5087 /* TrivQuiz.swift in Sources */,
+				EDC832371A499DF900DC94BF /* WindowRootViewController.swift in Sources */,
 				ED7B218E1A011F5A00A2337D /* AutoLayutViewController.swift in Sources */,
+				EDC832321A499DF900DC94BF /* HUDContentView.swift in Sources */,
 				ED225B7919F205DB00D8784E /* MainPageViewController.swift in Sources */,
 				ED168F111A388824004DA067 /* LessonQuestion.swift in Sources */,
 				EDC832231A48145300DC94BF /* InAppPurchaseTableCell.swift in Sources */,
 				ED089C9C1A110D7D00D3F034 /* Timer.swift in Sources */,
+				EDC832331A499DF900DC94BF /* HUDController.swift in Sources */,
 				ED19B34A19FA9B9800041AF0 /* PracticeViewController.swift in Sources */,
 				ED071E941A459DFD006BADD4 /* InAppPurchasesViewController.swift in Sources */,
 				ED168F161A3888F8004DA067 /* LessonData.swift in Sources */,

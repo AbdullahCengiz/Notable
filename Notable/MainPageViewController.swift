@@ -76,7 +76,6 @@ class MainPageViewController: UIViewController,GADBannerViewDelegate {
         
         self.navigationController?.setNavigationBarHidden(false, animated: true)
 
-
         prepareAdvertisement()
 
         // Do any additional setup after loading the view.
@@ -205,6 +204,7 @@ class MainPageViewController: UIViewController,GADBannerViewDelegate {
         uiButton.addTarget(self, action:"settingsButtonAction:", forControlEvents: UIControlEvents.TouchUpInside)
         self.navigationItem.setRightBarButtonItem(UIBarButtonItem(customView: uiButton), animated: true)
         self.navigationItem.hidesBackButton=true
+
     }
     
     func styleView() {
@@ -231,6 +231,14 @@ class MainPageViewController: UIViewController,GADBannerViewDelegate {
         self.silverMedalPoint.textColor = txt
         self.bronzeMedalName.textColor = txt
         self.bronzeMedalPoint.textColor = txt
+
+        //change navigation bar color
+        self.navigationController!.navigationBar.barTintColor = btn
+
+        //change navigation item title color
+        let titleDict: NSDictionary = [NSForegroundColorAttributeName: txt]
+        self.navigationController?.navigationBar.titleTextAttributes = titleDict
+
     }
     
         @IBAction func settingsButtonAction(sender:UIButton) {
@@ -240,8 +248,6 @@ class MainPageViewController: UIViewController,GADBannerViewDelegate {
     
     func setUpPoints(){
 
-
-        
         arrayOfPoints.removeAll(keepCapacity: false)
         
         var highscoreNumberGold: Int = NSUserDefaults.standardUserDefaults().integerForKey("highscoreNumberGold") as Int
@@ -345,41 +351,64 @@ class MainPageViewController: UIViewController,GADBannerViewDelegate {
         
         //println("newGame!!!!")
         //println("will control categories!!!!")
-        coreDataHelper = CoreDataHelper()
-        var selectedCategories:[Category] = coreDataHelper.getCategories() as [Category]
-        println("NumberOfSelectedCategories  = \(selectedCategories.count)")
 
-        if(selectedCategories.count == 0){
+        //create progress
+        HUDController.sharedController.contentView = HUDContentView.ProgressView()
+        HUDController.sharedController.show()
 
-            JLToast.makeText("Please add some categories").show()
-        }
-        else{
 
-            gameQuestions  = coreDataHelper.getQuestionsOfCategories(selectedCategories) as [Question]
+        //NSThread.sleepForTimeInterval(5)
 
-            println("number of game questions  = \(gameQuestions.count)")
+        let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
+        dispatch_async(dispatch_get_global_queue(priority, 0)) {
+            // do some task
+            dispatch_async(dispatch_get_main_queue()) {
 
-            if(gameQuestions.count<10){
+                self.coreDataHelper = CoreDataHelper()
+                var selectedCategories:[Category] = self.coreDataHelper.getCategories() as [Category]
+                println("NumberOfSelectedCategories  = \(selectedCategories.count)")
 
-                JLToast.makeText("Please add more categories").show()
+                if(selectedCategories.count == 0){
+
+                    JLToast.makeText("Please add some categories").show()
+                }
+                else{
+
+                    self.gameQuestions  = self.coreDataHelper.getQuestionsOfCategories(selectedCategories) as [Question]
+
+                    println("number of game questions  = \(self.gameQuestions.count)")
+
+                    if(self.gameQuestions.count<10){
+
+                        JLToast.makeText("Please add more categories").show()
+
+                    }
+                    else{
+
+                        self.performSegueWithIdentifier("goToNewGame", sender: "newGame")
+                        //self.performSegueWithIdentifier("goToNewGame", sender: nil)
+                        
+                        self.sound.playSound(self.sound.confirmSound)
+                    }
+                }
+            }
+
 
             }
-            else{
-
-                self.performSegueWithIdentifier("goToNewGame", sender: "newGame")
-                //self.performSegueWithIdentifier("goToNewGame", sender: nil)
-                
-                sound.playSound(sound.confirmSound)
-            }
         }
-    }
-    
+
+
+
+
+
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
 
         if(sender? as String == "newGame"){
             let newGameViewController = (segue.destinationViewController as NewGameViewController)
             var newGame = newGameViewController.initTrivQuiz()
             newGame.questions = gameQuestions
+
+            HUDController.sharedController.hideAnimated()
         }
     }
 
