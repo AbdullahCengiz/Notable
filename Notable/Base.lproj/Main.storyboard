@@ -3764,6 +3764,7 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" restorationIdentifier="categoryCell" selectionStyle="none" indentationWidth="10" reuseIdentifier="inAppPurchaseCell" rowHeight="78" id="4QO-LA-xl1" userLabel="InAppPurchaseTableCell" customClass="InAppPurchaseTableCell" customModule="Notable" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="536" height="44"/>
@@ -3823,7 +3824,7 @@
                                 </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="HxQ-D0-vxU" firstAttribute="leading" secondItem="ACE-7g-StL" secondAttribute="leadingMargin" id="FLo-Yx-3sc"/>
                             <constraint firstItem="HxQ-D0-vxU" firstAttribute="top" secondItem="NJe-Dh-tuL" secondAttribute="bottom" constant="16" id="Gno-Cl-L4F"/>

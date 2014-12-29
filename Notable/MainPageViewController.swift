@@ -62,11 +62,7 @@ class MainPageViewController: UIViewController,GADBannerViewDelegate {
         height = NSUserDefaults.standardUserDefaults().objectForKey("height") as NSNumber
         
         println("screenWidth= \(width) screenHeight= \(height)")
-        
-        //prepareUI()
-        prepareNavigationBar()
-        
-    
+
         
         //for new game container
         newGameContainer.layer.cornerRadius = 4.0
@@ -184,6 +180,11 @@ class MainPageViewController: UIViewController,GADBannerViewDelegate {
         
         var nameText: Int = NSUserDefaults.standardUserDefaults().objectForKey("highscoreName") as Int
         //self.userName.text  = String(pointLabel)
+
+
+        //prepareUI()
+        prepareNavigationBar()
+
     }
 
     func resetHighScores(){
@@ -194,9 +195,28 @@ class MainPageViewController: UIViewController,GADBannerViewDelegate {
     
     
     func prepareNavigationBar(){
-        
+
+        var image:UIImage?
+
         //for settings button
-        let image = UIImage(named: "settings_button") as UIImage?
+        var selectedTheme: Int = NSUserDefaults.standardUserDefaults().objectForKey("selectedTheme") as Int
+
+        if(selectedTheme == 0){
+
+            image = UIImage(named: "settings_light") as UIImage?
+
+        }
+        else{
+
+            image = UIImage(named: "settings_dark") as UIImage?
+
+        }
+
+
+        //get selected theme
+
+
+
         let uiButton = UIButton.buttonWithType(UIButtonType.System) as UIButton
         uiButton.frame = CGRectMake(0, 0, 30, 30)
         uiButton.setBackgroundImage(image, forState: UIControlState.Normal)

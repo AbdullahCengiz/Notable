@@ -1,0 +1,23 @@
+{
+  "images" : [
+    {
+      "idiom" : "universal",
+      "scale" : "1x",
+      "filename" : "settings_light (deleted 80ee300ce09a4ba96f0215b015447bd8).png"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x",
+      "filename" : "Settings@2x (deleted 0beadf37413d0da5f0a8612ed7c3c30d).png"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x",
+      "filename" : "Settings@3x (deleted 97469878ddc2a5d89ae5cdf2ca360990).png"
+    }
+  ],
+  "info" : {
+    "version" : 1,
+    "author" : "xcode"
+  }
+}

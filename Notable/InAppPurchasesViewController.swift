@@ -9,7 +9,7 @@
 import UIKit
 import SpriteKit
 
-class InAppPurchaseViewController: UIViewController,SKProductsRequestDelegate,UITableViewDelegate,UITableViewDataSource {
+class InAppPurchaseViewController: UIViewController,SKProductsRequestDelegate,SKPaymentTransactionObserver,UITableViewDelegate,UITableViewDataSource {
 
     var selectedInAppPurchase:InAppPurchaseItem?
     var selectedInAppItemIdentifier:String?
@@ -35,11 +35,10 @@ class InAppPurchaseViewController: UIViewController,SKProductsRequestDelegate,UI
 
 
         inAppPurchaseTableView.separatorColor = UIColor.blackColor()
-
-
         initUI()
 
         prepareInAppPurchases()
+
     }
 
     func initUI() {
@@ -54,7 +53,6 @@ class InAppPurchaseViewController: UIViewController,SKProductsRequestDelegate,UI
 
         var removeAd: AnyObject? = NSUserDefaults.standardUserDefaults().objectForKey("removeAd")
         var lesson4: AnyObject? = NSUserDefaults.standardUserDefaults().objectForKey("lesson4")
-
 
 
         var inAppPurchaseItem1:InAppPurchaseItem = InAppPurchaseItem(inAppPurchaseItemId: 0, inAppPurchaseItemName: "Remove Advertisements", inAppPurchaseItemPrice: 7.00, inAppPurchaseStoreIdentifier:"com.trivato.notable.removeads")
@@ -87,7 +85,7 @@ class InAppPurchaseViewController: UIViewController,SKProductsRequestDelegate,UI
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-
+        SKPaymentQueue.defaultQueue().addTransactionObserver(self)
         prepareNavigationBar()
         styleView()
     }
@@ -157,17 +155,12 @@ class InAppPurchaseViewController: UIViewController,SKProductsRequestDelegate,UI
         dispatch_async(dispatch_get_global_queue(priority, 0)) {
             // do some task
             dispatch_async(dispatch_get_main_queue()) {
-
                 self.buyConsumable(inAppPurchaseItem: self.selectedInAppPurchase!)
                 self.selectedInAppItemIdentifier = self.selectedInAppPurchase!.inAppPurchaseStoreIdentifier
                 self.selectedInAppPurchaseId = self.selectedInAppPurchase!.inAppPurchaseItemId
 
                 }
             }
-
-
-
-
 
     }
 
@@ -234,6 +227,7 @@ class InAppPurchaseViewController: UIViewController,SKProductsRequestDelegate,UI
 
 
     func request(request: SKRequest!, didFailWithError error: NSError!) {
+        decideShoppingStatus(false)
         println("La vaina fallo");
     }
 
@@ -271,6 +265,7 @@ class InAppPurchaseViewController: UIViewController,SKProductsRequestDelegate,UI
                     //[self restoreTransaction:transaction];
                 default:
                     println("in default !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+                    decideShoppingStatus(false)
                     break;
                 }
             }
