@@ -477,18 +477,18 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="568" height="215.5"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uzz-s0-xfG" userLabel="ClefIndentation">
-                                                                <rect key="frame" x="0.0" y="0.0" width="28.5" height="215.5"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="29" height="215.5"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="poy-pX-c7n" userLabel="gClefArea">
-                                                                <rect key="frame" x="28" y="0.0" width="123.5" height="215.5"/>
+                                                                <rect key="frame" x="28" y="0.0" width="124" height="215.5"/>
                                                                 <subviews>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h6f-Ct-WH8" userLabel="gClefTopIndentation">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="123.5" height="29.5"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="124" height="29.5"/>
                                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                     </view>
                                                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gclef" translatesAutoresizingMaskIntoConstraints="NO" id="Wad-lx-nfu" userLabel="gClefView">
-                                                                        <rect key="frame" x="0.0" y="29" width="123.5" height="165"/>
+                                                                        <rect key="frame" x="0.0" y="29" width="124" height="165"/>
                                                                     </imageView>
                                                                 </subviews>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -506,25 +506,33 @@
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HAH-8d-FXR" userLabel="fClefArea">
                                                                 <rect key="frame" x="28" y="0.0" width="116" height="215.5"/>
                                                                 <subviews>
-                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nac-qu-ik4" userLabel="fClefTopIndentation">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="116" height="34.5"/>
+                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fclef" translatesAutoresizingMaskIntoConstraints="NO" id="uvn-VJ-RVx" userLabel="fClefView">
+                                                                        <rect key="frame" x="0.0" y="64.5" width="116" height="78"/>
+                                                                    </imageView>
+                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZqQ-j0-lvB" userLabel="fclefBottomIndentation">
+                                                                        <rect key="frame" x="0.0" y="142.5" width="116" height="73"/>
                                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                     </view>
-                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fclef" translatesAutoresizingMaskIntoConstraints="NO" id="uvn-VJ-RVx" userLabel="fClefView">
-                                                                        <rect key="frame" x="0.0" y="34" width="116" height="151"/>
-                                                                    </imageView>
                                                                 </subviews>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                 <constraints>
                                                                     <constraint firstItem="uvn-VJ-RVx" firstAttribute="height" secondItem="HAH-8d-FXR" secondAttribute="height" multiplier="0.7" id="E2E-9I-cmu"/>
-                                                                    <constraint firstItem="uvn-VJ-RVx" firstAttribute="top" secondItem="nac-qu-ik4" secondAttribute="bottom" constant="-1" id="aEq-if-EEf"/>
-                                                                    <constraint firstItem="nac-qu-ik4" firstAttribute="leading" secondItem="HAH-8d-FXR" secondAttribute="leading" id="d5o-Pa-oP8"/>
-                                                                    <constraint firstItem="nac-qu-ik4" firstAttribute="top" secondItem="HAH-8d-FXR" secondAttribute="top" id="iiU-7d-JeH"/>
-                                                                    <constraint firstItem="nac-qu-ik4" firstAttribute="height" secondItem="HAH-8d-FXR" secondAttribute="height" multiplier="0.16" id="tOv-ci-baZ"/>
+                                                                    <constraint firstItem="ZqQ-j0-lvB" firstAttribute="leading" secondItem="HAH-8d-FXR" secondAttribute="leading" id="eNW-Qi-oe1"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="ZqQ-j0-lvB" secondAttribute="trailing" id="eZY-lO-Gwq"/>
+                                                                    <constraint firstAttribute="bottom" secondItem="ZqQ-j0-lvB" secondAttribute="bottom" id="gXz-Q3-OxM"/>
+                                                                    <constraint firstItem="ZqQ-j0-lvB" firstAttribute="height" secondItem="HAH-8d-FXR" secondAttribute="height" multiplier="0.24" id="iCA-Al-dT9"/>
+                                                                    <constraint firstItem="ZqQ-j0-lvB" firstAttribute="top" secondItem="uvn-VJ-RVx" secondAttribute="bottom" id="mFK-3v-Lny"/>
                                                                     <constraint firstItem="uvn-VJ-RVx" firstAttribute="leading" secondItem="HAH-8d-FXR" secondAttribute="leading" id="vk8-TV-ql2"/>
                                                                     <constraint firstAttribute="trailing" secondItem="uvn-VJ-RVx" secondAttribute="trailing" id="wAy-sF-Fpt"/>
-                                                                    <constraint firstAttribute="trailing" secondItem="nac-qu-ik4" secondAttribute="trailing" id="ylZ-DQ-fwR"/>
+                                                                    <constraint firstItem="uvn-VJ-RVx" firstAttribute="height" secondItem="HAH-8d-FXR" secondAttribute="height" multiplier="0.37" id="xLf-Ma-5x1"/>
                                                                 </constraints>
+                                                                <variation key="default">
+                                                                    <mask key="constraints">
+                                                                        <exclude reference="E2E-9I-cmu"/>
+                                                                        <exclude reference="xLf-Ma-5x1"/>
+                                                                        <exclude reference="iCA-Al-dT9"/>
+                                                                    </mask>
+                                                                </variation>
                                                             </view>
                                                         </subviews>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -544,7 +552,7 @@
                                                         </constraints>
                                                     </view>
                                                     <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xr9-ly-Rwc" userLabel="PlayButton">
-                                                        <rect key="frame" x="25" y="183.5" width="25.5" height="25"/>
+                                                        <rect key="frame" x="25.5" y="183" width="25.5" height="25"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="Xr9-ly-Rwc" secondAttribute="height" multiplier="1:1" constant="1" id="EOh-lN-53c"/>
@@ -771,7 +779,9 @@
                             <constraint firstItem="wRh-pr-T00" firstAttribute="height" secondItem="mHT-d0-lBr" secondAttribute="height" multiplier="0.274647" id="JuR-xt-Dgp"/>
                             <constraint firstAttribute="trailingMargin" secondItem="wRh-pr-T00" secondAttribute="trailing" id="M75-Ur-bT5"/>
                             <constraint firstItem="0GU-bS-3iU" firstAttribute="height" secondItem="mHT-d0-lBr" secondAttribute="height" multiplier="0.0282" id="MMr-WC-BEU"/>
+                            <constraint firstItem="uvn-VJ-RVx" firstAttribute="height" secondItem="mHT-d0-lBr" secondAttribute="height" multiplier="0.13" id="OZE-Up-lBQ"/>
                             <constraint firstItem="0GU-bS-3iU" firstAttribute="top" secondItem="7yf-70-LcE" secondAttribute="bottom" id="QOw-6p-Gl0"/>
+                            <constraint firstItem="ZqQ-j0-lvB" firstAttribute="height" secondItem="mHT-d0-lBr" secondAttribute="height" multiplier="0.122" id="QlP-aS-8Ko"/>
                             <constraint firstItem="wRh-pr-T00" firstAttribute="top" secondItem="CJP-7x-8WW" secondAttribute="bottom" constant="8" symbolic="YES" id="Qxl-qJ-6Kn"/>
                             <constraint firstItem="wRh-pr-T00" firstAttribute="top" secondItem="CJP-7x-8WW" secondAttribute="bottom" constant="-1" id="VVF-MS-uA1"/>
                             <constraint firstItem="wRh-pr-T00" firstAttribute="leading" secondItem="mHT-d0-lBr" secondAttribute="leadingMargin" id="bM1-ni-flm"/>
@@ -2316,10 +2326,10 @@
             </objects>
             <point key="canvasLocation" x="570" y="2651"/>
         </scene>
-        <!--HighScoreViewController-->
+        <!--ScoreViewController-->
         <scene sceneID="2qL-N1-LO6">
             <objects>
-                <viewController restorationIdentifier="HighScoreViewController" storyboardIdentifier="HighScoreViewController" title="HighScoreViewController" modalTransitionStyle="crossDissolve" id="or4-Ak-hj9" userLabel="HighScoreViewController" customClass="NGScore" customModule="Notable" sceneMemberID="viewController">
+                <viewController restorationIdentifier="HighScoreViewController" storyboardIdentifier="HighScoreViewController" title="HighScoreViewController" modalTransitionStyle="crossDissolve" id="or4-Ak-hj9" userLabel="ScoreViewController" customClass="NGScore" customModule="Notable" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="01V-lw-e3W"/>
                         <viewControllerLayoutGuide type="bottom" id="ILL-u9-bhR"/>
@@ -3884,7 +3894,7 @@
     <resources>
         <image name="Gold" width="51" height="50"/>
         <image name="check" width="48" height="34"/>
-        <image name="fclef" width="177" height="285"/>
+        <image name="fclef" width="171" height="197"/>
         <image name="gclef" width="177" height="285"/>
         <image name="notable_splash" width="640" height="1136"/>
         <image name="play_btn" width="48" height="48"/>
@@ -3893,7 +3903,7 @@
         <image name="resume_button" width="62" height="62"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="HUB-xy-qvY"/>
         <segue reference="odw-gr-MFQ"/>
-        <segue reference="k8a-pr-7b5"/>
     </inferredMetricsTieBreakers>
 </document>
