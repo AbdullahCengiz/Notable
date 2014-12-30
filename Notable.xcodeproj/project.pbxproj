@@ -162,6 +162,7 @@
 		EDC832351A499DF900DC94BF /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EDC8322C1A499DF900DC94BF /* Info.plist */; };
 		EDC832361A499DF900DC94BF /* Window.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC8322E1A499DF900DC94BF /* Window.swift */; };
 		EDC832371A499DF900DC94BF /* WindowRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC8322F1A499DF900DC94BF /* WindowRootViewController.swift */; };
+		EDC832391A51851D00DC94BF /* NGScore in Resources */ = {isa = PBXBuildFile; fileRef = EDC832381A51851D00DC94BF /* NGScore */; };
 		EDD14B7E1A029A61004F7EA1 /* CategoryTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD14B7D1A029A61004F7EA1 /* CategoryTableCell.swift */; };
 		EDD14B801A029BBE004F7EA1 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD14B7F1A029BBE004F7EA1 /* Category.swift */; };
 /* End PBXBuildFile section */
@@ -367,6 +368,7 @@
 		EDC8322D1A499DF900DC94BF /* PKHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PKHUD.h; sourceTree = "<group>"; };
 		EDC8322E1A499DF900DC94BF /* Window.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Window.swift; sourceTree = "<group>"; };
 		EDC8322F1A499DF900DC94BF /* WindowRootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WindowRootViewController.swift; sourceTree = "<group>"; };
+		EDC832381A51851D00DC94BF /* NGScore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = NGScore; sourceTree = "<group>"; };
 		EDD14B7D1A029A61004F7EA1 /* CategoryTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryTableCell.swift; sourceTree = "<group>"; };
 		EDD14B7F1A029BBE004F7EA1 /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -602,6 +604,7 @@
 				ED19B34619FA93C700041AF0 /* NewGameViewController.swift */,
 				0DA8BD6F1A13AF63002F6F89 /* NGPause.swift */,
 				0DAAB2CB1A24A8BD0065C59F /* NGScore.swift */,
+				EDC832381A51851D00DC94BF /* NGScore */,
 			);
 			name = NewGame;
 			sourceTree = "<group>";
@@ -1075,6 +1078,7 @@
 				ED84C2161A36EE400084DA0A /* E4.aif in Resources */,
 				ED84C2171A36EE400084DA0A /* F4.aif in Resources */,
 				ED84C2181A36EE400084DA0A /* F#4.aif in Resources */,
+				EDC832391A51851D00DC94BF /* NGScore in Resources */,
 				ED84C2191A36EE400084DA0A /* G4.aif in Resources */,
 				ED84C21A1A36EE400084DA0A /* G#4.aif in Resources */,
 				ED84C21B1A36EE400084DA0A /* A4.aif in Resources */,

@@ -19,6 +19,8 @@ class InAppPurchaseViewController: UIViewController,SKProductsRequestDelegate,SK
 
     var selectedInAppPurchaseId = -1
 
+    var backButton:UIButton!
+
     @IBOutlet var inAppPurchaseTableView: UITableView!
 
     var delegate:AnyObject?
@@ -105,18 +107,52 @@ class InAppPurchaseViewController: UIViewController,SKProductsRequestDelegate,SK
         let titleDict: NSDictionary = [NSForegroundColorAttributeName: txt]
         self.navigationController?.navigationBar.titleTextAttributes = titleDict
 
+        //for settings button
+        var selectedTheme: Int = NSUserDefaults.standardUserDefaults().objectForKey("selectedTheme") as Int
+
+        var image:UIImage?
+        //for back button
+        if(selectedTheme == 0){
+
+            image = UIImage(named: "backbutton_light") as UIImage?
+
+        }
+        else{
+
+            image = UIImage(named: "backbutton_dark") as UIImage?
+            
+        }
+
+        backButton.setBackgroundImage(image, forState: UIControlState.Normal)
+
     }
 
     func prepareNavigationBar(){
 
-        //for menubutton
-        let menuImage = UIImage(named: "menu_btn") as UIImage?
-        let menuButton    = UIButton.buttonWithType(UIButtonType.System) as UIButton
-        menuButton.frame  = CGRectMake(0, 0, 25, 25)
-        menuButton.setBackgroundImage(menuImage, forState: UIControlState.Normal)
-        menuButton.setTitle("", forState: UIControlState.Normal);
-        menuButton.addTarget(self, action:"backButtonAction:", forControlEvents: UIControlEvents.TouchUpInside)
-        navItem.setLeftBarButtonItem(UIBarButtonItem(customView: menuButton), animated: true)
+        //for settings button
+        var selectedTheme: Int = NSUserDefaults.standardUserDefaults().objectForKey("selectedTheme") as Int
+
+        var image:UIImage?
+        //for back button
+        if(selectedTheme == 0){
+
+            image = UIImage(named: "backbutton_light") as UIImage?
+
+        }
+        else{
+
+            image = UIImage(named: "backbutton_dark") as UIImage?
+            
+        }
+
+
+        //for backButton
+        backButton = UIButton.buttonWithType(UIButtonType.System) as UIButton
+        backButton.frame  = CGRectMake(0, 0, 25, 25)
+        backButton.setBackgroundImage(image, forState: UIControlState.Normal)
+        backButton.setTitle("", forState: UIControlState.Normal);
+        backButton.addTarget(self, action:"backButtonAction:", forControlEvents: UIControlEvents.TouchUpInside)
+        navItem.setLeftBarButtonItem(UIBarButtonItem(customView: backButton), animated: true)
         navItem.hidesBackButton=true
 
 
@@ -183,10 +219,7 @@ class InAppPurchaseViewController: UIViewController,SKProductsRequestDelegate,SK
 
     @IBAction func backButtonAction(sender:UIButton) {
         println("Button Action From Code")
-        var pauseScreen: NGPause = self.storyboard!.instantiateViewControllerWithIdentifier("PausedGameViewController") as NGPause
-        pauseScreen.delegate = self
-        self.title = "In App Purchases"
-        self.presentViewController(pauseScreen, animated: true, completion: nil)
+        self.navigationController?.popViewControllerAnimated(true)
     }
 
     // Helper Methods

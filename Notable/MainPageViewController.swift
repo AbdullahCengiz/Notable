@@ -47,6 +47,7 @@ class MainPageViewController: UIViewController,GADBannerViewDelegate {
     
     var width:NSNumber!, height:NSNumber!
     var sound:Sound!
+    var settingsButton:UIButton!
 
     var coreDataHelper: CoreDataHelper!
 
@@ -73,6 +74,9 @@ class MainPageViewController: UIViewController,GADBannerViewDelegate {
         self.navigationController?.setNavigationBarHidden(false, animated: true)
 
         prepareAdvertisement()
+
+        //prepareUI()
+        prepareNavigationBar()
 
         // Do any additional setup after loading the view.
     
@@ -182,9 +186,6 @@ class MainPageViewController: UIViewController,GADBannerViewDelegate {
         //self.userName.text  = String(pointLabel)
 
 
-        //prepareUI()
-        prepareNavigationBar()
-
     }
 
     func resetHighScores(){
@@ -195,6 +196,40 @@ class MainPageViewController: UIViewController,GADBannerViewDelegate {
     
     
     func prepareNavigationBar(){
+
+        var image:UIImage?
+
+        //get selected theme
+        var selectedTheme: Int = NSUserDefaults.standardUserDefaults().objectForKey("selectedTheme") as Int
+
+        if(selectedTheme == 0){
+
+            image = UIImage(named: "settings_light") as UIImage?
+
+        }
+        else{
+
+            image = UIImage(named: "settings_dark") as UIImage?
+
+        }
+
+        //for settings button
+        settingsButton = UIButton.buttonWithType(UIButtonType.System) as UIButton
+        settingsButton.frame = CGRectMake(0, 0, 30, 30)
+        settingsButton.setBackgroundImage(image, forState: UIControlState.Normal)
+        settingsButton.setTitle("", forState: UIControlState.Normal);
+        settingsButton.addTarget(self, action:"settingsButtonAction:", forControlEvents: UIControlEvents.TouchUpInside)
+        self.navigationItem.setRightBarButtonItem(UIBarButtonItem(customView: settingsButton), animated: true)
+        self.navigationItem.hidesBackButton=true
+
+    }
+    
+    func styleView() {
+        var bg:UIColor = UIColor.whiteColor()
+        var btn:UIColor = UIColor.whiteColor()
+        var txt:UIColor = UIColor.blackColor()
+        Theme().fetchThemeColors(&bg, buttonColor:&btn, textColor:&txt)
+
 
         var image:UIImage?
 
@@ -209,29 +244,14 @@ class MainPageViewController: UIViewController,GADBannerViewDelegate {
         else{
 
             image = UIImage(named: "settings_dark") as UIImage?
-
+            
         }
 
 
-        //get selected theme
+        settingsButton.setBackgroundImage(image, forState: UIControlState.Normal)
 
 
 
-        let uiButton = UIButton.buttonWithType(UIButtonType.System) as UIButton
-        uiButton.frame = CGRectMake(0, 0, 30, 30)
-        uiButton.setBackgroundImage(image, forState: UIControlState.Normal)
-        uiButton.setTitle("", forState: UIControlState.Normal);
-        uiButton.addTarget(self, action:"settingsButtonAction:", forControlEvents: UIControlEvents.TouchUpInside)
-        self.navigationItem.setRightBarButtonItem(UIBarButtonItem(customView: uiButton), animated: true)
-        self.navigationItem.hidesBackButton=true
-
-    }
-    
-    func styleView() {
-        var bg:UIColor = UIColor.whiteColor()
-        var btn:UIColor = UIColor.whiteColor()
-        var txt:UIColor = UIColor.blackColor()
-        Theme().fetchThemeColors(&bg, buttonColor:&btn, textColor:&txt)
         
         //Background- and ButtonColors
         self.view.backgroundColor = bg
@@ -372,11 +392,6 @@ class MainPageViewController: UIViewController,GADBannerViewDelegate {
         //println("newGame!!!!")
         //println("will control categories!!!!")
 
-        //create progress
-        HUDController.sharedController.contentView = HUDContentView.ProgressView()
-        HUDController.sharedController.show()
-
-
         //NSThread.sleepForTimeInterval(5)
 
         let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
@@ -391,8 +406,13 @@ class MainPageViewController: UIViewController,GADBannerViewDelegate {
                 if(selectedCategories.count == 0){
 
                     JLToast.makeText("Please add some categories").show()
+
                 }
                 else{
+
+                    //create progress
+                    HUDController.sharedController.contentView = HUDContentView.ProgressView()
+                    HUDController.sharedController.show()
 
                     self.gameQuestions  = self.coreDataHelper.getQuestionsOfCategories(selectedCategories) as [Question]
 

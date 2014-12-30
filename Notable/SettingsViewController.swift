@@ -13,6 +13,8 @@ class SettingsViewController: UIViewController{
     var navBar:UINavigationBar!
     var delegate:AnyObject?
 
+    var backButton:UIButton!
+
 
 
     @IBOutlet var storeButton: UIButton!
@@ -49,7 +51,7 @@ class SettingsViewController: UIViewController{
         
         initVariables()
         
-        
+        prepareNavigationBar()
 
 
     }
@@ -93,29 +95,20 @@ class SettingsViewController: UIViewController{
             var soundValue : Float = soundLevel! as Float
             soundSlider.value = soundValue
         }
-        
 
-        
     }
     
     @IBAction func highScoreButtonClicked(sender: AnyObject) {
-        
-        
+
         NSUserDefaults.standardUserDefaults().setInteger(1, forKey: "zeroHighScore")
         NSUserDefaults.standardUserDefaults().setInteger(0, forKey: "highscoreNumberGold")
         NSUserDefaults.standardUserDefaults().setInteger(0, forKey: "highscoreNumberSilver")
         NSUserDefaults.standardUserDefaults().setInteger(0, forKey: "highscoreNumberBronze")
+        NSUserDefaults.standardUserDefaults().setInteger(0, forKey: "pointLabel")
         NSUserDefaults.standardUserDefaults().synchronize()
-
-        NSUserDefaults.standardUserDefaults().synchronize()
-        
         println("It's clicked! Woho!")
+
     }
-
-        
-       
-        
-
     
     func initVariables(){
 
@@ -129,12 +122,16 @@ class SettingsViewController: UIViewController{
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        
-         prepareNavigationBar()
+
          styleView()
     }
     
     func styleView() {
+
+        //for settings button
+        var selectedTheme: Int = NSUserDefaults.standardUserDefaults().objectForKey("selectedTheme") as Int
+
+
         var bg:UIColor = UIColor.whiteColor()
         var btn:UIColor = UIColor.whiteColor()
         var txt:UIColor = UIColor.yellowColor()
@@ -162,17 +159,53 @@ class SettingsViewController: UIViewController{
         let titleDict: NSDictionary = [NSForegroundColorAttributeName: txt]
         self.navigationController?.navigationBar.titleTextAttributes = titleDict
 
+
+        var image:UIImage?
+        //for back button
+        if(selectedTheme == 0){
+
+            image = UIImage(named: "backbutton_light") as UIImage?
+
+        }
+        else{
+
+            image = UIImage(named: "backbutton_dark") as UIImage?
+
+        }
+
+        println("selectedImage= \(image)")
+
+        backButton.setBackgroundImage(image, forState: UIControlState.Normal)
+
+
     }
 
     func prepareNavigationBar(){
-        
-        let image       = UIImage(named: "backbutton") as UIImage?
-        let uiButton    = UIButton.buttonWithType(UIButtonType.System) as UIButton
-        uiButton.frame  = CGRectMake(0, 0, 25, 25)
-        uiButton.setBackgroundImage(image, forState: UIControlState.Normal)
-        uiButton.setTitle("", forState: UIControlState.Normal);
-        uiButton.addTarget(self, action:"backButtonAction:", forControlEvents: UIControlEvents.TouchUpInside)
-        navItem.setLeftBarButtonItem(UIBarButtonItem(customView: uiButton), animated: true)
+
+        //for settings button
+        var selectedTheme: Int = NSUserDefaults.standardUserDefaults().objectForKey("selectedTheme") as Int
+
+        var image:UIImage?
+        //for back button
+        if(selectedTheme == 0){
+
+            image = UIImage(named: "backbutton_light") as UIImage?
+
+        }
+        else{
+
+            image = UIImage(named: "backbutton_dark") as UIImage?
+            
+        }
+
+        println("selectedImage= \(image)")
+
+        backButton    = UIButton.buttonWithType(UIButtonType.System) as UIButton
+        backButton.frame  = CGRectMake(0, 0, 25, 25)
+        backButton.setBackgroundImage(image, forState: UIControlState.Normal)
+        backButton.setTitle("", forState: UIControlState.Normal);
+        backButton.addTarget(self, action:"backButtonAction:", forControlEvents: UIControlEvents.TouchUpInside)
+        navItem.setLeftBarButtonItem(UIBarButtonItem(customView: backButton), animated: true)
         navItem.hidesBackButton=true
         
     }

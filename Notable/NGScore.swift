@@ -239,7 +239,7 @@ class NGScore: UIViewController, UITextFieldDelegate {
         NSUserDefaults.standardUserDefaults().setInteger(highscoreNumberGold, forKey: "highscoreNumberGold")
         NSUserDefaults.standardUserDefaults().setInteger(highscoreNumberSilver, forKey: "highscoreNumberSilver")
         NSUserDefaults.standardUserDefaults().setInteger(highscoreNumberBronze, forKey: "highscoreNumberBronze")
-         NSUserDefaults.standardUserDefaults().setInteger(pointLabel, forKey: "pointLabel")
+        NSUserDefaults.standardUserDefaults().setInteger(pointLabel, forKey: "pointLabel")
         NSUserDefaults.standardUserDefaults().synchronize()
         }
 
@@ -255,41 +255,43 @@ class NGScore: UIViewController, UITextFieldDelegate {
     func scoreMainFunction(){
 
 
-        setUpPoints()
+
+            var characterCounter = 0
 
 
+            for char in self.nameTextField.text {
 
-        if self.nameTextField.text.isEmpty {
+                if(char != " "){
+                    characterCounter++
+                }
+            }
+            
+            
+            println("characterCounter = \(characterCounter)")
 
-            println("Name not entered!")
 
-            if(self.nameTextField.hidden){
+            if(characterCounter > 0){
+
+                setUpPoints()
+                self.nameTextField.text = "\(self.nameTextField.text)"
+                NSUserDefaults.standardUserDefaults().objectForKey("nameText")
+                NSUserDefaults.standardUserDefaults().synchronize()
+                println("entered name = \(self.nameTextField.text)")
+                println("Name inserted. Woho!")
+
                 //Pop to MainPageControllerView
                 var mNC = delegate!.navigationController as MasterNC
                 mNC.popToViewControllerOfClass(MainPageViewController())
                 self.dismissViewControllerAnimated(true, completion: {})
+                
             }
             else{
 
-                 JLToast.makeText("Please enter a name.").show()
+                JLToast.makeText("Please enter a name.").show()
 
             }
+            
 
-        } else {
-
-            self.nameTextField.text = "\(self.nameTextField.text)"
-            NSUserDefaults.standardUserDefaults().objectForKey("nameText")
-            NSUserDefaults.standardUserDefaults().synchronize()
-            println("entered name = \(self.nameTextField.text)")
-
-            println("Name inserted. Woho!")
-
-            //Pop to MainPageControllerView
-            var mNC = delegate!.navigationController as MasterNC
-            mNC.popToViewControllerOfClass(MainPageViewController())
-            self.dismissViewControllerAnimated(true, completion: {})
-
-        }
 
         // insert link to rest of code for getting it to the highscore here Frida!
         

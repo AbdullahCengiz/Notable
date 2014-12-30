@@ -26,6 +26,8 @@ class LessonsViewController: UIViewController,UITableViewDelegate ,UITableViewDa
     var delegate:AnyObject?
     var navBar:UINavigationBar!
 
+    var menuButton:UIButton!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         navBar = self.navigationController?.navigationBar
@@ -69,17 +71,52 @@ class LessonsViewController: UIViewController,UITableViewDelegate ,UITableViewDa
 
         self.view.backgroundColor = bg
 
+
+        //for settings button
+        var selectedTheme: Int = NSUserDefaults.standardUserDefaults().objectForKey("selectedTheme") as Int
+
+        var image:UIImage?
+        //for back button
+        if(selectedTheme == 0){
+
+            image = UIImage(named: "backbutton_light") as UIImage?
+
+        }
+        else{
+
+            image = UIImage(named: "backbutton_dark") as UIImage?
+            
+        }
+
+        menuButton.setBackgroundImage(image, forState: UIControlState.Normal)
+
     }
 
     func prepareNavigationBar(){
 
-        let image       = UIImage(named: "backbutton") as UIImage?
-        let uiButton    = UIButton.buttonWithType(UIButtonType.System) as UIButton
-        uiButton.frame  = CGRectMake(0, 0, 25, 25)
-        uiButton.setBackgroundImage(image, forState: UIControlState.Normal)
-        uiButton.setTitle("", forState: UIControlState.Normal);
-        uiButton.addTarget(self, action:"backButtonAction:", forControlEvents: UIControlEvents.TouchUpInside)
-        navItem.setLeftBarButtonItem(UIBarButtonItem(customView: uiButton), animated: true)
+
+        //for settings button
+        var selectedTheme: Int = NSUserDefaults.standardUserDefaults().objectForKey("selectedTheme") as Int
+
+        var image:UIImage?
+        //for back button
+        if(selectedTheme == 0){
+
+            image = UIImage(named: "backbutton_light") as UIImage?
+
+        }
+        else{
+
+            image = UIImage(named: "backbutton_dark") as UIImage?
+            
+        }
+
+        menuButton  = UIButton.buttonWithType(UIButtonType.System) as UIButton
+        menuButton.frame  = CGRectMake(0, 0, 25, 25)
+        menuButton.setBackgroundImage(image, forState: UIControlState.Normal)
+        menuButton.setTitle("", forState: UIControlState.Normal);
+        menuButton.addTarget(self, action:"backButtonAction:", forControlEvents: UIControlEvents.TouchUpInside)
+        navItem.setLeftBarButtonItem(UIBarButtonItem(customView: menuButton), animated: true)
         navItem.hidesBackButton=true
 
     }

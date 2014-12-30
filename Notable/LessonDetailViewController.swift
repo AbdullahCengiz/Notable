@@ -54,6 +54,9 @@ class LessonDetailViewController: UIViewController {
     // for play button
     @IBOutlet var playButton: UIButton!
 
+    //for menuButton
+    var menuButton:UIButton!
+
 
 
     var newLesson:TrivLesson!
@@ -77,6 +80,7 @@ class LessonDetailViewController: UIViewController {
 
         println("number of questions in lesson is \(newLesson.questions!.count)")
 
+        prepareNavigationBar()
         newLesson.initLesson()
         newLesson.prepareQuestion(newLesson.currentQuestion)
 
@@ -86,8 +90,6 @@ class LessonDetailViewController: UIViewController {
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        prepareNavigationBar()
-
         initUI()
         styleView()
 
@@ -118,13 +120,30 @@ class LessonDetailViewController: UIViewController {
         self.previousButton.backgroundColor = btn
         self.previousButton.setTitleColor(txt, forState: UIControlState.Normal)
 
-        var selectedTheme:AnyObject? = NSUserDefaults.standardUserDefaults().objectForKey("selectedTheme")
+        questionIndexLabel.textColor = txt
 
-        if(selectedTheme as Int == 0){
+        var selectedTheme:Int = NSUserDefaults.standardUserDefaults().objectForKey("selectedTheme") as Int
+
+        if(selectedTheme  == 0){
 
             self.previousButton.backgroundColor = UIColor(red:204/255.0, green:210/255.0, blue:218/255.0, alpha:1.0)
 
         }
+
+        var image:UIImage?
+        //for back button
+        if(selectedTheme == 0){
+
+            image = UIImage(named: "menuButton_light") as UIImage?
+
+        }
+        else{
+
+            image = UIImage(named: "menuButton_dark") as UIImage?
+            
+        }
+
+        menuButton.setBackgroundImage(image, forState: UIControlState.Normal)
 
     }
 
@@ -154,16 +173,29 @@ class LessonDetailViewController: UIViewController {
 
     func prepareNavigationBar(){
 
+        var selectedTheme: Int = NSUserDefaults.standardUserDefaults().objectForKey("selectedTheme") as Int
+
+        var image:UIImage?
+        //for back button
+        if(selectedTheme == 0){
+
+            image = UIImage(named: "menuButton_light") as UIImage?
+
+        }
+        else{
+
+            image = UIImage(named: "menuButton_dark") as UIImage?
+            
+        }
+
         //for menubutton
-        let menuImage = UIImage(named: "menu_btn") as UIImage?
-        let menuButton = UIButton.buttonWithType(UIButtonType.System) as UIButton
+        menuButton = UIButton.buttonWithType(UIButtonType.System) as UIButton
         menuButton.frame = CGRectMake(0, 0, 25, 25)
-        menuButton.setBackgroundImage(menuImage, forState: UIControlState.Normal)
+        menuButton.setBackgroundImage(image, forState: UIControlState.Normal)
         menuButton.setTitle("", forState: UIControlState.Normal);
         menuButton.addTarget(self, action:"backButtonAction:", forControlEvents: UIControlEvents.TouchUpInside)
         navItem.setLeftBarButtonItem(UIBarButtonItem(customView: menuButton), animated: true)
         navItem.hidesBackButton=true
-
 
         //for settings button
         questionIndexLabel = UILabel()

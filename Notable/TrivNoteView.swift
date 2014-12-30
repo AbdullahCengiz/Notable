@@ -189,7 +189,7 @@ class TrivNoteView
         if(clefType == "gclef"){
             //makes line container visible
             newGameVC.lineContainer.hidden = false
-
+            newGameVC.playButton.hidden = false
             newGameVC.fclefImage.hidden=true
             newGameVC.gclefImage.hidden=false
            
@@ -274,11 +274,13 @@ class TrivNoteView
             //playSound
             sound.playSound(SoundFile(soundName: soundFileName, soundType: "aif"))
             //newGameVC.newGame.sound.playSound(SoundFile(soundName: "correct", soundType: "mp3"))
+            newGameVC.questionPictureImage.hidden = true
+
         }
         else if (clefType == "fclef"){
             //makes line container visible
             newGameVC.lineContainer.hidden = false
-
+            newGameVC.playButton.hidden = false
             newGameVC.fclefImage.hidden=false
             newGameVC.gclefImage.hidden=true
             
@@ -378,15 +380,15 @@ class TrivNoteView
             sound.playSound(SoundFile(soundName: soundFileName, soundType: "aif"))
             //newGameVC.newGame.sound.playSound(SoundFile(soundName: "correct", soundType: "mp3"))
 
-
-
+            newGameVC.questionPictureImage.hidden = true
         }
         else{
 
+            //make arrangaments for ui
             newGameVC.lineContainer.hidden = true
-
+            newGameVC.playButton.hidden = true
+            newGameVC.questionPictureImage.hidden = false
             newGameVC.questionPictureImage.image = UIImage(named: questionContent)
-
             newGameVC.newGame.lockButtons(false)
 
         }

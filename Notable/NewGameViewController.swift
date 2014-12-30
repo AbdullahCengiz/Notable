@@ -97,6 +97,8 @@ import QuartzCore
     @IBOutlet var thirdChoiceNumberWidth: NSLayoutConstraint!
     @IBOutlet var fourthChoiceNumberHeight: NSLayoutConstraint!
     @IBOutlet var fourthChoiceNumberWidth: NSLayoutConstraint!
+
+    var menuButton:UIButton!
     
     
 
@@ -120,9 +122,10 @@ import QuartzCore
     override func viewDidLoad() {
 
         super.viewDidLoad()
+        prepareNavigationBar()
         navBar = self.navigationController?.navigationBar
         newGame.initGame()
-        styleView()
+
 
     }
 
@@ -172,7 +175,7 @@ import QuartzCore
         //self.
         //////println("In viewWillAppear!!!")
         // waits for noteViewContainer creation
-        prepareNavigationBar()
+        styleView()
         newGame.setSoundValue()
         
 }
@@ -205,26 +208,62 @@ import QuartzCore
         L3.textColor = txt
         L4.textColor = txt
 
+        pointLabel.textColor = txt
+
         firstChoiceButton.setTitleColor(txt, forState: UIControlState.Normal)
         secondChoiceButton.setTitleColor(txt, forState: UIControlState.Normal)
         thirdChoiceButton.setTitleColor(txt, forState: UIControlState.Normal)
         fourthChoiceButton.setTitleColor(txt, forState: UIControlState.Normal)
 
+        //for settings button
+        var selectedTheme: Int = NSUserDefaults.standardUserDefaults().objectForKey("selectedTheme") as Int
+
+        var image:UIImage?
+        //for back button
+        if(selectedTheme == 0){
+
+            image = UIImage(named: "menuButton_light") as UIImage?
+
+        }
+        else{
+
+            image = UIImage(named: "menuButton_dark") as UIImage?
+            
+        }
+
+         menuButton.setBackgroundImage(image, forState: UIControlState.Normal)
+
     }
 
     func prepareNavigationBar(){
 
+        //for settings button
+        var selectedTheme: Int = NSUserDefaults.standardUserDefaults().objectForKey("selectedTheme") as Int
+
+        var image:UIImage?
+        //for back button
+        if(selectedTheme == 0){
+
+            image = UIImage(named: "menuButton_light") as UIImage?
+
+        }
+        else{
+
+            image = UIImage(named: "menuButton_dark") as UIImage?
+            
+        }
+
+
         //for menubutton
-        let menuImage = UIImage(named: "menu_btn") as UIImage?
-        let menuButton = UIButton.buttonWithType(UIButtonType.System) as UIButton
+        menuButton = UIButton.buttonWithType(UIButtonType.System) as UIButton
         menuButton.frame = CGRectMake(0, 0, 25, 25)
-        menuButton.setBackgroundImage(menuImage, forState: UIControlState.Normal)
-        menuButton.setTitle("", forState: UIControlState.Normal);
+        menuButton.setBackgroundImage(image, forState: UIControlState.Normal)
+        menuButton.setTitle("", forState: UIControlState.Normal)
         menuButton.addTarget(self, action:"backButtonAction:", forControlEvents: UIControlEvents.TouchUpInside)
         navItem.setLeftBarButtonItem(UIBarButtonItem(customView: menuButton), animated: true)
         navItem.hidesBackButton=true
 
-        //for settings button
+        //for point label
         pointLabel.textColor = UIColor.blackColor()
         pointLabel.frame  = CGRectMake(0, 0, 60, 30)
         pointLabel.textAlignment = NSTextAlignment.Center

@@ -51,7 +51,7 @@ class LessonData
 
         lesson1.lessonQuestions?.append(l1q7)
 
-        var l1q8 = LessonQuestion(questionId:8,lessonId: 0, questionType: "Image", questionText: "To make sure im not lying, play these notes and try to hear the resemblance", questionTitle: "", noteText: "C4|C5", clefType: "gclef",imageName:"")
+        var l1q8 = LessonQuestion(questionId:8,lessonId: 0, questionType: "Image", questionText: "To make sure I'm not lying, play these notes and try to hear the resemblance", questionTitle: "", noteText: "C4|C5", clefType: "gclef",imageName:"")
 
         lesson1.lessonQuestions?.append(l1q8)
 
@@ -63,15 +63,15 @@ class LessonData
 
         lesson1.lessonQuestions?.append(l1q10)
 
-        var l1q11 = LessonQuestion(questionId:11,lessonId: 0, questionType: "Image", questionText: "Just add something called a ledger line and continue! :D", questionTitle: "", noteText: "G5|A5|H5|C6|D6|E6", clefType: "gclef",imageName:"")
+        var l1q11 = LessonQuestion(questionId:11,lessonId: 0, questionType: "Image", questionText: "Just add something called a ledger line and continue!", questionTitle: "", noteText: "G5|A5|H5|C6|D6|E6", clefType: "gclef",imageName:"")
 
         lesson1.lessonQuestions?.append(l1q11)
 
-        var l1q12 = LessonQuestion(questionId:12,lessonId: 0, questionType: "Text", questionText: "But adding too much ledger lines will make it look to messy, if you e.g are a man and always sing in a lower pitch trying to see what note it is will be hard when there are a lot of ledger lines, how do we solve this?",questionTitle: "A mess...", noteText: "", clefType: "",imageName:"")
+        var l1q12 = LessonQuestion(questionId:12,lessonId: 0, questionType: "Text", questionText: "But adding too many ledger lines will make it look messy. If you're a man and always sing in a lower pitch it can be hard to identify the note if there are a lot of ledger lines. How do we solve this?",questionTitle: "A mess...", noteText: "", clefType: "",imageName:"")
 
         lesson1.lessonQuestions?.append(l1q12)
 
-        var l1q13 = LessonQuestion(questionId:13,lessonId: 0, questionType: "Text", questionText: "We do it by changing clef! There are a lot of different clefs, but we are going to look at the most common one after G-clef called the F-clef :)",questionTitle: "The F-clef", noteText: "", clefType: "",imageName:"")
+        var l1q13 = LessonQuestion(questionId:13,lessonId: 0, questionType: "Text", questionText: "We do it by changing clef! There are a lot of different clefs, but we are going to look at the most common one after G-clef called the F-clef.",questionTitle: "The F-clef", noteText: "", clefType: "",imageName:"")
 
         lesson1.lessonQuestions?.append(l1q13)
 
@@ -121,7 +121,7 @@ class LessonData
 
         lesson2.lessonQuestions!.append(l2q4)
 
-        var l2q5 = LessonQuestion(questionId:105,lessonId: 1, questionType: "Image", questionText: "The next accidental we are going to look at is called flat, in written form denoted with a low-case b. This accidental lowers the note by half a tone step", questionTitle: "", noteText: "", clefType: "",imageName:"flat.png")
+        var l2q5 = LessonQuestion(questionId:105,lessonId: 1, questionType: "Image", questionText: "The next accidental we are going to look at is called flat, in written form denoted with a lower case b. This accidental lowers the note by half a tone step", questionTitle: "", noteText: "", clefType: "",imageName:"flat.png")
 
         lesson2.lessonQuestions!.append(l2q5)
 
@@ -129,7 +129,7 @@ class LessonData
 
         lesson2.lessonQuestions!.append(l2q6)
 
-        var l2q7 = LessonQuestion(questionId:107,lessonId: 1, questionType: "Image", questionText: "This leads to these notes actually sounding the same, whilst they actually have different names. Dont let this confuse you :)", questionTitle: "", noteText: "G#4|Ab4", clefType: "gclef",imageName:"")
+        var l2q7 = LessonQuestion(questionId:107,lessonId: 1, questionType: "Image", questionText: "This leads to these notes actually sounding the same, whilst they actually have different names. Don't let this confuse you!", questionTitle: "", noteText: "G#4|Ab4", clefType: "gclef",imageName:"")
 
         lesson2.lessonQuestions!.append(l2q7)
 
@@ -137,7 +137,7 @@ class LessonData
 
         lesson2.lessonQuestions!.append(l2q8)
 
-        var l2q9 = LessonQuestion(questionId:109,lessonId: 1, questionType: "Image", questionText: "An important thing to know is that between these notes there only is half a step between the tones, everywhere else there is a whole step", questionTitle: "", noteText: "E4|F4|H4|C5", clefType: "gclef",imageName:"")
+        var l2q9 = LessonQuestion(questionId:109,lessonId: 1, questionType: "Image", questionText: "An important thing to know is that between these notes there is only a half step between the notes. Everywhere else there is a whole step.", questionTitle: "", noteText: "E4|F4|H4|C5", clefType: "gclef",imageName:"")
 
         lesson2.lessonQuestions!.append(l2q9)
 
@@ -193,11 +193,11 @@ class LessonData
 
         lesson2.lessonQuestions!.append(l2q22)
 
-        var l2q23 = LessonQuestion(questionId:123,lessonId: 1, questionType: "Image", questionText: "Put them together and voila! A C-minor :)", questionTitle: "", noteText: "C4|Eb4|G4", clefType: "gclef",imageName:"")
+        var l2q23 = LessonQuestion(questionId:123,lessonId: 1, questionType: "Image", questionText: "Put them together and voila! A C-minor.", questionTitle: "", noteText: "C4|Eb4|G4", clefType: "gclef",imageName:"")
 
         lesson2.lessonQuestions!.append(l2q23)
 
-        var l2q24 = LessonQuestion(questionId:124,lessonId: 1, questionType: "Text", questionText: "Now you know how they are built up as well, so now you can play around with them.. But to make sure everyting is perfectly clear we'll do one more example! Let's create Ab-minor", questionTitle: "One more!", noteText: "", clefType: "",imageName:"")
+        var l2q24 = LessonQuestion(questionId:124,lessonId: 1, questionType: "Text", questionText: "Now you know how they are built up as well, so now you can play around with them.. But to make sure everything is perfectly clear we'll do one more example! Let's create Ab-minor", questionTitle: "One more!", noteText: "", clefType: "",imageName:"")
 
         lesson2.lessonQuestions!.append(l2q24)
 
@@ -213,7 +213,7 @@ class LessonData
 
         lesson2.lessonQuestions!.append(l2q27)
 
-        var l2q28 = LessonQuestion(questionId:128,lessonId: 1, questionType: "Text", questionText: "Sweet! Now you know how this stuff works as well, you can now go practice the advanced F and G clef lessons, as well as the basic and intermediate chords :D", questionTitle: "Go practice!", noteText: "", clefType: "",imageName:"")
+        var l2q28 = LessonQuestion(questionId:128,lessonId: 1, questionType: "Text", questionText: "Great! Now you know how this works as well. Why don't you go practice the advanced F and G clef lessons, as well as the basic and intermediate chords.", questionTitle: "Go practice!", noteText: "", clefType: "",imageName:"")
 
         lesson2.lessonQuestions!.append(l2q28)
 
@@ -226,7 +226,7 @@ class LessonData
 
         lesson3.lessonQuestions!.append(l3q1)
 
-        var l3q2 = LessonQuestion(questionId:202,lessonId: 2, questionType: "Text", questionText: "Sheet music is divided into smaller sections called bars or measures. The only limit to how many notes can be in one bar is that the bar itself has a set length. In other words, you can put as many notes on top of each other (played simultaneously) as you want, but next to eachother they cannot go over the limit of the bar", questionTitle: "Bars", noteText: "", clefType: "",imageName:"")
+        var l3q2 = LessonQuestion(questionId:202,lessonId: 2, questionType: "Text", questionText: "Sheet music is divided into smaller sections called bars or measures. The only limit to how many notes can be in one bar is that the bar itself has a set length. In other words, you can put as many notes on top of each other (played simultaneously) as you want, but next to each other they cannot go over the limit of the bar", questionTitle: "Bars", noteText: "", clefType: "",imageName:"")
 
         lesson3.lessonQuestions!.append(l3q2)
 
@@ -250,7 +250,7 @@ class LessonData
 
         lesson3.lessonQuestions!.append(l3q7)
 
-        var l3q8 = LessonQuestion(questionId:208,lessonId: 2, questionType: "Text", questionText: "This means that if we have a 4/4 bar we can only fit in the length of one whole note! Lets go through all the different note lengths there is..", questionTitle: "Note lengths", noteText: "", clefType: "",imageName:"")
+        var l3q8 = LessonQuestion(questionId:208,lessonId: 2, questionType: "Text", questionText: "This means that if we have a 4/4 bar we can only fit in the length of one whole note! Let's go through the different note lengths!", questionTitle: "Note lengths", noteText: "", clefType: "",imageName:"")
 
         lesson3.lessonQuestions!.append(l3q8)
 
@@ -258,15 +258,15 @@ class LessonData
 
         lesson3.lessonQuestions!.append(l3q9)
 
-        var l3q10 = LessonQuestion(questionId:210,lessonId: 2, questionType: "Image", questionText: "This! This note is called the half note.. A note with half the length of this is of course the quarter note that we already looked at", questionTitle: "", noteText: "", clefType: "",imageName:"half-note.png")
+        var l3q10 = LessonQuestion(questionId:210,lessonId: 2, questionType: "Image", questionText: "This! This note is called the half note. A note with half the length of this is of course the quarter note that we already looked at", questionTitle: "", noteText: "", clefType: "",imageName:"half-note.png")
 
         lesson3.lessonQuestions!.append(l3q10)
 
-        var l3q11 = LessonQuestion(questionId:211,lessonId: 2, questionType: "Image", questionText: "But for the sake of repetition we can have a quick look at it again :) lets divide this notes length! What do we get?", questionTitle: "", noteText: "", clefType: "",imageName:"quarter-note.png")
+        var l3q11 = LessonQuestion(questionId:211,lessonId: 2, questionType: "Image", questionText: "But for the sake of repetition we can have a quick look at it again. Let's divide this note's length! What do we get?", questionTitle: "", noteText: "", clefType: "",imageName:"quarter-note.png")
 
         lesson3.lessonQuestions!.append(l3q11)
 
-        var l3q12 = LessonQuestion(questionId:212,lessonId: 2, questionType: "Image", questionText: "We get something not surprisingly called an eighth note.. Take a look at the flags, because from now on youre going to see a pattern!", questionTitle: "", noteText: "", clefType: "",imageName:"8th-note.png")
+        var l3q12 = LessonQuestion(questionId:212,lessonId: 2, questionType: "Image", questionText: "We get something not surprisingly called an eighth note. Take a look at the flags, because from now on you're going to see a pattern!", questionTitle: "", noteText: "", clefType: "",imageName:"8th-note.png")
 
         lesson3.lessonQuestions!.append(l3q12)
 
@@ -286,7 +286,7 @@ class LessonData
 
         lesson3.lessonQuestions!.append(l3q16)
 
-        var l3q17 = LessonQuestion(questionId:217,lessonId: 2, questionType: "Text", questionText: "Silence or rather the lack of playing is symbolized with something called rests. Rests work in exactly the same fashion as the notes do. This means that if you dont want to fill up a bar with music, you have to fill up the rest with the right amount of rests", questionTitle: "Rests", noteText: "", clefType: "",imageName:"")
+        var l3q17 = LessonQuestion(questionId:217,lessonId: 2, questionType: "Text", questionText: "Silence or rather the lack of playing is symbolized with something called rests. Rests work in exactly the same fashion as the notes do. This means that if you don't want to fill up a bar with music, you have to fill up the rest with the right amount of rests", questionTitle: "Rests", noteText: "", clefType: "",imageName:"")
 
         lesson3.lessonQuestions!.append(l3q17)
 
@@ -302,7 +302,7 @@ class LessonData
 
         lesson3.lessonQuestions!.append(l3q20)
 
-        var l3q21 = LessonQuestion(questionId:221,lessonId: 2, questionType: "Image", questionText: "Split it in half again and you get the eight rest. In the same fasion as with the notes you are going to see a pattern from now on!", questionTitle: "", noteText: "", clefType: "",imageName:"8th-rest.png")
+        var l3q21 = LessonQuestion(questionId:221,lessonId: 2, questionType: "Image", questionText: "Split it in half again and you get the eight rest. In the same fashion as with the notes you are going to see a pattern from now on!", questionTitle: "", noteText: "", clefType: "",imageName:"8th-rest.png")
 
         lesson3.lessonQuestions!.append(l3q21)
 
@@ -326,7 +326,7 @@ class LessonData
 
         lesson3.lessonQuestions!.append(l3q26)
 
-        var l3q27 = LessonQuestion(questionId:227,lessonId: 2, questionType: "Text", questionText: "This concludes notes and rests for now.. You should now be able to practice these out in the category called notes and rests!", questionTitle: "Go practice! :D", noteText: "", clefType: "",imageName:"")
+        var l3q27 = LessonQuestion(questionId:227,lessonId: 2, questionType: "Text", questionText: "This concludes notes and rests for now. You should now be able to practice these out in the category called notes and rests!", questionTitle: "Go practice! :D", noteText: "", clefType: "",imageName:"")
 
         lesson3.lessonQuestions!.append(l3q27)
 
@@ -489,22 +489,10 @@ class LessonData
 
         lesson4.lessonQuestions!.append(l4q39)
 
-        lessons!.append(lesson1)
         lessons!.append(lesson4)
         lessons!.append(lesson3)
         lessons!.append(lesson2)
-
-
-
-
-
-        /*
-        // create 5th lesson object for going to store  ************************************************************************************
-        var lesson5 = Lesson(lessonId: 4, lessonName: "Click here to get more lessons!", lessonHint: "Check it out")
-        lessons!.append(lesson5)
-        */
-
-
+        lessons!.append(lesson1)
 
         return lessons!
     }

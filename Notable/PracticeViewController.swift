@@ -18,7 +18,7 @@ class PracticeViewController: UIViewController,UITableViewDelegate ,UITableViewD
 
     @IBOutlet var categoriesTableView: UITableView!
     
-
+    var backButton:UIButton!
     
     var delegate:AnyObject?
     var navBar:UINavigationBar!
@@ -73,18 +73,53 @@ class PracticeViewController: UIViewController,UITableViewDelegate ,UITableViewD
         //change navigation item title color
         let titleDict: NSDictionary = [NSForegroundColorAttributeName: txt]
         self.navigationController?.navigationBar.titleTextAttributes = titleDict
-        
+
+        //for settings button
+        var selectedTheme: Int = NSUserDefaults.standardUserDefaults().objectForKey("selectedTheme") as Int
+
+        var image:UIImage?
+        //for back button
+        if(selectedTheme == 0){
+
+            image = UIImage(named: "backbutton_light") as UIImage?
+
+        }
+        else{
+
+            image = UIImage(named: "backbutton_dark") as UIImage?
+            
+        }
+
+        backButton.setBackgroundImage(image, forState: UIControlState.Normal)
+
     }
 
     func prepareNavigationBar(){
         
-        let image       = UIImage(named: "backbutton") as UIImage?
-        let uiButton    = UIButton.buttonWithType(UIButtonType.System) as UIButton
-        uiButton.frame  = CGRectMake(0, 0, 25, 25)
-        uiButton.setBackgroundImage(image, forState: UIControlState.Normal)
-        uiButton.setTitle("", forState: UIControlState.Normal);
-        uiButton.addTarget(self, action:"backButtonAction:", forControlEvents: UIControlEvents.TouchUpInside)
-        navItem.setLeftBarButtonItem(UIBarButtonItem(customView: uiButton), animated: true)
+
+        //for settings button
+        var selectedTheme: Int = NSUserDefaults.standardUserDefaults().objectForKey("selectedTheme") as Int
+
+        var image:UIImage?
+        //for back button
+        if(selectedTheme == 0){
+
+            image = UIImage(named: "backbutton_light") as UIImage?
+
+        }
+        else{
+
+            image = UIImage(named: "backbutton_dark") as UIImage?
+            
+        }
+
+
+        backButton = UIButton.buttonWithType(UIButtonType.System) as UIButton
+        backButton.frame  = CGRectMake(0, 0, 25, 25)
+        backButton.setBackgroundImage(image, forState: UIControlState.Normal)
+        backButton.setTitle("", forState: UIControlState.Normal);
+        backButton.addTarget(self, action:"backButtonAction:", forControlEvents: UIControlEvents.TouchUpInside)
+        navItem.setLeftBarButtonItem(UIBarButtonItem(customView: backButton), animated: true)
         navItem.hidesBackButton=true
 
     }

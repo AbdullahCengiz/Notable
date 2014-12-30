@@ -11,8 +11,6 @@ import CoreData
 
 class CategoriesViewController: UIViewController,UITableViewDelegate ,UITableViewDataSource  {
     @IBOutlet var navItem: UINavigationItem!
-    let checkBoxUnCheckedImage = UIImage(named: "checkbox_unchecked") as UIImage?
-    let checkBoxCheckedImage = UIImage(named: "checkbox_checked") as UIImage?
     
     var arrayOfCategories: [Category] = [Category]()
     var loadedArrayOfCategories: [Category] = [Category]()
@@ -23,7 +21,14 @@ class CategoriesViewController: UIViewController,UITableViewDelegate ,UITableVie
     var isAllOfCategoriesChecked: Bool = true
     
     var cdHelper: CoreDataHelper?
-    
+
+    //for backButton
+    var backButton:UIButton!
+
+    //for screen dimensions
+    var width = NSUserDefaults.standardUserDefaults().objectForKey("width") as CGFloat
+    var height = NSUserDefaults.standardUserDefaults().objectForKey("height") as CGFloat
+
     @IBOutlet var categoriesTableView: UITableView!
 
     var navBar:UINavigationBar!
@@ -64,36 +69,95 @@ class CategoriesViewController: UIViewController,UITableViewDelegate ,UITableVie
         
         self.view.backgroundColor = bg
         self.categoriesTableView.backgroundColor = bg
-        
+
+        var selectedTheme: Int = NSUserDefaults.standardUserDefaults().objectForKey("selectedTheme") as Int
+
+        var image:UIImage?
+        //for back button
+        if(selectedTheme == 0){
+
+            image = UIImage(named: "backbutton_light") as UIImage?
+
+        }
+        else{
+
+            image = UIImage(named: "backbutton_dark") as UIImage?
+            
+        }
+
+        backButton.setBackgroundImage(image, forState: UIControlState.Normal)
+
         categoriesTableView.reloadData()
     }
     
     func prepareNavigationBar(){
+
+        var selectedTheme: Int = NSUserDefaults.standardUserDefaults().objectForKey("selectedTheme") as Int
+
+        var image:UIImage?
+        //for back button
+        if(selectedTheme == 0){
+
+            image = UIImage(named: "backbutton_light") as UIImage?
+
+        }
+        else{
+
+            image = UIImage(named: "backbutton_dark") as UIImage?
+            
+        }
+
         
         //for back button
-        let image = UIImage(named: "backbutton") as UIImage?
-        let uiButton    = UIButton.buttonWithType(UIButtonType.System) as UIButton
-        uiButton.frame  = CGRectMake(0, 0, 25, 25)
-        uiButton.setBackgroundImage(image, forState: UIControlState.Normal)
-        uiButton.setTitle("", forState: UIControlState.Normal);
-        uiButton.addTarget(self, action:"backButtonAction:", forControlEvents: UIControlEvents.TouchUpInside)
-        navItem.setLeftBarButtonItem(UIBarButtonItem(customView: uiButton), animated: true)
+        backButton = UIButton.buttonWithType(UIButtonType.System) as UIButton
+        backButton.frame  = CGRectMake(0, 0, 25, 25)
+        backButton.setBackgroundImage(image, forState: UIControlState.Normal)
+        backButton.setTitle("", forState: UIControlState.Normal);
+        backButton.addTarget(self, action:"backButtonAction:", forControlEvents: UIControlEvents.TouchUpInside)
+        navItem.setLeftBarButtonItem(UIBarButtonItem(customView: backButton), animated: true)
         navItem.hidesBackButton=true
         
         
         //for settings button
-        let checkBoxImage = UIImage(named: "checkbox_unchecked") as UIImage?
-        checkBoxButton.frame  = CGRectMake(0, 0, 20, 20)
+        var checkBoxImage:UIImage?
+        //for back button
+        if(selectedTheme == 0){
+
+            checkBoxImage = UIImage(named: "checkbox_unchecked_light") as UIImage?
+
+        }
+        else{
+
+            checkBoxImage = UIImage(named: "checkbox_unchecked_dark") as UIImage?
+            
+        }
+
+        checkBoxButton.frame  = CGRectMake(0, 0, 30, 30)
         checkBoxButton.setBackgroundImage(checkBoxImage, forState: UIControlState.Normal)
         checkBoxButton.setTitle("", forState: UIControlState.Normal);
         checkBoxButton.tag=0 // if tag=0 button is unticked
         
         // if all of categories are ticked
         if(isAllOfCategoriesChecked){
-            
-            checkBoxButton.setBackgroundImage(checkBoxCheckedImage, forState: UIControlState.Normal)
-            
+
+            var selectedTheme: Int = NSUserDefaults.standardUserDefaults().objectForKey("selectedTheme") as Int
+
+            var image:UIImage?
+            //for back button
+            if(selectedTheme == 0){
+
+                image = UIImage(named: "checkbox_checked_light") as UIImage?
+
+            }
+            else{
+
+                image = UIImage(named: "checkbox_checked_dark") as UIImage?
+                
+            }
+
+            checkBoxButton.setBackgroundImage(image, forState: UIControlState.Normal)
             checkBoxButton.tag=1 // if tag=1 button is ticked
+
         }
         
         checkBoxButton.addTarget(self, action:"checkAllButtonAction:", forControlEvents: UIControlEvents.TouchUpInside)
@@ -129,10 +193,25 @@ class CategoriesViewController: UIViewController,UITableViewDelegate ,UITableVie
         
         if(selectedCategory.status!){
             selectedCategory.status = false
-            
-            
+
             dispatch_async(dispatch_get_main_queue()) {
-                self.checkBoxButton.setBackgroundImage(self.checkBoxUnCheckedImage, forState: UIControlState.Normal)
+
+                var selectedTheme: Int = NSUserDefaults.standardUserDefaults().objectForKey("selectedTheme") as Int
+
+                var image:UIImage?
+                //for back button
+                if(selectedTheme == 0){
+
+                    image = UIImage(named: "checkbox_unchecked_light") as UIImage?
+
+                }
+                else{
+
+                    image = UIImage(named: "checkbox_unchecked_dark") as UIImage?
+                    
+                }
+
+                self.checkBoxButton.setBackgroundImage(image, forState: UIControlState.Normal)
             }
             
         }else{
@@ -156,8 +235,25 @@ class CategoriesViewController: UIViewController,UITableViewDelegate ,UITableVie
     @IBAction func  checkAllButtonAction(sender:UIButton) {
         
         if(sender.tag == 0){
+
+
+            var selectedTheme: Int = NSUserDefaults.standardUserDefaults().objectForKey("selectedTheme") as Int
+
+            var image:UIImage?
+            //for back button
+            if(selectedTheme == 0){
+
+                image = UIImage(named: "checkbox_checked_light") as UIImage?
+
+            }
+            else{
+
+                image = UIImage(named: "checkbox_checked_dark") as UIImage?
+                
+            }
+
             
-            sender.setBackgroundImage(checkBoxCheckedImage, forState: UIControlState.Normal)
+            sender.setBackgroundImage(image, forState: UIControlState.Normal)
             sender.tag = 1
             
             // tick all categories
@@ -168,8 +264,23 @@ class CategoriesViewController: UIViewController,UITableViewDelegate ,UITableVie
                 updateCategory(categoryId: category.categoryId!, status: category.status!)
             }
         } else {
-            
-            sender.setBackgroundImage(checkBoxUnCheckedImage, forState: UIControlState.Normal)
+
+            var selectedTheme: Int = NSUserDefaults.standardUserDefaults().objectForKey("selectedTheme") as Int
+
+            var image:UIImage?
+            //for back button
+            if(selectedTheme == 0){
+
+                image = UIImage(named: "checkbox_unchecked_light") as UIImage?
+
+            }
+            else{
+
+                image = UIImage(named: "checkbox_unchecked_dark") as UIImage?
+                
+            }
+
+            sender.setBackgroundImage(image, forState: UIControlState.Normal)
             sender.tag = 0
             
             // untick all categories
