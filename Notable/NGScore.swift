@@ -13,22 +13,36 @@ import AVFoundation
 
 
 class NGScore: UIViewController, UITextFieldDelegate {
+
+    //for bottom space constraints (for moving keyboard up when keyboard is opened)
+    @IBOutlet var bottomSpace: NSLayoutConstraint!
+
+    //for top space constraints (for moving keyboard up when keyboard is opened)
+    @IBOutlet var topSpace: NSLayoutConstraint!
+
+    //get screenWidth and height from NSUserDefaults
+    let width = NSUserDefaults.standardUserDefaults().objectForKey("width") as CGFloat
+    let height = NSUserDefaults.standardUserDefaults().objectForKey("height") as CGFloat
+
+    var textViewMoveValue:CGFloat!
+
     
     var delegate: AnyObject?
     var timer:NSTimer!
     var sound = Sound()
     var audioPlayer = AVAudioPlayer()
 
-    @IBOutlet var p: UILabel!
     @IBOutlet var congrats: UILabel!
     @IBOutlet var yourScoreIs: UILabel!
     @IBOutlet weak var medalNamez: UILabel!
     @IBOutlet weak var medalImage: UIImageView!
     @IBOutlet weak var scoreNumber: UILabel!
-    @IBOutlet var textFieldBg: UIView!
     @IBOutlet var nameTextField: UITextField!
-    @IBOutlet var congratsView: UIView!
     @IBOutlet var sendButton: UIButton!
+    @IBOutlet var root: UIView!
+
+
+    var frameView: UIView!
 
 
     var arrayOfMedals: [Medal] = []
@@ -43,22 +57,72 @@ class NGScore: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        congratsView.layer.cornerRadius = 4.0
         sendButton.layer.cornerRadius = 4.0
 
         nameTextField.delegate = self
         nameTextField.autocorrectionType = UITextAutocorrectionType.No
-        
+
+        allFonts()
         
         println("in NGScoreViewController")
         
-    self.navigationController?.setNavigationBarHidden(false, animated: true)
-   /*
-        var timer = NSTimer()
-    timer = NSTimer.scheduledTimerWithTimeInterval(0.0005, target: self, selector: Selector("pointLabel"), userInfo: nil, repeats: true)
-*/
-        
-        
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
+
+        self.frameView = UIView(frame: CGRectMake(0, 0, self.view.bounds.width, self.view.bounds.height))
+
+
+        // Keyboard stuff.
+        var center: NSNotificationCenter = NSNotificationCenter.defaultCenter()
+        center.addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
+        center.addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
+
+        //calculate move up value
+        textViewMoveValue = (height*375)/1136 as CGFloat
+
+      }
+
+    func keyboardWillShow(notification: NSNotification) {
+
+        bottomSpace.constant = bottomSpace.constant + textViewMoveValue
+        topSpace.constant = topSpace.constant - textViewMoveValue
+        println("Keyboard will be shown")
+
+        var info:NSDictionary = notification.userInfo!
+        var keyboardSize = (info[UIKeyboardFrameBeginUserInfoKey] as NSValue).CGRectValue()
+
+        var keyboardHeight:CGFloat = keyboardSize.height
+
+        var animationDuration:CGFloat = info[UIKeyboardAnimationDurationUserInfoKey] as CGFloat
+
+        UIView.animateWithDuration(0.25, delay: 0.25, options: UIViewAnimationOptions.CurveEaseInOut, animations: {
+            self.frameView.frame = CGRectMake(0, (self.frameView.frame.origin.y - keyboardHeight), self.view.bounds.width, self.view.bounds.height)
+            }, completion: nil)
+
+    }
+
+    func keyboardWillHide(notification: NSNotification) {
+
+        bottomSpace.constant = bottomSpace.constant - textViewMoveValue
+        topSpace.constant = topSpace.constant + textViewMoveValue
+        println("Keyboard will be hidden")
+
+        var info:NSDictionary = notification.userInfo!
+        var keyboardSize = (info[UIKeyboardFrameBeginUserInfoKey] as NSValue).CGRectValue()
+
+        var keyboardHeight:CGFloat = keyboardSize.height
+
+        var animationDuration:CGFloat = info[UIKeyboardAnimationDurationUserInfoKey] as CGFloat
+
+        UIView.animateWithDuration(0.25, delay: 0.25, options: UIViewAnimationOptions.CurveEaseInOut, animations: {
+            self.frameView.frame = CGRectMake(0, (self.frameView.frame.origin.y + keyboardHeight), self.view.bounds.width, self.view.bounds.height)
+            }, completion: nil)
+
+    }
+
+
+    override func viewWillDisappear(animated: Bool) {
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillHideNotification, object: nil)
     }
     
     
@@ -79,11 +143,43 @@ class NGScore: UIViewController, UITextFieldDelegate {
         //getting the LatestScore
        
         self.scoreNumber.text  = String(pointLabel)
-        
+
+        setFontSizes()
         sound.playSound(sound.drumrollSound,repeat:true)
         timer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self,
             selector: Selector("scoreCountDown"), userInfo: nil, repeats: true)
         }
+
+
+    func setFontSizes(){
+
+        let TRI_ISIPHONE = UIDevice.currentDevice().userInterfaceIdiom == .Phone;
+        let TRI_ISIPAD = UIDevice.currentDevice().userInterfaceIdiom == .Pad;
+
+        if(TRI_ISIPAD){
+
+            congrats.font = UIFont (name: "Roboto-Thin", size: 82)
+
+            yourScoreIs.font = UIFont (name: "Roboto-Thin", size: 22)
+
+            scoreNumber.font = UIFont (name: "Roboto-Thin", size: 82)
+
+            medalNamez.font = UIFont (name: "Roboto-Thin", size: 22)
+
+        }else{
+
+            congrats.font = UIFont (name: "Roboto-Thin", size: 52)
+
+            yourScoreIs.font = UIFont (name: "Roboto-Thin", size: 15)
+
+            scoreNumber.font = UIFont (name: "Roboto-Thin", size: 52)
+
+            medalNamez.font = UIFont (name: "Roboto-Thin", size: 15)
+
+
+        }
+
+    }
     
     
     func styleView() {
@@ -92,18 +188,30 @@ class NGScore: UIViewController, UITextFieldDelegate {
         var btn:UIColor = UIColor.whiteColor()
         var txt:UIColor = UIColor.blackColor()
         Theme().fetchThemeColors(&bg, buttonColor:&btn, textColor:&txt)
-        
-        self.textFieldBg.backgroundColor = bg
-        self.sendButton.backgroundColor = bg
-        
-        self.congratsView.backgroundColor = btn
-        
+
+
         self.sendButton.setTitleColor(txt, forState: UIControlState.Normal)
         self.medalNamez.textColor = txt
         self.scoreNumber.textColor = txt
         self.congrats.textColor = txt
         self.yourScoreIs.textColor = txt
-        self.p.textColor = txt
+
+        self.root.backgroundColor = bg
+
+
+        //get selected theme
+        var selectedTheme: Int = NSUserDefaults.standardUserDefaults().objectForKey("selectedTheme") as Int
+
+        if(selectedTheme == 0){
+
+            self.sendButton.backgroundColor = UIColor.whiteColor()
+
+        }
+        else{
+
+            self.sendButton.backgroundColor = UIColor(red:76/255.0, green:76/255.0, blue:76/255.0, alpha:1.0)
+        }
+
     }
     
     func showFromRect(_rect: CGRect, inView view: UIView!, animated: Bool)(nameTextField: UITextField){
@@ -136,28 +244,28 @@ class NGScore: UIViewController, UITextFieldDelegate {
         var highscoreNumberSilver: Int = NSUserDefaults.standardUserDefaults().integerForKey("highscoreNumberSilver") as Int
         var highscoreNumberBronze: Int = NSUserDefaults.standardUserDefaults().integerForKey("highscoreNumberBronze") as Int
         
-        var med1: Medal  = Medal(medalNamez: "Gold medal", medalImage: "Gold.png")
-        var med2: Medal  = Medal(medalNamez: "Silver medal", medalImage: "Silver.png")
-        var med3: Medal  = Medal(medalNamez: "Bronze medal", medalImage: "Bronze.png")
+        var med1: Medal  = Medal(medalNamez: "GOLD MEDAL", medalImage: "Gold.png")
+        var med2: Medal  = Medal(medalNamez: "SILVER MEDAL", medalImage: "Silver.png")
+        var med3: Medal  = Medal(medalNamez: "BRONZE MEDAL", medalImage: "Bronze.png")
         
         var medalNamez:String = ""
         
         if(pointLabel >= highscoreNumberGold){
            
             medalNamez = "Gold.png"
-            self.medalNamez.text = "Gold medal"
+            self.medalNamez.text = "GOLD MEDAL"
             self.nameTextField.hidden = false
             
         } else if(pointLabel >= highscoreNumberSilver){
            
             medalNamez = "Silver.png"
-            self.medalNamez.text = "Silver medal"
+            self.medalNamez.text = "SILVER MEDAL"
             self.nameTextField.hidden = false
             
         } else if(pointLabel >= highscoreNumberBronze){
             
             medalNamez = "Bronze.png"
-             self.medalNamez.text = "Bronze medal"
+             self.medalNamez.text = "BRONZE MEDAL"
              self.nameTextField.hidden = false
             
         } else {
@@ -180,13 +288,12 @@ class NGScore: UIViewController, UITextFieldDelegate {
     
     func scoreCountDown() {
         counter = counter + 10
-        scoreNumber.text = String(counter)
-        
+        scoreNumber.text = "\(String(counter))p"
         println("counter=\(counter) pointLabel = \(pointLabel)")
 
         if(counter==pointLabel){
             
-           scoreNumber.text = String(pointLabel)
+           scoreNumber.text = "\(String(pointLabel))p"
             
             timer!.invalidate()
             sound.audioPlayer.stop()
@@ -251,6 +358,10 @@ class NGScore: UIViewController, UITextFieldDelegate {
         return true
     }
 
+    override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
+        self.view.endEditing(true)
+    }
+
 
     func scoreMainFunction(){
 
@@ -298,5 +409,25 @@ class NGScore: UIViewController, UITextFieldDelegate {
 
 
     }
+
+
+
+    func allFonts(){
+
+        for family in UIFont.familyNames(){
+
+            println(family)
+
+
+            for name in UIFont.fontNamesForFamilyName(family.description)
+            {
+                println("  \(name)")
+            }
+            
+        }
+        
+    }
+
+
 
 }

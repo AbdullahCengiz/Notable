@@ -26,6 +26,11 @@
 	<string>Notable</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>UIAppFonts</key>
+	<array>
+		<string>orange.ttf</string>
+		<string>Roboto-Thin.ttf</string>
+	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>SplashScreenViewController</string>
 	<key>UIMainStoryboardFile</key>

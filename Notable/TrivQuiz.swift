@@ -253,7 +253,7 @@ class TrivQuiz
             cellCounter = 0
         }
 
-        if (cellCounter == 10){
+        if (cellCounter == 1){
 
             // check reklam status first
             var removeAd: AnyObject? = NSUserDefaults.standardUserDefaults().objectForKey("removeAd")
