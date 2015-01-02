@@ -262,7 +262,17 @@ class InAppPurchaseViewController: UIViewController,SKProductsRequestDelegate,SK
 
     func request(request: SKRequest!, didFailWithError error: NSError!) {
         decideShoppingStatus(false)
-        println("La vaina fallo");
+
+        var timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("showToastMesage"), userInfo: nil, repeats: false)
+
+
+    }
+
+
+    @objc func showToastMesage(){
+
+        JLToast.makeText("Please check internet connection and try again.").show()
+
     }
 
     func paymentQueue(queue: SKPaymentQueue!, updatedTransactions transactions: [AnyObject]!)    {
@@ -295,8 +305,7 @@ class InAppPurchaseViewController: UIViewController,SKProductsRequestDelegate,SK
                     SKPaymentQueue.defaultQueue().finishTransaction(transaction as SKPaymentTransaction)
 
                     break;
-                    // case .Restored:
-                    //[self restoreTransaction:transaction];
+
                 default:
 
                     decideShoppingStatus(false)
