@@ -19,6 +19,7 @@ class Sound
     var correctSound : SoundFile!
     var incorrectSound : SoundFile!
     var drumrollSound: SoundFile
+    var endDrumrollSound: SoundFile
     
     
     init(){
@@ -27,6 +28,7 @@ class Sound
         correctSound = SoundFile(soundName: "correct", soundType: "mp3")
         incorrectSound = SoundFile(soundName: "incorrect", soundType: "mp3")
         drumrollSound = SoundFile(soundName: "drumroll", soundType: "wav")
+        endDrumrollSound = SoundFile(soundName: "endDrumroll", soundType: "mp3")
 
         var soundLevel: AnyObject? = NSUserDefaults.standardUserDefaults().objectForKey("sound")
         // control initial sound value

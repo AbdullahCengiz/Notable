@@ -3,5 +3,6 @@
 //
 
 #import "GADBannerView.h"
+#import "GADInterstitial.h"
 #import "GADBannerViewDelegate.h"
 #import "GADRequest.h"

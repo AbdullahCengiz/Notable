@@ -65,8 +65,10 @@
 		ED234DA01A16166800DE5087 /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED234D9F1A16166800DE5087 /* CoreDataHelper.swift */; };
 		ED38AF731A52FE62002985F0 /* Roboto-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ED38AF701A52FE62002985F0 /* Roboto-Thin.ttf */; };
 		ED38AF741A52FE62002985F0 /* Roboto-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ED38AF701A52FE62002985F0 /* Roboto-Thin.ttf */; };
-		ED38AF7C1A535D84002985F0 /* orangejuice.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ED38AF7B1A535D84002985F0 /* orangejuice.ttf */; };
 		ED4051A91A1A036B003CE4F8 /* confirm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = ED4051A81A1A036B003CE4F8 /* confirm.mp3 */; };
+		ED4641D11A56AE7B008F07E2 /* endDrumroll.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = ED4641D01A56AE7B008F07E2 /* endDrumroll.mp3 */; };
+		ED4641D31A56AF01008F07E2 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ED4641D21A56AF01008F07E2 /* Roboto-Bold.ttf */; };
+		ED4641D61A56B4BF008F07E2 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4641D51A56B4BF008F07E2 /* TextField.swift */; };
 		ED466E0319F165DA00F14292 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED466E0219F165DA00F14292 /* AppDelegate.swift */; };
 		ED466E0519F165DA00F14292 /* SplashScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED466E0419F165DA00F14292 /* SplashScreenViewController.swift */; };
 		ED466E0819F165DA00F14292 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED466E0619F165DA00F14292 /* Main.storyboard */; };
@@ -165,7 +167,6 @@
 		EDC832371A499DF900DC94BF /* WindowRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC8322F1A499DF900DC94BF /* WindowRootViewController.swift */; };
 		EDD14B7E1A029A61004F7EA1 /* CategoryTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD14B7D1A029A61004F7EA1 /* CategoryTableCell.swift */; };
 		EDD14B801A029BBE004F7EA1 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD14B7F1A029BBE004F7EA1 /* Category.swift */; };
-		EDF943581A56040D000011BE /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EDF943571A56040D000011BE /* Roboto-Bold.ttf */; };
 		EDF9435A1A5604BB000011BE /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EDF943591A5604BB000011BE /* Roboto-Light.ttf */; };
 /* End PBXBuildFile section */
 
@@ -266,8 +267,10 @@
 		ED234D9F1A16166800DE5087 /* CoreDataHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataHelper.swift; sourceTree = "<group>"; };
 		ED3099851A288F46000665AD /* Notable-Swift.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Notable-Swift.h"; sourceTree = "<group>"; };
 		ED38AF701A52FE62002985F0 /* Roboto-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Thin.ttf"; sourceTree = "<group>"; };
-		ED38AF7B1A535D84002985F0 /* orangejuice.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = orangejuice.ttf; sourceTree = "<group>"; };
 		ED4051A81A1A036B003CE4F8 /* confirm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = confirm.mp3; sourceTree = "<group>"; };
+		ED4641D01A56AE7B008F07E2 /* endDrumroll.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = endDrumroll.mp3; sourceTree = "<group>"; };
+		ED4641D21A56AF01008F07E2 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
+		ED4641D51A56B4BF008F07E2 /* TextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		ED466DFD19F165DA00F14292 /* Notable.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Notable.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED466E0119F165DA00F14292 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ED466E0219F165DA00F14292 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -372,7 +375,6 @@
 		EDC8322F1A499DF900DC94BF /* WindowRootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WindowRootViewController.swift; sourceTree = "<group>"; };
 		EDD14B7D1A029A61004F7EA1 /* CategoryTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryTableCell.swift; sourceTree = "<group>"; };
 		EDD14B7F1A029BBE004F7EA1 /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
-		EDF943571A56040D000011BE /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
 		EDF943591A5604BB000011BE /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Light.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -575,6 +577,7 @@
 		ED168F121A388897004DA067 /* soundFiles */ = {
 			isa = PBXGroup;
 			children = (
+				ED4641D01A56AE7B008F07E2 /* endDrumroll.mp3 */,
 				ED01DA2A1A247B8200E7BF8E /* correct.mp3 */,
 				ED01DA2B1A247B8200E7BF8E /* incorrect.mp3 */,
 				ED4051A81A1A036B003CE4F8 /* confirm.mp3 */,
@@ -595,9 +598,8 @@
 		ED168F141A3888CF004DA067 /* fontFiles */ = {
 			isa = PBXGroup;
 			children = (
-				ED38AF7B1A535D84002985F0 /* orangejuice.ttf */,
+				ED4641D21A56AF01008F07E2 /* Roboto-Bold.ttf */,
 				EDF943591A5604BB000011BE /* Roboto-Light.ttf */,
-				EDF943571A56040D000011BE /* Roboto-Bold.ttf */,
 				ED38AF701A52FE62002985F0 /* Roboto-Thin.ttf */,
 			);
 			name = fontFiles;
@@ -655,6 +657,7 @@
 		ED225B7B19F5341900D8784E /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				ED4641D41A56B4AD008F07E2 /* TextField */,
 				EDC832251A499DE400DC94BF /* Progress */,
 				EDC832241A499DD400DC94BF /* Toast */,
 				ED76AE1A1A27DCDB000CA83C /* Bridging-Header */,
@@ -727,6 +730,14 @@
 				0DA8BD6C1A136816002F6F89 /* MasterNavigationController.swift */,
 			);
 			name = Navigation;
+			sourceTree = "<group>";
+		};
+		ED4641D41A56B4AD008F07E2 /* TextField */ = {
+			isa = PBXGroup;
+			children = (
+				ED4641D51A56B4BF008F07E2 /* TextField.swift */,
+			);
+			name = TextField;
 			sourceTree = "<group>";
 		};
 		ED466DF419F165DA00F14292 = {
@@ -1050,9 +1061,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EDF943581A56040D000011BE /* Roboto-Bold.ttf in Resources */,
-				ED38AF7C1A535D84002985F0 /* orangejuice.ttf in Resources */,
 				EDF9435A1A5604BB000011BE /* Roboto-Light.ttf in Resources */,
+				ED4641D31A56AF01008F07E2 /* Roboto-Bold.ttf in Resources */,
 				ED38AF731A52FE62002985F0 /* Roboto-Thin.ttf in Resources */,
 				ED84C1EE1A36EE400084DA0A /* C1.aif in Resources */,
 				ED84C1EF1A36EE400084DA0A /* C#1.aif in Resources */,
@@ -1132,6 +1142,7 @@
 				0DD3CF5D1A2F438800043DF0 /* drumroll.wav in Resources */,
 				ED466E0819F165DA00F14292 /* Main.storyboard in Resources */,
 				ED466E0A19F165DA00F14292 /* Images.xcassets in Resources */,
+				ED4641D11A56AE7B008F07E2 /* endDrumroll.mp3 in Resources */,
 				ED4051A91A1A036B003CE4F8 /* confirm.mp3 in Resources */,
 				ED01DA2D1A247B8200E7BF8E /* incorrect.mp3 in Resources */,
 				ED234D8D1A14E33100DE5087 /* data.json in Resources */,
@@ -1160,6 +1171,7 @@
 				ED234D951A14E35E00DE5087 /* SoundFile.swift in Sources */,
 				EDC832301A499DF900DC94BF /* FrameView.swift in Sources */,
 				EDA9C6E91A090E1C00108A85 /* StoreViewController.swift in Sources */,
+				ED4641D61A56B4BF008F07E2 /* TextField.swift in Sources */,
 				ED466E0519F165DA00F14292 /* SplashScreenViewController.swift in Sources */,
 				ED234D981A14EB5F00DE5087 /* StreamReader.swift in Sources */,
 				ED19B35019FAA0F200041AF0 /* CategoriesViewController.swift in Sources */,

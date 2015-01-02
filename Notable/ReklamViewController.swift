@@ -6,9 +6,10 @@
 //  Copyright (c) 2014 Trivato. All rights reserved.
 //
 
+import Foundation
 import UIKit
 
-class ReklamViewController: UIViewController,GADBannerViewDelegate {
+class ReklamViewController: UIViewController,GADBannerViewDelegate,GADInterstitialDelegate {
     var navBar:UINavigationBar!
 
     @IBOutlet var navItem: UINavigationItem!
@@ -19,6 +20,8 @@ class ReklamViewController: UIViewController,GADBannerViewDelegate {
     //get screenWidth and height from NSUserDefaults
     let width = NSUserDefaults.standardUserDefaults().objectForKey("width") as CGFloat
     let height = NSUserDefaults.standardUserDefaults().objectForKey("height") as CGFloat
+
+    var interstitial:GADInterstitial?
 
 
     override func viewDidLoad() {
@@ -31,16 +34,29 @@ class ReklamViewController: UIViewController,GADBannerViewDelegate {
 
         countDown()
 
-        prepareAdvertisement()
+        //create progress
+        HUDController.sharedController.contentView = HUDContentView.ProgressView()
+        HUDController.sharedController.show()
 
-        /*
-        storeViewImageContainer.layer.cornerRadius  = 4.0
-        animateBtn.layer.cornerRadius  = 4.0
-        */
-
-        //get saved theme
+        interstitial = createAndLoadInterstitial()
 
     }
+
+    func createAndLoadInterstitial()->GADInterstitial {
+        var interstitial = GADInterstitial()
+        interstitial.delegate = self
+        interstitial.adUnitID = "ca-app-pub-1132977094802404/4595528171"
+        interstitial.loadRequest(GADRequest())
+
+        return interstitial
+    }
+
+    func interstitialDidReceiveAd(ad: GADInterstitial!) {
+         HUDController.sharedController.hideAnimated()
+         displayInterstitial()
+
+    }
+
 
     //***HERE IS THE HIDE REKLAM ANIMATION ***
 
@@ -99,54 +115,6 @@ class ReklamViewController: UIViewController,GADBannerViewDelegate {
 
     }
 
-
-    func prepareAdvertisement(){
-
-        var adHeight:CGFloat = CGFloat(height)
-
-        var origin = CGPointMake(0.0,
-            0.0); // place at bottom of view
-
-
-
-        adHeight = (adHeight*300)/1136
-
-        var size = GADAdSizeFullWidthPortraitWithHeight(adHeight) // set size to 50
-        var adB = GADBannerView(adSize: size, origin: origin) // create the banner
-        adB.adUnitID = "ca-app-pub-5033527814399651/5039778123" //"ca-app-pub-XXXXXXXX/XXXXXXX"
-
-        bannerView.setTranslatesAutoresizingMaskIntoConstraints(false)
-        adB.setTranslatesAutoresizingMaskIntoConstraints(false)
-
-        adB.delegate = self // ??
-        adB.rootViewController = self // ??
-
-        bannerView.addSubview(adB) // ??
-
-
-
-        bannerView.addConstraint(NSLayoutConstraint(item:adB, attribute:NSLayoutAttribute.Height,relatedBy:NSLayoutRelation.Equal, toItem: bannerView,attribute:NSLayoutAttribute.Height, multiplier:1, constant:0))
-
-        bannerView.addConstraint(NSLayoutConstraint(item:adB, attribute:NSLayoutAttribute.Width,relatedBy:NSLayoutRelation.Equal, toItem: bannerView,attribute:NSLayoutAttribute.Width, multiplier:1, constant:0))
-
-
-        bannerView.addConstraint(NSLayoutConstraint(item:adB, attribute:NSLayoutAttribute.CenterX,relatedBy:NSLayoutRelation.Equal, toItem:bannerView,attribute:NSLayoutAttribute.CenterX, multiplier:1, constant:0))
-
-        bannerView.addConstraint(NSLayoutConstraint(item:adB, attribute:NSLayoutAttribute.CenterY,relatedBy:NSLayoutRelation.Equal, toItem:bannerView,attribute:NSLayoutAttribute.CenterY, multiplier:1, constant:0))
-
-        /*
-        reklamContainer.addConstraint(NSLayoutConstraint(item:adB, attribute:NSLayoutAttribute.BottomMargin,relatedBy:NSLayoutRelation.Equal, toItem:reklamContainer,attribute:NSLayoutAttribute.Bottom, multiplier:0, constant:0))
-
-        reklamContainer.addConstraint(NSLayoutConstraint(item:adB, attribute:NSLayoutAttribute.LeadingMargin,relatedBy:NSLayoutRelation.Equal, toItem:reklamContainer,attribute:NSLayoutAttribute.Leading, multiplier:0, constant:0))
-        */
-
-
-        var request = GADRequest() // create request
-        request.testDevices = [ GAD_SIMULATOR_ID ]; // set it to "test" request
-        adB.loadRequest(request) // actually load it (?)
-        
-        
-    }
 
 
 
@@ -242,6 +210,32 @@ class ReklamViewController: UIViewController,GADBannerViewDelegate {
         newGameVC.presentViewController(scoreScreen, animated: true, completion: nil)
 
     }
+
+
+    @objc  func displayInterstitial() {
+        if let isReady = interstitial?.isReady {
+            println("is ready!!!!! ")
+            interstitial?.presentFromRootViewController(self)
+        }
+        else{
+
+            println("is not ready !!!!! ")
+        }
+    }
+
+    //Interstitial delegate
+    func interstitial(ad: GADInterstitial!, didFailToReceiveAdWithError error: GADRequestError!) {
+        println("interstitialDidFailToReceiveAdWithError:\(error.localizedDescription)")
+        HUDController.sharedController.hideAnimated()
+        //interstitial = createAndLoadInterstitial()
+    }
+
+    func interstitialWillDismissScreen(ad: GADInterstitial!) {
+        //interstitial = createAndLoadInterstitial()
+        println("ad dismissed")
+    }
+
+
 
 
     }

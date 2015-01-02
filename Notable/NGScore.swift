@@ -166,6 +166,8 @@ class NGScore: UIViewController, UITextFieldDelegate {
 
             medalNamez.font = UIFont (name: "Roboto-Thin", size: 22)
 
+            nameTextField.font = UIFont (name: "Roboto-Bold", size: 22)
+
         }else{
 
             congrats.font = UIFont (name: "Roboto-Thin", size: 52)
@@ -176,8 +178,14 @@ class NGScore: UIViewController, UITextFieldDelegate {
 
             medalNamez.font = UIFont (name: "Roboto-Thin", size: 15)
 
+            nameTextField.font = UIFont (name: "Roboto-Bold", size: 15)
+
 
         }
+
+
+        nameTextField.attributedPlaceholder = NSAttributedString(string:"Your Name Here",
+            attributes:[NSForegroundColorAttributeName: UIColor.whiteColor()])
 
     }
     
@@ -197,6 +205,8 @@ class NGScore: UIViewController, UITextFieldDelegate {
         self.yourScoreIs.textColor = txt
 
         self.root.backgroundColor = bg
+
+        self.nameTextField.textColor = txt
 
 
         //get selected theme
@@ -297,6 +307,9 @@ class NGScore: UIViewController, UITextFieldDelegate {
             
             timer!.invalidate()
             sound.audioPlayer.stop()
+
+
+            sound.playSound(sound.endDrumrollSound)
             
             NSUserDefaults.standardUserDefaults().setInteger(realScore, forKey: "pointLabel")
             NSUserDefaults.standardUserDefaults().synchronize()

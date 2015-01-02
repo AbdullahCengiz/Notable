@@ -96,7 +96,7 @@ class MainPageViewController: UIViewController,GADBannerViewDelegate {
 
         var size = GADAdSizeFullWidthPortraitWithHeight(adHeight) // set size to 50
         var adB = GADBannerView(adSize: size, origin: origin) // create the banner
-        adB.adUnitID = "ca-app-pub-5033527814399651/5039778123" //"ca-app-pub-XXXXXXXX/XXXXXXX"
+        adB.adUnitID = "ca-app-pub-1132977094802404/5293532174" //"ca-app-pub-XXXXXXXX/XXXXXXX"
 
         reklamContainer.setTranslatesAutoresizingMaskIntoConstraints(false)
         adB.setTranslatesAutoresizingMaskIntoConstraints(false)
@@ -394,8 +394,14 @@ class MainPageViewController: UIViewController,GADBannerViewDelegate {
 
         //NSThread.sleepForTimeInterval(5)
 
+        //create progress
+        HUDController.sharedController.contentView = HUDContentView.ProgressView()
+        HUDController.sharedController.show()
+
+
         let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
         dispatch_async(dispatch_get_global_queue(priority, 0)) {
+
             // do some task
             dispatch_async(dispatch_get_main_queue()) {
 
@@ -410,15 +416,15 @@ class MainPageViewController: UIViewController,GADBannerViewDelegate {
                 }
                 else{
 
-                    //create progress
-                    HUDController.sharedController.contentView = HUDContentView.ProgressView()
-                    HUDController.sharedController.show()
+
 
                     self.gameQuestions  = self.coreDataHelper.getQuestionsOfCategories(selectedCategories) as [Question]
 
                     println("number of game questions  = \(self.gameQuestions.count)")
 
                     if(self.gameQuestions.count<10){
+
+                        HUDController.sharedController.hideAnimated()
 
                         JLToast.makeText("Please add more categories").show()
 

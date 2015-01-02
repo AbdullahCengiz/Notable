@@ -19,10 +19,14 @@ class SettingsViewController: UIViewController{
 
     @IBOutlet var storeButton: UIButton!
     @IBOutlet var soundSlider: UISlider!
-    @IBOutlet var resetAnswersButton: UIButton!
     @IBOutlet var resetHighScoresButton: UIButton!
     @IBOutlet var soundLevelInicatorContainer: UIView!
     @IBOutlet var navItem: UINavigationItem!
+
+    @IBOutlet var themeTitle: UILabel!
+    @IBOutlet var highScoreTitle: UILabel!
+    @IBOutlet var soundTitle: UILabel!
+    @IBOutlet var storeTitle: UILabel!
 
 
     @IBOutlet var themeSegmentButton: UISegmentedControl!
@@ -48,6 +52,8 @@ class SettingsViewController: UIViewController{
         initTheme()
     
         initUI()
+
+        setFontSizes()
         
         initVariables()
         
@@ -73,8 +79,7 @@ class SettingsViewController: UIViewController{
     }
 
     func initUI(){
-        
-        resetAnswersButton.layer.cornerRadius=4.0
+
         resetHighScoresButton.layer.cornerRadius=4.0
         soundLevelInicatorContainer.layer.cornerRadius=4.0
         storeButton.layer.cornerRadius=4.0
@@ -139,7 +144,6 @@ class SettingsViewController: UIViewController{
         
         self.view.backgroundColor = bg
         self.storeButton.backgroundColor = btn
-        self.resetAnswersButton.backgroundColor = btn
         self.resetHighScoresButton.backgroundColor = btn
         self.soundSlider.backgroundColor = btn
         self.soundLevelInicatorContainer.backgroundColor = btn
@@ -147,8 +151,6 @@ class SettingsViewController: UIViewController{
 
 
         self.themeSegmentButton.tintColor = txt
-        
-        self.resetAnswersButton.setTitleColor(txt, forState: UIControlState.Normal)
         self.resetHighScoresButton.setTitleColor(txt, forState: UIControlState.Normal)
         self.storeButton.setTitleColor(txt, forState: UIControlState.Normal)
 
@@ -223,7 +225,6 @@ class SettingsViewController: UIViewController{
     
         self.view.backgroundColor = backgroundColor
         self.soundSlider.backgroundColor = buttonColor
-        self.resetAnswersButton.backgroundColor = buttonColor
         self.soundLevelInicatorContainer.backgroundColor = buttonColor
         self.soundSlider.backgroundColor = buttonColor
         self.storeButton.backgroundColor = buttonColor
@@ -292,6 +293,38 @@ class SettingsViewController: UIViewController{
         styleView()
 
     }
+
+
+    func setFontSizes(){
+
+        let TRI_ISIPHONE = UIDevice.currentDevice().userInterfaceIdiom == .Phone;
+        let TRI_ISIPAD = UIDevice.currentDevice().userInterfaceIdiom == .Pad;
+
+        if(TRI_ISIPAD){
+
+            themeTitle.font = UIFont (name: "Roboto-Thin", size: 18)
+
+            highScoreTitle.font = UIFont (name: "Roboto-Thin", size: 18)
+
+             soundTitle.font = UIFont (name: "Roboto-Thin", size: 18)
+
+             storeTitle.font = UIFont (name: "Roboto-Thin", size: 18)
+
+
+        }else{
+
+          
+            themeTitle.font = UIFont (name: "Roboto-Thin", size: 12)
+
+            highScoreTitle.font = UIFont (name: "Roboto-Thin", size: 12)
+
+            soundTitle.font = UIFont (name: "Roboto-Thin", size: 12)
+
+            storeTitle.font = UIFont (name: "Roboto-Thin", size: 12)
+
+        }
+
+}
 
 
 }
