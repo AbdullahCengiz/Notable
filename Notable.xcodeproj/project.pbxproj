@@ -165,6 +165,8 @@
 		EDC832371A499DF900DC94BF /* WindowRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC8322F1A499DF900DC94BF /* WindowRootViewController.swift */; };
 		EDD14B7E1A029A61004F7EA1 /* CategoryTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD14B7D1A029A61004F7EA1 /* CategoryTableCell.swift */; };
 		EDD14B801A029BBE004F7EA1 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD14B7F1A029BBE004F7EA1 /* Category.swift */; };
+		EDF943581A56040D000011BE /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EDF943571A56040D000011BE /* Roboto-Bold.ttf */; };
+		EDF9435A1A5604BB000011BE /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EDF943591A5604BB000011BE /* Roboto-Light.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -370,6 +372,8 @@
 		EDC8322F1A499DF900DC94BF /* WindowRootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WindowRootViewController.swift; sourceTree = "<group>"; };
 		EDD14B7D1A029A61004F7EA1 /* CategoryTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryTableCell.swift; sourceTree = "<group>"; };
 		EDD14B7F1A029BBE004F7EA1 /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		EDF943571A56040D000011BE /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
+		EDF943591A5604BB000011BE /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Light.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -592,6 +596,8 @@
 			isa = PBXGroup;
 			children = (
 				ED38AF7B1A535D84002985F0 /* orangejuice.ttf */,
+				EDF943591A5604BB000011BE /* Roboto-Light.ttf */,
+				EDF943571A56040D000011BE /* Roboto-Bold.ttf */,
 				ED38AF701A52FE62002985F0 /* Roboto-Thin.ttf */,
 			);
 			name = fontFiles;
@@ -601,8 +607,6 @@
 			isa = PBXGroup;
 			children = (
 				ED19B34619FA93C700041AF0 /* NewGameViewController.swift */,
-				0DA8BD6F1A13AF63002F6F89 /* NGPause.swift */,
-				0DAAB2CB1A24A8BD0065C59F /* NGScore.swift */,
 			);
 			name = NewGame;
 			sourceTree = "<group>";
@@ -749,6 +753,8 @@
 		ED466DFF19F165DA00F14292 /* Notable */ = {
 			isa = PBXGroup;
 			children = (
+				EDF9435C1A562B84000011BE /* Score */,
+				EDF9435B1A562B73000011BE /* Pause */,
 				ED071E921A459DDD006BADD4 /* InAppPurchases */,
 				ED071E411A42CC17006BADD4 /* Reklam */,
 				ED234D8E1A14E33C00DE5087 /* Triv */,
@@ -947,6 +953,22 @@
 			path = "../../../Downloads/PKHUD-master/PKHUD";
 			sourceTree = "<group>";
 		};
+		EDF9435B1A562B73000011BE /* Pause */ = {
+			isa = PBXGroup;
+			children = (
+				0DA8BD6F1A13AF63002F6F89 /* NGPause.swift */,
+			);
+			name = Pause;
+			sourceTree = "<group>";
+		};
+		EDF9435C1A562B84000011BE /* Score */ = {
+			isa = PBXGroup;
+			children = (
+				0DAAB2CB1A24A8BD0065C59F /* NGScore.swift */,
+			);
+			name = Score;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1028,7 +1050,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EDF943581A56040D000011BE /* Roboto-Bold.ttf in Resources */,
 				ED38AF7C1A535D84002985F0 /* orangejuice.ttf in Resources */,
+				EDF9435A1A5604BB000011BE /* Roboto-Light.ttf in Resources */,
 				ED38AF731A52FE62002985F0 /* Roboto-Thin.ttf in Resources */,
 				ED84C1EE1A36EE400084DA0A /* C1.aif in Resources */,
 				ED84C1EF1A36EE400084DA0A /* C#1.aif in Resources */,

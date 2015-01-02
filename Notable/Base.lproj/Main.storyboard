@@ -2197,127 +2197,194 @@
                         <viewControllerLayoutGuide type="top" id="sYV-Kt-kO6"/>
                         <viewControllerLayoutGuide type="bottom" id="Uj2-1k-2l3"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Vxr-Kb-QKc">
+                    <view key="view" contentMode="scaleToFill" id="Vxr-Kb-QKc" userLabel="PauseGameRoot">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Settings" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QWO-Sw-DDg">
-                                <rect key="frame" x="246" y="266.5" width="109" height="40"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T34-Oc-eUt" userLabel="TopIndentation">
+                                <rect key="frame" x="16" y="20" width="568" height="97.5"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Game is Paused" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dc0-AG-CWW" userLabel="GameIsPaused">
+                                <rect key="frame" x="16" y="117" width="568" height="29"/>
                                 <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="30"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="End Game" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9eG-c6-6K7">
-                                <rect key="frame" x="232.5" y="419" width="137" height="40"/>
-                                <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="30"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="CUSTOMIZE &amp; GENERAL SETTINGS" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K0H-1T-5TU">
-                                <rect key="frame" x="165.5" y="314.5" width="269" height="22.5"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dUG-T4-07p" userLabel="GameIIsPausedBottomIndentation">
+                                <rect key="frame" x="16" y="146" width="568" height="7.5"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TAP HERE TO RESUME QUIZ" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3rh-gD-MM7">
+                                <rect key="frame" x="16" y="154" width="568" height="21"/>
                                 <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="17"/>
-                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="textColor" red="0.67450980390000004" green="0.68235294120000001" blue="0.70980392160000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" restorationIdentifier="resumeMessages" text="TAP HERE TO RESUME LESSON" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JJR-AA-lRG">
-                                <rect key="frame" x="180" y="162" width="241" height="22.5"/>
-                                <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="17"/>
-                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="YOUR PROGRESS WON'T BE SAVED!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uax-OO-03o">
-                                <rect key="frame" x="166" y="467" width="274.5" height="22.5"/>
-                                <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="17"/>
-                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="resume_button" translatesAutoresizingMaskIntoConstraints="NO" id="Zjo-eh-EE2">
-                                <rect key="frame" x="278" y="192.5" width="44" height="44"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bsP-mY-Vwc" userLabel="TapHereBottomIndentation">
+                                <rect key="frame" x="16" y="175" width="568" height="7.5"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YEm-BQ-EVB" userLabel="ResumeGameButton">
+                                <rect key="frame" x="270" y="182" width="60" height="60"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="GUn-Cn-xP3"/>
-                                    <constraint firstAttribute="width" constant="44" id="Wui-fd-GsN"/>
+                                    <constraint firstAttribute="width" secondItem="YEm-BQ-EVB" secondAttribute="height" multiplier="1:1" id="Viq-yc-gNA"/>
                                 </constraints>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" restorationIdentifier="pauseMessages" text="Your Game is Paused" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5ZW-Ym-wiM">
-                                <rect key="frame" x="159.5" y="114" width="282.5" height="40"/>
-                                <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="30"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="clW-H2-H5o">
-                                <rect key="frame" x="232.5" y="419" width="137" height="36"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="137" id="Dg2-mG-f84"/>
-                                    <constraint firstAttribute="height" constant="36" id="QKo-NL-8Pb"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="1"/>
-                                <state key="normal" title="endGameBtn">
-                                    <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <state key="normal" image="resume_button">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="goToMainPageAction:" destination="lsU-gd-WyV" eventType="touchUpInside" id="p0b-fI-qvC"/>
+                                    <action selector="resumePage:" destination="lsU-gd-WyV" eventType="touchUpInside" id="YpG-Z6-h8p"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" restorationIdentifier="resumeButton" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XVd-eH-jD7">
-                                <rect key="frame" x="275" y="189.5" width="50" height="50"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rA1-dv-YEl" userLabel="ResumeButtonBottomIndentation">
+                                <rect key="frame" x="16" y="242" width="568" height="42"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tqc-CV-jwN" userLabel="Settings">
+                                <rect key="frame" x="16" y="284" width="568" height="36"/>
+                                <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="30"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h2o-iL-Yje" userLabel="TapHereBottomIndentation">
+                                <rect key="frame" x="16" y="320" width="568" height="7"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CUSTOMIZE &amp; GENERAL SETTINGS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OrO-La-X5g">
+                                <rect key="frame" x="16" y="327" width="568" height="20"/>
+                                <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="17"/>
+                                <color key="textColor" red="0.67450980390000004" green="0.68235294120000001" blue="0.70980392160000005" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bzz-ze-fgY" userLabel="SettingsBottomIndentation">
+                                <rect key="frame" x="16" y="347" width="568" height="74"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="End Game" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1ca-Lo-I0R" userLabel="EndGame">
+                                <rect key="frame" x="16" y="421" width="568" height="40"/>
+                                <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="30"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D21-iI-hiT" userLabel="EndGameBottomIndentation">
+                                <rect key="frame" x="16" y="461" width="568" height="6"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="YOUR PROGRESS WON'T BE SAVED" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="25m-ae-V5Q">
+                                <rect key="frame" x="16" y="467" width="568" height="20"/>
+                                <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="17"/>
+                                <color key="textColor" red="0.67450980392156867" green="0.68235294117647061" blue="0.70980392156862748" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F2b-oq-Xpf" userLabel="SettingsButton">
+                                <rect key="frame" x="200" y="274" width="200" height="100"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="anX-sx-g05"/>
-                                    <constraint firstAttribute="width" constant="50" id="cj6-Ho-FqT"/>
+                                    <constraint firstAttribute="width" constant="200" id="iZh-cN-Ge8"/>
+                                    <constraint firstAttribute="height" constant="100" id="rwM-mG-t4k"/>
                                 </constraints>
-                                <state key="normal" title="resumeButton">
-                                    <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <state key="normal">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="resumePage:" destination="lsU-gd-WyV" eventType="touchUpInside" id="a3N-iz-quj"/>
+                                    <action selector="settingsLink:" destination="lsU-gd-WyV" eventType="touchUpInside" id="L4M-A4-BmD"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" restorationIdentifier="settingsButton" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J5D-Wq-WZE">
-                                <rect key="frame" x="245" y="264.5" width="110" height="40"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Pa-Uo-jQ5" userLabel="EndGameButton">
+                                <rect key="frame" x="200" y="407" width="200" height="100"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="110" id="Irs-aT-ibe"/>
-                                    <constraint firstAttribute="height" constant="40" id="bfe-bt-0HH"/>
+                                    <constraint firstAttribute="height" constant="100" id="PM6-St-084"/>
+                                    <constraint firstAttribute="width" constant="200" id="QYW-65-PzH"/>
                                 </constraints>
-                                <state key="normal" title="settingsButton">
-                                    <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <state key="normal">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="settingsLink:" destination="lsU-gd-WyV" eventType="touchUpInside" id="fWq-0D-i8J"/>
+                                    <action selector="goToMainPageAction:" destination="lsU-gd-WyV" eventType="touchUpInside" id="FT9-da-yu8"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Zjo-eh-EE2" firstAttribute="top" secondItem="XVd-eH-jD7" secondAttribute="bottom" constant="-47" id="0P2-Qw-DzJ"/>
-                            <constraint firstItem="K0H-1T-5TU" firstAttribute="top" secondItem="QWO-Sw-DDg" secondAttribute="bottom" constant="8" id="1Sh-y7-Q12"/>
-                            <constraint firstAttribute="centerX" secondItem="Uax-OO-03o" secondAttribute="centerX" constant="-3" id="E6h-8Z-KWn"/>
-                            <constraint firstItem="Zjo-eh-EE2" firstAttribute="leading" secondItem="XVd-eH-jD7" secondAttribute="trailing" constant="-47" id="ECN-pJ-Irc"/>
-                            <constraint firstItem="QWO-Sw-DDg" firstAttribute="centerX" secondItem="J5D-Wq-WZE" secondAttribute="centerX" constant="0.5" id="Pav-hg-R3h"/>
-                            <constraint firstItem="9eG-c6-6K7" firstAttribute="leading" secondItem="clW-H2-H5o" secondAttribute="trailing" constant="-137" id="QMN-fX-fcl"/>
-                            <constraint firstItem="9eG-c6-6K7" firstAttribute="top" secondItem="K0H-1T-5TU" secondAttribute="bottom" constant="82" id="SLA-x6-MGF"/>
-                            <constraint firstItem="QWO-Sw-DDg" firstAttribute="leading" secondItem="J5D-Wq-WZE" secondAttribute="trailing" constant="-109" id="SWR-ef-kBd"/>
-                            <constraint firstItem="QWO-Sw-DDg" firstAttribute="top" secondItem="Zjo-eh-EE2" secondAttribute="bottom" constant="30" id="UnA-F9-rEo"/>
-                            <constraint firstItem="JJR-AA-lRG" firstAttribute="top" secondItem="5ZW-Ym-wiM" secondAttribute="bottom" constant="8" id="Vd2-0z-OWX"/>
-                            <constraint firstItem="Uax-OO-03o" firstAttribute="top" secondItem="9eG-c6-6K7" secondAttribute="bottom" constant="8" id="W3i-TH-9J1"/>
-                            <constraint firstItem="9eG-c6-6K7" firstAttribute="top" secondItem="clW-H2-H5o" secondAttribute="bottom" constant="-36" id="aCE-vv-EEe"/>
-                            <constraint firstItem="QWO-Sw-DDg" firstAttribute="top" secondItem="J5D-Wq-WZE" secondAttribute="bottom" constant="-38" id="b3P-Ma-che"/>
-                            <constraint firstAttribute="centerX" secondItem="QWO-Sw-DDg" secondAttribute="centerX" constant="-0.5" id="bRh-Mn-9iY"/>
-                            <constraint firstAttribute="centerY" secondItem="QWO-Sw-DDg" secondAttribute="centerY" constant="14" id="jRX-UM-1uY"/>
-                            <constraint firstAttribute="centerX" secondItem="5ZW-Ym-wiM" secondAttribute="centerX" constant="-0.5" id="kKl-h2-TT4"/>
-                            <constraint firstItem="Zjo-eh-EE2" firstAttribute="top" secondItem="JJR-AA-lRG" secondAttribute="bottom" constant="8" id="nH2-8D-ZjY"/>
-                            <constraint firstAttribute="centerX" secondItem="9eG-c6-6K7" secondAttribute="centerX" constant="-0.5" id="nym-yK-lau"/>
-                            <constraint firstAttribute="centerX" secondItem="JJR-AA-lRG" secondAttribute="centerX" constant="-0.5" id="pSY-yC-IQk"/>
-                            <constraint firstAttribute="centerX" secondItem="K0H-1T-5TU" secondAttribute="centerX" id="r8m-U5-AXs"/>
-                            <constraint firstAttribute="centerX" secondItem="Zjo-eh-EE2" secondAttribute="centerX" id="txM-n1-JyT"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="D21-iI-hiT" secondAttribute="trailing" id="1tV-mB-CP7"/>
+                            <constraint firstAttribute="height" secondItem="1ca-Lo-I0R" secondAttribute="height" multiplier="15" id="2Gb-Ln-4JL"/>
+                            <constraint firstItem="rA1-dv-YEl" firstAttribute="leading" secondItem="Vxr-Kb-QKc" secondAttribute="leadingMargin" id="2KW-o8-3tl"/>
+                            <constraint firstItem="bzz-ze-fgY" firstAttribute="top" secondItem="OrO-La-X5g" secondAttribute="bottom" id="2g8-AM-AQG"/>
+                            <constraint firstItem="bsP-mY-Vwc" firstAttribute="leading" secondItem="Vxr-Kb-QKc" secondAttribute="leadingMargin" id="4j0-UN-pM8"/>
+                            <constraint firstItem="8Pa-Uo-jQ5" firstAttribute="centerY" secondItem="1ca-Lo-I0R" secondAttribute="centerY" constant="16" id="5wf-6x-U88"/>
+                            <constraint firstItem="YEm-BQ-EVB" firstAttribute="top" secondItem="bsP-mY-Vwc" secondAttribute="bottom" id="64i-Hq-Fct"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="bzz-ze-fgY" secondAttribute="trailing" id="6MX-pg-MJ4"/>
+                            <constraint firstAttribute="height" secondItem="25m-ae-V5Q" secondAttribute="height" multiplier="30" id="6Oc-ub-C3t"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="h2o-iL-Yje" secondAttribute="trailing" id="6lg-zy-OM8"/>
+                            <constraint firstAttribute="centerX" secondItem="YEm-BQ-EVB" secondAttribute="centerX" id="6p7-F5-NNw"/>
+                            <constraint firstItem="1ca-Lo-I0R" firstAttribute="leading" secondItem="Vxr-Kb-QKc" secondAttribute="leadingMargin" id="8XV-AQ-aAD"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="dUG-T4-07p" secondAttribute="trailing" id="8tV-JW-Zf1"/>
+                            <constraint firstItem="Tqc-CV-jwN" firstAttribute="height" secondItem="Vxr-Kb-QKc" secondAttribute="height" multiplier="0.06" id="9HA-hL-Nnj"/>
+                            <constraint firstItem="bzz-ze-fgY" firstAttribute="height" secondItem="Vxr-Kb-QKc" secondAttribute="height" multiplier="0.12323" id="9RO-JH-LXn"/>
+                            <constraint firstItem="T34-Oc-eUt" firstAttribute="height" secondItem="Vxr-Kb-QKc" secondAttribute="height" multiplier="0.16285" id="BCj-wI-32H"/>
+                            <constraint firstItem="rA1-dv-YEl" firstAttribute="height" secondItem="Vxr-Kb-QKc" secondAttribute="height" multiplier="0.0704" id="C4V-SO-r9Q"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="rA1-dv-YEl" secondAttribute="trailing" id="DAu-Z1-SYJ"/>
+                            <constraint firstItem="Tqc-CV-jwN" firstAttribute="leading" secondItem="Vxr-Kb-QKc" secondAttribute="leadingMargin" id="Dl2-Ml-jug"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="3rh-gD-MM7" secondAttribute="trailing" id="Dtg-b1-Csw"/>
+                            <constraint firstItem="3rh-gD-MM7" firstAttribute="bottom" secondItem="bsP-mY-Vwc" secondAttribute="top" id="FcS-eX-rjz"/>
+                            <constraint firstItem="bzz-ze-fgY" firstAttribute="leading" secondItem="Vxr-Kb-QKc" secondAttribute="leadingMargin" id="IHn-D6-DgF"/>
+                            <constraint firstItem="D21-iI-hiT" firstAttribute="height" secondItem="Vxr-Kb-QKc" secondAttribute="height" multiplier="0.01" id="Knv-Yh-eeD"/>
+                            <constraint firstAttribute="height" secondItem="OrO-La-X5g" secondAttribute="height" multiplier="30" id="Lwc-VJ-p1o"/>
+                            <constraint firstItem="dc0-AG-CWW" firstAttribute="leading" secondItem="Vxr-Kb-QKc" secondAttribute="leadingMargin" id="MK5-Es-Wsc"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="25m-ae-V5Q" secondAttribute="trailing" id="MOe-85-D0x"/>
+                            <constraint firstItem="dc0-AG-CWW" firstAttribute="height" secondItem="Vxr-Kb-QKc" secondAttribute="height" multiplier="0.04841" id="N3n-UP-SsO"/>
+                            <constraint firstItem="T34-Oc-eUt" firstAttribute="leading" secondItem="Vxr-Kb-QKc" secondAttribute="leadingMargin" id="NHO-aB-OUX"/>
+                            <constraint firstItem="D21-iI-hiT" firstAttribute="leading" secondItem="Vxr-Kb-QKc" secondAttribute="leadingMargin" id="Oli-yv-AeN"/>
+                            <constraint firstItem="D21-iI-hiT" firstAttribute="bottom" secondItem="25m-ae-V5Q" secondAttribute="top" id="QMM-ff-4Vj"/>
+                            <constraint firstAttribute="height" secondItem="bsP-mY-Vwc" secondAttribute="height" multiplier="80" id="QdK-pd-Xun"/>
+                            <constraint firstItem="F2b-oq-Xpf" firstAttribute="centerY" secondItem="Tqc-CV-jwN" secondAttribute="centerY" constant="22" id="QlR-hm-GUT"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="T34-Oc-eUt" secondAttribute="trailing" id="Qw2-B9-uOB"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Tqc-CV-jwN" secondAttribute="trailing" id="R2M-RX-lff"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="bsP-mY-Vwc" secondAttribute="trailing" id="RTb-xA-kxw"/>
+                            <constraint firstItem="OrO-La-X5g" firstAttribute="leading" secondItem="Vxr-Kb-QKc" secondAttribute="leadingMargin" id="Tuo-vo-zjE"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="dc0-AG-CWW" secondAttribute="trailing" id="VFS-1v-S1C"/>
+                            <constraint firstItem="1ca-Lo-I0R" firstAttribute="bottom" secondItem="D21-iI-hiT" secondAttribute="top" id="XFH-8a-fPr"/>
+                            <constraint firstItem="3rh-gD-MM7" firstAttribute="leading" secondItem="Vxr-Kb-QKc" secondAttribute="leadingMargin" id="XfV-yU-lgQ"/>
+                            <constraint firstItem="T34-Oc-eUt" firstAttribute="top" secondItem="sYV-Kt-kO6" secondAttribute="bottom" id="ZdM-Ay-Z0G"/>
+                            <constraint firstItem="dUG-T4-07p" firstAttribute="top" secondItem="dc0-AG-CWW" secondAttribute="bottom" id="bXp-zC-H18"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="1ca-Lo-I0R" secondAttribute="trailing" id="boK-1d-be0"/>
+                            <constraint firstItem="dUG-T4-07p" firstAttribute="leading" secondItem="Vxr-Kb-QKc" secondAttribute="leadingMargin" id="dXR-kc-e3j"/>
+                            <constraint firstAttribute="height" secondItem="dUG-T4-07p" secondAttribute="height" multiplier="80" id="dcE-9e-CYg"/>
+                            <constraint firstItem="YEm-BQ-EVB" firstAttribute="centerX" secondItem="bsP-mY-Vwc" secondAttribute="centerX" id="ejQ-Ue-xw6"/>
+                            <constraint firstItem="8Pa-Uo-jQ5" firstAttribute="centerX" secondItem="1ca-Lo-I0R" secondAttribute="centerX" id="h0c-Gs-eG6"/>
+                            <constraint firstItem="h2o-iL-Yje" firstAttribute="height" secondItem="Vxr-Kb-QKc" secondAttribute="height" multiplier="0.012" id="itQ-3M-DTF"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="OrO-La-X5g" secondAttribute="trailing" id="jm3-N3-sJ8"/>
+                            <constraint firstItem="h2o-iL-Yje" firstAttribute="bottom" secondItem="OrO-La-X5g" secondAttribute="top" id="mDo-pN-r3O"/>
+                            <constraint firstItem="F2b-oq-Xpf" firstAttribute="centerX" secondItem="Tqc-CV-jwN" secondAttribute="centerX" id="n4q-gt-bnE"/>
+                            <constraint firstItem="25m-ae-V5Q" firstAttribute="leading" secondItem="Vxr-Kb-QKc" secondAttribute="leadingMargin" id="nLD-WI-OZa"/>
+                            <constraint firstItem="bzz-ze-fgY" firstAttribute="bottom" secondItem="1ca-Lo-I0R" secondAttribute="top" id="nUk-Z8-dD7"/>
+                            <constraint firstItem="h2o-iL-Yje" firstAttribute="leading" secondItem="Vxr-Kb-QKc" secondAttribute="leadingMargin" id="qUl-lL-pnf"/>
+                            <constraint firstItem="Tqc-CV-jwN" firstAttribute="bottom" secondItem="h2o-iL-Yje" secondAttribute="top" id="qh0-U7-qEv"/>
+                            <constraint firstItem="3rh-gD-MM7" firstAttribute="top" secondItem="dUG-T4-07p" secondAttribute="bottom" id="quK-xf-UQY"/>
+                            <constraint firstItem="3rh-gD-MM7" firstAttribute="height" secondItem="Vxr-Kb-QKc" secondAttribute="height" multiplier="0.035" id="sW9-vE-gEm"/>
+                            <constraint firstItem="dc0-AG-CWW" firstAttribute="top" secondItem="T34-Oc-eUt" secondAttribute="bottom" id="sfi-Y5-Ash"/>
+                            <constraint firstItem="rA1-dv-YEl" firstAttribute="top" secondItem="YEm-BQ-EVB" secondAttribute="bottom" id="shv-lu-S8G"/>
+                            <constraint firstItem="YEm-BQ-EVB" firstAttribute="height" secondItem="Vxr-Kb-QKc" secondAttribute="height" multiplier="0.1" id="xJE-2S-e2A"/>
+                            <constraint firstItem="YEm-BQ-EVB" firstAttribute="width" secondItem="Vxr-Kb-QKc" secondAttribute="height" multiplier="1:1" id="xeV-6d-eUV"/>
+                            <constraint firstItem="Tqc-CV-jwN" firstAttribute="top" secondItem="rA1-dv-YEl" secondAttribute="bottom" id="zBn-4t-AZW"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="6p7-F5-NNw"/>
+                                <exclude reference="xeV-6d-eUV"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
-                        <outlet property="endMessages" destination="9eG-c6-6K7" id="PrC-Sv-VQu"/>
-                        <outlet property="pauseMessages" destination="5ZW-Ym-wiM" id="cPa-0E-CxG"/>
-                        <outlet property="resumeMessages" destination="JJR-AA-lRG" id="ZJQ-bW-gva"/>
-                        <outlet property="settingsLabel" destination="QWO-Sw-DDg" id="jmh-hV-keZ"/>
+                        <outlet property="endGame" destination="25m-ae-V5Q" id="lac-Ty-5Nu"/>
+                        <outlet property="endMessages" destination="1ca-Lo-I0R" id="iVN-5B-gm8"/>
+                        <outlet property="goSettings" destination="OrO-La-X5g" id="qAq-pM-sjB"/>
+                        <outlet property="pauseMessages" destination="dc0-AG-CWW" id="lnq-Op-8WI"/>
+                        <outlet property="resumeMessages" destination="3rh-gD-MM7" id="PgE-EJ-4Zi"/>
+                        <outlet property="settingsLabel" destination="Tqc-CV-jwN" id="gmA-em-eYH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ti5-vZ-Qci" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -3184,7 +3251,7 @@
                             <view contentMode="scaleToFill" restorationIdentifier="NewGameContainer" translatesAutoresizingMaskIntoConstraints="NO" id="EaP-cJ-5lL" userLabel="NewGameContainer">
                                 <rect key="frame" x="16" y="81" width="568" height="84.5"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Game" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o4M-qt-d0s">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="New Game" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o4M-qt-d0s">
                                         <rect key="frame" x="204" y="17" width="160" height="29.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="160" id="VhU-PA-4JD"/>

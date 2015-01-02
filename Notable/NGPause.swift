@@ -19,6 +19,10 @@ class NGPause: UIViewController{
     @IBOutlet weak var endMessages: UILabel!
     @IBOutlet var settingsLabel: UILabel!
 
+    @IBOutlet var goSettings: UILabel!
+
+    @IBOutlet var endGame: UILabel!
+
 
     
     required init(coder aDecoder: NSCoder) {
@@ -95,6 +99,9 @@ class NGPause: UIViewController{
         else {
             self.endMessages.text = "thisOneGoesToNothing!"
         }
+
+        //for setting font sizes
+        setFontSizes()
     }
 
     override func didReceiveMemoryWarning() {
@@ -193,14 +200,45 @@ func setColor(#backgroundColor:UIColor){
 
 }
 
+
+    func setFontSizes(){
+
+        let TRI_ISIPHONE = UIDevice.currentDevice().userInterfaceIdiom == .Phone;
+        let TRI_ISIPAD = UIDevice.currentDevice().userInterfaceIdiom == .Pad;
+
+        if(TRI_ISIPAD){
+
+            pauseMessages.font = UIFont (name: "Roboto-Light", size: 50)
+
+            resumeMessages.font = UIFont (name: "Roboto-Light", size: 22)
+
+            endMessages.font = UIFont (name: "Roboto-Light", size: 50)
+
+            settingsLabel.font = UIFont (name: "Roboto-Light", size: 50)
+
+            goSettings.font = UIFont (name: "Roboto-Light", size: 22)
+
+            endGame.font = UIFont (name: "Roboto-Light", size: 22)
+            
+
+        }else{
+
+            pauseMessages.font = UIFont (name: "Roboto-Light", size: 25)
+
+            resumeMessages.font = UIFont (name: "Roboto-Light", size: 13)
+
+            endMessages.font = UIFont (name: "Roboto-Light", size: 25)
+            
+            settingsLabel.font = UIFont (name: "Roboto-Light", size: 25)
+
+            goSettings.font = UIFont (name: "Roboto-Light", size: 13)
+
+            endGame.font = UIFont (name: "Roboto-Light", size: 13)
+            
+            
+        }
+        
+    }
+
+
 }
-
-
-
-
-
-
-
-
-
-
