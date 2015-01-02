@@ -47,10 +47,6 @@ class TrivNoteView
         var questionContent = questionContent
 
 
-        //println("clefType: \(clefType)")
-        //println("sharpFlatValue: \(sharpFlatValue)")
-       // println("questionContent= \(questionContent)")
-
         soundFileName = getSoundFileNameFromQuestionContent(questionContent:questionContent)
 
         soundFileName = soundFileName.stringByReplacingOccurrencesOfString("H", withString: "B", options: nil, range: nil)
@@ -73,14 +69,12 @@ class TrivNoteView
         }
 
 
-        //println("soundFileName=\(soundFileName)")
-
 
         if(!majorMinorFlag || noteIndex==1){
             clearAllScrollNotes() //reset noteView
             resetMajorMinorValues()
             arrangeTopAndBottomLines(firstTopLineFlag: false, secondTopLineFlag: false, thirdTopLineFlag: false, firstBottomLineFlag: false, secondBottomLineFlag: false, thirdBottomLineFlag: false)
-            //println("drawing \(questionContent)")
+
         }
         else{
 
@@ -192,7 +186,7 @@ class TrivNoteView
             newGameVC.playButton.hidden = false
             newGameVC.fclefImage.hidden=true
             newGameVC.gclefImage.hidden=false
-           
+
 
             switch questionContent {
             case "D6":
@@ -283,7 +277,7 @@ class TrivNoteView
             newGameVC.playButton.hidden = false
             newGameVC.fclefImage.hidden=false
             newGameVC.gclefImage.hidden=true
-            
+
             switch questionContent {
             case "D6":
                 position = 0.249          //3
@@ -398,7 +392,7 @@ class TrivNoteView
 
         noteView.addConstraint(NSLayoutConstraint(item:note, attribute:NSLayoutAttribute.CenterY,relatedBy:NSLayoutRelation.Equal, toItem: noteView,attribute:NSLayoutAttribute.CenterY, multiplier:position, constant:0))
 
-         noteView.addConstraint(NSLayoutConstraint(item:sharpFlat, attribute:NSLayoutAttribute.CenterY,relatedBy:NSLayoutRelation.Equal, toItem: noteView,attribute:NSLayoutAttribute.CenterY, multiplier:position, constant:0))
+        noteView.addConstraint(NSLayoutConstraint(item:sharpFlat, attribute:NSLayoutAttribute.CenterY,relatedBy:NSLayoutRelation.Equal, toItem: noteView,attribute:NSLayoutAttribute.CenterY, multiplier:position, constant:0))
 
 
         if(noteIndex == 1 && !majorMinorFlag){
@@ -408,7 +402,7 @@ class TrivNoteView
             newGameVC.newGame.lockButtons(false)
 
         }
-        //we have major or minor
+            //we have major or minor
         else if(noteIndex == 1){
             clearUnwantedLines(majorMinorPositionIndex1)
         }
@@ -515,7 +509,7 @@ class TrivNoteView
                 }
 
             }
-            
+
         }
     }
 
@@ -546,7 +540,7 @@ class TrivNoteView
             if(majorMinorPositionIndex1 != 4 && majorMinorPositionIndex2 != 4 && majorMinorpositionIndex3 != 4){
 
                 newGameVC.secondTopLine.hidden = true
-                
+
             }
 
         }
@@ -577,7 +571,7 @@ class TrivNoteView
             if(majorMinorPositionIndex1 != 18 && majorMinorPositionIndex2 != 18 && majorMinorpositionIndex3 != 18){
 
                 newGameVC.firstBottomLine.hidden = true
-                
+
             }
 
 
@@ -606,8 +600,8 @@ class TrivNoteView
             // check there is a note on this line or not
             if(majorMinorPositionIndex1 != 22 && majorMinorPositionIndex2 != 22 && majorMinorpositionIndex3 != 22){
 
-                 newGameVC.thirdBottomLine.hidden = true
-                
+                newGameVC.thirdBottomLine.hidden = true
+
             }
 
         }
@@ -635,7 +629,7 @@ class TrivNoteView
                 currentNoteCharacter = "B"
             }
 
-             currentNoteValue =  currentNoteCharacter+octavCharacter
+            currentNoteValue =  currentNoteCharacter+octavCharacter
 
 
         }
@@ -672,19 +666,19 @@ class TrivNoteView
                     currentNoteCharacter = String(Array(questionContent)[0])
 
                     for currentNoteCharacterCounter in 0..<noteArray.count {
-
+                        
                         if(noteArray[currentNoteCharacterCounter] == currentNoteCharacter){
                             ////println("currentNoteCharacter = \(currentNoteCharacter) and currentNoteValue = \(currentNoteCharacterCounter)")
-
+                            
                             if(currentNoteCharacterCounter == noteArray.count-1 ){
                                 currentNoteCharacter = noteArray[0]
                                 octavCharacter = String(octavCharacter.toInt()!+1)
                             }else{
-
+                                
                                 currentNoteCharacter = noteArray[currentNoteCharacterCounter+1]
-
+                                
                             }
-
+                            
                             currentNoteValue = currentNoteCharacter+octavCharacter
                             
                             break
@@ -695,56 +689,56 @@ class TrivNoteView
             }
             else{
                 //for flat value
-
+                
                 currentNoteCharacter = String(Array(questionContent)[0])
-
+                
                 for currentNoteCharacterCounter in 0..<noteArray.count {
-
+                    
                     if(noteArray[currentNoteCharacterCounter] == currentNoteCharacter){
                         ////println("currentNoteCharacter = \(currentNoteCharacter) and currentNoteValue = \(currentNoteCharacterCounter)")
-
+                        
                         if(currentNoteCharacterCounter == 0 ){
                             currentNoteCharacter = noteArray[noteArray.count-1]
                             octavCharacter = String(octavCharacter.toInt()!-1)
                         }else{
-
+                            
                             currentNoteCharacter = noteArray[currentNoteCharacterCounter-1]
-
+                            
                         }
-
+                        
                         currentNoteValue = currentNoteCharacter+octavCharacter
-
+                        
                         break
                     }
                 }
-
+                
             }
-
+            
         }
-
+        
         return currentNoteValue
     }
-
-
+    
+    
     func setPositionIndex(#noteIndex:Int,positionIndex:Int){
-
+        
         if(noteIndex == 1){
-
+            
             majorMinorPositionIndex1 = positionIndex
-
+            
         }
         else if(noteIndex == 2){
-
-             majorMinorPositionIndex2 = positionIndex
-
+            
+            majorMinorPositionIndex2 = positionIndex
+            
         }
         else{
-
+            
             majorMinorpositionIndex3 = positionIndex
-
+            
         }
-
+        
     }
-
-
+    
+    
 }

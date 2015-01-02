@@ -19,15 +19,15 @@ class MasterNC:UINavigationController, UINavigationControllerDelegate {
         } else {
             self.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.blackColor()]
         }
-        
+
         self.navigationBar.barTintColor = UIColor.whiteColor()
         self.delegate = self;
     }
-    
+
     func navigationController(navigationController: UINavigationController, willShowViewController viewController: UIViewController, animated: Bool) {
         updateTitle()
     }
-    
+
     func updateTitle() {
         //for logo
         println(self.visibleViewController.navigationItem.title)
@@ -36,21 +36,21 @@ class MasterNC:UINavigationController, UINavigationControllerDelegate {
             let imageView = UIImageView(image:logo)
             imageView.frame = CGRectMake(0, 0, 44, 44)
             self.visibleViewController.navigationItem.titleView = imageView
-          
+
         }
     }
-    
+
     func popToViewControllerOfClass(targetClass:AnyObject!) {
         for vc in self.viewControllers {
             if object_getClassName(vc) == object_getClassName(targetClass) {
                 self.popToViewController(vc as UIViewController, animated: true)
                 break
-                }
+            }
         }
     }
 
-//NSUserDefault
-    
-  
+    //NSUserDefault
 
+    
+    
 }

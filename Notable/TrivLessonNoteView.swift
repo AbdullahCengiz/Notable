@@ -157,34 +157,34 @@ class TrivLessonNoteView
 
         shiftIndex = 0
 
-            for counter in 0..<majorMinorValueArray.count {
+        for counter in 0..<majorMinorValueArray.count {
 
-                if(counter==0){
+            if(counter==0){
 
-                    if(majorMinorValueArray[counter]==0){
+                if(majorMinorValueArray[counter]==0){
 
-                        shiftIndex = 0.65
-
-                    }
-                    else{
-                        shiftIndex = 0.65
-                    }
+                    shiftIndex = 0.65
 
                 }
                 else{
-
-                    if(majorMinorValueArray[counter]==0){
-
-                        shiftIndex = shiftIndex + 0.1 + 0.1
-
-                    }
-                    else{
-                        shiftIndex = shiftIndex +  0.30
-                    }
-                    
-                    
-                    
+                    shiftIndex = 0.65
                 }
+
+            }
+            else{
+
+                if(majorMinorValueArray[counter]==0){
+
+                    shiftIndex = shiftIndex + 0.1 + 0.1
+
+                }
+                else{
+                    shiftIndex = shiftIndex +  0.30
+                }
+
+
+
+            }
 
 
 
@@ -290,7 +290,7 @@ class TrivLessonNoteView
 
         if(clefType == "gclef"){
             //makes line container visible
-           // newGameVC.lineContainer.hidden = false
+            // newGameVC.lineContainer.hidden = false
 
             //newGameVC.fclefImage.hidden=true
             //newGameVC.gclefImage.hidden=false
@@ -385,14 +385,9 @@ class TrivLessonNoteView
             //playSound
             sound.playSound(SoundFile(soundName: soundFileName, soundType: "aif"))
 
-            //newGameVC.newGame.sound.playSound(SoundFile(soundName: "correct", soundType: "mp3"))
         }
         else if (clefType == "fclef"){
             //makes line container visible
-            //newGameVC.lineContainer.hidden = false
-
-            //newGameVC.fclefImage.hidden=false
-            //newGameVC.gclefImage.hidden=true
 
             switch questionContent {
             case "D6":
@@ -488,9 +483,6 @@ class TrivLessonNoteView
 
             //playSound
             sound.playSound(SoundFile(soundName: soundFileName, soundType: "aif"))
-            //newGameVC.newGame.sound.playSound(SoundFile(soundName: "correct", soundType: "mp3"))
-
-
 
         }
 
@@ -602,7 +594,7 @@ class TrivLessonNoteView
 
             if view is UIView
             {
-                    view.removeFromSuperview()
+                view.removeFromSuperview()
             }
 
         }
@@ -648,10 +640,11 @@ class TrivLessonNoteView
                 for currentNoteCharacterCounter in 0..<noteArray.count {
 
                     if(noteArray[currentNoteCharacterCounter] == currentNoteCharacter){
-                        ////println("currentNoteCharacter = \(currentNoteCharacter) and currentNoteValue = \(currentNoteCharacterCounter)")
+
                         currentNoteValue = noteArray[currentNoteCharacterCounter]+octavCharacter
                         sharpFloatValueFound=true
                         break
+
                     }
                 }
 
@@ -664,7 +657,6 @@ class TrivLessonNoteView
                     for currentNoteCharacterCounter in 0..<noteArray.count {
                         
                         if(noteArray[currentNoteCharacterCounter] == currentNoteCharacter){
-                            ////println("currentNoteCharacter = \(currentNoteCharacter) and currentNoteValue = \(currentNoteCharacterCounter)")
                             
                             if(currentNoteCharacterCounter == noteArray.count-1 ){
                                 currentNoteCharacter = noteArray[0]
@@ -691,7 +683,6 @@ class TrivLessonNoteView
                 for currentNoteCharacterCounter in 0..<noteArray.count {
                     
                     if(noteArray[currentNoteCharacterCounter] == currentNoteCharacter){
-                        ////println("currentNoteCharacter = \(currentNoteCharacter) and currentNoteValue = \(currentNoteCharacterCounter)")
                         
                         if(currentNoteCharacterCounter == 0 ){
                             currentNoteCharacter = noteArray[noteArray.count-1]
@@ -715,6 +706,6 @@ class TrivLessonNoteView
         return currentNoteValue
     }
     
-
+    
     
 }

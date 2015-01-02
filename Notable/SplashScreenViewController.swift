@@ -30,6 +30,7 @@ class SplashScreenViewController: UIViewController {
         textFieldName()
         nameTextField()
         inAppPurchases()
+
     }
 
         func scoreNumber(){
@@ -40,6 +41,7 @@ class SplashScreenViewController: UIViewController {
             
             NSUserDefaults.standardUserDefaults().setObject(0, forKey: "pointLabel")
             NSUserDefaults.standardUserDefaults().synchronize()
+
        }
     }
     
@@ -50,6 +52,7 @@ class SplashScreenViewController: UIViewController {
             
             NSUserDefaults.standardUserDefaults().setObject(0, forKey: "highscoreName")
             NSUserDefaults.standardUserDefaults().synchronize()
+
         }
     }
 
@@ -74,8 +77,6 @@ class SplashScreenViewController: UIViewController {
             NSUserDefaults.standardUserDefaults().synchronize()
             
         }
-        
-
 
     }
     
@@ -149,14 +150,15 @@ class SplashScreenViewController: UIViewController {
     
     
     override func viewWillAppear(animated: Bool) {
+
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(true, animated: true)
         getScreenSize()
-        saveThemeColors()
         saveReklam()
         checkAnimateBtnStatus()
         saveAnimateBtn()
         textFieldName()
+
     }
     
     func getScreenSize(){
@@ -166,6 +168,7 @@ class SplashScreenViewController: UIViewController {
         var screenHeight: CGFloat = bounds.size.height
         
         saveScreenSize(width: screenWidth, height: screenHeight)
+
     }
     
     func saveScreenSize(#width: CGFloat, height: CGFloat){
@@ -180,6 +183,7 @@ class SplashScreenViewController: UIViewController {
     }
     
     func textFieldName(){
+
         var highscoreNumber: AnyObject? = NSUserDefaults.standardUserDefaults().objectForKey("nameText")
         
         if(highscoreNumber==nil){
@@ -254,80 +258,7 @@ class SplashScreenViewController: UIViewController {
         }
     }
 
-    
 
-    
-    
-    func saveThemeColors(){
-        
-        
-        //Second ThemeColor
-        var secondThemeBackgroundColor = UIColor.blackColor()
-        var secondThemeBackgroundColorData: NSData = NSKeyedArchiver.archivedDataWithRootObject(secondThemeBackgroundColor)
-        NSUserDefaults.standardUserDefaults().setObject(secondThemeBackgroundColorData, forKey: "secondThemeBackgroundColor")
-        
-        var secondThemeButtonColor = UIColor(red:36/255.0, green:40/255.0, blue:48/255.0, alpha:1.0)
-        var secondThemeButtonColorData: NSData = NSKeyedArchiver.archivedDataWithRootObject(secondThemeButtonColor)
-        NSUserDefaults.standardUserDefaults().setObject(secondThemeButtonColorData, forKey:
-            "secondThemeButtonColor")
-        
-        var secondThemeTextColor = UIColor.whiteColor()
-        var secondThemeTextColorData: NSData = NSKeyedArchiver.archivedDataWithRootObject(secondThemeTextColor)
-        NSUserDefaults.standardUserDefaults().setObject(secondThemeTextColorData, forKey:
-            "secondThemeTextColor")
-        
-        //Third ThemeColor
-        var thirdThemeBackgroundColor = UIColor(red:36/255.0, green:40/255.0, blue:48/255.0, alpha:1.0)
-        var thirdThemeBackgroundColorData: NSData = NSKeyedArchiver.archivedDataWithRootObject(thirdThemeBackgroundColor)
-        NSUserDefaults.standardUserDefaults().setObject(thirdThemeBackgroundColorData, forKey: "thirdThemeBackgroundColor")
-        
-        var thirdThemeButtonColor = UIColor(red:166/255.0, green:49/255.0, blue:58/255.0, alpha:1.0)
-        var thirdThemeButtonColorData: NSData = NSKeyedArchiver.archivedDataWithRootObject(thirdThemeButtonColor)
-        NSUserDefaults.standardUserDefaults().setObject(thirdThemeButtonColorData, forKey:
-            "thirdThemeButtonColor")
-        
-        var thirdThemeTextColor = UIColor.whiteColor()
-        var thirdThemeTextColorData: NSData = NSKeyedArchiver.archivedDataWithRootObject(thirdThemeTextColor)
-        NSUserDefaults.standardUserDefaults().setObject(thirdThemeTextColorData, forKey:
-            "thirdThemeTextColor")
-        
-        //Fourth ThemeColor
-        var fourthThemeBackgroundColor = UIColor(red:36/255.0, green:40/255.0, blue:48/255.0, alpha:1.0)
-        var fourthThemeBackgroundColorData: NSData = NSKeyedArchiver.archivedDataWithRootObject(fourthThemeBackgroundColor)
-        NSUserDefaults.standardUserDefaults().setObject(fourthThemeBackgroundColorData, forKey: "fourthThemeBackgroundColor")
-        
-        var fourthThemeButtonColor = UIColor(red:110/255.0, green:213/255.0, blue:107/255.0, alpha:1.0)
-        var fourthThemeButtonColorData: NSData = NSKeyedArchiver.archivedDataWithRootObject(fourthThemeButtonColor)
-        NSUserDefaults.standardUserDefaults().setObject(fourthThemeButtonColorData, forKey:
-            "fourthThemeButtonColor")
-        
-        var fourthThemeTextColor = UIColor.whiteColor()
-        var fourthThemeTextColorData: NSData = NSKeyedArchiver.archivedDataWithRootObject(fourthThemeTextColor)
-        NSUserDefaults.standardUserDefaults().setObject(fourthThemeTextColorData, forKey:
-            "fourthThemeTextColor")
-        
-        //Fifth ThemeColor
-        var fifthThemeBackgroundColor = UIColor(red:204/255.0, green:210/255.0, blue:216/255.0, alpha:1.0)
-        var fifthThemeBackgroundColorData: NSData = NSKeyedArchiver.archivedDataWithRootObject(fifthThemeBackgroundColor)
-        NSUserDefaults.standardUserDefaults().setObject(fifthThemeBackgroundColorData, forKey: "fifthThemeBackgroundColor")
-        
-        var fifthThemeButtonColor = UIColor(red:70/255.0, green:151/255.0, blue:233/255.0, alpha:1.0)
-        var fifthThemeButtonColorData: NSData = NSKeyedArchiver.archivedDataWithRootObject(fifthThemeButtonColor)
-        NSUserDefaults.standardUserDefaults().setObject(fifthThemeButtonColorData, forKey:
-            "fifthThemeButtonColor")
-        
-        var fifthThemeTextColor = UIColor.whiteColor()
-        var fifthThemeTextColorData: NSData = NSKeyedArchiver.archivedDataWithRootObject(fifthThemeTextColor)
-        NSUserDefaults.standardUserDefaults().setObject(fifthThemeTextColorData, forKey:
-            "fifthThemeTextColor")
-        
-        
-        
-        NSUserDefaults.standardUserDefaults().synchronize()
-        
-    }
-    
-    
     func createGameDatabase(){
        
         //read file line by line

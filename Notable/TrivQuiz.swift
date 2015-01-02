@@ -104,8 +104,6 @@ class TrivQuiz
         initUI()
         initVariables()
         setSoundValue()
-        //initPlayer()
-        //trivNoteView.addNote(questionContent:"H4",clefType:"gClef",sharpFlatValue: -1)
         prepareGame(currentQuestion)
 
     }
@@ -119,6 +117,7 @@ class TrivQuiz
 
         var numberCircleWidth = (((((NSUserDefaults.standardUserDefaults().objectForKey("height") as CGFloat)*1008)/1136))*42)/1008
 
+        // for making circular choice button numbers
         newGameVC.firstChoiceNumberHeight.constant = numberCircleWidth
         newGameVC.firstChoiceNumberWidth.constant = numberCircleWidth
 
@@ -130,9 +129,6 @@ class TrivQuiz
 
         newGameVC.fourthChoiceNumberHeight.constant = numberCircleWidth
         newGameVC.fourthChoiceNumberWidth.constant = numberCircleWidth
-
-        ////////println("firstChoiceContainer.height=!!!!!= \(firstChoiceContainer.frame.size.height)")
-        ////////println("numberCircleWidth=!!!!!= \(numberCircleWidth)")
 
         newGameVC.firstChoiceNumberContainer.frame = CGRectMake(newGameVC.firstChoiceNumberContainer.frame.minX, newGameVC.firstChoiceNumberContainer.frame.minY, numberCircleWidth, numberCircleWidth)
         newGameVC.secondChoiceNumberContainer.frame = CGRectMake(newGameVC.secondChoiceNumberContainer.frame.minX, newGameVC.secondChoiceNumberContainer.frame.minY, numberCircleWidth, numberCircleWidth)
@@ -183,8 +179,7 @@ class TrivQuiz
         var soundLevel: AnyObject? = NSUserDefaults.standardUserDefaults().objectForKey("sound")
         // control initial sound value
         if(soundLevel==nil){
-            println("in sound value is nil !!!!!!!")
-            //////////println("No sound value !!!!!")
+
             NSUserDefaults.standardUserDefaults().setObject(0.5, forKey: "sound")
             NSUserDefaults.standardUserDefaults().synchronize()
             soundLevelValue = 0.5;
@@ -200,46 +195,6 @@ class TrivQuiz
     }
 
 
-    func addNote(){
-
-        var note:UIView = UIView()
-
-        newGameVC.noteView.setTranslatesAutoresizingMaskIntoConstraints(false)
-        note.setTranslatesAutoresizingMaskIntoConstraints(false)
-        note.backgroundColor = UIColor.redColor()
-
-        newGameVC.noteView.addSubview(note)
-
-        newGameVC.noteView.alpha  = 0.5
-
-        // //println(" (secondNoteLine.X)=\(secondNoteLine.bounds.origin.x)")
-        ////println(" (secondNoteLine.maxY)=\(newGameVC.secondNoteLine.frame.maxY)")
-
-        var noteHeight = height*(46/1136)
-
-        newGameVC.noteView.addConstraint(NSLayoutConstraint(item:note, attribute:NSLayoutAttribute.Height,relatedBy:NSLayoutRelation.Equal, toItem: newGameVC.noteView,attribute:NSLayoutAttribute.Height, multiplier:(0.1227), constant:0))
-
-
-        var heightConstraint = NSLayoutConstraint(item: note, attribute: NSLayoutAttribute.Width, relatedBy: NSLayoutRelation.Equal, toItem: note, attribute: NSLayoutAttribute.Height, multiplier: 1/1, constant: 0)
-
-        newGameVC.noteView.addConstraint(heightConstraint)
-
-
-        newGameVC.noteView.addConstraint(NSLayoutConstraint(
-            item:note, attribute:.CenterX,
-            relatedBy:.Equal, toItem:newGameVC.noteView,
-            attribute:.CenterX, multiplier:1, constant:0))
-
-        //println("heightConstraint == !!!!!!! \(heightConstraint.constant)")
-
-
-        newGameVC.noteView.addConstraint(NSLayoutConstraint(
-            item:note, attribute:.CenterY,
-            relatedBy:.Equal, toItem: newGameVC.noteView,
-            attribute:.CenterY, multiplier:1.125, constant:0))
-
-    }
-
 
     func prepareGame(currentQuestion:Int){
 
@@ -253,7 +208,7 @@ class TrivQuiz
             cellCounter = 0
         }
 
-        if (cellCounter == 1){
+        if (cellCounter == 10){
 
             // check reklam status first
             var removeAd: AnyObject? = NSUserDefaults.standardUserDefaults().objectForKey("removeAd")
@@ -270,7 +225,6 @@ class TrivQuiz
                 newGameVC.performSegueWithIdentifier("goToReklam", sender: nil)
 
             }
-
 
 
         }else{
@@ -322,14 +276,12 @@ class TrivQuiz
             }
             //unlocks choice buttons
 
-            //println("questionContent = \(questions![currentQuestion].questionContent!)")
 
             // question with picture or not
             if((questions![currentQuestion].questionContent!.rangeOfString(".")) != nil ){
                 trivNoteView.addNote(questionContent:questions![currentQuestion].questionContent! , clefType:questions![currentQuestion].questionClefType! , sharpFlatValue: currentSharpFlatValue,majorMinorFlag: true,noteIndex:1)
             }
             else {
-
 
                 if(currentQuestion==0){
 
@@ -351,20 +303,9 @@ class TrivQuiz
 
                 }
 
-
-
-
-                //getNoteSoundFromQuestionContent("G2|Hb2|D3")
-
                 println("QuestionContent!!!!!!!!!!!!!!!!!!!! : \(questions![currentQuestion].questionAnswer!)")
             }
 
-
-
-
-            //getNoteSoundFromQuestionContent("D3|F3|A3")
-
-            //lockButtons(false)
         }
     }
 
@@ -383,17 +324,12 @@ class TrivQuiz
 
         //get length of question content
         var questionContentLenght:Int = (questionContent).utf16Count
-        //////println("count = \(questionContentLenght)")
-
 
         for characterCounter in 0..<questionContentLenght {
 
 
             if(questionContentLenght==2){
                 //basic notes
-
-
-                ////println("Will find \(questionContent)")
 
                 //get noteValue
                 if (characterCounter == 0){
@@ -404,14 +340,15 @@ class TrivQuiz
                     for currentNoteCharacterCounter in 0..<noteArray.count {
 
                         if(noteArray[currentNoteCharacterCounter] == currentNoteCharacter){
-                            ////println("currentNoteCharacter = \(currentNoteCharacter) and currentNoteValue = \(currentNoteCharacterCounter)")
+
                             currentNoteValue = String(currentNoteCharacterCounter)
                             break
+
                         }
 
                     }
 
-                    //////println("currentNoteCharacter = \(currentNoteCharacter)")
+
                 }
 
                 // set currentSharpFlatValue to 0
@@ -421,14 +358,10 @@ class TrivQuiz
                 if (characterCounter == questionContentLenght-1){
 
                     currentOctav = String(Array(questionContent)[characterCounter]).toInt()!
-                    //////println("currentOctav = \(currentOctav)")
+
                 }
 
             } else if (questionContentLenght==3){
-
-
-                ////println("Will find \(questionContent)")
-
 
                 sharpFlatValueNotFound=true
 
@@ -437,6 +370,19 @@ class TrivQuiz
 
                     var currentNoteCharacter:String =  String(Array(questionContent)[characterCounter-1])+String(Array(questionContent)[characterCounter])
 
+                    for currentNoteCharacterCounter in 0..<noteArray.count {
+
+                        if(noteArray[currentNoteCharacterCounter] == currentNoteCharacter){
+
+                            currentNoteValue = String(currentNoteCharacterCounter)
+                            currentSharpFlatValue = 0
+                            break
+
+                        }
+                    }
+
+                    // add comment here
+                    currentNoteCharacter =  String(Array(questionContent)[characterCounter-1])
 
                     ////println("will look for \(currentNoteCharacter)")
 
@@ -444,50 +390,23 @@ class TrivQuiz
                     for currentNoteCharacterCounter in 0..<noteArray.count {
 
                         if(noteArray[currentNoteCharacterCounter] == currentNoteCharacter){
-                            ////println("currentNoteCharacter = \(currentNoteCharacter) and currentNoteValue = \(currentNoteCharacterCounter)")
+
                             currentNoteValue = String(currentNoteCharacterCounter)
                             currentSharpFlatValue = 0
-                            //sharpFlatValueNotFound = false
+
+                            if(String(Array(questionContent)[characterCounter])=="#"){
+
+                                currentSharpFlatValue  = 1
+
+                            }else{
+
+                                currentSharpFlatValue  = -1
+
+                            }
                             break
                         }
                     }
 
-                    // add comment here
-                    if(true){
-
-                        ////println("will look for \(currentNoteCharacter) not found")
-
-                        currentNoteCharacter =  String(Array(questionContent)[characterCounter-1])
-
-                        ////println("will look for \(currentNoteCharacter)")
-
-
-                        for currentNoteCharacterCounter in 0..<noteArray.count {
-
-                            if(noteArray[currentNoteCharacterCounter] == currentNoteCharacter){
-                                ////println("currentNoteCharacter = \(currentNoteCharacter) and currentNoteValue = \(currentNoteCharacterCounter)")
-                                currentNoteValue = String(currentNoteCharacterCounter)
-                                currentSharpFlatValue = 0
-
-
-                                ////println("possibleSharpOrFlatValue = \(String(Array(questionContent)[characterCounter]))")
-
-
-                                if(String(Array(questionContent)[characterCounter])=="#"){
-
-                                    currentSharpFlatValue  = 1
-
-                                }else{
-
-                                    currentSharpFlatValue  = -1
-
-                                }
-                                break
-                            }
-                        }
-                    }
-
-                    //////println("currentNoteCharacter = \(currentNoteCharacter)")
 
                 }
 
@@ -501,9 +420,6 @@ class TrivQuiz
             } else {
 
                 //minor or major note
-
-                ////println("Will find \(questionContent)")
-
 
                 minorOrMajorNoteContentArray = split(questionContent as String, { $0 == "|" }, maxSplit: 3, allowEmptySlices: true)
 
@@ -520,18 +436,10 @@ class TrivQuiz
                 }
 
 
-
-
-
                 majorMinorFound=true
                 break
-                //currentNote  = 110
 
             }
-
-            //////println(Array((questions![currentQuestion].questionContent!))[characterCounter])
-
-
 
         }
 
@@ -539,18 +447,11 @@ class TrivQuiz
         if(!majorMinorFound){
             currentNote = getCurrentNoteValue(octav:currentOctav, noteValue:currentNoteValue.toInt()!, sharpFlatValue:currentSharpFlatValue )
 
-            //println("currentSharpFlatValue= \(currentSharpFlatValue)")
 
             if(countElements(questions![currentQuestion].questionContent!) < 4){
                 trivNoteView.addNote(questionContent:questions![currentQuestion].questionContent! , clefType:questions![currentQuestion].questionClefType! , sharpFlatValue: currentSharpFlatValue,majorMinorFlag: false,noteIndex:1)
             }
 
-
-
-            //println("Will play note \(questionContent) and noteId = \(currentNote)")
-
-            //playNote(currentNote)
-            //majorMinorFound=false
         }
 
     }
@@ -618,9 +519,6 @@ class TrivQuiz
 
     func getCurrentNoteValue(#octav:Int,noteValue:Int, sharpFlatValue:Int) -> Int32 {
 
-
-        ////println("sharpFlatValue!!!!!!!!!!!!!!!! = \(sharpFlatValue)")
-
         var value:Int32  = 0
 
 
@@ -657,8 +555,6 @@ class TrivQuiz
 
             }
         }
-
-        ////println("noteValue = \(value)")
 
         return value
 
@@ -698,7 +594,6 @@ class TrivQuiz
     }
 
 
-
     func getNextQuestion(#isAnswerTrue:Bool){
         var arr = [isAnswerTrue]
         var timer = NSTimer.scheduledTimerWithTimeInterval(0.75, target: self, selector: Selector("nextQuestion"), userInfo: arr, repeats: false)
@@ -726,33 +621,33 @@ class TrivQuiz
                     if(currentQuestion+1 < questions!.count-1){
 
                         prepareGame(currentQuestion)
-                        
+
                     }
                     else{
-                        
+
                         prepareGame(0)
-                        
+
                     }
-                    
-                    
+
+
                 }
             }
             else{
-                
+
                 if(currentQuestion+1 < questions!.count-1){
-                    
+
                     prepareGame(currentQuestion)
-                    
+
                 }
                 else{
-                    
+
                     prepareGame(0)
-                    
+
                 }
             }
-            
-            
-            
+
+
+
             
         } else {
             
@@ -782,8 +677,6 @@ class TrivQuiz
             
             newGameVC.pointLabel.text = String(realScore)
             
-            //////println("counter = \(counter) realScore = \(realScore)")
-            
             timer.invalidate()
             bloat()
             
@@ -802,7 +695,6 @@ class TrivQuiz
         if(counter==realScore){
             
             newGameVC.pointLabel.text = String(realScore)
-            //////println("counter = \(counter) realScore = \(realScore)")
             counter=realScore
             timer.invalidate()
             bloat()
@@ -810,20 +702,21 @@ class TrivQuiz
             getNextQuestion(isAnswerTrue:false)
             NSUserDefaults.standardUserDefaults().setInteger(realScore, forKey: "pointLabel")
             NSUserDefaults.standardUserDefaults().synchronize()
+            
         }
     }
     
     
     @objc func bloat() {
+        
         var animation = CABasicAnimation(keyPath: "transform.scale")
         animation.toValue = NSNumber(float: 0.9)
         animation.duration = 0.2
         animation.repeatCount = 3.0
         animation.autoreverses = true
         newGameVC.pointLabel.layer.addAnimation(animation, forKey: nil)
+        
     }
-    
-    
     
     
     func playMajorMinorSound(){

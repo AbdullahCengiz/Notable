@@ -17,12 +17,12 @@ class PracticeViewController: UIViewController,UITableViewDelegate ,UITableViewD
     var gameQuestions: [Question]!
 
     @IBOutlet var categoriesTableView: UITableView!
-    
+
     var backButton:UIButton!
-    
+
     var delegate:AnyObject?
     var navBar:UINavigationBar!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         navBar = self.navigationController?.navigationBar
@@ -38,33 +38,33 @@ class PracticeViewController: UIViewController,UITableViewDelegate ,UITableViewD
         cdHelper = CoreDataHelper()
 
         loadCategories()
-        
+
         initUI()
     }
-    
+
     func initUI() {
-       
+
     }
-    
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    
+
+
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        
+
         prepareNavigationBar()
-                styleView()
+        styleView()
     }
-    
+
     func styleView() {
         var bg:UIColor = UIColor.whiteColor()
         var btn:UIColor = UIColor.whiteColor()
         var txt:UIColor = UIColor.blackColor()
         Theme().fetchThemeColors(&bg, buttonColor:&btn, textColor:&txt)
-        
+
         self.view.backgroundColor = bg
 
         //change navigation bar color
@@ -87,7 +87,7 @@ class PracticeViewController: UIViewController,UITableViewDelegate ,UITableViewD
         else{
 
             image = UIImage(named: "backbutton_dark") as UIImage?
-            
+
         }
 
         backButton.setBackgroundImage(image, forState: UIControlState.Normal)
@@ -95,7 +95,7 @@ class PracticeViewController: UIViewController,UITableViewDelegate ,UITableViewD
     }
 
     func prepareNavigationBar(){
-        
+
 
         //for settings button
         var selectedTheme: Int = NSUserDefaults.standardUserDefaults().objectForKey("selectedTheme") as Int
@@ -110,9 +110,8 @@ class PracticeViewController: UIViewController,UITableViewDelegate ,UITableViewD
         else{
 
             image = UIImage(named: "backbutton_dark") as UIImage?
-            
-        }
 
+        }
 
         backButton = UIButton.buttonWithType(UIButtonType.System) as UIButton
         backButton.frame  = CGRectMake(0, 0, 25, 25)
@@ -123,8 +122,6 @@ class PracticeViewController: UIViewController,UITableViewDelegate ,UITableViewD
         navItem.hidesBackButton=true
 
     }
-
-
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return loadedArrayOfCategories.count
@@ -142,22 +139,14 @@ class PracticeViewController: UIViewController,UITableViewDelegate ,UITableViewD
 
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         println("You selected cell #\(indexPath.row)!")
+
         let categoryCell :CategoryTableCell = categoriesTableView.cellForRowAtIndexPath(indexPath) as CategoryTableCell
-
         var selectedCategory : Category = loadedArrayOfCategories[indexPath.row]
-
         var selectedCategoryName :String = categoryCell.categoryNameLabel.text as String!
-
         var selectedCategories:[Category] = []
-
         selectedCategories.append(selectedCategory)
-
         gameQuestions  = cdHelper.getQuestionsOfCategories(selectedCategories) as [Question]
-
         self.performSegueWithIdentifier("practiceToNewGame", sender: "newGame")
-
-        //println("selectedCategory = \(selectedCategoryName)")
-
         categoriesTableView.reloadData()
 
     }
@@ -168,34 +157,28 @@ class PracticeViewController: UIViewController,UITableViewDelegate ,UITableViewD
 
     }
 
-
     func loadCategories(){
 
         loadedArrayOfCategories.removeAll(keepCapacity: false)
 
         if let loadCategoryResult  = cdHelper?.loadData("category") {
             loadedArrayOfCategories  = loadCategoryResult.data as [Category]
-            
+
         }
     }
-
-
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
 
         if(sender? as String == "newGame"){
-
+            
             let newGameViewController = (segue.destinationViewController as NewGameViewController)
             var newGame = newGameViewController.initTrivQuiz()
             newGame.questions = gameQuestions
             newGame.gameType = "practice"
+            
         }
     }
-
-
-
     
-
 }
 
 

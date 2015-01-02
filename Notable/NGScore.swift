@@ -26,7 +26,7 @@ class NGScore: UIViewController, UITextFieldDelegate {
 
     var textViewMoveValue:CGFloat!
 
-    
+
     var delegate: AnyObject?
     var timer:NSTimer!
     var sound = Sound()
@@ -49,12 +49,12 @@ class NGScore: UIViewController, UITextFieldDelegate {
     var counter = 0
     var realScore = 0
     var pointLabel: Int = NSUserDefaults.standardUserDefaults().objectForKey("pointLabel") as Int
-    
+
     required init(coder aDecoder: NSCoder) {
         self.delegate = nil
         super.init(coder: aDecoder)
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         sendButton.layer.cornerRadius = 4.0
@@ -63,9 +63,9 @@ class NGScore: UIViewController, UITextFieldDelegate {
         nameTextField.autocorrectionType = UITextAutocorrectionType.No
 
         allFonts()
-        
+
         println("in NGScoreViewController")
-        
+
         self.navigationController?.setNavigationBarHidden(false, animated: true)
 
         self.frameView = UIView(frame: CGRectMake(0, 0, self.view.bounds.width, self.view.bounds.height))
@@ -79,7 +79,7 @@ class NGScore: UIViewController, UITextFieldDelegate {
         //calculate move up value
         textViewMoveValue = (height*375)/1136 as CGFloat
 
-      }
+    }
 
     func keyboardWillShow(notification: NSNotification) {
 
@@ -124,31 +124,29 @@ class NGScore: UIViewController, UITextFieldDelegate {
         NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillShowNotification, object: nil)
         NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillHideNotification, object: nil)
     }
-    
-    
-    
+
+
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        
+
         medalTypes()
         styleView()
-        //medalView()
         scoreCountDown()
-        
+
         //getting the LatestScore
-       
         self.scoreNumber.text  = String(pointLabel)
 
         setFontSizes()
         sound.playSound(sound.drumrollSound,repeat:true)
         timer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self,
             selector: Selector("scoreCountDown"), userInfo: nil, repeats: true)
-        }
+    }
 
 
     func setFontSizes(){
@@ -188,10 +186,10 @@ class NGScore: UIViewController, UITextFieldDelegate {
             attributes:[NSForegroundColorAttributeName: UIColor.whiteColor()])
 
     }
-    
-    
+
+
     func styleView() {
-        
+
         var bg:UIColor = UIColor.whiteColor()
         var btn:UIColor = UIColor.whiteColor()
         var txt:UIColor = UIColor.blackColor()
@@ -223,145 +221,145 @@ class NGScore: UIViewController, UITextFieldDelegate {
         }
 
     }
-    
+
     func showFromRect(_rect: CGRect, inView view: UIView!, animated: Bool)(nameTextField: UITextField){
-        
+
         var delegate: UIActionSheet
     }
 
     func setColor(#backgroundColor:UIColor){
-        
+
         self.view.backgroundColor = backgroundColor
     }
-    
+
     func setMedal(#image: String){
         var defaults = NSUserDefaults()
         self.medalImage.image = UIImage(named: image)
 
     }
-    
+
     func medalView() {
         let anyMedal: UIImageView = self.medalImage,
         currentMedal = arrayOfMedals[0]
         setMedal(image: currentMedal.medalImage)
     }
-    
+
     func medalTypes() {
-        
+
         arrayOfMedals.removeAll(keepCapacity: false)
-        
+
         var highscoreNumberGold: Int = NSUserDefaults.standardUserDefaults().integerForKey("highscoreNumberGold") as Int
         var highscoreNumberSilver: Int = NSUserDefaults.standardUserDefaults().integerForKey("highscoreNumberSilver") as Int
         var highscoreNumberBronze: Int = NSUserDefaults.standardUserDefaults().integerForKey("highscoreNumberBronze") as Int
-        
+
         var med1: Medal  = Medal(medalNamez: "GOLD MEDAL", medalImage: "Gold.png")
         var med2: Medal  = Medal(medalNamez: "SILVER MEDAL", medalImage: "Silver.png")
         var med3: Medal  = Medal(medalNamez: "BRONZE MEDAL", medalImage: "Bronze.png")
-        
+
         var medalNamez:String = ""
-        
+
         if(pointLabel >= highscoreNumberGold){
-           
+
             medalNamez = "Gold.png"
             self.medalNamez.text = "GOLD MEDAL"
             self.nameTextField.hidden = false
-            
+
         } else if(pointLabel >= highscoreNumberSilver){
-           
+
             medalNamez = "Silver.png"
             self.medalNamez.text = "SILVER MEDAL"
             self.nameTextField.hidden = false
-            
+
         } else if(pointLabel >= highscoreNumberBronze){
-            
+
             medalNamez = "Bronze.png"
-             self.medalNamez.text = "BRONZE MEDAL"
-             self.nameTextField.hidden = false
-            
+            self.medalNamez.text = "BRONZE MEDAL"
+            self.nameTextField.hidden = false
+
         } else {
-            
+
             medalNamez = "medal_no.png"
             self.medalNamez.text = "No medal"
             self.nameTextField.hidden = true
-            
-            }
-        
+
+        }
+
         setMedal(image: medalNamez)
     }
 
-    
-      @IBAction func sendButton(sender: UIButton) {
+
+    @IBAction func sendButton(sender: UIButton) {
 
         scoreMainFunction()
 
     }
-    
+
     func scoreCountDown() {
         counter = counter + 10
         scoreNumber.text = "\(String(counter))p"
         println("counter=\(counter) pointLabel = \(pointLabel)")
 
         if(counter==pointLabel){
-            
-           scoreNumber.text = "\(String(pointLabel))p"
-            
+
+            scoreNumber.text = "\(String(pointLabel))p"
+
             timer!.invalidate()
             sound.audioPlayer.stop()
 
 
             sound.playSound(sound.endDrumrollSound)
-            
+
             NSUserDefaults.standardUserDefaults().setInteger(realScore, forKey: "pointLabel")
             NSUserDefaults.standardUserDefaults().synchronize()
         }
     }
-    
+
     func setUpPoints(){
-        
-        
+
+
         var highscoreNumberGold: Int = NSUserDefaults.standardUserDefaults().integerForKey("highscoreNumberGold") as Int
         var highscoreNumberSilver: Int = NSUserDefaults.standardUserDefaults().integerForKey("highscoreNumberSilver") as Int
         var highscoreNumberBronze: Int = NSUserDefaults.standardUserDefaults().integerForKey("highscoreNumberBronze") as Int
-        
+
         var highscoreNameGold: AnyObject? = NSUserDefaults.standardUserDefaults().objectForKey("highscoreNameGold")
         var highscoreNameSilver: AnyObject? = NSUserDefaults.standardUserDefaults().objectForKey("highscoreNameSilver")
         var highscoreNameBronze: AnyObject? = NSUserDefaults.standardUserDefaults().objectForKey("highscoreNameBronze")
 
         println("pointlabel=!!!!!!! : \(pointLabel)")
-        
-        
+
+
         if (pointLabel >= highscoreNumberGold){
             highscoreNumberBronze = highscoreNumberSilver
             highscoreNumberSilver = highscoreNumberGold
             highscoreNumberGold = pointLabel
-            
+
             NSUserDefaults.standardUserDefaults().setObject(self.nameTextField.text, forKey: "highscoreNameGold")
             NSUserDefaults.standardUserDefaults().setObject(highscoreNameGold, forKey: "highscoreNameSilver")
             NSUserDefaults.standardUserDefaults().setObject(highscoreNameSilver, forKey: "highscoreNameBronze")
             NSUserDefaults.standardUserDefaults().synchronize()
-            
-            
+
+
         } else if (pointLabel >= highscoreNumberSilver){
             highscoreNumberBronze = highscoreNumberSilver
             highscoreNumberSilver = pointLabel
-            
+
             NSUserDefaults.standardUserDefaults().setObject(self.nameTextField.text, forKey: "highscoreNameSilver")
             NSUserDefaults.standardUserDefaults().setObject(highscoreNameSilver, forKey: "highscoreNameBronze")
             NSUserDefaults.standardUserDefaults().synchronize()
-            
+
         } else if (pointLabel >= highscoreNumberBronze) {
             highscoreNumberBronze = pointLabel
-            
+
             NSUserDefaults.standardUserDefaults().setObject(self.nameTextField.text, forKey: "highscoreNameBronze")
             NSUserDefaults.standardUserDefaults().synchronize()
         }
-        
+
         NSUserDefaults.standardUserDefaults().setInteger(highscoreNumberGold, forKey: "highscoreNumberGold")
         NSUserDefaults.standardUserDefaults().setInteger(highscoreNumberSilver, forKey: "highscoreNumberSilver")
         NSUserDefaults.standardUserDefaults().setInteger(highscoreNumberBronze, forKey: "highscoreNumberBronze")
         NSUserDefaults.standardUserDefaults().setInteger(pointLabel, forKey: "pointLabel")
         NSUserDefaults.standardUserDefaults().synchronize()
-        }
+    }
 
 
     func textFieldShouldReturn(textField: UITextField!) -> Bool // called when 'return' key pressed. return NO to ignore.
@@ -378,60 +376,49 @@ class NGScore: UIViewController, UITextFieldDelegate {
 
     func scoreMainFunction(){
 
+        var characterCounter = 0
 
+        for char in self.nameTextField.text {
 
-            var characterCounter = 0
-
-
-            for char in self.nameTextField.text {
-
-                if(char != " "){
-                    characterCounter++
-                }
+            if(char != " "){
+                characterCounter++
             }
+        }
+
+        if(characterCounter > 0){
+
+            setUpPoints()
+            self.nameTextField.text = "\(self.nameTextField.text)"
+            NSUserDefaults.standardUserDefaults().objectForKey("nameText")
+            NSUserDefaults.standardUserDefaults().synchronize()
+            println("entered name = \(self.nameTextField.text)")
+            println("Name inserted. Woho!")
+
+            //Pop to MainPageControllerView
+            var mNC = delegate!.navigationController as MasterNC
+            mNC.popToViewControllerOfClass(MainPageViewController())
+            self.dismissViewControllerAnimated(true, completion: {})
             
+        }
+        else{
             
-            println("characterCounter = \(characterCounter)")
-
-
-            if(characterCounter > 0){
-
-                setUpPoints()
-                self.nameTextField.text = "\(self.nameTextField.text)"
-                NSUserDefaults.standardUserDefaults().objectForKey("nameText")
-                NSUserDefaults.standardUserDefaults().synchronize()
-                println("entered name = \(self.nameTextField.text)")
-                println("Name inserted. Woho!")
-
-                //Pop to MainPageControllerView
-                var mNC = delegate!.navigationController as MasterNC
-                mNC.popToViewControllerOfClass(MainPageViewController())
-                self.dismissViewControllerAnimated(true, completion: {})
-                
-            }
-            else{
-
-                JLToast.makeText("Please enter a name.").show()
-
-            }
+            JLToast.makeText("Please enter a name.").show()
             
-
-
+        }
+        
         // insert link to rest of code for getting it to the highscore here Frida!
         
-
-
     }
-
-
-
+    
+    
+    
     func allFonts(){
-
+        
         for family in UIFont.familyNames(){
-
+            
             println(family)
-
-
+            
+            
             for name in UIFont.fontNamesForFamilyName(family.description)
             {
                 println("  \(name)")
@@ -440,7 +427,7 @@ class NGScore: UIViewController, UITextFieldDelegate {
         }
         
     }
-
-
-
+    
+    
+    
 }

@@ -17,9 +17,6 @@ class InAppPurchaseTableCell: UITableViewCell {
     @IBOutlet var innAppPurchaseName: UILabel!
     @IBOutlet var innAppPurchasePrice: UILabel!
 
-
-
-
     func styleView() {
         var bg:UIColor = UIColor.greenColor()
         var btn:UIColor = UIColor.yellowColor()
@@ -32,8 +29,8 @@ class InAppPurchaseTableCell: UITableViewCell {
         self.innAppPurchasePrice.backgroundColor = btn
         self.innAppPurchaseTableCell.backgroundColor = btn
         self.contentView.backgroundColor = btn
-    }
 
+    }
 
 
     override func awakeFromNib() {
@@ -41,19 +38,17 @@ class InAppPurchaseTableCell: UITableViewCell {
         // Initialization code
     }
 
-
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
     }
 
-
     func setCell(#innAppPurchaseName: String , innAppPurchasePrice:String){
-        
+
         self.innAppPurchaseName.text = innAppPurchaseName
         self.innAppPurchasePrice.text = innAppPurchasePrice
         styleView()
-
+        
     }
 }

@@ -468,33 +468,33 @@ class LessonData
         var l4q34 = LessonQuestion(questionId:334,lessonId: 3, questionType: "Text", questionText: "The coda is a ending part of the song, so when you see the coda sign after a 'da capo al coda' you are supposed to go to the coda part which is also denoted with the coda sign", questionTitle: "More dynamic indications", noteText: "", clefType: "",imageName:"")
 
         lesson4.lessonQuestions!.append(l4q34)
-
+        
         var l4q35 = LessonQuestion(questionId:335,lessonId: 3, questionType: "Text", questionText: "But what do you do if you want to repeat but not from the beginning and when using a repeat sign isn't suitable? You can use a 'Dal segno' symbol, that looks like this", questionTitle: "More dynamic indications", noteText: "", clefType: "",imageName:"")
-
+        
         lesson4.lessonQuestions!.append(l4q35)
-
+        
         var l4q36 = LessonQuestion(questionId:336,lessonId: 3, questionType: "Image", questionText: "Dal segno", questionTitle: "", noteText: "", clefType: "",imageName:"dalsegno.png")
-
+        
         lesson4.lessonQuestions!.append(l4q36)
-
+        
         var l4q37 = LessonQuestion(questionId:337,lessonId: 3, questionType: "Text", questionText: "Dal segno means that you should repeat from the 'Segno' symbol. In the same fashion as da capo, dal segno can be extended with 'al fine' and 'al coda'. This is what the segno symbol looks like", questionTitle: "More dynamic indications", noteText: "", clefType: "",imageName:"")
-
+        
         lesson4.lessonQuestions!.append(l4q37)
-
+        
         var l4q38 = LessonQuestion(questionId:338,lessonId: 3, questionType: "Image", questionText: "Segno", questionTitle: "", noteText: "", clefType: "",imageName:"segno.png")
-
+        
         lesson4.lessonQuestions!.append(l4q38)
-
+        
         var l4q39 = LessonQuestion(questionId:339,lessonId: 3, questionType: "Text", questionText: "This concludes the lessons about the most common symbols. Keep your eyes open for more lessons that will be availible soon! ", questionTitle: "More dynamic indications", noteText: "", clefType: "",imageName:"")
-
+        
         lesson4.lessonQuestions!.append(l4q39)
-
+        
         lessons!.append(lesson4)
         lessons!.append(lesson3)
         lessons!.append(lesson2)
         lessons!.append(lesson1)
-
+        
         return lessons!
     }
-
+    
 }

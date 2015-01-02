@@ -80,7 +80,6 @@
 		ED76AE251A27E4B5000CA83C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED76AE241A27E4B5000CA83C /* Foundation.framework */; };
 		ED76AE271A27E5F1000CA83C /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED76AE261A27E5F1000CA83C /* AudioToolbox.framework */; };
 		ED76AE2A1A27F147000CA83C /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED76AE281A27F147000CA83C /* CoreAudio.framework */; };
-		ED7B218E1A011F5A00A2337D /* AutoLayutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7B218D1A011F5A00A2337D /* AutoLayutViewController.swift */; };
 		ED84C1EE1A36EE400084DA0A /* C1.aif in Resources */ = {isa = PBXBuildFile; fileRef = ED84C1A61A36EE2B0084DA0A /* C1.aif */; };
 		ED84C1EF1A36EE400084DA0A /* C#1.aif in Resources */ = {isa = PBXBuildFile; fileRef = ED84C1A71A36EE2B0084DA0A /* C#1.aif */; };
 		ED84C1F01A36EE400084DA0A /* D1.aif in Resources */ = {isa = PBXBuildFile; fileRef = ED84C1A81A36EE2B0084DA0A /* D1.aif */; };
@@ -288,7 +287,6 @@
 		ED76AE261A27E5F1000CA83C /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		ED76AE281A27F147000CA83C /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
 		ED76AE291A27F147000CA83C /* CoreAudioKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudioKit.framework; path = System/Library/Frameworks/CoreAudioKit.framework; sourceTree = SDKROOT; };
-		ED7B218D1A011F5A00A2337D /* AutoLayutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoLayutViewController.swift; sourceTree = "<group>"; };
 		ED84C1A61A36EE2B0084DA0A /* C1.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = C1.aif; sourceTree = "<group>"; };
 		ED84C1A71A36EE2B0084DA0A /* C#1.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "C#1.aif"; sourceTree = "<group>"; };
 		ED84C1A81A36EE2B0084DA0A /* D1.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = D1.aif; sourceTree = "<group>"; };
@@ -772,7 +770,6 @@
 				ED96CE951A0BDFD3007589F9 /* Resources */,
 				ED38AD771A13716D0028366D /* Navigation */,
 				EDA9C6E51A090DC000108A85 /* Store */,
-				ED7B218C1A011F3F00A2337D /* AutoLayout */,
 				ED19B34E19FAA0D900041AF0 /* Categories */,
 				ED19B34B19FA9F7F00041AF0 /* Lessons */,
 				ED19B34819FA9B7B00041AF0 /* Practice */,
@@ -823,14 +820,6 @@
 				ED3099851A288F46000665AD /* Notable-Swift.h */,
 			);
 			name = "Bridging-Header";
-			sourceTree = "<group>";
-		};
-		ED7B218C1A011F3F00A2337D /* AutoLayout */ = {
-			isa = PBXGroup;
-			children = (
-				ED7B218D1A011F5A00A2337D /* AutoLayutViewController.swift */,
-			);
-			name = AutoLayout;
 			sourceTree = "<group>";
 		};
 		ED84C11B1A35E40E0084DA0A /* pianoAudio */ = {
@@ -1181,7 +1170,6 @@
 				ED0363CC1A038A41004797B5 /* Notable.xcdatamodeld in Sources */,
 				ED234D911A14E35000DE5087 /* TrivQuiz.swift in Sources */,
 				EDC832371A499DF900DC94BF /* WindowRootViewController.swift in Sources */,
-				ED7B218E1A011F5A00A2337D /* AutoLayutViewController.swift in Sources */,
 				EDC832321A499DF900DC94BF /* HUDContentView.swift in Sources */,
 				ED225B7919F205DB00D8784E /* MainPageViewController.swift in Sources */,
 				ED168F111A388824004DA067 /* LessonQuestion.swift in Sources */,

@@ -85,7 +85,7 @@ class LessonsViewController: UIViewController,UITableViewDelegate ,UITableViewDa
         else{
 
             image = UIImage(named: "backbutton_dark") as UIImage?
-            
+
         }
 
         menuButton.setBackgroundImage(image, forState: UIControlState.Normal)
@@ -108,7 +108,7 @@ class LessonsViewController: UIViewController,UITableViewDelegate ,UITableViewDa
         else{
 
             image = UIImage(named: "backbutton_dark") as UIImage?
-            
+
         }
 
         menuButton  = UIButton.buttonWithType(UIButtonType.System) as UIButton
@@ -131,7 +131,7 @@ class LessonsViewController: UIViewController,UITableViewDelegate ,UITableViewDa
         let lessonCell :LessonTableCell = self.lessonsTableView.dequeueReusableCellWithIdentifier("lessonCell") as LessonTableCell
 
         let currentLesson = loadedArrayOfLessons[indexPath.row]
-        
+
         lessonCell.setCell(lessonNameLabel:currentLesson.lessonName!,lessonHint:currentLesson.lessonHint!)
 
         return lessonCell
@@ -158,18 +158,16 @@ class LessonsViewController: UIViewController,UITableViewDelegate ,UITableViewDa
             println("number of questions of lesson : \(lessonQuestions.count) !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
 
             self.performSegueWithIdentifier("goToLessonDetail", sender: "lesson")
-            
-            //lessonsTableView.reloadData()
-            
+
+
         }
         else {
 
-             //go to store
-             self.performSegueWithIdentifier("goToInAppPurchase", sender: "store")
+            //go to store
+            self.performSegueWithIdentifier("goToInAppPurchase", sender: "store")
 
         }
-        
-        
+
     }
 
     @IBAction func backButtonAction(sender:UIButton) {
@@ -200,20 +198,20 @@ class LessonsViewController: UIViewController,UITableViewDelegate ,UITableViewDa
         if(sender? as String == "lesson"){
             var lessonDetailViewController = (segue.destinationViewController as LessonDetailViewController)
             var newLesson = lessonDetailViewController.initTrivLesson(lessonDetailViewController)
-
+            
             var sortedDict = sorted(lessonQuestions){a,b in return a.questionId! < b.questionId!}
-
+            
             for count in sortedDict {
-
+                
                 println(count.questionId!)
                 
             }
-
+            
             newLesson.questions = sortedDict
         }
-
+        
     }
-
+    
     
     
     

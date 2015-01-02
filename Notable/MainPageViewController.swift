@@ -39,12 +39,12 @@ class MainPageViewController: UIViewController,GADBannerViewDelegate {
     var arrayOfPoints: [Point] = [Point]()
     var navBar:UINavigationBar!
     var gameQuestions: [Question]!
-    
+
     let newGameButtonTag = 1
     let practiceButtonTag = 2
     let lessonsButtonTag = 3
     let categoriesButtonTag = 4
-    
+
     var width:NSNumber!, height:NSNumber!
     var sound:Sound!
     var settingsButton:UIButton!
@@ -58,19 +58,19 @@ class MainPageViewController: UIViewController,GADBannerViewDelegate {
         super.viewDidLoad()
         println("in MainPageViewController")
 
-        
+
         width = NSUserDefaults.standardUserDefaults().objectForKey("width") as NSNumber
         height = NSUserDefaults.standardUserDefaults().objectForKey("height") as NSNumber
-        
+
         println("screenWidth= \(width) screenHeight= \(height)")
 
-        
+
         //for new game container
         newGameContainer.layer.cornerRadius = 4.0
         practiceLessonsContainer.layer.cornerRadius = 4.0
         chooseCategoriesButton.layer.cornerRadius = 4.0
-        
-        
+
+
         self.navigationController?.setNavigationBarHidden(false, animated: true)
 
         prepareAdvertisement()
@@ -79,7 +79,7 @@ class MainPageViewController: UIViewController,GADBannerViewDelegate {
         prepareNavigationBar()
 
         // Do any additional setup after loading the view.
-    
+
     }
 
 
@@ -90,8 +90,6 @@ class MainPageViewController: UIViewController,GADBannerViewDelegate {
         var origin = CGPointMake(0.0,
             0.0); // place at bottom of view
 
-
-
         adHeight = (adHeight*100)/1136
 
         var size = GADAdSizeFullWidthPortraitWithHeight(adHeight) // set size to 50
@@ -101,12 +99,10 @@ class MainPageViewController: UIViewController,GADBannerViewDelegate {
         reklamContainer.setTranslatesAutoresizingMaskIntoConstraints(false)
         adB.setTranslatesAutoresizingMaskIntoConstraints(false)
 
-        adB.delegate = self // ??
-        adB.rootViewController = self // ??
+        adB.delegate = self
+        adB.rootViewController = self
 
-        reklamContainer.addSubview(adB) // ??
-
-
+        reklamContainer.addSubview(adB)
 
         reklamContainer.addConstraint(NSLayoutConstraint(item:adB, attribute:NSLayoutAttribute.Height,relatedBy:NSLayoutRelation.Equal, toItem: reklamContainer,attribute:NSLayoutAttribute.Height, multiplier:1, constant:0))
 
@@ -117,20 +113,12 @@ class MainPageViewController: UIViewController,GADBannerViewDelegate {
 
         reklamContainer.addConstraint(NSLayoutConstraint(item:adB, attribute:NSLayoutAttribute.CenterY,relatedBy:NSLayoutRelation.Equal, toItem:reklamContainer,attribute:NSLayoutAttribute.CenterY, multiplier:1, constant:0))
 
-        /*
-        reklamContainer.addConstraint(NSLayoutConstraint(item:adB, attribute:NSLayoutAttribute.BottomMargin,relatedBy:NSLayoutRelation.Equal, toItem:reklamContainer,attribute:NSLayoutAttribute.Bottom, multiplier:0, constant:0))
-
-        reklamContainer.addConstraint(NSLayoutConstraint(item:adB, attribute:NSLayoutAttribute.LeadingMargin,relatedBy:NSLayoutRelation.Equal, toItem:reklamContainer,attribute:NSLayoutAttribute.Leading, multiplier:0, constant:0))
-        */
-
-
         var request = GADRequest() // create request
         request.testDevices = [ GAD_SIMULATOR_ID ]; // set it to "test" request
         adB.loadRequest(request) // actually load it (?)
 
         //control reklam status
         controlReklamStatus()
-
 
     }
 
@@ -141,47 +129,46 @@ class MainPageViewController: UIViewController,GADBannerViewDelegate {
         if(removeAd as Int == 1){
 
             reklamContainer.hidden = true
-            
+
         }
 
     }
 
-  
-    
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        
+
         styleView()
         sound = Sound()
         setUpPoints()
-        
+
         self.navigationController?.setNavigationBarHidden(false, animated: true)
-        
+
         self.title = "MainPage"
-        
-        
+
+
         //controlReklamStatus
         controlReklamStatus()
-        
-        //CHANGE THE MAINPAGE TRANSITION HERE**********
 
-         var zeroHighScore: Int = NSUserDefaults.standardUserDefaults().objectForKey("zeroHighScore") as Int
-        
+
+        //control highscore reset status
+        var zeroHighScore: Int = NSUserDefaults.standardUserDefaults().objectForKey("zeroHighScore") as Int
+
         println(zeroHighScore)
         if(zeroHighScore == 1){
-            
+
             resetHighScores()
         }
-    
-    //getting the LatestScore
+
+        //getting the LatestScore
         var pointLabel: Int = NSUserDefaults.standardUserDefaults().objectForKey("pointLabel") as Int
         self.scoreNumber.text  = String(pointLabel)
-        
+
         var nameText: Int = NSUserDefaults.standardUserDefaults().objectForKey("highscoreName") as Int
         //self.userName.text  = String(pointLabel)
 
@@ -189,12 +176,12 @@ class MainPageViewController: UIViewController,GADBannerViewDelegate {
     }
 
     func resetHighScores(){
-        
-                
+
         setUpPoints()
-        }
-    
-    
+
+    }
+
+
     func prepareNavigationBar(){
 
         var image:UIImage?
@@ -223,8 +210,9 @@ class MainPageViewController: UIViewController,GADBannerViewDelegate {
         self.navigationItem.hidesBackButton=true
 
     }
-    
+
     func styleView() {
+
         var bg:UIColor = UIColor.whiteColor()
         var btn:UIColor = UIColor.whiteColor()
         var txt:UIColor = UIColor.blackColor()
@@ -232,7 +220,6 @@ class MainPageViewController: UIViewController,GADBannerViewDelegate {
 
 
         var image:UIImage?
-
         //for settings button
         var selectedTheme: Int = NSUserDefaults.standardUserDefaults().objectForKey("selectedTheme") as Int
 
@@ -244,15 +231,12 @@ class MainPageViewController: UIViewController,GADBannerViewDelegate {
         else{
 
             image = UIImage(named: "settings_dark") as UIImage?
-            
+
         }
 
 
         settingsButton.setBackgroundImage(image, forState: UIControlState.Normal)
 
-
-
-        
         //Background- and ButtonColors
         self.view.backgroundColor = bg
         self.separator.backgroundColor = bg
@@ -280,16 +264,16 @@ class MainPageViewController: UIViewController,GADBannerViewDelegate {
         self.navigationController?.navigationBar.titleTextAttributes = titleDict
 
     }
-    
-        @IBAction func settingsButtonAction(sender:UIButton) {
+
+    @IBAction func settingsButtonAction(sender:UIButton) {
         println("Button Action From Code")
         self.performSegueWithIdentifier("goToSettings", sender: "settings")
     }
-    
+
     func setUpPoints(){
 
         arrayOfPoints.removeAll(keepCapacity: false)
-        
+
         var highscoreNumberGold: Int = NSUserDefaults.standardUserDefaults().integerForKey("highscoreNumberGold") as Int
         var highscoreNumberSilver: Int = NSUserDefaults.standardUserDefaults().integerForKey("highscoreNumberSilver") as Int
         var highscoreNumberBronze: Int = NSUserDefaults.standardUserDefaults().integerForKey("highscoreNumberBronze") as Int
@@ -297,14 +281,14 @@ class MainPageViewController: UIViewController,GADBannerViewDelegate {
         var highscoreNameGold: AnyObject? = NSUserDefaults.standardUserDefaults().objectForKey("highscoreNameGold")
         var highscoreNameSilver: AnyObject? = NSUserDefaults.standardUserDefaults().objectForKey("highscoreNameSilver")
         var highscoreNameBronze: AnyObject? = NSUserDefaults.standardUserDefaults().objectForKey("highscoreNameBronze")
-        
+
         var pointLabel: Int = NSUserDefaults.standardUserDefaults().objectForKey("pointLabel") as Int
 
         self.scoreNumber.text  = String(pointLabel)
-        
+
         println(highscoreNameGold)
         println(highscoreNameGold! as String)
-        
+
         var point1 = Point(userName: highscoreNameGold! as String, point: String(highscoreNumberGold), madelsImage: "Gold.png")
         var point2 = Point(userName: highscoreNameSilver! as String, point: String(highscoreNumberSilver), madelsImage: "Silver.png")
         var point3 = Point(userName: highscoreNameBronze! as String, point: String(highscoreNumberBronze), madelsImage: "Bronze.png")
@@ -319,14 +303,14 @@ class MainPageViewController: UIViewController,GADBannerViewDelegate {
             goldMedalImage.image = UIImage(named: "medal_no.png")
 
         } else {
-            
+
             arrayOfPoints.append(point1)
 
             goldMedalName.text = point1.userName
             goldMedalPoint.text = point1.point
             goldMedalImage.image = UIImage(named: point1.madelsImage)
         }
-        
+
         if((highscoreNumberSilver as Int) == 0){
             point2 = Point(userName: "No record" as String, point: "", madelsImage: "medal_no.png")
 
@@ -335,15 +319,15 @@ class MainPageViewController: UIViewController,GADBannerViewDelegate {
             silverMedalImage.image = UIImage(named: "medal_no.png")
 
             arrayOfPoints.append(point2)
-            
+
         } else {
-            
+
             arrayOfPoints.append(point2)
 
             silverMedalName.text = point2.userName
             silverMedalPoint.text = point2.point
             silverMedalImage.image = UIImage(named: point2.madelsImage)
-            
+
         }
         if((highscoreNumberBronze as Int) == 0){
             point3 = Point(userName: "No record" as String, point: "", madelsImage: "medal_no.png")
@@ -359,40 +343,35 @@ class MainPageViewController: UIViewController,GADBannerViewDelegate {
             bronzeMedalName.text = point3.userName
             bronzeMedalPoint.text = point3.point
             bronzeMedalImage.image = UIImage(named: point3.madelsImage)
-            
+
             arrayOfPoints.append(point3)
         }
 
     }
 
     @IBAction func goToCategories(sender: AnyObject) {
-        
+
         println("categories!!!!")
         self.performSegueWithIdentifier("goToCategories", sender: "categories")
     }
 
-    
+
     @IBAction func goToLessonsAction(sender: AnyObject) {
-        
+
         println("lessons!!!!")
         self.performSegueWithIdentifier("goToLessons", sender: "lessons")
 
     }
-    
-    
+
+
     @IBAction func practiceAction(sender: AnyObject) {
-        
+
         println("practice!!!!")
         self.performSegueWithIdentifier("goToPractice", sender: "practices")
     }
-    
-    
-    @IBAction func newGameAction(sender: AnyObject) {
-        
-        //println("newGame!!!!")
-        //println("will control categories!!!!")
 
-        //NSThread.sleepForTimeInterval(5)
+
+    @IBAction func newGameAction(sender: AnyObject) {
 
         //create progress
         HUDController.sharedController.contentView = HUDContentView.ProgressView()
@@ -411,26 +390,27 @@ class MainPageViewController: UIViewController,GADBannerViewDelegate {
 
                 if(selectedCategories.count == 0){
 
-                    JLToast.makeText("Please add some categories").show()
+                    HUDController.sharedController.hideAnimated()
+
+                    var timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("showDelayedToastNoCategory"), userInfo: nil, repeats: false)
+
 
                 }
                 else{
-
-
 
                     self.gameQuestions  = self.coreDataHelper.getQuestionsOfCategories(selectedCategories) as [Question]
 
                     println("number of game questions  = \(self.gameQuestions.count)")
 
                     if(self.gameQuestions.count<10){
-
                         HUDController.sharedController.hideAnimated()
 
-                        JLToast.makeText("Please add more categories").show()
+                        var timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("showDelayedToastMoreCategory"), userInfo: nil, repeats: false)
 
+                        
                     }
                     else{
-
+                        
                         self.performSegueWithIdentifier("goToNewGame", sender: "newGame")
                         //self.performSegueWithIdentifier("goToNewGame", sender: nil)
                         
@@ -438,24 +418,37 @@ class MainPageViewController: UIViewController,GADBannerViewDelegate {
                     }
                 }
             }
-
-
-            }
+            
+            
         }
-
-
-
-
-
+    }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-
+        
         if(sender? as String == "newGame"){
             let newGameViewController = (segue.destinationViewController as NewGameViewController)
             var newGame = newGameViewController.initTrivQuiz()
             newGame.questions = gameQuestions
-
+            
+            // hide progress
             HUDController.sharedController.hideAnimated()
         }
     }
 
+
+
+    @objc func showDelayedToastMoreCategory(){
+
+        JLToast.makeText("Please add more categories").show()
+
     }
+
+
+    @objc func showDelayedToastNoCategory(){
+
+         JLToast.makeText("Please add some categories").show()
+        
+    }
+
+    
+}

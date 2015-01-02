@@ -120,7 +120,7 @@ class InAppPurchaseViewController: UIViewController,SKProductsRequestDelegate,SK
         else{
 
             image = UIImage(named: "backbutton_dark") as UIImage?
-            
+
         }
 
         backButton.setBackgroundImage(image, forState: UIControlState.Normal)
@@ -142,7 +142,7 @@ class InAppPurchaseViewController: UIViewController,SKProductsRequestDelegate,SK
         else{
 
             image = UIImage(named: "backbutton_dark") as UIImage?
-            
+
         }
 
 
@@ -195,13 +195,14 @@ class InAppPurchaseViewController: UIViewController,SKProductsRequestDelegate,SK
                 self.selectedInAppItemIdentifier = self.selectedInAppPurchase!.inAppPurchaseStoreIdentifier
                 self.selectedInAppPurchaseId = self.selectedInAppPurchase!.inAppPurchaseItemId
 
-                }
             }
+        }
 
     }
 
     func buyConsumable(#inAppPurchaseItem:InAppPurchaseItem){
         println("About to fetch the products");
+
         // We check that we are allow to make the purchase.
         if (SKPaymentQueue.canMakePayments())
         {
@@ -297,13 +298,14 @@ class InAppPurchaseViewController: UIViewController,SKProductsRequestDelegate,SK
                     // case .Restored:
                     //[self restoreTransaction:transaction];
                 default:
-                    println("in default !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+
                     decideShoppingStatus(false)
                     break;
+
                 }
             }
         }
-        
+
     }
 
 
@@ -314,38 +316,38 @@ class InAppPurchaseViewController: UIViewController,SKProductsRequestDelegate,SK
 
                 NSUserDefaults.standardUserDefaults().setObject(0, forKey: "removeAd")
                 NSUserDefaults.standardUserDefaults().synchronize()
-
+                
             }
             else{
-
+                
                 NSUserDefaults.standardUserDefaults().setObject(0, forKey: "lesson4")
                 NSUserDefaults.standardUserDefaults().synchronize()
                 
             }
-
+            
         }
         else{
-
+            
             if(selectedInAppPurchaseId == 0){
-
+                
                 NSUserDefaults.standardUserDefaults().setObject(1, forKey: "removeAd")
                 NSUserDefaults.standardUserDefaults().synchronize()
-
+                
             }
             else{
-
+                
                 NSUserDefaults.standardUserDefaults().setObject(1, forKey: "lesson4")
                 NSUserDefaults.standardUserDefaults().synchronize()
-
+                
             }
-
+            
         }
-
+        
         prepareInAppPurchases()
-
-
+        
+        
     }
-
-
-
+    
+    
+    
 }

@@ -46,7 +46,7 @@ class TrivLesson
         //creates sound object
         sound = Sound()
         currentQuestion = 0
-        
+
     }
 
 
@@ -55,9 +55,6 @@ class TrivLesson
         initUI()
         initVariables()
         setSoundValue()
-        //initPlayer()
-        //trivNoteView.addNote(questionContent:"H4",clefType:"gClef",sharpFlatValue: -1)
-
         prepareQuestion(currentQuestion)
 
     }
@@ -94,19 +91,20 @@ class TrivLesson
         var soundLevel: AnyObject? = NSUserDefaults.standardUserDefaults().objectForKey("sound")
         // control initial sound value
         if(soundLevel==nil){
+
             println("in sound value is nil !!!!!!!")
-            //////////println("No sound value !!!!!")
             NSUserDefaults.standardUserDefaults().setObject(0.5, forKey: "sound")
             NSUserDefaults.standardUserDefaults().synchronize()
             soundLevelValue = 0.5;
 
         }else{
+
             //initial sound value found
             soundLevelValue = soundLevel! as Float
+
         }
 
         sound.setSoundVolume(soundLevelValue)
-
 
     }
 
@@ -121,11 +119,6 @@ class TrivLesson
 
         newGameVC.noteView.addSubview(note)
 
-        newGameVC.noteView.alpha  = 0.5
-
-        // //println(" (secondNoteLine.X)=\(secondNoteLine.bounds.origin.x)")
-        ////println(" (secondNoteLine.maxY)=\(newGameVC.secondNoteLine.frame.maxY)")
-
         var noteHeight = height*(46/1136)
 
         newGameVC.noteView.addConstraint(NSLayoutConstraint(item:note, attribute:NSLayoutAttribute.Height,relatedBy:NSLayoutRelation.Equal, toItem: newGameVC.noteView,attribute:NSLayoutAttribute.Height, multiplier:(0.1227), constant:0))
@@ -135,14 +128,10 @@ class TrivLesson
 
         newGameVC.noteView.addConstraint(heightConstraint)
 
-
         newGameVC.noteView.addConstraint(NSLayoutConstraint(
             item:note, attribute:.CenterX,
             relatedBy:.Equal, toItem:newGameVC.noteView,
             attribute:.CenterX, multiplier:1, constant:0))
-
-        //println("heightConstraint == !!!!!!! \(heightConstraint.constant)")
-
 
         newGameVC.noteView.addConstraint(NSLayoutConstraint(
             item:note, attribute:.CenterY,
@@ -159,9 +148,6 @@ class TrivLesson
 
         currentLessonQuestion  = questions[currentQuestion]
 
-
-        //println("questionId = \(currentLessonQuestion.questionId!)")
-        //println("cleftype = \(currentLessonQuestion.clefType!)")
         //decide cleftype if it is available
         if(currentLessonQuestion.clefType! == "gclef"){
 
@@ -239,7 +225,7 @@ class TrivLesson
             }
             else{
 
-                
+
                 //if question type is not image hide question image
                 newLessonVC.pictureContainer.hidden = true
 
@@ -270,7 +256,7 @@ class TrivLesson
             newLessonVC.questionTitleText.text = currentLessonQuestion.questionTitle
 
             lockButtons(false)
-            
+
 
         }
         else{
@@ -289,7 +275,7 @@ class TrivLesson
 
 
 
-            }
+    }
 
 
 
@@ -309,9 +295,6 @@ class TrivLesson
             if(questionContentLenght==2){
                 //basic notes
 
-
-                ////println("Will find \(questionContent)")
-
                 //get noteValue
                 if (characterCounter == 0){
 
@@ -328,7 +311,6 @@ class TrivLesson
 
                     }
 
-                    //////println("currentNoteCharacter = \(currentNoteCharacter)")
                 }
 
                 // set currentSharpFlatValue to 0
@@ -372,12 +354,7 @@ class TrivLesson
                     // add comment here
                     if(true){
 
-                        ////println("will look for \(currentNoteCharacter) not found")
-
                         currentNoteCharacter =  String(Array(questionContent)[characterCounter-1])
-
-                        ////println("will look for \(currentNoteCharacter)")
-
 
                         for currentNoteCharacterCounter in 0..<noteArray.count {
 
@@ -385,10 +362,6 @@ class TrivLesson
                                 ////println("currentNoteCharacter = \(currentNoteCharacter) and currentNoteValue = \(currentNoteCharacterCounter)")
                                 currentNoteValue = String(currentNoteCharacterCounter)
                                 currentSharpFlatValue = 0
-
-
-                                ////println("possibleSharpOrFlatValue = \(String(Array(questionContent)[characterCounter]))")
-
 
                                 if(String(Array(questionContent)[characterCounter])=="#"){
 
@@ -404,116 +377,83 @@ class TrivLesson
                         }
                     }
 
-                    //////println("currentNoteCharacter = \(currentNoteCharacter)")
-
                 }
 
                 //get octav
                 if (characterCounter == questionContentLenght-1){
 
                     currentOctav = String(Array(questionContent)[characterCounter]).toInt()!
-                    ////println("currentOctav = \(currentOctav)")
 
                 }
             } else {
 
                 //minor or major note
 
-                ////println("Will find \(questionContent)")
-
-
                 minorOrMajorNoteContentArray = split(questionContent as String, { $0 == "|" }, maxSplit: 10, allowEmptySlices: true)
-
-
 
                 println("minorOrMajorNoteContentArray = \(minorOrMajorNoteContentArray)")
 
-
                 let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
                 dispatch_async(dispatch_get_global_queue(priority, 0)) {
-                // do some task
-                dispatch_async(dispatch_get_main_queue()) {
-                // update some UI
-                //sleep(2)
+                    // do some task
+                    dispatch_async(dispatch_get_main_queue()) {
+                        // update some UI
 
-                    var initialDelay:Float = 0.5
-
-
-                    for counter in  0..<minorOrMajorNoteContentArray.count {
-
-                        var passingVariables:[AnyObject] = [counter+1,minorOrMajorNoteContentArray[counter],minorOrMajorNoteContentArray.count]
-
-                        let delay = 0.5
-
-                        var timer:NSTimer!
+                        var initialDelay:Float = 0.5
 
 
-                        switch counter {
-                        case 0:
-                            timer = NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: Selector("majorMinorSelector:"), userInfo: passingVariables, repeats: false)
-                        case 1:
-                            timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: Selector("majorMinorSelector:"), userInfo: passingVariables, repeats: false)
-                        case 2:
-                            timer = NSTimer.scheduledTimerWithTimeInterval(1.5, target: self, selector: Selector("majorMinorSelector:"), userInfo: passingVariables, repeats: false)
-                        case 3:
-                            timer = NSTimer.scheduledTimerWithTimeInterval(2.0, target: self, selector: Selector("majorMinorSelector:"), userInfo: passingVariables, repeats: false)
-                        case 4:
-                            timer = NSTimer.scheduledTimerWithTimeInterval(2.5, target: self, selector: Selector("majorMinorSelector:"), userInfo: passingVariables, repeats: false)
-                        case 5:
-                            timer = NSTimer.scheduledTimerWithTimeInterval(3.0, target: self, selector: Selector("majorMinorSelector:"), userInfo: passingVariables, repeats: false)
-                        case 6:
-                            timer = NSTimer.scheduledTimerWithTimeInterval(3.5, target: self, selector: Selector("majorMinorSelector:"), userInfo: passingVariables, repeats: false)
-                        case 7:
-                            timer = NSTimer.scheduledTimerWithTimeInterval(4.0, target: self, selector: Selector("majorMinorSelector:"), userInfo: passingVariables, repeats: false)
-                        case 8:
-                            timer = NSTimer.scheduledTimerWithTimeInterval(4.5, target: self, selector: Selector("majorMinorSelector:"), userInfo: passingVariables, repeats: false)
-                        default:
-                            println("in timer default")
+                        for counter in  0..<minorOrMajorNoteContentArray.count {
 
+                            var passingVariables:[AnyObject] = [counter+1,minorOrMajorNoteContentArray[counter],minorOrMajorNoteContentArray.count]
+
+                            let delay = 0.5
+
+                            var timer:NSTimer!
+
+
+                            switch counter {
+                            case 0:
+                                timer = NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: Selector("majorMinorSelector:"), userInfo: passingVariables, repeats: false)
+                            case 1:
+                                timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: Selector("majorMinorSelector:"), userInfo: passingVariables, repeats: false)
+                            case 2:
+                                timer = NSTimer.scheduledTimerWithTimeInterval(1.5, target: self, selector: Selector("majorMinorSelector:"), userInfo: passingVariables, repeats: false)
+                            case 3:
+                                timer = NSTimer.scheduledTimerWithTimeInterval(2.0, target: self, selector: Selector("majorMinorSelector:"), userInfo: passingVariables, repeats: false)
+                            case 4:
+                                timer = NSTimer.scheduledTimerWithTimeInterval(2.5, target: self, selector: Selector("majorMinorSelector:"), userInfo: passingVariables, repeats: false)
+                            case 5:
+                                timer = NSTimer.scheduledTimerWithTimeInterval(3.0, target: self, selector: Selector("majorMinorSelector:"), userInfo: passingVariables, repeats: false)
+                            case 6:
+                                timer = NSTimer.scheduledTimerWithTimeInterval(3.5, target: self, selector: Selector("majorMinorSelector:"), userInfo: passingVariables, repeats: false)
+                            case 7:
+                                timer = NSTimer.scheduledTimerWithTimeInterval(4.0, target: self, selector: Selector("majorMinorSelector:"), userInfo: passingVariables, repeats: false)
+                            case 8:
+                                timer = NSTimer.scheduledTimerWithTimeInterval(4.5, target: self, selector: Selector("majorMinorSelector:"), userInfo: passingVariables, repeats: false)
+                            default:
+                                println("in timer default")
+
+
+                            }
 
                         }
 
 
-
-
                     }
 
-
                 }
-
-                }
-
-
-
-                /*
-
-
-                var timer2 = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("majorMinorSelector2"), userInfo: nil, repeats: false)
-
-                var timer3 = NSTimer.scheduledTimerWithTimeInterval(1.5, target: self, selector: Selector("majorMinorSelector3"), userInfo: nil, repeats: false)
-                */
 
 
 
                 majorMinorFound=true
                 break
-                //currentNote  = 110
 
             }
-
-            //////println(Array((questions![currentQuestion].questionContent!))[characterCounter])
-
-
 
         }
 
 
         if(!majorMinorFound){
-
-           // currentNote = getCurrentNoteValue(octav:currentOctav, noteValue:currentNoteValue.toInt()!, sharpFlatValue:currentSharpFlatValue )
-
-            //println("currentSharpFlatValue= \(currentSharpFlatValue)")
-
 
             if(countElements(questions![currentQuestion].noteText!) < 4){
 
@@ -524,14 +464,6 @@ class TrivLesson
 
                 trivLessonNoteView.addNote(questionContent:questions![currentQuestion].noteText! , clefType:questions![currentQuestion].clefType! , sharpFlatValue: currentSharpFlatValue,majorMinorFlag: false,noteIndex:1,bufferSize:1)
             }
-
-
-
-
-            //println("Will play note \(questionContent) and noteId = \(currentNote)")
-
-            //playNote(currentNote)
-            //majorMinorFound=false
 
         }
 
@@ -552,87 +484,77 @@ class TrivLesson
         self.trivLessonNoteView.addNote(questionContent: passingVariables[1] as String, clefType:self.questions![currentQuestion].clefType! , sharpFlatValue: currentSharpFlatValue,majorMinorFlag: true,noteIndex:passingVariables[0] as Int,bufferSize:passingVariables[2] as Int)
 
     }
-
-
+    
+    
     func getCurrentNoteValue(#octav:Int,noteValue:Int, sharpFlatValue:Int) -> Int32 {
-
-        ////println("sharpFlatValue!!!!!!!!!!!!!!!! = \(sharpFlatValue)")
-
+        
         var value:Int32  = 0
-
-
+        
         if(noteValue != 0 && noteValue != 11 ){
-
+            
             value = 12+(octav*12)+noteValue + sharpFlatValue
-
+            
         }else{
             // if noteValue is equals 0 and 11 sharpFlatValue is important and it effects octav
-
+            
             if(sharpFlatValue == 0){
-
+                
                 value = 12+(octav*12)+noteValue + sharpFlatValue
-
+                
             }
             else if(sharpFlatValue == 1 && noteValue == 11) {
-
+                
                 value = 12+((octav+1)*12)+noteValue+sharpFlatValue
-
+                
             }
             else if(sharpFlatValue == 1 && noteValue != 11) {
-
+                
                 value = 12+(octav*12)+noteValue + sharpFlatValue
-
+                
             }
             else if(sharpFlatValue == -1 && noteValue != 0) {
-
+                
                 value = 12+(octav*12)+noteValue + sharpFlatValue
-
+                
             }
             else if(sharpFlatValue == -1 && noteValue == 0) {
-
+                
                 value = 12+((octav-1)*12)+noteValue+sharpFlatValue
-
+                
             }
         }
-
-        ////println("noteValue = \(value)")
-
+        
         return value
-
+        
     }
-
-
-
+    
+    
+    
     func resetQuestion(question:Question){
-
+        
         question.questionAlternativeAnswer1Added = false
         question.questionAlternativeAnswer2Added = false
         question.questionAlternativeAnswer3Added = false
-
+        
     }
-
-
+    
+    
     func lockButtons(status:Bool){
-
+        
         if(status){
             newLessonVC.playButton.enabled = false
             newLessonVC.nextButton.enabled = false
             newLessonVC.previousButton.enabled = false
-
+            
         } else {
             newLessonVC.playButton.enabled = true
             newLessonVC.nextButton.enabled = true
             newLessonVC.previousButton.enabled = true
         }
-
-
+        
+        
     }
-
-
-
-
     
-
     
     func playMajorMinorSound(){
         
@@ -648,8 +570,8 @@ class TrivLesson
             var timer3 = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("majorMinorSound3"), userInfo: nil, repeats: false)
             
         }
-
+        
     }
     
-
+    
 }

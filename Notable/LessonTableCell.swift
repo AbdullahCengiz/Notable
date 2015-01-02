@@ -22,21 +22,14 @@ class LessonTableCell: UITableViewCell {
         var txt:UIColor = UIColor.blueColor()
         Theme().fetchThemeColors(&bg, buttonColor:&btn, textColor:&txt)
 
-
         self.lessonNameLabel.textColor = txt
         self.lessonNameLabel.backgroundColor = btn
-
         self.lessonHint.textColor = txt
         self.lessonHint.backgroundColor = btn
-
         self.lessonCellRoot.backgroundColor = bg
-
-        //self.categoryTableCell.backgroundColor = btn
         self.contentView.backgroundColor = btn
 
     }
-
-
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -53,12 +46,9 @@ class LessonTableCell: UITableViewCell {
 
     func setCell(#lessonNameLabel: String,lessonHint:String){
 
-
         self.lessonNameLabel.text = lessonNameLabel
         self.lessonHint.text = lessonHint
-
         styleView()
-        
         
     }
 }

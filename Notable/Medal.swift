@@ -17,5 +17,6 @@ class Medal {
 
         self.medalImage = medalImage
         self.medalNamez = medalNamez
+        
     }
 }

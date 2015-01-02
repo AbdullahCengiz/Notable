@@ -29,15 +29,14 @@ class ReklamViewController: UIViewController,GADBannerViewDelegate,GADInterstiti
 
         navBar = self.navigationController?.navigationBar
         prepareNavigationBar()
-
         initUI()
-
         countDown()
 
         //create progress
         HUDController.sharedController.contentView = HUDContentView.ProgressView()
         HUDController.sharedController.show()
 
+        // for full screen ad
         interstitial = createAndLoadInterstitial()
 
     }
@@ -52,14 +51,10 @@ class ReklamViewController: UIViewController,GADBannerViewDelegate,GADInterstiti
     }
 
     func interstitialDidReceiveAd(ad: GADInterstitial!) {
-         HUDController.sharedController.hideAnimated()
-         displayInterstitial()
+        HUDController.sharedController.hideAnimated()
+        displayInterstitial()
 
     }
-
-
-    //***HERE IS THE HIDE REKLAM ANIMATION ***
-
 
 
     override func didReceiveMemoryWarning() {
@@ -71,7 +66,6 @@ class ReklamViewController: UIViewController,GADBannerViewDelegate,GADInterstiti
         bannerView.layer.cornerRadius = 4
         removeReklamButton.layer.cornerRadius = 4
         goToResultPageButton.layer.cornerRadius = 4
-
         goToResultPageButton.enabled = false
 
     }
@@ -106,16 +100,9 @@ class ReklamViewController: UIViewController,GADBannerViewDelegate,GADInterstiti
 
             }
 
-
-
-
         }
 
-
-
     }
-
-
 
 
     @objc func decreaseCount(timer: NSTimer){
@@ -150,6 +137,7 @@ class ReklamViewController: UIViewController,GADBannerViewDelegate,GADInterstiti
         navItem.setLeftBarButtonItem(UIBarButtonItem(customView: uiButton), animated: true)
         navItem.hidesBackButton=true
         uiButton.hidden = true
+
     }
 
 
@@ -229,13 +217,11 @@ class ReklamViewController: UIViewController,GADBannerViewDelegate,GADInterstiti
         HUDController.sharedController.hideAnimated()
         //interstitial = createAndLoadInterstitial()
     }
-
+    
     func interstitialWillDismissScreen(ad: GADInterstitial!) {
         //interstitial = createAndLoadInterstitial()
         println("ad dismissed")
     }
-
-
-
-
-    }
+    
+    
+}

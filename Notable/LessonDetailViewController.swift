@@ -70,11 +70,6 @@ class LessonDetailViewController: UIViewController {
         
     }
 
-
-
-
-
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -83,7 +78,6 @@ class LessonDetailViewController: UIViewController {
         prepareNavigationBar()
         newLesson.initLesson()
         newLesson.prepareQuestion(newLesson.currentQuestion)
-
 
     }
 
@@ -206,7 +200,6 @@ class LessonDetailViewController: UIViewController {
 
         questionIndexLabel.text = "\(newLesson.currentQuestion+1) of \(newLesson.questions.count)"
 
-        
     }
 
     @IBAction func backButtonAction(sender:UIButton) {
@@ -245,7 +238,6 @@ class LessonDetailViewController: UIViewController {
 
         }
 
-
         if(nextButton.titleLabel?.text == "End"){
 
             self.navigationController?.popViewControllerAnimated(true)
@@ -254,7 +246,6 @@ class LessonDetailViewController: UIViewController {
 
 
     }
-
 
     @IBAction func prevAction(sender: AnyObject) {
 

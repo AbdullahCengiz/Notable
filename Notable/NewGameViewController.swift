@@ -145,26 +145,6 @@ import QuartzCore
 
     }
 
-    /*
-    func layoutEverything(x:UIView) {
-        ////println("x = \(x)")
-        x.layoutSubviews()
-        x.backgroundColor = getRandomColor()
-        for v in x.subviews as [UIView] {
-            v.layoutSubviews()
-            v.backgroundColor = getRandomColor()
-            ////println("v = \(v)")
-            if(v.subviews.count > 0) {
-                self.layoutEverything(v)
-            }
-        }
-        ////println("After for loop !!!!!")
-    }
-*/
-
-
-
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -301,12 +281,9 @@ import QuartzCore
     @IBAction func choiceAction(sender: AnyObject) {
 
         var choiceButton = sender as UIButton
-        ////println("tag: \(choiceButton.tag) questionAnswerIndex= \(questions![currentQuestion].questionAnswerIndex)")
 
         // locks buttons
         newGame.lockButtons(true)
-
-        ////println(choiceButton.tag)
 
         if(answerLock){
 
@@ -340,6 +317,7 @@ import QuartzCore
                     }
                 }
             } else {
+
                 //wrong answer
                 newGame.sound.playSound(newGame.sound.incorrectSound)
 
@@ -392,26 +370,12 @@ import QuartzCore
             
         } else {
             
-            //setPortraitConstraints()
+
         }
-        
-        ////////println("to \(toInterfaceOrientation.rawValue)")
         
     }
     
     override func didRotateFromInterfaceOrientation(fromInterfaceOrientation: UIInterfaceOrientation) {
-        
-        ////////println("from \(fromInterfaceOrientation.rawValue)")
-        
-        /*
-        //////println("noteviewContainerLandsCapeHeight= \(noteViewContainer.frame.height)")
-        //////println("noteviewContainerLandsCapeWidth= \(noteViewContainer.frame.width)")
-        */
-        
-        /*
-        //////println("firstChoiceContainerLandsCapeHeight= \(firstChoiceContainer.frame.height)")
-        //////println("firstChoiceContainerLandsCapeWidth= \(firstChoiceContainer.frame.width)")
-        */
 
     }
 
@@ -420,7 +384,6 @@ import QuartzCore
         var randomRed:CGFloat = CGFloat(drand48())
         var randomGreen:CGFloat = CGFloat(drand48())
         var randomBlue:CGFloat = CGFloat(drand48())
-        ////println("red:\(randomRed)  green:\(randomBlue) green:\(randomGreen)")
 
         return UIColor(red: randomRed, green: randomGreen, blue: randomBlue, alpha: 1.0)
     }
@@ -439,8 +402,6 @@ import QuartzCore
         }
 
     }
-
-
 
 
 }

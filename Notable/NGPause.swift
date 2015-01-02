@@ -13,7 +13,7 @@ import UIKit
 class NGPause: UIViewController{
 
     var delegate:UIViewController?
-    
+
     @IBOutlet weak var pauseMessages: UILabel!
     @IBOutlet weak var resumeMessages: UILabel!
     @IBOutlet weak var endMessages: UILabel!
@@ -24,16 +24,16 @@ class NGPause: UIViewController{
     @IBOutlet var endGame: UILabel!
 
 
-    
+
     required init(coder aDecoder: NSCoder) {
         self.delegate = nil
         super.init(coder: aDecoder)
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         println("in NGPauseViewController")
-        
+
         //for Your "NAME" is Paused
         if (delegate!.title! == "newPractice") {
             pauseMessages.text = "Your Practice is Paused"
@@ -44,7 +44,7 @@ class NGPause: UIViewController{
         }
         else if
             (delegate!.title! == "newGame") {
-            self.pauseMessages.text = "Your Game is Paused"
+                self.pauseMessages.text = "Your Game is Paused"
         } else if
             (delegate!.title! == "Choose Lesson") {
                 self.pauseMessages.text = "Your Lesson is Paused"
@@ -58,7 +58,7 @@ class NGPause: UIViewController{
         }
 
 
-        
+
         //for TAP HERE TO RESUME "NAME"
         if (delegate!.title! == "newPractice") {
             resumeMessages.text = "TAP HERE TO RESUME PRACTICE"
@@ -69,10 +69,10 @@ class NGPause: UIViewController{
         }
         else if
             (delegate!.title! == "newGame") {
-            self.resumeMessages.text = "TAP HERE TO RESUME GAME"
+                self.resumeMessages.text = "TAP HERE TO RESUME GAME"
         } else if
             (delegate!.title! == "Choose Lesson") {
-            self.resumeMessages.text = "TAP HERE TO RESUME LESSON"
+                self.resumeMessages.text = "TAP HERE TO RESUME LESSON"
         }
         else if
             (delegate!.title! == "In App Purchases") {
@@ -81,7 +81,7 @@ class NGPause: UIViewController{
         else {
             self.resumeMessages.text = "thisOneGoesToNothing!"
         }
-        
+
         //for End "NAME"
         if (delegate!.title! == "newPractice") {
             endMessages.text = "End Practice"
@@ -107,47 +107,39 @@ class NGPause: UIViewController{
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-        }
-    
+    }
+
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        
+
         styleView()
     }
-    
+
     func styleView() {
         var bg:UIColor = UIColor.whiteColor()
         var btn:UIColor = UIColor.whiteColor()
         var txt:UIColor = UIColor.yellowColor()
         Theme().fetchThemeColors(&bg, buttonColor:&btn, textColor:&txt)
-        
+
         self.view.backgroundColor = bg
-        
+
         self.pauseMessages.textColor = txt
         self.endMessages.textColor = txt
         self.settingsLabel.textColor = txt
-        
-        
+
+
     }
 
-    
+
     @IBAction func goToMainPageAction(sender: UIButton) {
         if(delegate != nil) {
             var mNC = delegate!.navigationController as MasterNC
             mNC.popToViewControllerOfClass(MainPageViewController())
             self.dismissViewControllerAnimated(true, completion: {})
-            
-            /*
-            mNC.popToViewControllerOfClass(PracticeViewController())
-            self.dismissViewControllerAnimated(true, completion: {})
-            
-            mNC.popToViewControllerOfClass(LessonsViewController())
-            self.dismissViewControllerAnimated(true, completion: {})
-            */
 
         }
-     }
-    
+    }
+
     @IBAction func resumePage(sender: UIButton) {
         if(delegate != nil) {
 
@@ -162,7 +154,7 @@ class NGPause: UIViewController{
                 var mNC = delegate!.navigationController as MasterNC
                 self.dismissViewControllerAnimated(true, completion: {})
             }
-            
+
         }
     }
 
@@ -194,11 +186,11 @@ class NGPause: UIViewController{
     }
 
 
-func setColor(#backgroundColor:UIColor){
-    
-    self.view.backgroundColor = backgroundColor
+    func setColor(#backgroundColor:UIColor){
 
-}
+        self.view.backgroundColor = backgroundColor
+
+    }
 
 
     func setFontSizes(){
@@ -219,26 +211,26 @@ func setColor(#backgroundColor:UIColor){
             goSettings.font = UIFont (name: "Roboto-Light", size: 22)
 
             endGame.font = UIFont (name: "Roboto-Light", size: 22)
-            
+
 
         }else{
 
             pauseMessages.font = UIFont (name: "Roboto-Light", size: 25)
 
             resumeMessages.font = UIFont (name: "Roboto-Light", size: 13)
-
+            
             endMessages.font = UIFont (name: "Roboto-Light", size: 25)
             
             settingsLabel.font = UIFont (name: "Roboto-Light", size: 25)
-
+            
             goSettings.font = UIFont (name: "Roboto-Light", size: 13)
-
+            
             endGame.font = UIFont (name: "Roboto-Light", size: 13)
             
             
         }
         
     }
-
-
+    
+    
 }
